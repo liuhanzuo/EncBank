@@ -3,9 +3,9 @@ from pathlib import Path
 import datetime,hashlib,json,os,time,traceback
 H=Path(__file__).resolve().parent;BOUND=Path('/srv/encbank').resolve();H.resolve().relative_to(BOUND)
 M=Path('/srv/encbank/.cache/huggingface/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0')
-D=Path('/srv/encbank/qcomem_runtime_20260911/models/Qwen3.8-27B-1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0')
-A=Path('/srv/encbank/qcomem_runtime_20260911/models/Qwen3.8-27B-adapter-final4000-9253fbb9.pt')
-ADAPTER=Path('/srv/encbank/comem_new_backbones_formal_20260915/training/Qwen3.8-27B/adapter-final.pt')
+D=Path('/srv/encbank/qencbank_runtime_20260911/models/Qwen3.8-27B-1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0')
+A=Path('/srv/encbank/qencbank_runtime_20260911/models/Qwen3.8-27B-adapter-final4000-9253fbb9.pt')
+ADAPTER=Path('/srv/encbank/encbank_new_backbones_formal_20260915/training/Qwen3.8-27B/adapter-final.pt')
 expected=json.loads((H/'expected_model.json').read_text());rows=[]
 def dump(n,x):
     p=H/n;t=p.with_name(p.name+'.tmp');t.write_text(json.dumps(x,indent=2)+'\n');t.replace(p)

@@ -2,7 +2,7 @@
 
 用户授权：在服务器测试 0/1/2/4/8/12 个历史块未命中时的重建成本，区分逐块与合批，并用生成 512 tokens 的时间作为参照。
 
-服务器独立目录：`/srv/encbank/qcomem_align_codex_20260911/kv_rebuild_probe_20260921`。
+服务器独立目录：`/srv/encbank/qencbank_align_codex_20260911/kv_rebuild_probe_20260921`。
 
 复用原 Qwen3-8B、j12、rank32 final4000 adapter 与 2026-09-19 部署实验保存的三个 PG19 输入。只读模型文件；所有模型调用、缓存、结果和父进程均在服务器。不会启动或控制 Terminal-Bench 环境。
 
@@ -12,7 +12,7 @@
 - `independent_serial`：未命中块分别重建；块间独立 attention、每块局部位置。
 - `independent_batch`：未命中块组成 batch 重建，与上一项使用相同的独立块 attention 定义。
 
-独立块是拟议任意 chunk 热缓存的计算成本探针，改变了当前 COMem 的文档 attention 图；不将其与原模型的质量等价混为一谈。持久块实际 clone 为独立 storage，再真实拼接活动 KV，避免用共享 view 隐藏淘汰时无法释放的显存。
+独立块是拟议任意 chunk 热缓存的计算成本探针，改变了当前 Encbank 的文档 attention 图；不将其与原模型的质量等价混为一谈。持久块实际 clone 为独立 storage，再真实拼接活动 KV，避免用共享 view 隐藏淘汰时无法释放的显存。
 
 另对每个输入测一次固定 512-token 贪心生成（忽略 EOS），共 511 次 decode forward。查询 prefill 单列。该结果是当前正常联合文档缓存下的生成成本参照；不是完整的每 512 tokens 重新检索 agent 实验。
 

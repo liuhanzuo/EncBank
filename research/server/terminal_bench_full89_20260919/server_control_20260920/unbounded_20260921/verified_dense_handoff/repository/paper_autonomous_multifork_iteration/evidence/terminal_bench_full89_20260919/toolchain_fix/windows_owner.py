@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 import datetime,hashlib,json,os,subprocess,sys,time,traceback
 H=Path(__file__).resolve().parent;R=Path('/srv/encbank/legacy_workspace/.runtime/terminal_bench_full89_20260919')
 O=H/'execution';O.mkdir(exist_ok=True);BOX=R/'local_rpc_toolchain_fix/dense';BOX.mkdir(parents=True,exist_ok=True)
-P=json.loads((H/'plan.json').read_text());REMOTE=P['remote_root'];PY='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+P=json.loads((H/'plan.json').read_text());REMOTE=P['remote_root'];PY='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
 def now():return datetime.datetime.now().astimezone().isoformat()
 def save(p,d):
     t=p.with_suffix(p.suffix+'.tmp');t.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf8',newline='\n');t.replace(p)

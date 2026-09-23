@@ -22,7 +22,7 @@ class MailboxLLM(BaseLLM):
         messages=history+[dict(role='user',content=prompt)]
         if self.last_messages:assert history[:-1]==self.last_messages,'Prior task history changed'
         if self.start is None:self.start=time.monotonic()
-        rid=f'{self.task_id}_{self.step:05d}';box=RPC/'comem';box.mkdir(parents=True,exist_ok=True)
+        rid=f'{self.task_id}_{self.step:05d}';box=RPC/'encbank';box.mkdir(parents=True,exist_ok=True)
         req=box/(rid+'.request.json');resp=box/(rid+'.response.json');err=box/(rid+'.error.json')
         assert not req.exists(),'Refuse duplicate request'
         began=time.monotonic()
@@ -47,9 +47,9 @@ class MailboxLLM(BaseLLM):
         else:reasoning,text=text,''
         self.last_messages=messages;self.step+=1
         r['transport_roundtrip_seconds']=time.monotonic()-began
-        return LLMResponse(content=text.strip(),reasoning_content=reasoning,model_name='Qwen3.8-27B/comem-native-j21',
+        return LLMResponse(content=text.strip(),reasoning_content=reasoning,model_name='Qwen3.8-27B/encbank-native-j21',
             usage=UsageInfo(prompt_tokens=r['prompt_tokens'],completion_tokens=r['generated_tokens'],cache_tokens=r.get('cached_prefix_tokens',0),cost_usd=0),
             prompt_token_ids=r['prompt_ids'],completion_token_ids=r['generated_ids'],
             extra={k:v for k,v in r.items() if k not in ['text','prompt_ids','generated_ids']})
-class ConcurrentCoMemTerminus(Terminus2):
+class ConcurrentEncbankTerminus(Terminus2):
     def _init_llm(self,**kwargs):return MailboxLLM(self.logs_dir.parent.name)

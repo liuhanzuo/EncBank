@@ -9,7 +9,7 @@ THE 2x2 THIS ASSEMBLES
     repaired read path        fix_all  (s19)             fix_all  (s21, lower adapter)
 
 Each adapter is scored on the path it was distilled for -- both against the same j=0
-teacher, both with COMem/train/README.md's recipe (r32/a32, lr 1e-4, 1000 steps, top-64
+teacher, both with Encbank/train/README.md's recipe (r32/a32, lr 1e-4, 1000 steps, top-64
 bidirectional KL, lam 0.6, seven 512-token PG19 context chunks) -- so the two columns are
 the same training budget spent on two different readers.  The off-diagonal cells (an
 adapter applied to the path it was NOT trained for) are also reported, because "the base
@@ -57,7 +57,7 @@ def contrast(a, b, label):
             f"(+{sum(x>0 for x in d)} / -{sum(x<0 for x in d)} / ={sum(x==0 for x in d)})")
 
 
-# s21 = 1000 training steps (COMem/train/README.md's documented example);
+# s21 = 1000 training steps (Encbank/train/README.md's documented example);
 # s22 = the same recipe at 4000 steps, so the published path is also compared at the
 # budget the base paper reports. Pass the tag as argv[1].
 TAG = sys.argv[1] if len(sys.argv) > 1 else "s21"

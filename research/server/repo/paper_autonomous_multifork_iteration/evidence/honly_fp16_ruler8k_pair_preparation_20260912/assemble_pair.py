@@ -4,9 +4,9 @@ from pathlib import Path
 
 H=Path(__file__).resolve().parent; ROOT=H.parents[2]; E=H.parent
 OLD=E/'honly_ruler_single32k_cache_fixed_20260912'; BASE=OLD/'package'
-REMOTE='/srv/encbank/qcomem_align_codex_20260911/repo'
+REMOTE='/srv/encbank/qencbank_align_codex_20260911/repo'
 CACHE_SHA='273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715'
-CELLS=[('single8k','single2','niah_single_2',E/'comem_honly_formal_20260911/remote_formal/plan.json',2,1),
+CELLS=[('single8k','single2','niah_single_2',E/'encbank_honly_formal_20260911/remote_formal/plan.json',2,1),
        ('multikey8k','multikey1','niah_multikey_1',E/'honly_ruler_multikey_preparation_20260912/package/plan.json',1,4)]
 def read(p):return json.loads(Path(p).read_text('utf-8-sig'))
 def sha(p):
@@ -56,7 +56,7 @@ def main():
  old=read(BASE/'plan.json'); prior=read(OLD/'readiness.json')
  assert sha(BASE/'plan.json')==prior['plan_sha256'] and sha(BASE/'upload_manifest.json')==prior['manifest_sha256']
  assert read(OLD/'focused_checks_attempt1/execution_receipt.json')['actual_exit_code']==0
- assert sha(BASE/'qcomem_triton_cache.py')==CACHE_SHA
+ assert sha(BASE/'qencbank_triton_cache.py')==CACHE_SHA
  for name,digest in old['source_sha256'].items():assert sha(ROOT/name)==digest,name
  for cell,short,task,prior_path,gen_attempt,needles in CELLS:
   C=H/cell; P=C/'package'; I=C/'inputs'; P.mkdir(parents=True,exist_ok=False)
@@ -69,8 +69,8 @@ def main():
   assert read(generation)['random_seed']==42 and read(generation)['official_max_seq_length']==8192
   assert read(gen_receipt)['actual_exit_code']==read(assembly)['actual_exit_code']==0
   frozen_copy(fixture,I/'inference_fixture.json');frozen_copy(labels,I/'scoring_only/labels.json')
-  job=f'qcomem-ruler-{short}-8k100-fp16-codex'
-  cache='/srv/encbank/qcomem_align_codex_20260911/task_cache/ruler_'+short+'_8k100_fp16_attempt1'
+  job=f'qencbank-ruler-{short}-8k100-fp16-codex'
+  cache='/srv/encbank/qencbank_align_codex_20260911/task_cache/ruler_'+short+'_8k100_fp16_attempt1'
   control='ruler_'+short+'_8k100_fp16_dispatch_attempt1'
   def adapt(text):
    return (text.replace(rel(BASE),rel(P)).replace(old['job_name'],job).replace(old['task_cache_root'],cache)
@@ -96,7 +96,7 @@ def main():
    write(P/src.name,after);sources[rel(P/src.name)]=sha(P/src.name)
    delta.append({'base':bind(src),'new':bind(P/src.name),'byte_identical':src.read_bytes()==(P/src.name).read_bytes()})
    if before!=after:write(C/'source_diffs'/(src.name+'.diff'),''.join(difflib.unified_diff(before.splitlines(True),after.splitlines(True),fromfile=rel(src),tofile=rel(P/src.name))))
-  assert sha(P/'qcomem_triton_cache.py')==CACHE_SHA
+  assert sha(P/'qencbank_triton_cache.py')==CACHE_SHA
   plan=copy.deepcopy(old)
   plan.update(schema=f'RULER_{short}_8K100_FP16_six_method_remote_quality_v1',frozen_at=datetime.datetime.now().astimezone().isoformat(),
    fixture=bind(I/'inference_fixture.json'),labels=bind(I/'scoring_only/labels.json'),original_fixture=legacy['original_fixture'],source_sha256=sources,
@@ -119,7 +119,7 @@ def main():
    'bootstrap_choice':'Freeze seed20260912 from the existing six-FP16 runtime before new results; MT19937,10000 draws,100 exact paired document clusters,endpoints249/9749 unchanged. Input seed42 is separate and unchanged.',
    'no_completed_FP16_cell_rerun':True,'original_model_max_position_embeddings':40960,'rope_configuration_changed':False,
    'allowed_delta':'Task/schema/namespace strings, repository parent depth, stdlib in-memory legacy fixture metadata adapter, original label item_id and full-fixture hash binding. Sixarm method/model/attention/cache/timing/guard/scorer APIs unchanged.'}
-  plan['triton_cache_cleanup_fix']['module']=bind(P/'qcomem_triton_cache.py')
+  plan['triton_cache_cleanup_fix']['module']=bind(P/'qencbank_triton_cache.py')
   save(P/'plan.json',plan)
   write(P/'batch.sbatch',adapt((BASE/'batch.sbatch').read_text('utf-8')).replace(sha(BASE/'plan.json'),sha(P/'plan.json')))
   # Preserve the known working sparse route. The original manifest also supplies backend proof closure.
@@ -134,7 +134,7 @@ def main():
   commands=read(OLD/'remote_commands.json');rp=REMOTE+'/'+rel(P)
   commands.update(remote_package=rp,plan_sha256=sha(P/'plan.json'),upload_manifest={'path':str(P/'upload_manifest.json'),'sha256':sha(P/'upload_manifest.json')},manifest_itself_remote_path=rp+'/upload_manifest.json',sbatch_argv=['sbatch','--parsable',rp+'/batch.sbatch'])
   commands['sbatch_command']=shlex.join(commands['sbatch_argv'])
-  commands['roots_and_staged_check_command']='QCOMEM_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')])
+  commands['roots_and_staged_check_command']='QENCBANK_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')])
   save(C/'remote_commands.json',commands)
   for name in ('dispatch_once.py','remote_ops.py'):
    before=(OLD/name).read_text('utf-8');after=adapt(before)

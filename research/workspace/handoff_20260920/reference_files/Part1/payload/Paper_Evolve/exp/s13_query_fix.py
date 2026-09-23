@@ -6,7 +6,7 @@ WHAT S12 ESTABLISHED (Qwen3-8B, k=4 of 12 chunks, 32-token query)
 -----------------------------------------------------------------
 Making the query side exact leaves frac 0.005-0.015 at every j to 0.67L (A_chunk); making
 the chunk side exact leaves all of the loss (A_query ~ A_on).  The chunk's h_j is a
-sufficient upper-band input at any depth; what CoMem loses is that the query's own h_j is
+sufficient upper-band input at any depth; what Encbank loses is that the query's own h_j is
 computed through layers [0, j) without ever seeing the retrieved chunks.
 
 THE FIX -- arm F(S)
@@ -17,7 +17,7 @@ the chunk is written at the positions it occupies in the pack, which is the same
 RoPE translation invariance).  At read time the query runs [0, j) with, at l in S, its keys
 extended by the cached chunk K_l/V_l (query at pack positions, its own BOS at 0); the
 resulting h_j goes into the pack [h_s; chunk h_j; query h_j] and [j, L) is recomputed
-exactly as in CoMem.  Nothing is trained.
+exactly as in Encbank.  Nothing is trained.
 
   storage    h_j = 2d bytes/token (8 KB on 8B) + 4*n_kv*hd bytes per layer in S (4 KB)
   read       upper band unchanged; plus the query's cross-attention to |S| cached layers
@@ -34,7 +34,7 @@ three evenly spaced in [0, j), and all of [0, j).
 
 REFERENCES ON THE SAME SAMPLES
 ------------------------------
-  A_off / A_on   CoMem as published (no write sink) / with a write sink       8 KB
+  A_off / A_on   Encbank as published (no write sink) / with a write sink       8 KB
   C              full-depth isolated chunk KV + one sink, no recompute          4L KB
   KV(|S|)        S9's family: query runs all L layers alone, cache visible at
                  |S| evenly spaced layers, no recompute                           4|S| KB
@@ -240,7 +240,7 @@ def prepare(model, sink, doc_chunks, qi, js, upto):
 
 @torch.no_grad()
 def arm_F(model, P, j, S):
-    """Query lower band with the chunk cache visible at S; then CoMem's upper recompute."""
+    """Query lower band with the chunk cache visible at S; then Encbank's upper recompute."""
     hq = lower_with_cache(model, P["qb_ids"], P["qb_pos"], j, P["lower"], sorted(S),
                           bos_first=True)[:, 1:, :]
     hc = torch.cat([hs[j] for hs in P["hs_on"]], 1)
@@ -257,7 +257,7 @@ def eval_arms(model, sink, P, j, layer_sets, with_refs):
     out = {}
     hc_on = torch.cat([hs[j] for hs in P["hs_on"]], 1)
     h_s = P["sink_hs"][j]
-    # --- CoMem as published: no write sink, local positions ---
+    # --- Encbank as published: no write sink, local positions ---
     loc = lambda n: torch.arange(n, device=dev).unsqueeze(0)
     hc_off = torch.cat([embed_to(model, ch, loc(c), j) for ch in P["sel"]], 1)
     hq_off = embed_to(model, P["qi"], loc(nq), j)

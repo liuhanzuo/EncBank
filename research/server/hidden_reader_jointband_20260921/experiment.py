@@ -1,4 +1,4 @@
-"""Controlled causal joint-depth sweep, fixed original COMem weights, server only."""
+"""Controlled causal joint-depth sweep, fixed original Encbank weights, server only."""
 import datetime,hashlib,json,os,statistics,sys,time,traceback
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;RUN=sys.argv[1]
@@ -26,8 +26,8 @@ def main():
     torch.cuda.set_per_process_memory_fraction(96*2**30/total)
     import transformers.integrations.sdpa_attention as sdpa
     sdpa.use_gqa_in_sdpa=lambda *a,**kw:False
-    MODEL='/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B'
-    ADAPTER='/srv/encbank/comem_infra_recheck_20260912/adapter'
+    MODEL='/srv/encbank/encbank_sparse_slurm_20260912/models/Qwen3-8B'
+    ADAPTER='/srv/encbank/encbank_infra_recheck_20260912/adapter'
     assert sha(Path(ADAPTER)/'adapter_model.safetensors')=='1deb86bdc89206ab029ca67403fb3f96dda29fc68223eebec4fc49e97ec0eb13'
     p=Path(CFG['input']);assert sha(p)==CFG['input_sha256']
     all_cases=json.loads(p.read_text());cases=all_cases[CFG['start']:CFG['end']]

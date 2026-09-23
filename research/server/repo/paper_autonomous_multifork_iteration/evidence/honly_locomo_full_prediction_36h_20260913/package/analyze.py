@@ -1,4 +1,4 @@
-"""Saved-output exact pinned CoMem LoCoMo native lexical metrics; require all six successful native exits first."""
+"""Saved-output exact pinned Encbank LoCoMo native lexical metrics; require all six successful native exits first."""
 from pathlib import Path
 import argparse, ast, collections, datetime, random, re, statistics, string
 from protocol import ARMS, CONFIG, HERE, local, read, save, sha, document_groups, token_sha, load_fixture
@@ -131,10 +131,10 @@ def main():
         'plan_sha256':args.expected_plan_sha256,'finished_at':datetime.datetime.now().astimezone().isoformat(),'arms':reports,
         'paired_lexical_mean_differences_points':contrasts,'semantic_judge':plan['semantic_judge'],
         'dataset_category_names':plan['category_names'],'category_counts':plan['category_counts'],
-        'scope':'Full1986 raw predictions and exact pinned local CoMem native lexical metrics only. Published semantic fullJudge remains P; no external requests or substitute evaluator.',
+        'scope':'Full1986 raw predictions and exact pinned local Encbank native lexical metrics only. Published semantic fullJudge remains P; no external requests or substitute evaluator.',
         'limits':['H methods use active custom FP32 LoRA; Dense/KIVI LoRA off: whole-method comparison',
                   'Source conversation selects entry; no cross-conversation retrieval test',
-                  'Native local CoMem lexical acc is not semantic Judge; its exact empty-prediction substring behavior is preserved',
+                  'Native local Encbank lexical acc is not semantic Judge; its exact empty-prediction substring behavior is preserved',
                   'Natural generation timing and phase allocator peaks are not fixed-work timing or full-device peaks']})
     print({a:r['native_lexical_metrics'] for a,r in reports.items()})
 

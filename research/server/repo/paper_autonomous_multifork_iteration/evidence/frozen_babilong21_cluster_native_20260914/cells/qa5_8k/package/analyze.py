@@ -57,7 +57,7 @@ def main():
         for doc,(_,indices) in zip(docs,groups):
             assert doc['source_indices']==indices and doc['item_ids']==[ids[i] for i in indices] and doc['completed_queries']==len(indices)
             assert doc['entry_writes']==1 and doc['entry_unchanged_all_queries'] and doc['entry_release']['all_tracked_tensor_objects_released']
-            if arm=='comem_frozen_j12':assert doc['store']['document_lower_KV_bytes']==0 and doc['store']['bits']==16 and doc['store']['resume_j']==12 and not doc['store']['native_hidden_or_KV_host_offload']
+            if arm=='encbank_frozen_j12':assert doc['store']['document_lower_KV_bytes']==0 and doc['store']['bits']==16 and doc['store']['resume_j']==12 and not doc['store']['native_hidden_or_KV_host_offload']
             else:assert doc['store']['prefix_tokens']==doc['document_tokens']+1 and not doc['store']['native_hidden_or_KV_host_offload']
         for index,(row,item) in enumerate(zip(rows,items)):
             assert row['source_index']==index and row['document_id']==item['document_id'] and row['dataset']=='babilong_qa5_8k'
@@ -72,7 +72,7 @@ def main():
             assert row['decode_forward_count']==(len(tokens) if row['stopped_on_eos'] else len(tokens)-1) and row['head_calls']==row['decode_forward_count']+1
             assert row['pending_token_id_before_request_release']==(None if row['stopped_on_eos'] else tokens[-1])
             selected=row['selected_chunk_indices']
-            if arm=='comem_frozen_j12':
+            if arm=='encbank_frozen_j12':
                 assert selected==sorted(set(selected)) and 0<=len(selected)<=12 and all(0<=i<(len(item['document_token_ids'])+511)//512 for i in selected)
             else:assert selected is None
         for row in rows:
@@ -101,10 +101,10 @@ def main():
             'result_sha256':sha(out/'result.json'),'worker_sha256':sha(out/'worker.json'),'execution_sha256':sha(out/'execution.json')}
     assert plan['analysis']['contrasts']==[] and plan['analysis']['bootstrap_executed'] is False
     contrasts={}
-    save(args.output,{'status':'complete_frozen_CoMem_j12_BABILong_qa5_8k_100_answers_100_Writes_601_phases_pending_parent_shell_Slurm_and_independent_verification',
+    save(args.output,{'status':'complete_frozen_Encbank_j12_BABILong_qa5_8k_100_answers_100_Writes_601_phases_pending_parent_shell_Slurm_and_independent_verification',
         'plan_sha256':args.expected_plan_sha256,'finished_at':datetime.datetime.now().astimezone().isoformat(),'arms':reports,'paired_contrasts':contrasts,
-        'resampling':plan['analysis'],'scope':'New independent frozen CoMem j12 LoRA OFF qa5_8k100; exact original inputs and cap20; native FP16 SDPA natural quality diagnostics; not a published checkpoint or fixed-work infra claim.',
-        'limits':['Frozen CoMem j12 uses no LoRA; full-method comparison to saved custom-LoRA methods','Same native SDPA primitive policy is not identical CUDA dispatch or attention graph','Intervals including0 do not establish equivalence/noninferiority']})
+        'resampling':plan['analysis'],'scope':'New independent frozen Encbank j12 LoRA OFF qa5_8k100; exact original inputs and cap20; native FP16 SDPA natural quality diagnostics; not a published checkpoint or fixed-work infra claim.',
+        'limits':['Frozen Encbank j12 uses no LoRA; full-method comparison to saved custom-LoRA methods','Same native SDPA primitive policy is not identical CUDA dispatch or attention graph','Intervals including0 do not establish equivalence/noninferiority']})
     print({a:r['official_accuracy_percent'] for a,r in reports.items()})
 
 if __name__=='__main__':main()

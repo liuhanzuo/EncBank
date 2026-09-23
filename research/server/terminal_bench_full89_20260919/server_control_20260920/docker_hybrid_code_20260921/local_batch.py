@@ -7,7 +7,7 @@ import subprocess
 import time
 from pathlib import Path
 
-ROOT=Path('/srv/encbank/client/comem_local_20260921')
+ROOT=Path('/srv/encbank/client/encbank_local_20260921')
 
 
 def save(path,data):
@@ -23,7 +23,7 @@ def main():
         run=ROOT/'runs'/family
         save(ROOT/'status.json',dict(state='running',family=family,completed=rows,epoch=time.time()))
         with (run/'owner.stdout.log').open('xb') as out,(run/'owner.stderr.log').open('xb') as err:
-            child=subprocess.run(['/srv/encbank/client/comem_harbor_023/bin/python','-u',str(run/'hybrid_owner.py')],cwd=run,stdout=out,stderr=err,
+            child=subprocess.run(['/srv/encbank/client/encbank_harbor_023/bin/python','-u',str(run/'hybrid_owner.py')],cwd=run,stdout=out,stderr=err,
                  env=dict(os.environ,PYTHONPATH=str(run),LITELLM_LOCAL_MODEL_COST_MAP='True'))
         row=dict(family=family,owner_exit=child.returncode,actual_parent_wait=True,epoch=time.time())
         rows.append(row);save(run/'local_owner_receipt.json',row)

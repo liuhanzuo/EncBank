@@ -12,7 +12,7 @@ import sys
 import time
 import tomllib
 
-ROOT=Path('/srv/encbank/client/comem_local_20260921')
+ROOT=Path('/srv/encbank/client/encbank_local_20260921')
 os.environ['LITELLM_LOCAL_MODEL_COST_MAP']='True'
 
 
@@ -29,7 +29,7 @@ async def probe(task,run):
     output=ROOT/'qualification'/task
     output.mkdir(parents=True,exist_ok=False)
     env=DockerEnvironment(environment_dir=directory/'environment',environment_name=task,
-        session_id='comem-qualification-'+task,trial_paths=TrialPaths(trial_dir=output),
+        session_id='encbank-qualification-'+task,trial_paths=TrialPaths(trial_dir=output),
         task_env_config=EnvironmentConfig.model_validate(cfg['environment']),
         persistent_env=config['environment']['env'],cpu_enforcement_policy=ResourceMode.LIMIT,
         memory_enforcement_policy=ResourceMode.LIMIT,logger=logging.getLogger(task))

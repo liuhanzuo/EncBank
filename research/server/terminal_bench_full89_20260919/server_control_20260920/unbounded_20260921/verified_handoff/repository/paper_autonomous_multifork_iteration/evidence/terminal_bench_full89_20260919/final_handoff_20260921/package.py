@@ -39,14 +39,14 @@ for arm in ['top12','top48']:
    rows.append(r)
  assert len(seen)==89,(arm,len(seen))
  roots.add(name)
-save(H/'TASK_STATUS.json',dict(at=datetime.datetime.now().astimezone().isoformat(),scope='Two old CoMem arms only, 89 tasks each',rows=rows,counts={a:dict(Counter(r['status'] for r in rows if r['arm']==a)) for a in ['top12','top48']},
+save(H/'TASK_STATUS.json',dict(at=datetime.datetime.now().astimezone().isoformat(),scope='Two old Encbank arms only, 89 tasks each',rows=rows,counts={a:dict(Counter(r['status'] for r in rows if r['arm']==a)) for a in ['top12','top48']},
  constraints=['Incomplete tasks have no assigned zero score.','Do not repeat any VERIFIED_COMPLETE result, including negative outcomes.','New computer two-task supplement and Dense are externally owned; reconcile their outputs separately.','Interrupted requests may still exist server-side; user owns server stop.']))
 with (H/'TASK_STATUS.csv').open('w',encoding='utf8',newline='') as f:
  w=csv.DictWriter(f,fieldnames=['arm','task','status','reward','do_not_repeat_verified_result']);w.writeheader();w.writerows({k:r.get(k) for k in w.fieldnames} for r in rows)
 save(H/'DO_NOT_RERUN_VERIFIED_TASKS.json',{a:[r['task'] for r in rows if r['arm']==a and r['status']=='VERIFIED_COMPLETE'] for a in ['top12','top48']})
 files=set();rpc_index=[]
 for name in sorted(roots):
- d=B/name;box=RT/('local_rpc_'+name)/'comem';results=RT/'results'/name
+ d=B/name;box=RT/('local_rpc_'+name)/'encbank';results=RT/'results'/name
  for p in d.iterdir():
   if p.is_file() and p.suffix in {'.py','.json','.md','.sh','.log'}:files.add(p)
  for p in safe_walk(d/'execution'):

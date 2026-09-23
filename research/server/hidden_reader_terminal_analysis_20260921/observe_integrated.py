@@ -1,6 +1,6 @@
 import json,subprocess
 from pathlib import Path
-B=Path('/srv/encbank/qcomem_align_codex_20260911');R=B/'hidden_reader_terminal_r5_20260921'
+B=Path('/srv/encbank/qencbank_align_codex_20260911');R=B/'hidden_reader_terminal_r5_20260921'
 def load(p):return json.loads(p.read_text()) if p.exists() else None
 jobs=load(R/'submissions.json') or []
 if jobs:print(subprocess.run(['squeue','-h','-j',','.join(j['job'] for j in jobs),'-o','%i|%T|%N|%R'],capture_output=True,text=True).stdout.strip())

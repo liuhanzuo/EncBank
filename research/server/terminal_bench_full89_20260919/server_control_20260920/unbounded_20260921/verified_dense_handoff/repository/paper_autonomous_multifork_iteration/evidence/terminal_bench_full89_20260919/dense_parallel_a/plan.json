@@ -1,5 +1,5 @@
 {
-  "evidence_id": "E-COMEM-TB21-FULL89-DENSE-PARALLEL-A-20260919",
+  "evidence_id": "E-ENCBANK-TB21-FULL89-DENSE-PARALLEL-A-20260919",
   "benchmark": "Terminal-Bench 2.1",
   "revision": "7131e4375048a0e408a8fb404b5f499d726b695b",
   "tasks": [
@@ -41,7 +41,7 @@
   "attempts_per_task": 1,
   "order": "Ascending official task RAM, then name, within disjoint duration-balanced shard",
   "concurrent_tasks": 4,
-  "model": "/srv/encbank/comem_new_backbones_20260915/models/Qwen3.8-27B",
+  "model": "/srv/encbank/encbank_new_backbones_20260915/models/Qwen3.8-27B",
   "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
   "dtype": "bfloat16",
   "lora": false,
@@ -74,7 +74,7 @@
   "automatic_scientific_retries": 0,
   "publication_boundary": "Full 89-task registered local protocol; not an exact replication of Qwen reported 73.0 because full original settings/repeats were not disclosed here.",
   "old_short3": "Separate completed low-thinking native-SDPA experiment. No reuse or overwrite of its predictions.",
-  "remote_root": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/toolchain_fix",
+  "remote_root": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/toolchain_fix",
   "timeout_inventory": [
     {
       "task": "modernize-scientific-stack",

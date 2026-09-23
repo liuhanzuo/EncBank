@@ -3,7 +3,7 @@ S15 -- The query-side repair on the paper's own RULER evaluation (Qwen3-8B, zero
 
 WHAT IS TESTED
 --------------
-S12-S14 showed on an LM-continuation metric that CoMem's zero-shot depth loss is query-side
+S12-S14 showed on an LM-continuation metric that Encbank's zero-shot depth loss is query-side
 and is removed by letting the query's lower band [0:j) attend to the retrieved chunks'
 cached lower-layer K/V.  The paper's own evidence for j=12 is task recall: zero-shot j=12
 collapses on RULER (niah_single 14, multikey 8/3/1) and needs a 4000-step LoRA to recover.
@@ -12,15 +12,15 @@ RULER driver (eval/ruler.py sample synthesis, BM25 top-12, string_match_all).
 
 ARMS (same backbone, same samples, paired)
 ------------------------------------------
-  pub       CoMem as published: j=12, chunk-local write, no sink, query bottom band blind
+  pub       Encbank as published: j=12, chunk-local write, no sink, query bottom band blind
   pub_sink  same with a BOS prepended at write (model.py write_sink=True)
-  fix_all   CoMemLower: chunks written once locally (with BOS), lower-layer K stored
+  fix_all   EncbankLower: chunks written once locally (with BOS), lower-layer K stored
             pre-RoPE and rotated to pack positions at read; the query's bottom band and
-            every decode step attend to [sink; chunk K/V at layers 0..j-1]; then CoMem's
+            every decode step attend to [sink; chunk K/V at layers 0..j-1]; then Encbank's
             top-band read/decode unchanged.  Storage 8 + 4j KB/token.  Nothing trained.
   fix_S     same with the cache visible only at layers S (chunk entries masked elsewhere;
             the sink entry is always visible)
-  j0        CoMem(resume_j=0): the RAG upper bound (full recompute of the retrieved pack)
+  j0        Encbank(resume_j=0): the RAG upper bound (full recompute of the retrieved pack)
 
 IMPLEMENTATION NOTES
 --------------------
@@ -46,11 +46,11 @@ from pathlib import Path
 import torch
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "COMem"))
+sys.path.insert(0, str(ROOT / "Encbank"))
 sys.path.insert(0, str(ROOT / "exp"))
 
-from comem import CoMem                                   # noqa: E402
-from comem import selectors as _sel                       # noqa: E402
+from encbank import Encbank                                   # noqa: E402
+from encbank import selectors as _sel                       # noqa: E402
 from eval import ruler as R                               # noqa: E402
 from eval._common import load_backbone                    # noqa: E402
 from transformers.cache_utils import DynamicCache         # noqa: E402
@@ -65,8 +65,8 @@ import transformers.integrations.sdpa_attention as _sdpa                    # no
 _sdpa.use_gqa_in_sdpa = lambda *a, **k: False
 
 
-class CoMemLower(CoMem):
-    """CoMem whose query bottom band sees the retrieved chunks' lower-layer K/V."""
+class EncbankLower(Encbank):
+    """Encbank whose query bottom band sees the retrieved chunks' lower-layer K/V."""
 
     def __init__(self, model, resume_j, tokenizer=None, lower_layers=None,
                  sink_in_cache=True, chunk_write_sink=True):
@@ -311,24 +311,24 @@ def build_arms(model, tok, j, names, fix_layers):
     arms = {}
     for n in names:
         if n == "pub":
-            cm = CoMem(model, resume_j=j, tokenizer=tok); cm.write_sink = False
+            cm = Encbank(model, resume_j=j, tokenizer=tok); cm.write_sink = False
         elif n == "pub_sink":
-            cm = CoMem(model, resume_j=j, tokenizer=tok); cm.write_sink = True
+            cm = Encbank(model, resume_j=j, tokenizer=tok); cm.write_sink = True
         elif n == "fix_all":
-            cm = CoMemLower(model, j, tok, lower_layers=None)
+            cm = EncbankLower(model, j, tok, lower_layers=None)
         elif n == "fix_S":
-            cm = CoMemLower(model, j, tok, lower_layers=fix_layers)
+            cm = EncbankLower(model, j, tok, lower_layers=fix_layers)
         elif n == "fix_none":
             # control: query at pack positions with the sink entry but NO chunk visibility
-            cm = CoMemLower(model, j, tok, lower_layers=[])
+            cm = EncbankLower(model, j, tok, lower_layers=[])
         elif n == "cbos":
             # full-depth isolated chunk K/V visible at ALL layers, no upper recompute
             # (resume_j = L): the BOS-corrected CacheBlend-style reference of s14, on RULER
-            cm = CoMemLower(model, int(model.config.num_hidden_layers), tok, lower_layers=None)
+            cm = EncbankLower(model, int(model.config.num_hidden_layers), tok, lower_layers=None)
         elif n == "fix_nosink":
-            cm = CoMemLower(model, j, tok, lower_layers=None, chunk_write_sink=False)
+            cm = EncbankLower(model, j, tok, lower_layers=None, chunk_write_sink=False)
         elif n == "j0":
-            cm = CoMem(model, resume_j=0, tokenizer=tok)
+            cm = Encbank(model, resume_j=0, tokenizer=tok)
         else:
             raise ValueError(n)
         arms[n] = cm
@@ -337,9 +337,9 @@ def build_arms(model, tok, j, names, fix_layers):
 
 @torch.no_grad()
 def identity_check(model, tok, j, input_ids, bare_q, k, mnt):
-    """CoMemLower with S={} and no sink entry must reproduce the base CoMem output."""
-    base = CoMem(model, resume_j=j, tokenizer=tok); base.write_sink = False
-    low = CoMemLower(model, j, tok, lower_layers=[], sink_in_cache=False, chunk_write_sink=False)
+    """EncbankLower with S={} and no sink entry must reproduce the base Encbank output."""
+    base = Encbank(model, resume_j=j, tokenizer=tok); base.write_sink = False
+    low = EncbankLower(model, j, tok, lower_layers=[], sink_in_cache=False, chunk_write_sink=False)
     kw = dict(chunk_size=512, max_new_tokens=mnt, selector="bm25", topk=k,
               bare_question_ids=bare_q)
     sb, sl = {"capture_step_logits": True}, {"capture_step_logits": True}
@@ -362,7 +362,7 @@ def main():
     ap.add_argument("--n", type=int, default=50)
     ap.add_argument("--topk", type=int, default=12)
     ap.add_argument("--adapter", default="",
-                    help="path to a CoMem-distill LoRA adapter dir; empty = stock backbone")
+                    help="path to a Encbank-distill LoRA adapter dir; empty = stock backbone")
     ap.add_argument("--adapter-pt", default="",
                     help="path to a flat LoRA .pt from exp/s21_distill_lower.py, merged "
                          "into the weights; empty = stock backbone")
@@ -389,7 +389,7 @@ def main():
     R._ESSAY_PATH = args.essay
     # --adapter is opt-in and defaults to "" (no adapter), so every earlier result file
     # was produced with the stock backbone.  load_backbone applies the LoRA through peft
-    # and hands back base_model.model, which is what CoMem/CoMemLower read the layers off,
+    # and hands back base_model.model, which is what Encbank/EncbankLower read the layers off,
     # so both the published arms and the repaired arms see the same adapted weights.
     model, tok = load_backbone(args.model, "bfloat16", "sdpa", "cuda:0", args.adapter)
     lora_meta = None

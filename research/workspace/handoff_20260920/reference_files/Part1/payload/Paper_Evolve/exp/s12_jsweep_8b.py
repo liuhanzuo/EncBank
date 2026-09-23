@@ -20,9 +20,9 @@ PROTOCOL (identical to S7 unless stated)
   no_mem    [sink; query] -- the floor.
   full_doc  [sink; whole document; query] -- reported so the cost of retrieval itself
             is visible next to the cost of depth.
-  A_off_j   deployed CoMem as published: every chunk written ALONE with NO prefix at
+  A_off_j   deployed Encbank as published: every chunk written ALONE with NO prefix at
             chunk-local positions to h_j; query likewise; packed at fresh contiguous
-            positions; layers [j, L) recomputed.  (COMem/comem/model.py write_chunk
+            positions; layers [j, L) recomputed.  (Encbank/encbank/model.py write_chunk
             default, write_sink=False.)
   A_on_j    same, but a BOS is prepended during the write and dropped (write_sink=True).
   A_chunk_j / A_query_j   the S7 decomposition, write sink ON: chunks isolated with the

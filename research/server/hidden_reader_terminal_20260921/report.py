@@ -48,8 +48,8 @@ all_closed=all(load(ROOT/'jobs'/('wait-'+task+'--'+arm+'.json')) for task in P['
 workers_closed=all((load(ROOT/'pairs'/task/'parent_exit.json') or {}).get('exit_code')==0 for task in P['tasks'])
 summary=dict(at=datetime.datetime.now().astimezone().isoformat(),all_live_closed=all_closed,workers_closed=workers_closed,valid_trials=sum(r['valid'] for r in rows),expected_trials=12,rows=rows,paired=paired,replays=replays)
 save(ROOT/'summary.json',summary)
-lines=['# 真实Terminal-Bench：COMem联合深度实验','',f"更新时间：{summary['at']}。有效完成{summary['valid_trials']}/12组。",'',
-    '6个任务、Qwen3-8B同一COMem LoRA、贪心非thinking生成。native是原COMem联合prefill；n24只让历史第13～24层联合，25～36层按chunk计算。每个任务两组用同一GPU及独立新容器。与另一个27B全量补测分开。','',
+lines=['# 真实Terminal-Bench：Encbank联合深度实验','',f"更新时间：{summary['at']}。有效完成{summary['valid_trials']}/12组。",'',
+    '6个任务、Qwen3-8B同一Encbank LoRA、贪心非thinking生成。native是原Encbank联合prefill；n24只让历史第13～24层联合，25～36层按chunk计算。每个任务两组用同一GPU及独立新容器。与另一个27B全量补测分开。','',
     '| 任务 | 配置 | 有效 | 奖励 | 总秒数 | 模型秒数 | prefill秒数 | decode秒数 | 模型调用 | 生成token | 有历史/12块调用 |',
     '|---|---|---|---|---:|---:|---:|---:|---:|---:|---|']
 for r in rows:

@@ -1,4 +1,4 @@
-# COMem Hot Buffer Agent：当前实现说明
+# Encbank Hot Buffer Agent：当前实现说明
 
 版本：2026-09-22。本文描述本轮 **27B、Transformers、真实 Terminal-Bench** 的已实现系统。实验状态引用 2026-09-22 23:07（UTC+8）的已核查快照，不代表阅读本文时的实时状态。
 
@@ -26,7 +26,7 @@ Hot buffer 用额外显存换重建时间。它不替代 H bank，也不意味�
 |---|---|
 | 总层数 | 64 层：16 层 full attention，48 层 linear attention / Gated DeltaNet |
 | 隐藏维度 | 5120 |
-| COMem 切分点 | H21，即经过前 21 个 block 的 hidden |
+| Encbank 切分点 | H21，即经过前 21 个 block 的 hidden |
 | lower / upper | 代码索引 `[0:21]` / `[21:64]`；upper 为剩余 43 层 |
 | upper 结构 | 11 层 full attention，32 层 linear attention |
 | chunk 大小 | 512 tokens |
@@ -34,7 +34,7 @@ Hot buffer 用额外显存换重建时间。它不替代 H bank，也不意味�
 | 重检索间隔 | 同一次调用每生成 512 tokens |
 | Hot 容量配置 | 每会话 24 个完整 chunk 等价的字节预算，另留 sink 快照空间 |
 | 解码调度片段 | 每个 quantum 最多 32 个生成步骤，可提前结束 |
-| 数值格式 | backbone / H / KV 为 BF16；原 COMem 上层 LoRA 为 FP32 |
+| 数值格式 | backbone / H / KV 为 BF16；原 Encbank 上层 LoRA 为 FP32 |
 | 采样 | thinking/xhigh，temperature=1，top_p=0.95，采样 top_k=20 |
 
 这里的 H21 与早先 Qwen3-8B 实验中的 H12 不同。检索 top12、每会话 hot24、任务并发24也是三个不同参数。
@@ -226,13 +226,13 @@ worker 按请求到达顺序接纳，每个 Session 同时最多一个活动请�
 
 | 组别 | 任务/解码并发上限 | 每会话 hot 配置 | 区别 |
 |---|---:|---:|---|
-| Dense8 | 8 | 0 | 全历史 Dense，允许有效完整前缀跨调用复用，无 COMem LoRA |
+| Dense8 | 8 | 0 | 全历史 Dense，允许有效完整前缀跨调用复用，无 Encbank LoRA |
 | Cold8 | 8 | 0 | 流式 H21、周期检索、在线 H 归档，每次重建选中 upper 历史 |
 | Hot8 | 8 | 24 | Cold 基础上加有序前缀 hot 复用 |
 | Hot32 | 32 | 24 | 更高并发，已因 OOM 退出 |
 | Hot24 | 24 | 24 | 用户要求的独立新组，仅相对 Hot32 降低两个并行上限 |
 
-Cold 是本轮流式对照，不是未经修改的旧 COMem。Dense/COMem 还有 adapter 和历史读取方式差异；比较 Hot/Cold 更适合隔离缓存复用的收益。
+Cold 是本轮流式对照，不是未经修改的旧 Encbank。Dense/Encbank 还有 adapter 和历史读取方式差异；比较 Hot/Cold 更适合隔离缓存复用的收益。
 
 ### 9.1 已通过的数值与短时资格
 
@@ -289,9 +289,9 @@ Dense8 OOM 发生在合批 KV 申请3.34 GiB时，当时 allocated约139.01 GiB�
 
 本地源码目录：`/srv/encbank/workspace/experiments/tf27b_hot_terminal_20260921/`。
 
-服务器开发目录：`/srv/encbank/qcomem_align_codex_20260911/tf27b_hot_terminal_20260921/`。
+服务器开发目录：`/srv/encbank/qencbank_align_codex_20260911/tf27b_hot_terminal_20260921/`。
 
-服务器冻结运行目录：`/srv/encbank/qcomem_align_codex_20260911/tf27b_hot_live_20260921/`；各组独立子目录，canonical 作业身份保存在 `submissions.json`。开发目录不等于活跃源码目录；不可热改现有实验或重复提交。
+服务器冻结运行目录：`/srv/encbank/qencbank_align_codex_20260911/tf27b_hot_live_20260921/`；各组独立子目录，canonical 作业身份保存在 `submissions.json`。开发目录不等于活跃源码目录；不可热改现有实验或重复提交。
 
 | 源文件 | 职责 |
 |---|---|

@@ -1,10 +1,11 @@
-# EncBank
+# Encbank
 
 **Under review at ICLR 2027.**
 
-Research code for comprehension memory (CoMem), hidden-state readers, exact-prefix
+Research code for comprehension memory (Encbank), hidden-state readers, exact-prefix
 Hot Buffers, LoRA distillation, and long-context / Terminal-Bench evaluation.
-The Python package retains the name `comem` to preserve existing imports.
+The Python package is `encbank`, with public entry points `Encbank` and
+`EncbankMoE` (for example, `from encbank import Encbank`).
 
 This release collects the implementation and experiment sources used through
 September 23, 2026. It includes the 27B Transformers Hot24 experiment with
@@ -15,10 +16,10 @@ training code, qualification checks, and experiment controllers.
 
 | Location | Contents |
 | --- | --- |
-| [`comem/`](comem/) | Chunk writing, retrieval, resumed decoding, model registry, and MoE support |
-| [`train/`](train/) | LoRA self-distillation for the base CoMem implementation |
+| [`encbank/`](encbank/) | Chunk writing, retrieval, resumed decoding, model registry, and MoE support |
+| [`train/`](train/) | LoRA self-distillation for the base Encbank implementation |
 | [`eval/`](eval/) | RULER, BABILong, LongBench, LongEval, and LoCoMo drivers |
-| [`bench/`](bench/) | Dense / CoMem comparisons and correctness checks |
+| [`bench/`](bench/) | Dense / Encbank comparisons and correctness checks |
 | [`runtime/hot_buffer/`](runtime/hot_buffer/) | 27B Hot24, batched hybrid attention, PEFT loading/merging, and Terminal-Bench controller sources |
 | [`research/`](research/) | Experiment source snapshots, including server training, reader studies, Dense/k12/k48 evaluation, kernel pilots, and local orchestration |
 | [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md) | Entry points for the experiment families |

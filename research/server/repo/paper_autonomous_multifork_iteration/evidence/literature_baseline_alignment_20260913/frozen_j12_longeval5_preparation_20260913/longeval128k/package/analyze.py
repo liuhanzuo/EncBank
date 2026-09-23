@@ -59,7 +59,7 @@ def main():
         for doc,(_,indices) in zip(docs,groups):
             assert doc['source_indices']==indices and doc['item_ids']==[ids[i] for i in indices] and doc['completed_queries']==len(indices)
             assert doc['entry_writes']==1 and doc['entry_unchanged_all_queries'] and doc['entry_release']['all_tracked_tensor_objects_released']
-            if arm=='comem_frozen_j12':assert doc['store']['document_lower_KV_bytes']==0 and doc['store']['bits']==16 and doc['store']['resume_j']==12 and not doc['store']['native_hidden_or_KV_host_offload']
+            if arm=='encbank_frozen_j12':assert doc['store']['document_lower_KV_bytes']==0 and doc['store']['bits']==16 and doc['store']['resume_j']==12 and not doc['store']['native_hidden_or_KV_host_offload']
             else:assert doc['store']['prefix_tokens']==doc['document_tokens']+1 and not doc['store']['native_hidden_or_KV_host_offload']
         for index,(row,item) in enumerate(zip(rows,items)):
             assert row['source_index']==index and row['document_id']==item['document_id'] and row['dataset']=='longeval_128k'
@@ -76,12 +76,12 @@ def main():
             regime=row['unscaled_input_regime'];assert regime['full_prompt_tokens']==1+len(item['document_token_ids'])+len(item['query_token_ids']) and regime['prompt_plus_cap']==regime['full_prompt_tokens']+16<=131749
             assert regime['above_published32768'] and regime['above_original40960_with_cap'] and not regime['YaRN'] and regime['model_config_max_position_embeddings']==40960 and regime['rope_theta']==1000000
             positions=row['position_usage'];prefix=row['packed_read_tokens']-row['query_tokens'];next_position=prefix+row['query_prefill_calls']+row['decode_forward_count']
-            if arm=='comem_frozen_j12':
+            if arm=='encbank_frozen_j12':
                 assert positions['mode']=='chunk_local_Write_selected_contiguous_Read' and positions['upper_next_position']==next_position and positions['maximum_upper_read_position']==next_position-1
                 assert positions['lower_query_next_position']==row['query_prefill_calls']+row['decode_forward_count'] and positions['maximum_lower_query_position']==positions['lower_query_next_position']-1
             else:assert positions['mode']=='full_native_cache' and positions['next_position']==next_position and positions['maximum_consumed_position']==next_position-1
             selected=row['selected_chunk_indices']
-            if arm=='comem_frozen_j12':
+            if arm=='encbank_frozen_j12':
                 assert selected==sorted(set(selected)) and 0<=len(selected)<=12 and all(0<=i<(len(item['document_token_ids'])+511)//512 for i in selected)
             else:assert selected is None
         for row in rows:
@@ -110,10 +110,10 @@ def main():
             'result_sha256':sha(out/'result.json'),'worker_sha256':sha(out/'worker.json'),'execution_sha256':sha(out/'execution.json')}
     assert plan['analysis']['contrasts']==[] and plan['analysis']['bootstrap_executed'] is False
     contrasts={}
-    save(args.output,{'status':'complete_frozen_CoMem_j12_LongEval_longeval128k_100_answers_100_Writes_601_phases_pending_parent_shell_Slurm_and_independent_verification',
+    save(args.output,{'status':'complete_frozen_Encbank_j12_LongEval_longeval128k_100_answers_100_Writes_601_phases_pending_parent_shell_Slurm_and_independent_verification',
         'plan_sha256':args.expected_plan_sha256,'finished_at':datetime.datetime.now().astimezone().isoformat(),'arms':reports,'paired_contrasts':contrasts,
-        'resampling':plan['analysis'],'scope':'New independent frozen CoMem j12 LoRA OFF longeval128k100; exact original inputs and cap16; native FP16 SDPA natural quality diagnostics; not a published checkpoint or fixed-work infra claim.',
-        'limits':['Frozen CoMem j12 uses no LoRA; full-method comparison to saved custom-LoRA methods','Same native SDPA primitive policy is not identical CUDA dispatch or attention graph','Intervals including0 do not establish equivalence/noninferiority']})
+        'resampling':plan['analysis'],'scope':'New independent frozen Encbank j12 LoRA OFF longeval128k100; exact original inputs and cap16; native FP16 SDPA natural quality diagnostics; not a published checkpoint or fixed-work infra claim.',
+        'limits':['Frozen Encbank j12 uses no LoRA; full-method comparison to saved custom-LoRA methods','Same native SDPA primitive policy is not identical CUDA dispatch or attention graph','Intervals including0 do not establish equivalence/noninferiority']})
     print({a:r['numeric_exact_accuracy_percent'] for a,r in reports.items()})
 
 if __name__=='__main__':main()

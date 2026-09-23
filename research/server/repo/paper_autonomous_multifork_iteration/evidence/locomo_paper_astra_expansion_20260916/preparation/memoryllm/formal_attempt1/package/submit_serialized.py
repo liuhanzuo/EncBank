@@ -71,7 +71,7 @@ def main():
             details.append(detail)
             text = detail['stdout']
             assert 'Command=' + str(HERE / 'batch.sbatch') not in text
-            if 'qcomem' in name.lower() or '/qcomem_align_codex_20260911/' in text:
+            if 'qencbank' in name.lower() or '/qencbank_align_codex_20260911/' in text:
                 assert name != plan['job_name'], 'Independent cell already active/pending'
                 match = re.search(r'(?:^| )ReqTRES=([^ ]+)', text)
                 assert match

@@ -5,7 +5,7 @@ kind=sys.argv[1];task=sys.argv[2] if len(sys.argv)>2 else None
 verify_sources();env=os.environ.copy();env.update(PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1',PYTHONPATH=str(ROOT)+':'+str(ROOT/'vendor'))
 env.setdefault('XDG_RUNTIME_DIR','/run/user/'+str(os.getuid()));env.setdefault('DBUS_SESSION_BUS_ADDRESS','unix:path='+env['XDG_RUNTIME_DIR']+'/bus')
 if kind=='worker':
-    env.update(PYTHONPATH=env['PYTHONPATH']+':/srv/encbank/comem_infra_recheck_20260912/deps',
+    env.update(PYTHONPATH=env['PYTHONPATH']+':/srv/encbank/encbank_infra_recheck_20260912/deps',
         PYTHONHASHSEED='0',OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='4',TOKENIZERS_PARALLELISM='false',
         CPATH='/srv/encbank/.cache/python/include/python3.12')
     env.update(HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',HF_HOME=str(ROOT/'cache'),TORCHINDUCTOR_CACHE_DIR=str(ROOT/'pairs'/task/'compile_cache'))

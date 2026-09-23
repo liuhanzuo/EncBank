@@ -3,7 +3,7 @@ S4 -- What does the missing write-time attention sink cost end to end?
 
 THE DEFECT
 ----------
-`COMem/comem/model.py:write_chunk` forwards each chunk with nothing in front of it and
+`Encbank/encbank/model.py:write_chunk` forwards each chunk with nothing in front of it and
 chunk-local positions.  That is the no-sink regime: attention has nowhere to park mass,
 and the shallow residual is badly distorted.  Measured in S1 on Qwen3-1.7B, mean
 relative L2 per token against ground truth (the same chunk inside its real document),
@@ -27,7 +27,7 @@ ARMS (identical except for the write pass)
 ------------------------------------------
     ref       full forward of the pack [sink; C; Q]              -- ground truth
     no_mem    forward of [sink; Q]                               -- the floor
-    A_nosink  h_j from C alone, positions 0..c-1                 -- CoMem as published
+    A_nosink  h_j from C alone, positions 0..c-1                 -- Encbank as published
     A_sink    h_j from [BOS; C], BOS position dropped            -- the one-token fix
 
 Both A arms then inject into the same pack at the same fresh contiguous positions and

@@ -81,7 +81,7 @@ if audit_path.exists():
         warnings=r.get('parser_warnings'), errors=r.get('parser_errors')) for name, r in audit['tasks'].items()}
 tz = datetime.timezone(datetime.timedelta(hours=8))
 date = datetime.datetime.fromtimestamp(now['epoch'], tz).isoformat()
-lines = [f'COMem 心跳 {stamp}；逐题观察结束 {date}', '',
+lines = [f'Encbank 心跳 {stamp}；逐题观察结束 {date}', '',
     '方法 | 累计已核/89 | 累计通过/失败 | 新计划已核 | 其中上下文失败',
     '--- | ---: | ---: | ---: | ---:']
 for arm, row in report['arms'].items():

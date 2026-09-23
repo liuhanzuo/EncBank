@@ -16,7 +16,7 @@ def main():
     specs=registry['runs'] if registry else [dict(id=a,arm=a,root=str(S/(a+'_unbounded_20260921')),tasks=selection['arms'][a]['tasks']) for a in ['dense','k12','k48']]
     containers=collections.defaultdict(list)
     roots={spec['root']:spec['id'] for spec in specs}
-    managed=Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920/managed_instances')
+    managed=Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920/managed_instances')
     for spec_path in managed.glob('*/spec.json'):
         spec=read(spec_path);arm=roots.get(str(Path(spec.get('startup_lock','/missing')).parent))
         if arm is None:continue

@@ -7,7 +7,7 @@ assert not (R/'submissions.json').exists()
 prior=R.parent/'hidden_reader_localanchors_20260921'
 if not (R/'vendor').exists():shutil.copytree(prior/'vendor',R/'vendor')
 old=json.loads((prior/'dataset.json').read_text())
-source=Path('/srv/encbank/comem_sparse_slurm_20260912/data/qasper_pilot')
+source=Path('/srv/encbank/encbank_sparse_slurm_20260912/data/qasper_pilot')
 def load(split):
     rows=[json.loads(line) for line in (source/(split+'.jsonl')).read_text().splitlines()]
     eligible={}

@@ -28,11 +28,11 @@
     "query_tokens_per_call": 1
   },
   "fixture": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/mfqa_full150_candidate/inference_fixture.json",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/mfqa_full150_candidate/inference_fixture.json",
     "sha256": "fe711b4e8600188b203d534b6b981445e0618e021e9ad9a1160cb77af0a5e5c7"
   },
   "labels": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/mfqa_full150_candidate/scoring_only/labels.json",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/mfqa_full150_candidate/scoring_only/labels.json",
     "sha256": "6ea2ccaee7c2454596847c26cdd1db8f67c85669d3311228931647999b2ad30c"
   },
   "scorer": {
@@ -49,7 +49,7 @@
   },
   "reader_binding": "local_Qwen3_8B_base_hashes_plus_custom_final4000_rank32_alpha32_3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119",
   "model_root": "models/Qwen3-8B",
-  "adapter_root": "models/CoMem-Qwen3-8B-final4000-20260909",
+  "adapter_root": "models/Encbank-Qwen3-8B-final4000-20260909",
   "resource_policy": {
     "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/resource_policy.json",
     "sha256": "68fcbffde962fc2a89f30ffc463d02a5d12af74284be7cb155d116a0ec31f9e2"
@@ -58,7 +58,7 @@
     "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/environment/recovery_attempt3/completion_receipt.json",
     "sha256": "1ad467954292aefa6f7e6588903b4aa96be583a3c739063d9c3c1fa854fe321f"
   },
-  "python": "/home/pc/qcomem_honly_5090_20260911/python312/bin/python",
+  "python": "/home/pc/qencbank_honly_5090_20260911/python312/bin/python",
   "native_attention_runtime_files": {
     "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
     "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
@@ -111,10 +111,10 @@
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
     "results/external-kvtuner-fp32meta-mistral7b-codex-20260908/resource_policy_recovery_attempt1/migration_guard.py": "1e460504c8320fe850ed91db7fdb0d3cc0b6a32d62d347d9d7cfc302a20102b2",
     "tmp_external_baselines/kv_quant/KIVI/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",

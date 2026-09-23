@@ -38,7 +38,7 @@ try:
     assert wait('qualification',qualification)==0,'Actual-node environment qualification failed'
     receipt=json.loads((ROOT/'qualification'/(TASK+'--qualify')/'execution_receipt.json').read_text())
     assert receipt['closure']['cgroup_empty'] and receipt['model_calls']==0 and not receipt['exception']
-    wen=env.copy();wen.update(PYTHONPATH=env['PYTHONPATH']+':/srv/encbank/comem_infra_recheck_20260912/deps',
+    wen=env.copy();wen.update(PYTHONPATH=env['PYTHONPATH']+':/srv/encbank/encbank_infra_recheck_20260912/deps',
         PYTHONHASHSEED='0',OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='4',TOKENIZERS_PARALLELISM='false',
         CPATH='/srv/encbank/.cache/python/include/python3.12',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',
         HF_HOME=str(ROOT/'cache'),TORCHINDUCTOR_CACHE_DIR=str(OUT/'compile_cache'))

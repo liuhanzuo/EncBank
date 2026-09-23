@@ -43,14 +43,14 @@
     "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
   },
   "reader_binding": "local_Qwen3_8B_base_hashes_plus_custom_final4000_rank32_alpha32_3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119",
-  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
-  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "model_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/adapter",
   "resource_policy": {
     "allocator_cap_bytes": 214748364800,
     "minimum_free_bytes": 236223201280,
     "stable_idle_seconds": 45
   },
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "native_attention_runtime_files": {
     "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
     "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
@@ -95,10 +95,10 @@
     "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/tokenwise_runtime.py": "ddae13074ce098f3730fff44e823122adfa8fec44753f8c135548a2b06640070",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/runtime/honly_fp16.py": "266324844d878c66cdb7cbec4034b68139ad44362b50f21c0f6396dd8a7267af",
-    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
-    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
     "tmp_external_baselines/kv_quant/KIVI/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
@@ -112,15 +112,15 @@
     "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/remote_cpu_attempt1/fp16_tokenwise_cpu_qualification_attempt1/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/remote_cpu_attempt1/fp16_tokenwise_cpu_qualification_attempt1/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/remote_cpu_attempt1/fp16_tokenwise_cpu_qualification_attempt1/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
-    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/remote_cpu_attempt1/fp16_tokenwise_cpu_qualification_attempt1/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/remote_cpu_attempt1/fp16_tokenwise_cpu_qualification_attempt1/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
-    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/remote_cpu_attempt1/fp16_tokenwise_cpu_qualification_attempt1/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/remote_cpu_attempt1/fp16_tokenwise_cpu_qualification_attempt1/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/remote_cpu_attempt1/fp16_tokenwise_cpu_qualification_attempt1/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/generation_codec_sensitivity_20260913/runtime/remote_cpu_attempt1/fp16_tokenwise_cpu_qualification_attempt1/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/analyze.py": "aa88c2c85abe7333ab6a3e210949a20501fc2c7551213fe6176bd7d7169e4d91",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/backend_gate.py": "21bdd4430ab7f1f9b792e3916cfd3b802d67a8e4a69d79c7ced03d5544ac60d4",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/diagnostics.py": "94346aee0bb7a6ba0eb2a23ab208e4af18886137a02c0499a5b929ba9c65e38b",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/prepare_blinded_packet.py": "a1d9d725b9d34f508fb448e136ac7de4d7833d1c7026f978ae641e6816923b52",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/protocol.py": "0cedac96d0bf6c441f5103b2f4430d2c2a3dd3552265a56bdaa73e79247e2c86",
-    "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/qcomem_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
+    "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/qencbank_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/record_shell_exit.py": "27ff44a5cd2067f24a3b045e3ec4a024dc376fbfe07baa0794caeccb855c4e12",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/resource_guard.py": "4ab1f426704a6e6abb519f5e0ea3935e97cda6a70fc37a19b7dd9a258d090cbb",
     "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/resource_worker.py": "e872decff6be31cb093755c1dbb9ba7cabe87243b0f11bc21138319fa36fc924",
@@ -271,7 +271,7 @@
       "sha256": "4c8779aeac769aadb9e8378282fe6dfef40d336d87bd5914e8145438a66df229"
     }
   },
-  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/generation_codec_admission_continuation_20260913_attempt1",
+  "task_cache_root": "/srv/encbank/qencbank_align_codex_20260911/task_cache/generation_codec_admission_continuation_20260913_attempt1",
   "task": {
     "benchmark": "LongBench",
     "dataset": "musique",
@@ -286,7 +286,7 @@
     "max_prompt_plus_cap": 17947,
     "drop_long_inputs": false
   },
-  "job_name": "qcomem-musique32-cap64-codec-admcont-codex",
+  "job_name": "qencbank-musique32-cap64-codec-admcont-codex",
   "concurrency_policy": {
     "maximum_owned_requested_GPUs": 4,
     "GPUs_per_job": 1,
@@ -308,15 +308,15 @@
   "full_input_coverage_maximum": 17947,
   "original_cohort": {
     "plan": {
-      "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/musique_full200_candidate/package/plan.json",
+      "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/musique_full200_candidate/package/plan.json",
       "sha256": "e00d82fe83a97a04f6958e975bccacf823a18d8e4a021bfde8b440c78ec30108"
     },
     "fixture": {
-      "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/musique_full200_candidate/inference_fixture.json",
+      "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/musique_full200_candidate/inference_fixture.json",
       "sha256": "8084dcd7c831ad83179e2f863975eee87079f3672b5b252feaf2e043952f1b17"
     },
     "labels": {
-      "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/musique_full200_candidate/scoring_only/labels.json",
+      "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/musique_full200_candidate/scoring_only/labels.json",
       "sha256": "01c7e264c4d9422c11fc21137294965eb851adf0817ee6a7c6275488af3426dd"
     },
     "original_bootstrap": {
@@ -351,7 +351,7 @@
   },
   "triton_cache_cleanup_fix": {
     "module": {
-      "path": "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/qcomem_triton_cache.py",
+      "path": "paper_autonomous_multifork_iteration/evidence/generation_codec_admission_continuation_20260913/package/qencbank_triton_cache.py",
       "sha256": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715"
     },
     "fix_provenance": {

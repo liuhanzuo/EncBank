@@ -6,10 +6,10 @@ from resource_guard import query,require_identity
 def now():return datetime.datetime.now().astimezone().isoformat()
 def main():
  args=parser().parse_args();plan,activation=preflight(args,envelope=not args.check_only)
- assert args.arm=='streamingllm_style_comem' and not args.arm.startswith('h')
+ assert args.arm=='streamingllm_style_encbank' and not args.arm.startswith('h')
  if args.check_only:print('{"status":"native_file_bindings_checked_no_cuda"}');return
  run,natural_read=resolve_driver(plan)  # Exact origin before sys.path mutations and model imports.
- assert Path(os.environ['QCOMEM_REPO_ROOT']).resolve()==ROOT
+ assert Path(os.environ['QENCBANK_REPO_ROOT']).resolve()==ROOT
  output=Path(args.output);parent=read(output/'execution.json')
  assert parent['status']=='worker_running' and parent['gpu_worker_started'] and parent['stable_interval_seconds']>=45
  identity=parent['physical_gpu_identity'];record={'status':'preparing','arm':args.arm,'pid':os.getpid(),'plan_sha256':args.expected_plan_sha256,'started_at':now(),'model_loaded':False,'training_allowed':False,'runtime_offload_allowed':False,'fallback_allowed':False,'quality_evidence':False,'physical_gpu_identity':identity}
@@ -44,7 +44,7 @@ def main():
    record.setdefault('pre_migration_checks',[]).append(snapshot);save(output/'worker.json',record)
    assert free>=RESOURCE['minimum_free_bytes'],'Fresh CUDA free-memory admission denied'
   gate()
-  sys.path[:0]=[str(ROOT),str(ROOT/'tmp_external_baselines/comem_official'),str(ROOT/'gpu/kvquant_quality_balanced')]
+  sys.path[:0]=[str(ROOT),str(ROOT/'tmp_external_baselines/encbank_official'),str(ROOT/'gpu/kvquant_quality_balanced')]
   from eval._common import load_backbone
   from phase_profile import Profiler
   profiler=Profiler(torch)
@@ -90,7 +90,7 @@ def main():
    provenance['backend_qualification']=plan['backend_qualification']
    provenance['node_identity']=record['node_identity']
    provenance.update(actual_BOS_token_id=151643,EOS_token_id=151645,first_step_EOS_suppressed=True,original_tokenizer_BOS=tokenizer.bos_token_id,original_generation_config_EOS=read(model_path(plan,'model')/'generation_config.json')['eos_token_id'],model_and_tokenizer_configs_mutated=False)
-   provenance['executed_attention_policy']='Native SDPA CoMem first4/last4096 prompt policy; selection and complete-query prefill inside TTFT'
+   provenance['executed_attention_policy']='Native SDPA Encbank first4/last4096 prompt policy; selection and complete-query prefill inside TTFT'
    provenance['attention_backend']=plan['attention_backend']
    provenance['configuration']=dict(plan['configuration'],resume_j=None)
    sys.path.insert(0,str(local(plan['tokenwise_runtime_root'])/'runtime'))

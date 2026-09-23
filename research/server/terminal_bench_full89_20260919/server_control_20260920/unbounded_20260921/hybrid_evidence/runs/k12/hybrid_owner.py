@@ -100,7 +100,7 @@ def main():
                     requests = [json.loads(path.read_text()) for path in BOX.glob('*.request.json')]
                     requests = [request for request in requests if request['task'] == name]
                     releases = []
-                    if P['arm'] == 'comem':
+                    if P['arm'] == 'encbank':
                         for session in sorted({request['task_id'] for request in requests}):
                             releases.append(transport.ctl('release', session))
                     results = list((RESULTS / name).glob('*/result.json'))

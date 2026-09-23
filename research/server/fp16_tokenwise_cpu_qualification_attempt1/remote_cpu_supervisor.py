@@ -2,9 +2,9 @@
 import datetime,hashlib,json,os,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
-EXPECTED=Path('/srv/encbank/qcomem_align_codex_20260911/fp16_tokenwise_cpu_qualification_attempt1')
+EXPECTED=Path('/srv/encbank/qencbank_align_codex_20260911/fp16_tokenwise_cpu_qualification_attempt1')
 assert ROOT==EXPECTED and ROOT.is_relative_to('/srv/encbank')
-assert sys.executable=='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+assert sys.executable=='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
 OUT=ROOT/'run';OUT.mkdir(exist_ok=False)
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 manifest=json.loads((ROOT/'source_manifest.json').read_text())

@@ -6,11 +6,11 @@ import pathlib
 import subprocess
 import time
 
-ROOT = pathlib.Path('/srv/encbank/client/comem_local_20260921')
+ROOT = pathlib.Path('/srv/encbank/client/encbank_local_20260921')
 OUTPUT = pathlib.Path('/srv/encbank/workspace/local_docker_20260921/monitoring')
 SSH = '/mnt/c/Windows/System32/OpenSSH/ssh.exe'
-REMOTE = '/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/docker_supplement_r2_20260921'
-PYTHON = '/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+REMOTE = '/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/docker_supplement_r2_20260921'
+PYTHON = '/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
 
 
 def read(path):
@@ -49,7 +49,7 @@ def inspect_task(family, task, now):
     if launch:
         row.update(state='running', started_epoch=launch['epoch'],
                    elapsed_seconds=now-launch['epoch'], parent_alive=process_alive(launch.get('pid')))
-    box = ROOT / 'rpc' / family / ('dense' if family == 'dense' else 'comem')
+    box = ROOT / 'rpc' / family / ('dense' if family == 'dense' else 'encbank')
     steps = []
     for request in box.glob('*.request.json'):
         q = read(request)
@@ -113,7 +113,7 @@ p=pathlib.Path(REMOTE_ROOT)
 def read(f): return json.loads(f.read_text()) if f.exists() else None
 out={'batch':read(p/'status.json'),'slurm':subprocess.check_output(['sacct','-X','-j','112400,112403,114684','--format=JobID,State,Elapsed,Timelimit,Start,End','-P'],text=True),'arms':{}}
 for family in ['dense','k12','k48']:
- r=p/family/('run_dense' if family=='dense' else 'run_comem')
+ r=p/family/('run_dense' if family=='dense' else 'run_encbank')
  row={n:read(r/n) for n in ['process_start.json','worker_ready.json','worker_failure.json','memory_cap_failure.json','bootstrap_timeout.json','process_receipt.json','worker_complete.json'] if (r/n).exists()}
  for n in ['owned_nvml.jsonl','events.jsonl']:
   f=r/n
@@ -202,7 +202,7 @@ def main():
     text = json.dumps(report, ensure_ascii=False, indent=2)+'\n'
     atomic(OUTPUT/'latest.json', text)
     atomic(OUTPUT/(dt.datetime.now().strftime('%Y%m%d_%H%M%S')+'.json'), text)
-    lines = ['# COMem 补测耗时与进度', '', '观测时间：'+report['observed_at'], '',
+    lines = ['# Encbank 补测耗时与进度', '', '观测时间：'+report['observed_at'], '',
              '| 方法 | 题目 | 状态 | 总耗时/分钟 | Agent耗时/分钟 | 模型回复/请求 |',
              '|---|---|---|---:|---:|---:|']
     for row in report['tasks']:

@@ -21,7 +21,7 @@ THE TWO AXES
 ------------
 Arm A and the KV family sit at opposite corners, and neither dominates:
 
-  arm A (CoMem)   4 KB/token always, but recomputes (L-j) layers over the WHOLE pack
+  arm A (Encbank)   4 KB/token always, but recomputes (L-j) layers over the WHOLE pack
   KV family       4|S| KB/token, but recomputes NOTHING over the context
 
 Read compute is reported in token-layers, the only unit in which the two are comparable:
@@ -150,7 +150,7 @@ def main():
         base = kl(ref, forward_from(model, embed_to(model, short, sp, 0), sp, 0, final=nq))
         row = {"sample": si, "kl_no_mem": base, "pack_tokens": int(pack.shape[1])}
 
-        # ---- arm A: CoMem, residual at depth j, recompute [j, L) ----
+        # ---- arm A: Encbank, residual at depth j, recompute [j, L) ----
         for j in js:
             parts = []
             off = 1
@@ -200,7 +200,7 @@ def main():
     print("arm            | bytes/tok | read compute (token-layers over context) | frac")
     print("---------------+-----------+------------------------------------------+------")
     for j in js:
-        print(f"A  CoMem j={j:<2d}  |  {kb_resid:5.0f} KB  |  {(L-j)*P:>10d}  ({L-j} layers x pack)      "
+        print(f"A  Encbank j={j:<2d}  |  {kb_resid:5.0f} KB  |  {(L-j)*P:>10d}  ({L-j} layers x pack)      "
               f"| {m(f'A_j{j}'):.3f}")
     for s in sizes:
         tag = " = CacheBlend" if s >= L else ""

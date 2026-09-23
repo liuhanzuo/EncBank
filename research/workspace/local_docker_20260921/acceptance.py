@@ -21,7 +21,7 @@ def probe(task):
     tag=uuid.uuid4().hex[:12]
     output=ROOT/('check-'+task+'-'+tag)
     output.mkdir()
-    name='comem-local-check-'+tag
+    name='encbank-local-check-'+tag
     cid=None
     report=dict(task=task,model_calls=0,benchmark_attempts=0,started_epoch=time.time(),status='RUNNING')
     gateway=command(['ip','route','show','default']).split()[2]
@@ -32,7 +32,7 @@ def probe(task):
         docker('pull',image,timeout=600)
         report['image']=image
         report['image_digest']=json.loads(docker('image','inspect',image))[0]['RepoDigests']
-        cid=docker('create','--name',name,'--label','comem.acceptance='+tag,
+        cid=docker('create','--name',name,'--label','encbank.acceptance='+tag,
                    '--memory','2g','--cpus','1','--pids-limit','512',
                    '-e','http_proxy='+proxy,'-e','https_proxy='+proxy,
                    '-e','HTTP_PROXY='+proxy,'-e','HTTPS_PROXY='+proxy,
@@ -45,12 +45,12 @@ def probe(task):
         assert int(quota)==int(period)
         install='set -e; apt-get update -qq; DEBIAN_FRONTEND=noninteractive apt-get install -y -qq tmux asciinema; command -v tmux; command -v asciinema'
         (output/'install.log').write_text(docker('exec',cid,'bash','-lc',install,timeout=600)+'\n')
-        docker('exec',cid,'bash','-lc',"tmux -L comem-check new-session -d -s check 'sleep 120'")
-        docker('exec',cid,'bash','-lc','tmux -L comem-check has-session -t check; tmux -L comem-check kill-server')
+        docker('exec',cid,'bash','-lc',"tmux -L encbank-check new-session -d -s check 'sleep 120'")
+        docker('exec',cid,'bash','-lc','tmux -L encbank-check has-session -t check; tmux -L encbank-check kill-server')
         report['terminal_and_persistent_tmux']='PASS'
-        (output/'upload.txt').write_text('comem-local-docker-roundtrip\n')
-        docker('cp',str(output/'upload.txt'),cid+':/tmp/comem-upload.txt')
-        docker('cp',cid+':/tmp/comem-upload.txt',str(output/'download.txt'))
+        (output/'upload.txt').write_text('encbank-local-docker-roundtrip\n')
+        docker('cp',str(output/'upload.txt'),cid+':/tmp/encbank-upload.txt')
+        docker('cp',cid+':/tmp/encbank-upload.txt',str(output/'download.txt'))
         assert (output/'upload.txt').read_bytes()==(output/'download.txt').read_bytes()
         report['file_transfer']='PASS'
         report['network_namespace']=docker('exec',cid,'readlink','/proc/self/ns/net')
@@ -63,7 +63,7 @@ def probe(task):
     finally:
         if cid:
             try:
-                label=docker('inspect','--format','{{index .Config.Labels "comem.acceptance"}}',cid)
+                label=docker('inspect','--format','{{index .Config.Labels "encbank.acceptance"}}',cid)
                 assert label==tag
                 docker('rm','-f',cid)
                 report['owned_container_removed']=True

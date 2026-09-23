@@ -6,7 +6,7 @@ import subprocess
 import time
 import tomllib
 
-R=Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+R=Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 
 
 def main():

@@ -20,7 +20,7 @@ def main():
         from server_preflight import check_source
         source_sha=check_source()
         queue=subprocess.check_output(['squeue','-r','-u','liuhanzuo','-h','-o','%i|%j|%T|%b'],text=True)
-        own=[r for r in queue.splitlines() if ('qcomem-tb-' in r or 'qcomem-agentmem-' in r) and 'gpu' in r.split('|')[-1].lower()]
+        own=[r for r in queue.splitlines() if ('qencbank-tb-' in r or 'qencbank-agentmem-' in r) and 'gpu' in r.split('|')[-1].lower()]
         assert len(own)<4,own
         assert all(r.split('|')[0] in {'112400','112403','114684'} for r in own),own
         predecessor=subprocess.check_output(['sacct','-X','-j','113514','--format=State','-n','-P'],text=True).strip()

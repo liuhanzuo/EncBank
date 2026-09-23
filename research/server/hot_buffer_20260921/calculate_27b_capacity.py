@@ -50,7 +50,7 @@ out=dict(kind='analytical_only_not_measured_27b_hot_buffer',full_layers=full,upp
     h21_bytes_per_token=h_token,kv_only_chunk_mib=kv_chunk/MIB,
     upper_state_checkpoint_mib=upper_linear*state_layer/MIB,kv_and_checkpoint_chunk_mib=checkpoint_chunk/MIB,
     active_recurrent_state_mib=state/MIB,active_per_session_gib=active,
-    old_comem_measured_post_release_allocated_gib=e['old_k12']['worker_complete']['allocated_bytes']/GIB,
+    old_encbank_measured_post_release_allocated_gib=e['old_k12']['worker_complete']['allocated_bytes']/GIB,
     allocator_budget_gib=cap,rounded_shared_weights_gib=weights,workspace_allowance_gib=workspace,
     recommendations= recommend,dense_existing_pool_tokens=2569933,
     dense_existing_pool_slots_128k=2569933//131072,dense_existing_pool_slots_256k=2569933//262144,

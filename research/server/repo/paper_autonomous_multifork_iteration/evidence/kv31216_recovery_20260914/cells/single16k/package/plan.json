@@ -31,7 +31,7 @@
     "sha256": "26fb8c47aa62e5761c2e92d2410e4d566d2bb55ddbd3ffe26fe035f20018480a"
   },
   "scorer": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
     "sha256": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f"
   },
   "activation": {
@@ -39,14 +39,14 @@
     "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
   },
   "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_public_kvdirect_j0",
-  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
-  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "model_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/adapter",
   "resource_policy": {
     "allocator_cap_bytes": 214748364800,
     "minimum_free_bytes": 236223201280,
     "stable_idle_seconds": 45
   },
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "native_attention_runtime_files": {
     "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
     "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
@@ -91,10 +91,10 @@
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/tokenwise_runtime.py": "d35ed28ae8ffb4db1dbf348b55ccd3c7d5f65b30f403cc90ceb5158d4e8ce3ac",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
     "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/timed_runtime/natural_qa.py": "fe2b75db339e90be142432e73fd0824ec25e01fafc56caff0bd70109cce82716",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
@@ -108,7 +108,7 @@
     "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/cells/single16k/package/analyze.py": "cd84161a92ce1c0e2529c5ea933cb1347b3beb83b0fe7a9fee49baa10cfcf7a2",
     "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/cells/single16k/package/backend_gate.py": "7b00093a3db1c371ef9065bbe40070a1662de0b30cc762b1a6ae327a7f42b1dd",
     "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/cells/single16k/package/protocol.py": "3328eddcb9f42f459bcd5175219d594dd0384204ea0d23036deb9aadfe311e0b",
-    "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/cells/single16k/package/qcomem_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
+    "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/cells/single16k/package/qencbank_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
     "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/cells/single16k/package/record_shell_exit.py": "27ff44a5cd2067f24a3b045e3ec4a024dc376fbfe07baa0794caeccb855c4e12",
     "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/cells/single16k/package/resource_guard.py": "4ab1f426704a6e6abb519f5e0ea3935e97cda6a70fc37a19b7dd9a258d090cbb",
     "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/cells/single16k/package/resource_worker.py": "1f892e608afe4d1f579ec9335aa206273231ff8b2fa6b7b3ba563c7df6421ba2",
@@ -149,7 +149,7 @@
   "training_or_runtime_offload": false,
   "automatic_retry": false,
   "on_actual_OOM": "Stop on every nonzero including OOM, retain failure and partial outputs; no retry or later arm continuation; no fabricated zero score.",
-  "precision_scope": "One adapter-free CoMem j12, FP16 backbone/native H, native SDPA; no LoRA or quantized or Dense arm executed.",
+  "precision_scope": "One adapter-free Encbank j12, FP16 backbone/native H, native SDPA; no LoRA or quantized or Dense arm executed.",
   "BOS_policy": "Prior BOS151643/scalarEOS151645/first-step suppression; fixed independently of 54-question BOS sensitivity outcomes.",
   "input_scope": "Pinned NVIDIA RULER xKV-vendored single2 source, same generation/assembly as prior NIAH with budget16K; cap48/reserve128; bare question without answer prefix; no reused old scores.",
   "analysis": {
@@ -158,7 +158,7 @@
     "bootstrap_executed": false,
     "native_only_on_remote": true,
     "metric_function_source": {
-      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_comem_j12_single16k_v3/package/analyze.py",
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_encbank_j12_single16k_v3/package/analyze.py",
       "sha256": "4085eb465e8b675f62cbc657f1f2a7cbd25ab104db5e8b16ee97dba005a77851"
     }
   },
@@ -243,7 +243,7 @@
       "sha256": "4c8779aeac769aadb9e8378282fe6dfef40d336d87bd5914e8145438a66df229"
     }
   },
-  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/kv31216_recovery_20260914_single16k_attempt1",
+  "task_cache_root": "/srv/encbank/qencbank_align_codex_20260911/task_cache/kv31216_recovery_20260914_single16k_attempt1",
   "task": {
     "benchmark": "RULER",
     "task": "niah_single_2",
@@ -257,7 +257,7 @@
     "num_needle_v": 1,
     "num_needle_q": 1
   },
-  "job_name": "qcomem-kvdirect-ropecompat-single16k-v1-codex",
+  "job_name": "qencbank-kvdirect-ropecompat-single16k-v1-codex",
   "concurrency_policy": {
     "maximum_owned_requested_GPUs": 4,
     "GPUs_per_job": 1,
@@ -279,7 +279,7 @@
     "sha256": "cf7a09504ceb13ece1e10a0ecd8a57cf85f7c0e0812b9030c25efa2eeea54991"
   },
   "postprocess": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
     "sha256": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c"
   },
   "input_assembly_receipt": {
@@ -297,7 +297,7 @@
   "duplicate_policy": "Explicit fresh complete user-requested KV-Direct series. Single16K is a separately named intentional repeat; retain prior job27998 and all old outputs. Never resume, overwrite, or rerun a completed new-series cell.",
   "first_cell_reason": "Complete previously frozen100-item RULER Single-needle16K cell; within original40960 window and unchanged inputs; adds one missing literature algorithm locally.",
   "source_official_commit": "2c407a6bf9d1503ebb004847f664b01d2ad898cc",
-  "literature_replication_boundary": "Public CoMem commit2c407a6bf9d1503ebb004847f664b01d2ad898cc comparator mode, exact local explicit document/query/BOS contract and FP16/nativeSDPA. HCache-style is the public comparator, not the production HCache scheduler. KV-Direct recomputes full depth at Read, not Dense persistent KV.",
+  "literature_replication_boundary": "Public Encbank commit2c407a6bf9d1503ebb004847f664b01d2ad898cc comparator mode, exact local explicit document/query/BOS contract and FP16/nativeSDPA. HCache-style is the public comparator, not the production HCache scheduler. KV-Direct recomputes full depth at Read, not Dense persistent KV.",
   "allchunks_runtime": {
     "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/kv_hcache_preparation/allchunks_runtime_v2.py",
     "sha256": "5335ea3593c15475d337a75b2ece3cd22897e6787b57682f8d088c20c33882b0"
@@ -314,7 +314,7 @@
   },
   "intentional_repeat_of_completed_KVDirect_cell": true,
   "original_input_plan": {
-    "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_comem_j12_single16k_v3/package/plan.json",
+    "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_encbank_j12_single16k_v3/package/plan.json",
     "sha256": "8f09bdaa0668a48ed03ed8e9671eba13761e5fce36d7b1a8de2f901d199bbdc7"
   },
   "scientific_limits": [

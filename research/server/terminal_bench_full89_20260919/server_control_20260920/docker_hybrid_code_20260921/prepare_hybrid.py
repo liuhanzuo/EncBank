@@ -6,12 +6,12 @@ import subprocess
 import tarfile
 from pathlib import Path
 
-B=Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919')
+B=Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919')
 S=B/'server_control_20260920'
 OUT=S/'docker_supplement_r2_20260921'
 CODE=S/'docker_hybrid_code_20260921'
-R=Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
-LOCAL=Path('/srv/encbank/client/comem_local_20260921')
+R=Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
+LOCAL=Path('/srv/encbank/client/encbank_local_20260921')
 TASKS=['regex-chess','vulnerable-secret']
 
 
@@ -48,11 +48,11 @@ def main():
                  container_result_series='local_docker_20260921',container_cpu_enforcement='docker_cpu_quota',
                  container_memory_enforcement='docker_cgroup_memory_max',container_runtime='Docker Engine 29.8.1',
                  host_memory_budget_mb=12288,host_admission_root=str(LOCAL/'host_admission'),
-                 task_root=str(LOCAL/'tasks'),harbor_python='/srv/encbank/client/comem_harbor_023/bin/python',
+                 task_root=str(LOCAL/'tasks'),harbor_python='/srv/encbank/client/encbank_harbor_023/bin/python',
                  rpc_root=str(LOCAL/'rpc'/family),results_root=str(LOCAL/'results'/family),
                  controller_tmp=str(LOCAL/'tmp'/family),controller_cache=str(LOCAL/'cache'/family),
                  container_cache=str(LOCAL/'cache'),sif_cache=str(LOCAL/'unused_sif'),
-                 ipc_root=str(R.parent/('t89dh21'+family)),job_name='qcomem-tb-docker-supplement-r2',
+                 ipc_root=str(R.parent/('t89dh21'+family)),job_name='qencbank-tb-docker-supplement-r2',
                  recovery_from_job='112585',recovery_classification='Six pre-agent environment failures; zero model requests',
                  transport='Verified immutable reply via existing OpenSSH identity; no inference retry',
                  protocol_boundary='Frozen model/sampling/context/task inputs; local Docker replaces failed Apptainer task environment')
@@ -94,14 +94,14 @@ def main():
         slurm=slurm.replace(' -u server_job.py',' -u holder.py')
         slurm='\n'.join(x for x in slurm.splitlines() if not x.startswith('#SBATCH '))+'\n'
         # Verify the frozen source on the allocated host before creating a worker.
-        slurm=slurm.replace('umask 077','umask 077\n/srv/encbank/qcomem_runtime_20260911/python312/bin/python '+str(OUT/'remote_batch.py')+' verify '+family)
+        slurm=slurm.replace('umask 077','umask 077\n/srv/encbank/qencbank_runtime_20260911/python312/bin/python '+str(OUT/'remote_batch.py')+' verify '+family)
         (new/'gpu.sh').write_text(slurm)
         # The old Apptainer qualification is historical, never an admission input here.
         save(new/'source_manifest.json',{f.name:sha(f) for f in new.iterdir() if f.is_file() and f.name not in {'source_manifest.json','server_source_manifest.json'}})
     for name in ['remote_batch.py','local_batch.py']:shutil.copy2(CODE/name,OUT/name)
     save(OUT/'recovery_evidence.json',dict(prior_job='112585',tasks=TASKS,rows=proofs))
     slurm=f'''#!/bin/bash
-#SBATCH --job-name=qcomem-tb-docker-supplement-r2
+#SBATCH --job-name=qencbank-tb-docker-supplement-r2
 #SBATCH --partition=gpu
 #SBATCH --nodelist=gpu-node3
 #SBATCH --gres=gpu:nvidia_l20d:1
@@ -112,7 +112,7 @@ def main():
 #SBATCH --output={OUT}/slurm-%j.log
 set -euo pipefail
 umask 077
-/srv/encbank/qcomem_runtime_20260911/python312/bin/python {OUT}/remote_batch.py run
+/srv/encbank/qencbank_runtime_20260911/python312/bin/python {OUT}/remote_batch.py run
 '''
     (OUT/'batch.slurm').write_text(slurm)
     with tarfile.open(OUT/'local_bundle.tar.gz','w:gz') as tar:

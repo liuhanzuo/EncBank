@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('job_id')
 args = parser.parse_args()
 assert args.job_id.isdigit()
-root = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+root = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 assert (root / ('candidate-' + args.job_id + '.log')).is_file()
 query = subprocess.run(['squeue', '-h', '-j', args.job_id, '-o', '%i'], capture_output=True, text=True)
 assert query.returncode == 0 and not query.stdout.strip(), 'Diagnostic job is still active'

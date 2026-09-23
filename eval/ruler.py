@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-"""CoMem — RULER (NIAH needle-in-a-haystack + variable_tracking) eval driver.
+"""Encbank — RULER (NIAH needle-in-a-haystack + variable_tracking) eval driver.
 
-Thin: build a :class:`comem.CoMem`, chunk each RULER prompt (query == trailing
+Thin: build a :class:`encbank.Encbank`, chunk each RULER prompt (query == trailing
 chunk), ``generate_from_ids`` (write chunks -> select topk -> resume -> decode),
 score with RULER ``string_match_all`` recall. Self-contained: the RULER sample
 synthesis + scoring are embedded here (ported verbatim from the research repo,
-which reproduces NVIDIA/RULER's constants). No dependency outside ``comem``.
+which reproduces NVIDIA/RULER's constants). No dependency outside ``encbank``.
 
 The NIAH prose haystack ("niah_single_2" / "niah_multikey_1") uses a natural-text
 corpus at ``--essay_path`` (one big text/JSONL file); if absent it falls back to
@@ -16,7 +16,7 @@ Usage:
     python -m eval.ruler --model_path /path/to/Qwen3-8B \\
         --resume_j 12 --selector bm25 --topk 12 \\
         --ruler_tasks niah_single niah_multi vt --lengths 4k 8k 16k 32k \\
-        --limit 50 --output_dir ruler_results/comem_j12
+        --limit 50 --output_dir ruler_results/encbank_j12
 """
 from __future__ import annotations
 
@@ -34,8 +34,8 @@ import torch
 from tqdm.auto import tqdm
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from comem import CoMem                          # noqa: E402
-from comem import selectors as _sel              # noqa: E402
+from encbank import Encbank                          # noqa: E402
+from encbank import selectors as _sel              # noqa: E402
 from eval import _cli                            # noqa: E402
 from eval._common import (load_backbone, resolve_baseline, write_results_csv,  # noqa: E402
                           dense_generate, DENSE_MODES)
@@ -287,7 +287,7 @@ def _resolve_selector(selector, task):
 
 def main():
     global _ESSAY_PATH
-    p = argparse.ArgumentParser(description="CoMem RULER eval")
+    p = argparse.ArgumentParser(description="Encbank RULER eval")
     p.add_argument("--model", "--model_path", dest="model_path", required=True)
     p.add_argument("--j", "--resume_j", dest="resume_j", type=_cli.j_type, default=12,
                    help="split depth (int) or 'auto' (per-model, see model_registry)")
@@ -329,7 +329,7 @@ def main():
     p.add_argument("--essay_path", default="data/pg19_train.jsonl",
                    help="Natural-prose corpus for the NIAH essay haystack "
                         "(falls back to noise if absent).")
-    p.add_argument("--output_dir", "--out", dest="output_dir", default="ruler_results/comem")
+    p.add_argument("--output_dir", "--out", dest="output_dir", default="ruler_results/encbank")
     p.add_argument("--device", default="cuda:0")
     p.add_argument("--dtype", default="bfloat16", choices=["bfloat16", "float16", "float32"])
     p.add_argument("--attn_impl", default="sdpa")
@@ -346,7 +346,7 @@ def main():
     model, tok = load_backbone(args.model_path, args.dtype, args.attn_impl,
                                args.device, lora)
     L = int(model.config.num_hidden_layers)
-    cm = CoMem(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
+    cm = Encbank(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
                block_diagonal=args.reuse_kv_blockdiag, tokenizer=tok)
     device = torch.device(args.device)
 
@@ -362,7 +362,7 @@ def main():
             if length not in _LENGTH_TOKENS:
                 continue
             target = _LENGTH_TOKENS[length]
-            print(f"[CoMem-RULER] {task}/{length}: selector={sel}")
+            print(f"[Encbank-RULER] {task}/{length}: selector={sel}")
             base_seed = args.seed + (hash((task, length)) % 100000)
             vt_icl = _make_vt_icl(random.Random(base_seed + 777), 4) \
                 if task == "variable_tracking" else None
@@ -415,10 +415,10 @@ def main():
             score = (recall_sum / total * 100.0) if total else 0.0
             summary[task][length] = {"score": round(score, 2), "n": total}
             write_results_csv(df, outdir / f"{task}_{length}{shard_tag}.csv")
-            print(f"[CoMem-RULER] {task}/{length}: recall={score:.2f} ({total})")
+            print(f"[Encbank-RULER] {task}/{length}: recall={score:.2f} ({total})")
     with open(outdir / f"_summary{shard_tag}.json", "w") as f:
         json.dump(summary, f, indent=2)
-    print("[CoMem-RULER] done.")
+    print("[Encbank-RULER] done.")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
-# Qwen3-8B COMem 联合深度：真实 Terminal-Bench 小样本实验
+# Qwen3-8B Encbank 联合深度：真实 Terminal-Bench 小样本实验
 
-原COMem联合prefill与n24历史重建，6个真实Terminal-Bench2.1任务，每组一次全新环境。只改变历史上层attention范围，冻结同一8B模型和同一原COMem LoRA。
+原Encbank联合prefill与n24历史重建，6个真实Terminal-Bench2.1任务，每组一次全新环境。只改变历史上层attention范围，冻结同一8B模型和同一原Encbank LoRA。
 
 检索chunk为512token，top12，hop4，按时间排列；初始指令始终保留在query，下限512token的近期窗口保留原KV。每次模型调用检索一次，生成期间继续增长KV，不做每512个生成token重新检索。缓存H12，不使用蒸馏头或hot KV buffer。
 
@@ -10,6 +10,6 @@
 
 独立CPU控制器运行在lj-gpu1，6个GPU进程分别负责一题的两组实验。仅服务器文件系统传递模型请求。源码提交前冻结，记录实际父进程wait、模型请求SHA、任务结果和容器清理证据。
 
-两组完成后，各题取至多3条归档历史最多的原COMem请求（同长度按step顺序），对完全相同输入和至多128个原输出token做native/n36/n24回放，各两次。回放只用于性能归因，不计任务分数或实时任务耗时。
+两组完成后，各题取至多3条归档历史最多的原Encbank请求（同长度按step顺序），对完全相同输入和至多128个原输出token做native/n36/n24回放，各两次。回放只用于性能归因，不计任务分数或实时任务耗时。
 
 重点报告有效完成率/得分、任务墙钟时间、模型时间、H12写入、检索、prefill、decode、KV重建时间及真实检索chunk数量。6题是探索性结果，不作为完整89题成绩。

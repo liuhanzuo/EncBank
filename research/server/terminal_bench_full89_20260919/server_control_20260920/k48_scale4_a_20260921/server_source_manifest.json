@@ -5,7 +5,7 @@
   "apptainer_service.py": "f490e323d051e478b78b30d21c36198939ecedbcd9740cd5cba8bfa8bc02c98c",
   "batch_cache.py": "f7f6ff8b3069d1496229c5af8a98ef1553dbe1224c483c4ae88f12d99366fa66",
   "batch_cache_refill.py": "2ba090a48f02fcc115115dd2ec2f9515cb195ec027bb333b4f9f306ba2423f54",
-  "comem_harbor_template.json": "1247bf6869ba4a08b430648d8a7cda9c06090fae1b8c2f03e6c734cef93e7a20",
+  "encbank_harbor_template.json": "1247bf6869ba4a08b430648d8a7cda9c06090fae1b8c2f03e6c734cef93e7a20",
   "common.py": "f4126ac9185cbfce5c8abc06a9f6095cebcc5f4d42ac8f3797ecf4d2919af260",
   "container_qualification.json": "371766ae9f2817352e4a07f0d76e346da8dc1af652b6e293471dd4c7d30e4dda",
   "control_plane_recovery.py": "d7908a44bdb91ec5fb4aecbcf89af282724c9b9d95a5bffe3f0260438560bb01",

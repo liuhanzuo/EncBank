@@ -7,7 +7,7 @@ import time
 import uuid
 from pathlib import Path
 
-ROOT = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+ROOT = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
     token = uuid.uuid4().hex[:12]
     output = ROOT / ('docker-acceptance-' + token)
     output.mkdir(mode=0o700)
-    name = 'qcomem-container-check-' + token
+    name = 'qencbank-container-check-' + token
     container_id = None
     report = dict(status='RUNNING', hostname=socket.gethostname(), epoch=time.time(),
                   model_calls=0, benchmark_attempts=0, container_name=name)
@@ -31,7 +31,7 @@ def main():
         report['compose_version'] = docker('compose', 'version')
         image = 'alexgshaw/cancel-async-tasks:20251031'
         docker('pull', image, timeout=300)
-        container_id = docker('create', '--name', name, '--label', 'comem.acceptance=' + token,
+        container_id = docker('create', '--name', name, '--label', 'encbank.acceptance=' + token,
             '--memory', '512m', '--cpus', '1', '--pids-limit', '128',
             '--mount', 'type=bind,src=' + str(output) + ',dst=/probe', image,
             'sh', '-c', 'sleep 120')
@@ -55,7 +55,7 @@ def main():
     finally:
         if container_id:
             try:
-                label = docker('inspect', '--format', '{{index .Config.Labels "comem.acceptance"}}', container_id)
+                label = docker('inspect', '--format', '{{index .Config.Labels "encbank.acceptance"}}', container_id)
                 assert label == token
                 docker('rm', '-f', container_id)
                 report['container_removed'] = True

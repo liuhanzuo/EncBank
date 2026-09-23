@@ -33,7 +33,7 @@ for label,arm,concurrency in arms:
     plan=dict(P,experiment='Qwen3.8-27B Transformers real Terminal-Bench hot-prefix comparison',
         tasks=tasks,resource_inventory=inventory,arm=arm,arms=[arm],task_concurrency=concurrency,decode_batch_size=concurrency,
         hot_chunks=24,qualification_root=str(Q),host_memory_budget_mb=204800,temperature=1.0,
-        task_root='/srv/encbank/qcomem_runtime_20260911/server_control_20260920/tasks',
+        task_root='/srv/encbank/qencbank_runtime_20260911/server_control_20260920/tasks',
         task_selection='8 declared representative tasks then alphabetically fill to32 among <=2GiB/1CPU tasks; independent of scores',
         cache_semantics='exact ordered H21-prefix KV+DeltaNet snapshot; online H preserved identically in cold/hot',
         hot_promotion='capture newly completed 512-token online H and upper state; only identical prefix reusable',

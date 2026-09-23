@@ -3,7 +3,7 @@ from pathlib import Path
 import json,os,subprocess,sys,time,traceback
 from persistence import dump
 H=Path(__file__).resolve().parent;H.relative_to(Path('/srv/encbank').resolve());arm=sys.argv[1]
-assert arm in ['dense','raw_shared','comem'];R=H/('run_'+arm);assert not R.exists();(R/'mailbox').mkdir(parents=True)
+assert arm in ['dense','raw_shared','encbank'];R=H/('run_'+arm);assert not R.exists();(R/'mailbox').mkdir(parents=True)
 def save(n,d):dump(R/n,d)
 args=['/srv/encbank/Paper_Evolve/.venv/bin/python','-u',str(H/'diagnose.py'),'--run',str(R)]
 with (R/'worker.stdout.log').open('wb') as out,(R/'worker.stderr.log').open('wb') as err:

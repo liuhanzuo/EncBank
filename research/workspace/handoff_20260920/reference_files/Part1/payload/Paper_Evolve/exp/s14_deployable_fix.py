@@ -4,11 +4,11 @@ S14 -- Make the S13 repair deployable, and fix the S13 KV-family control.
 WHY (two corrections from the S13 adversarial verification)
 -------------------------------------------------------------
 1. S13 wrote every chunk at the pack slot it later occupies ([BOS at 0; chunk at 1+i*c ..]).
-   That is NOT RoPE-translation-equivalent to CoMem's write (write_sink=True writes
+   That is NOT RoPE-translation-equivalent to Encbank's write (write_sink=True writes
    [BOS at 0; chunk at 1..c]): the BOS-to-chunk distance differs.  So S13's A_on and A_chunk
    are not S12's arms (0.350 vs 0.289 at j=12), and the repair's cached K/V were produced
    by a slot-aware write that a once-per-chunk store cannot reproduce.
-   Here every chunk is written ONCE at local positions, exactly as CoMem does; K is kept
+   Here every chunk is written ONCE at local positions, exactly as Encbank does; K is kept
    PRE-RoPE (after k_norm), and at read time it is rotated to the chunk's pack positions.
    V and h_j are position-free.  This is what a deployment would store.
 2. S13's KV(|S|) references (query runs all L layers alone, cache visible at |S| layers)
@@ -18,8 +18,8 @@ WHY (two corrections from the S13 adversarial verification)
    with the chunk cache (no sink entry) visible at the chosen layers.
 
 ARMS per (sample, j), all with the local write
-    A_off            CoMem published (no sink, local)               8 KB/token
-    A_on             CoMem with write sink, local (== S12's A_on)   8 KB
+    A_off            Encbank published (no sink, local)               8 KB/token
+    A_on             Encbank with write sink, local (== S12's A_on)   8 KB
     A_chunk          query h_j from the reference pack (floor, == S12's A_chunk)
     FL_empty         query at pack positions, no cache (BOS geometry control)
     FL_1             S = {1}                                        12 KB
@@ -71,7 +71,7 @@ def _qkv_pre(layer, x, pos_emb):
 
 @torch.no_grad()
 def write_local(model, ids, upto, keep_h=()):
-    """CoMem's write: `ids` alone at LOCAL positions 0..T-1.  Returns
+    """Encbank's write: `ids` alone at LOCAL positions 0..T-1.  Returns
     ({l: (K_pre_l, V_l)} for l < upto, {i: h_i} for i in keep_h)."""
     dev = ids.device
     pos = torch.arange(ids.shape[1], device=dev).unsqueeze(0)
@@ -136,7 +136,7 @@ def prepare(model, sink, sel, qi, js, L):
     sp = torch.arange(short.shape[1], device=dev).unsqueeze(0)
     base = kl(ref, forward_from(model, embed_to(model, short, sp, 0), sp, 0, nq))
 
-    # CoMem's write: [BOS; chunk] at local positions, once per chunk; keep pre-RoPE K, V, h_j
+    # Encbank's write: [BOS; chunk] at local positions, once per chunk; keep pre-RoPE K, V, h_j
     rot, hs_on = {l: ([], []) for l in range(L)}, []
     for i, ch in enumerate(sel):
         cache, hs = write_local(model, torch.cat([sink, ch], 1), L, keep_h=set(js))

@@ -13,7 +13,7 @@ c=subprocess.run([p['harbor_python'],'-B','-c','import controller,tb_agent,appta
 assert c.returncode==0,c.stderr
 from native_common import MODELS
 from runtime_identity import resolve_configs
-from comem_peft import file_sha
+from encbank_peft import file_sha
 from merged_qualification import qualify
 from peft import __version__ as peft_version
 resolve_configs(p,MODELS[1])

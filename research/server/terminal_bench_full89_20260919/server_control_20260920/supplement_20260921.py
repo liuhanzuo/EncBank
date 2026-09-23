@@ -15,14 +15,14 @@ import sys
 import time
 import tomllib
 
-B = Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919')
+B = Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919')
 S = B / 'server_control_20260920'
-R = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+R = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 OUT = S / 'supplement_20260921'
 TASKS = ['regex-chess', 'vulnerable-secret']
 ARMS = [('dense', 'dense_server_r6_20260920', '111876', 'dense_no_task_deadline_r5_20260920'),
-        ('k12', 'comem_k12_server_r6_20260920', '112400', 'comem_k12_no_task_deadline_r6_20260920'),
-        ('k48', 'comem_k48_server_r6_20260920', '112403', 'comem_k48_no_task_deadline_r6_20260920')]
+        ('k12', 'encbank_k12_server_r6_20260920', '112400', 'encbank_k12_no_task_deadline_r6_20260920'),
+        ('k48', 'encbank_k48_server_r6_20260920', '112403', 'encbank_k48_no_task_deadline_r6_20260920')]
 
 
 def save(p, d):
@@ -76,7 +76,7 @@ def build(probe_job, secret_probe_job=None):
                 shutil.copy2(original / file, target / file)
         plan = json.loads((target / 'plan.json').read_text())
         old_root, old_ipc = plan['remote_root'], plan['ipc_root']
-        plan.update(remote_root=str(target), tasks=TASKS, job_name='qcomem-tb-supplement-20260921',
+        plan.update(remote_root=str(target), tasks=TASKS, job_name='qencbank-tb-supplement-20260921',
                     selection='Two tasks explicitly omitted from every active allowlist; no outcome selection',
                     supplemental_only=True, predecessor_partition_reconciled=False,
                     evidence_id='E-TB21-SERVER-APPTAINER-SUPPLEMENT-' + family.upper() + '-20260921',
@@ -107,7 +107,7 @@ def build(probe_job, secret_probe_job=None):
     save(OUT/'batch.json',dict(status='prepared', epoch=time.time(), tasks=TASKS, runs=runs,
                              ownership=ownership, server_only=True, automatic_scientific_retries=0))
     script = f'''#!/bin/bash
-#SBATCH --job-name=qcomem-tb-supplement-20260921
+#SBATCH --job-name=qencbank-tb-supplement-20260921
 #SBATCH --partition=gpu
 #SBATCH --nodelist=gpu-node1
 #SBATCH --gres=gpu:nvidia_l20d:1
@@ -131,7 +131,7 @@ def submit():
     for name in batch['runs']:
         p=Path(name);plan=json.loads((p/'plan.json').read_text())
         command=[plan['harbor_python'],str(p/'server_preflight.py')]
-        if plan['arm']=='comem':command.append('--checkpoint')
+        if plan['arm']=='encbank':command.append('--checkpoint')
         result=subprocess.run(command,cwd=p,capture_output=True,text=True,timeout=600)
         assert result.returncode==0,(name,result.stdout,result.stderr)
     lockroot=B.parent/'terminal_bench_20260918'
@@ -140,7 +140,7 @@ def submit():
         assert not (OUT/'submission.json').exists()
         assert audit_ownership()==batch['ownership'], 'Ownership changed; review before dispatch'
         queue=subprocess.check_output(['squeue','-r','-u','liuhanzuo','-h','-o','%i|%j|%T|%b'],text=True)
-        own=[line for line in queue.splitlines() if any(x in line for x in ['qcomem-tb-','qcomem-agentmem-']) and 'gpu' in line.split('|')[-1].lower()]
+        own=[line for line in queue.splitlines() if any(x in line for x in ['qencbank-tb-','qencbank-agentmem-']) and 'gpu' in line.split('|')[-1].lower()]
         assert len(own)<4,own
         known={x[2] for x in ARMS}
         assert all(line.split('|')[0] in known for line in own), 'Unknown controller; refuse duplicate tasks'

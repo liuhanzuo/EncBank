@@ -10,7 +10,7 @@ def stabilize_decode_matmuls(model,rows=32):
 
     Dummy rows enter only row-independent linear projections and are discarded
     immediately. They never enter attention or DeltaNet state. Both dense and
-    CoMem use this path, including LoRA and lm_head. No parameter is modified.
+    Encbank use this path, including LoRA and lm_head. No parameter is modified.
     """
     count=0
     def wrap(original):

@@ -3,12 +3,12 @@ import hashlib,json,time,tomllib,subprocess
 from pathlib import Path
 
 U=Path(__file__).resolve().parent;S=U.parent;B=S.parent
-F=Path('/srv/encbank/COMem_Migration_20260920/final_handoff_20260921')
-R=Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+F=Path('/srv/encbank/Encbank_Migration_20260920/final_handoff_20260921')
+R=Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 def read(p):return json.loads(p.read_text())
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def proof(p):return dict(path=str(p),sha256=sha(p),bytes=p.stat().st_size)
-def normalize(p):return p.replace('\\','/').replace('//','/').split('qcomem/')[-1]
+def normalize(p):return p.replace('\\','/').replace('//','/').split('qencbank/')[-1]
 def inspect_result(p):
     r=read(p);roll=(r.get('agent_result') or {}).get('rollout_details') or []
     calls=[]
@@ -68,7 +68,7 @@ def main():
                 elif outcome['valid_result'] and row['normal']:retained[name]=dict(row,source='Apptainer_recovery',parent_receipt=proof(p))
                 else:replay[name]='USER_PROTOCOL_REPLACEMENT'
             for name in complete[key]['old_pending_adjudication']:
-                base=F.parents[0]/'Part2/payload/qcomem/.runtime/terminal_bench_full89_20260919/results'
+                base=F.parents[0]/'Part2/payload/qencbank/.runtime/terminal_bench_full89_20260919/results'
                 matches=[]
                 for root in base.glob('dense*'):
                     paths=list((root/name).glob('*/result.json'))+list(root.glob(name+'__*/result.json'))
@@ -90,7 +90,7 @@ def main():
                 for name in complete[key]['old_pending_adjudication']:
                     base=U/'verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results'
                     matches=[]
-                    for root in base.glob('comem*'):
+                    for root in base.glob('encbank*'):
                         if not any(x in root.name for x in ['top12','refill_retest']):continue
                         for p in (root/name).glob('*/result.json'):
                             row=inspect_result(p)

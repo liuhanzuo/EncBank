@@ -16,7 +16,7 @@ selected=min(candidates,key=lambda x:x['validation_kl'])
 p256=R.parent/'hidden_reader_four_distill_20260921/fixed_lr1e5/heads.pt'
 pend=long/selected['arm']/'heads_total2048.pt'
 checkpoints=dict(at=datetime.datetime.now().astimezone().isoformat(),selection_metric='held-out validation KL, no benchmark access',
-    candidates=candidates,arms=dict(comem=None,kd256=dict(path=str(p256),sha256=sha(p256),total_steps=256),
+    candidates=candidates,arms=dict(encbank=None,kd256=dict(path=str(p256),sha256=sha(p256),total_steps=256),
         kd_selected=selected,kd2048=dict(path=str(pend),sha256=sha(pend),total_steps=2048,arm=selected['arm'])))
 save(R/'checkpoints.json',checkpoints)
 for p in R.glob('*.py'):compile(p.read_text(),str(p),'exec')

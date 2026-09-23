@@ -17,7 +17,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parent
-RUN = ROOT / 'runs/comem_k12_server_r6_20260920'
+RUN = ROOT / 'runs/encbank_k12_server_r6_20260920'
 sys.path.insert(0, str(RUN))
 from runtime_identity import resolve_configs
 from server_transport import Transport, save, verify_response
@@ -49,9 +49,9 @@ class TransportTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.home = Path(self.temp.name)
-        self.run = self.home / 'run_comem'; self.run.mkdir()
+        self.run = self.home / 'run_encbank'; self.run.mkdir()
         self.box = self.home / 'rpc'; self.box.mkdir()
-        self.plan = {'arm': 'comem', 'remote_root': str(self.home)}
+        self.plan = {'arm': 'encbank', 'remote_root': str(self.home)}
         self.mailbox = Mailbox(self.run / 'mailbox', lambda: {'worker_ready.json': {'ready': True}})
         endpoint = self.mailbox.endpoint(); endpoint['host'] = '127.0.0.1'
         save(self.run / 'transport_endpoint.json', endpoint)
@@ -97,10 +97,10 @@ class TransportTests(unittest.TestCase):
         data = json.dumps({'request_id': 'r'}).encode()
         good = {'path': str(self.run / 'mailbox/r.response.json'), 'bytes': len(data),
                 'sha256': hashlib.sha256(data).hexdigest(), 'payload_base64': base64.b64encode(data).decode()}
-        self.assertEqual(verify_response(good, 'r', self.home, 'comem'), data)
+        self.assertEqual(verify_response(good, 'r', self.home, 'encbank'), data)
         for change in [{'sha256': '0' * 64}, {'path': '/another/run/r.response.json'}, {'bytes': 1}]:
             with self.subTest(change=change), self.assertRaises(AssertionError):
-                verify_response(dict(good, **change), 'r', self.home, 'comem')
+                verify_response(dict(good, **change), 'r', self.home, 'encbank')
 
     def test_duplicate_publish_is_not_replayed(self):
         req = json.loads(self.request('once', 'task').read_text())
@@ -147,7 +147,7 @@ class AssembledRunTests(unittest.TestCase):
             harbor.write_text('#!' + sys.executable + '\n' + """import json,sys,time
 from pathlib import Path
 config=json.loads(Path(sys.argv[-1]).read_text());h=Path.cwd();p=json.loads((h/'plan.json').read_text())
-task=config['job_name'];rid='cpu_'+task;box=Path(p['rpc_root'])/'comem';box.mkdir(parents=True,exist_ok=True)
+task=config['job_name'];rid='cpu_'+task;box=Path(p['rpc_root'])/'encbank';box.mkdir(parents=True,exist_ok=True)
 request={'request_id':rid,'task_id':rid,'task':task,'step':0,'remaining_seconds':5,'messages':[]}
 t=box/(rid+'.tmp');t.write_text(json.dumps(request));t.replace(box/(rid+'.request.json'))
 end=time.monotonic()+15
@@ -159,14 +159,14 @@ result=Path(config['jobs_dir'])/task/(task+'__cpu')/'result.json';result.parent.
             harbor.chmod(0o700)
             plan = {'remote_root': str(home), 'rpc_root': str(home / 'rpc'),
                     'results_root': str(home / 'results'), 'task_root': str(home / 'tasks'),
-                    'arm': 'comem', 'tasks': ['a', 'b'], 'concurrent_tasks': 2,
+                    'arm': 'encbank', 'tasks': ['a', 'b'], 'concurrent_tasks': 2,
                     'resource_inventory': [{'task': name, 'memory_mb': 1} for name in ['a', 'b']],
                     'host_admission_root': str(home / 'reservations'), 'host_memory_budget_mb': 1024,
                     'harbor_python': str(home / 'bin/python'), 'bootstrap_timeout_seconds': 10,
                     'docker_host': 'unix:///not-used', 'container_backend': 'synthetic-test',
                     'controller_tmp': str(home), 'controller_cache': str(home), 'container_cache': str(home)}
-            save(home / 'plan.json', plan); save(home / 'comem_harbor_template.json', {})
-            run = home / 'run_comem'; run.mkdir()
+            save(home / 'plan.json', plan); save(home / 'encbank_harbor_template.json', {})
+            run = home / 'run_encbank'; run.mkdir()
             save(run / 'worker_ready.json', {'synthetic_test': True})
             mailbox = Mailbox(run / 'mailbox', lambda: {'worker_ready.json': {'synthetic_test': True}})
             endpoint = mailbox.endpoint(); endpoint['host'] = '127.0.0.1'
@@ -198,7 +198,7 @@ result=Path(config['jobs_dir'])/task/(task+'__cpu')/'result.json';result.parent.
                 receipt = json.loads((home / 'execution/harbor_receipt.json').read_text())
                 self.assertTrue(receipt['all_task_parents_waited']); self.assertEqual(receipt['tasks_closed'], 2)
                 self.assertTrue((home / 'execution/owner_complete.json').exists())
-                self.assertEqual(len(list((home / 'rpc/comem').glob('*.broker.json'))), 2)
+                self.assertEqual(len(list((home / 'rpc/encbank').glob('*.broker.json'))), 2)
                 self.assertEqual(json.loads(next((home / 'reservations').glob('*/reservations.json')).read_text()), {})
             finally:
                 mailbox.server.shutdown(); mailbox.server.server_close()

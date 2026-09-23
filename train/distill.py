@@ -1,16 +1,16 @@
 #!/usr/bin/env python
-"""CoMem self-distillation — recover the mid-depth-resume depth cliff with LoRA.
+"""Encbank self-distillation — recover the mid-depth-resume depth cliff with LoRA.
 
-The zero-training CoMem read already closes the read-out gap at moderate ``j`` but
+The zero-training Encbank read already closes the read-out gap at moderate ``j`` but
 COLLAPSES on precise-localisation tasks (the "depth cliff"). This trains a LoRA
 self-distillation to push the cliff back, so the model can be resumed from a
 deeper ``j`` while staying close to the RAG upper bound:
 
-  * TEACHER = CoMem read at ``j = 0`` (RAG upper bound: retrieved chunks are
+  * TEACHER = Encbank read at ``j = 0`` (RAG upper bound: retrieved chunks are
     re-forwarded through the WHOLE model with the query present), with the LoRA
     adapters DISABLED (``peft.disable_adapter()``) under ``no_grad`` -> exactly the
     frozen base model on the packed sequence.
-  * STUDENT = CoMem read at ``j = --j``: chunks cached at depth ``j`` from the
+  * STUDENT = Encbank read at ``j = --j``: chunks cached at depth ``j`` from the
     FROZEN bottom ``layers[0:j]``; LoRA on ``layers[j:]`` ONLY learns to
     reconstruct the teacher from the shallow cache. Backbone is frozen.
   * LOSS = bidirectional top-k KL on the teacher's top-k support over the
@@ -26,12 +26,12 @@ DDP (explicit grad all-reduce, since the read runs the layers directly rather th
 through ``DDP.forward``). Load the resulting adapter for eval with ``--adapter``:
 
     python -m eval.run --benchmark ruler --model <PATH> --j auto \\
-        --adapter outputs/comem_distill_j12/final ...
+        --adapter outputs/encbank_distill_j12/final ...
 
-The core CoMem method is TRAINING-FREE; this distillation is an OPTIONAL enhancement
+The core Encbank method is TRAINING-FREE; this distillation is an OPTIONAL enhancement
 that lets you resume from a deeper ``j`` (cheaper read) without the depth cliff.
 
-Correctness: ``--self_test`` re-checks that at ``j=0`` (adapters off) the CoMem
+Correctness: ``--self_test`` re-checks that at ``j=0`` (adapters off) the Encbank
 read/write packing reproduces a stock full forward, and that ``resume_forward_ids``
 at the training ``j`` reproduces the full forward on a single contiguous sequence
 (both to fp32 tolerance) before any weights move.
@@ -39,13 +39,13 @@ at the training ``j`` reproduces the full forward on a single contiguous sequenc
 Usage:
     # single GPU
     python -m train.distill --model /path/to/Qwen3-8B --j auto \\
-        --data data/pg19_train.jsonl --out outputs/comem_distill_j12
+        --data data/pg19_train.jsonl --out outputs/encbank_distill_j12
 
     # 8-GPU DDP
     torchrun --nproc_per_node 8 -m train.distill \\
         --model /path/to/Qwen3-8B --j 12 --lora_rank 32 \\
         --data data/pg19_train.jsonl --total_steps 1000 \\
-        --out outputs/comem_distill_j12
+        --out outputs/encbank_distill_j12
 """
 from __future__ import annotations
 
@@ -63,8 +63,8 @@ import torch.distributed as dist
 import torch.nn.functional as F
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from comem import CoMem  # noqa: E402
-from comem.model_registry import resolve_resume_j  # noqa: E402
+from encbank import Encbank  # noqa: E402
+from encbank.model_registry import resolve_resume_j  # noqa: E402
 
 
 # --------------------------------------------------------------------------- #
@@ -177,19 +177,19 @@ class PG19Packer:
 # self-test gate — teacher (j=0, adapters off) == stock full forward
 # --------------------------------------------------------------------------- #
 @torch.no_grad()
-def run_self_test(peft_model, comem_j, comem_0, tokenizer, device, resume_j):
+def run_self_test(peft_model, encbank_j, encbank_0, tokenizer, device, resume_j):
     """Before any weights move, verify on the FROZEN backbone (adapters off):
 
-      (A) CoMem j=0 write/read packing == stock ``model(input_ids)`` forward, and
+      (A) Encbank j=0 write/read packing == stock ``model(input_ids)`` forward, and
       (B) ``resume_forward_ids`` at the training ``j`` == the full forward on a
           single contiguous sequence (holds for any ``j``).
 
     Uses fp32 for the <1e-4 gate.
     """
     print("=" * 72)
-    print(f"CoMem distill self-test (resume_j={resume_j})")
+    print(f"Encbank distill self-test (resume_j={resume_j})")
     print("=" * 72)
-    V = int(comem_0.config.vocab_size)
+    V = int(encbank_0.config.vocab_size)
     bos_id = tokenizer.bos_token_id if tokenizer.bos_token_id is not None else 0
 
     def rid(n):
@@ -201,14 +201,14 @@ def run_self_test(peft_model, comem_j, comem_0, tokenizer, device, resume_j):
     packed = torch.cat([sink, c1, c2, c3, q], dim=1)
 
     with peft_model.disable_adapter():
-        ref = comem_0.full_forward_logits(packed)
-        sh = comem_0.write_chunk(sink)
-        ch = [comem_0.write_chunk(c) for c in (c1, c2, c3)]
-        qh = comem_0.write_chunk(q)
-        out_pack = comem_0.read(sh, ch, qh)
+        ref = encbank_0.full_forward_logits(packed)
+        sh = encbank_0.write_chunk(sink)
+        ch = [encbank_0.write_chunk(c) for c in (c1, c2, c3)]
+        qh = encbank_0.write_chunk(q)
+        out_pack = encbank_0.read(sh, ch, qh)
         diff_pack = (out_pack.float() - ref.float()).abs().max().item()
 
-        out_j = comem_j.resume_forward_ids(packed)
+        out_j = encbank_j.resume_forward_ids(packed)
         diff_j = (out_j.float() - ref.float()).abs().max().item()
 
     tol = 1e-4
@@ -234,7 +234,7 @@ def _j_type(value):
 
 
 def build_argparser():
-    p = argparse.ArgumentParser(description="CoMem LoRA self-distillation on PG19")
+    p = argparse.ArgumentParser(description="Encbank LoRA self-distillation on PG19")
     # model / split depth (unified eval CLI: --model / --j <int|auto>)
     p.add_argument("--model", "--model_path", dest="model_path", required=True,
                    help="Local HF causal-LM path.")
@@ -286,7 +286,7 @@ def build_argparser():
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--self_test", action="store_true", default=False,
                    help="Run the fp32 correctness gate and exit (no training).")
-    p.add_argument("--wandb_project", default="comem")
+    p.add_argument("--wandb_project", default="encbank")
     p.add_argument("--wandb_run_name", default="")
     return p
 
@@ -312,7 +312,7 @@ def main():
         dtype = torch.float32  # tight tolerance
 
     if _is_main(rank):
-        print(f"[comem-distill] model={args.model_path} j={args.resume_j} "
+        print(f"[encbank-distill] model={args.model_path} j={args.resume_j} "
               f"b={args.top_prepay_b} lora_r={args.lora_rank} "
               f"chunk={args.chunk_size} n_ctx={args.n_ctx} dtype={dtype} "
               f"world_size={world_size}", flush=True)
@@ -341,17 +341,17 @@ def main():
         lora_dropout=args.lora_dropout, target_modules=targets,
         layers_to_transform=list(range(args.resume_j, L)), layers_pattern="layers")
     peft_model = get_peft_model(base, lora_cfg)
-    causal_lm = peft_model.base_model.model  # underlying *ForCausalLM CoMem reads off
+    causal_lm = peft_model.base_model.model  # underlying *ForCausalLM Encbank reads off
     train_params = [prm for prm in peft_model.parameters() if prm.requires_grad]
     if _is_main(rank):
-        print(f"[comem-distill] LoRA on layers[{args.resume_j}:{L}] targets={targets} "
+        print(f"[encbank-distill] LoRA on layers[{args.resume_j}:{L}] targets={targets} "
               f"-> trainable {sum(x.numel() for x in train_params)/1e6:.2f}M", flush=True)
 
-    # student (j) + teacher (j=0) CoMem orchestrators — thin, no params, one model.
-    qc = CoMem(causal_lm, resume_j=args.resume_j, top_prepay_b=args.top_prepay_b,
+    # student (j) + teacher (j=0) Encbank orchestrators — thin, no params, one model.
+    qc = Encbank(causal_lm, resume_j=args.resume_j, top_prepay_b=args.top_prepay_b,
                tokenizer=tokenizer)
     qc.grad_checkpoint = bool(args.gradient_checkpointing)
-    qc_teacher = CoMem(causal_lm, resume_j=0, top_prepay_b=0, tokenizer=tokenizer)
+    qc_teacher = Encbank(causal_lm, resume_j=0, top_prepay_b=0, tokenizer=tokenizer)
 
     if args.self_test:
         ok = True
@@ -401,7 +401,7 @@ def main():
             wb = wandb.init(project=args.wandb_project, name=args.wandb_run_name,
                             config=vars(args))
         except Exception as e:  # pragma: no cover
-            print(f"[comem-distill] wandb init failed ({e}); continuing", flush=True)
+            print(f"[encbank-distill] wandb init failed ({e}); continuing", flush=True)
 
     bos_id = tokenizer.bos_token_id
     if bos_id is None:
@@ -467,7 +467,7 @@ def main():
             if _is_main(rank) and step % args.log_interval == 0:
                 avg = running / max(1, seen)
                 dt = time.time() - t0
-                print(f"[comem-distill] step {step}/{args.total_steps} "
+                print(f"[encbank-distill] step {step}/{args.total_steps} "
                       f"loss {avg:.4f} lr {lr_at(step):.2e} "
                       f"{seen*world_size/dt:.1f} samp/s", flush=True)
                 if wb is not None:
@@ -477,13 +477,13 @@ def main():
                 sd = os.path.join(args.output_dir, f"step{step}")
                 os.makedirs(sd, exist_ok=True)
                 peft_model.save_pretrained(sd)
-                print(f"[comem-distill] saved LoRA -> {sd}", flush=True)
+                print(f"[encbank-distill] saved LoRA -> {sd}", flush=True)
 
     if _is_main(rank):
         fd = os.path.join(args.output_dir, "final")
         os.makedirs(fd, exist_ok=True)
         peft_model.save_pretrained(fd)
-        print(f"[comem-distill] DONE -> {fd}", flush=True)
+        print(f"[encbank-distill] DONE -> {fd}", flush=True)
         if wb is not None:
             wb.finish()
     if world_size > 1:

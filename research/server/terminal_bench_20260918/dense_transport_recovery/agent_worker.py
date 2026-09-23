@@ -35,7 +35,7 @@ try:
     admission=dict(free=free,total=total,cap=cap,nvidia_smi=subprocess.check_output(['nvidia-smi'],text=True),processes=subprocess.check_output(['ps','-u','liuhanzuo','-o','pid,ppid,comm'],text=True))
     tok=tokenizer(cfg);model=load_model(cfg);assert all(p.device.type=='cuda' for p in model.parameters())
     reader=HybridReader(model,cfg['j'])
-    if arm in ['raw_shared','comem']:
+    if arm in ['raw_shared','encbank']:
         reader.attach();cp=Path(plan['adapter_path']);ckpt=torch.load(cp,map_location='cpu',weights_only=False)
         assert ckpt['step']==4000;load_state(reader,ckpt,cfg);del ckpt
         assert hashlib.sha256(cp.read_bytes()).hexdigest()==plan['adapter_sha256']
@@ -83,7 +83,7 @@ try:
             if len(ledger)>plan['max_archive_tokens'] or response['prompt_tokens']>plan['max_prompt_tokens']:
                 response.update(status='context_limit',text='');dump(req.with_name(req.name.replace('.request.','.response.')),response);seen.add(req.name);last=time.monotonic();continue
             write_start=stamp();encoded=0;reused=0
-            if arm=='comem':
+            if arm=='encbank':
                 oldkeys=set(bank);newbank={};newhash={}
                 for c in static_chunks+history_chunks:
                     k=digest(c)
@@ -126,18 +126,18 @@ try:
                     dense_cache=result.past_key_values;logits=result.logits;cached_prefix.append(token);del result
                 else:
                     hidden=reader.core.embed_tokens(reader.tensor([token]))
-                    if arm=='comem':
+                    if arm=='encbank':
                         hidden=reader.layers(hidden,0,reader.j,cache=lower,offset=qposition);qposition+=1
                         hidden=reader.layers(hidden,reader.j,reader.L,cache=upper,offset=position)
                     else:hidden=reader.layers(hidden,0,reader.L,cache=upper,offset=position)
                     logits=reader.logits(hidden);position+=1;del hidden
-            ended=stamp();first=first or ended;active_bytes=cache_bytes(dense_cache) if arm=='dense' else cache_bytes(upper)+(cache_bytes(lower) if arm=='comem' else 0)
+            ended=stamp();first=first or ended;active_bytes=cache_bytes(dense_cache) if arm=='dense' else cache_bytes(upper)+(cache_bytes(lower) if arm=='encbank' else 0)
             response.update(status='deadline' if response.get('deadline_reached') else 'ok',text=tok.decode(generated,skip_special_tokens=True),generated_ids=generated,generated_tokens=len(generated),hit_generation_cap=len(generated)==plan['max_new_tokens'] and generated[-1] not in stop,model_seconds=ended-prefill_start,ttft_seconds=first-prefill_start,request_seconds=ended-began,write_seconds=write_end-write_start,newly_written_tokens=encoded,reused_written_tokens=reused,persistent_H_bytes=sum(t.numel()*t.element_size() for t in bank.values()),raw_history_int64_bytes=len(ledger)*8,active_native_cache_bytes=active_bytes,decode_tokens_per_second=max(0,len(generated)-1)/max(1e-9,ended-first),peak_allocated_bytes=torch.cuda.max_memory_allocated(),peak_reserved_bytes=torch.cuda.max_memory_reserved(),state_hashes_unchanged=all(state_digest(t)==bankhash[k] for k,t in bank.items()))
             assert response['state_hashes_unchanged']
             del logits
             if arm!='dense':
                 del upper
-                if arm=='comem':del lower
+                if arm=='encbank':del lower
             response['post_request_allocated_bytes']=torch.cuda.memory_allocated()
             dump(req.with_name(req.name.replace('.request.','.response.')),response);seen.add(req.name);last=time.monotonic()
     dump(R/'worker_complete.json',dict(completed=True,requests=len(seen)))

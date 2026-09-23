@@ -1,4 +1,4 @@
-"""Paired original COMem / hidden-to-KV RULER quality evaluation, server only."""
+"""Paired original Encbank / hidden-to-KV RULER quality evaluation, server only."""
 import collections,datetime,hashlib,json,os,sys,time,traceback
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
@@ -40,8 +40,8 @@ def main():
         w=torch.load(p,map_location='cuda',weights_only=False)['weights']
         assert set(w)==set(range(12,36))-{12,16,20,24}
         weights[arm]={l:tuple(t.to(torch.bfloat16) for t in pair) for l,pair in w.items()}
-    MODEL='/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B'
-    ADAPTER='/srv/encbank/comem_infra_recheck_20260912/adapter'
+    MODEL='/srv/encbank/encbank_sparse_slurm_20260912/models/Qwen3-8B'
+    ADAPTER='/srv/encbank/encbank_infra_recheck_20260912/adapter'
     assert sha(Path(ADAPTER)/'adapter_model.safetensors')=='1deb86bdc89206ab029ca67403fb3f96dda29fc68223eebec4fc49e97ec0eb13'
     status('LOAD_MODEL')
     tok=AutoTokenizer.from_pretrained(MODEL,local_files_only=True)
@@ -101,14 +101,14 @@ def main():
         h=reader._run_layers(qh,slice(12,36),mask,p,reader.rotary_emb(qh,position_ids=p),past_key_values=top,use_cache=True)
         return reader.lm_head(reader.norm(h[:,-1:])),bottom,top,qpos
     def exact_cache_control(native,top,query,n):
-        # Use true COMem memory KV to qualify the student's cache/query path.
+        # Use true Encbank memory KV to qualify the student's cache/query path.
         c=fresh()
         for l in range(12,36):c.update(top.layers[l].keys[:,:,:n].clone(),top.layers[l].values[:,:,:n].clone(),l)
         actual,*rest=query_prefill(query,c,n)
         p=F.log_softmax(native.float(),-1);q=F.log_softmax(actual.float(),-1)
         kl=float((p.exp()*(p-q)).sum(-1).mean());same=bool((native.argmax(-1)==actual.argmax(-1)).all())
         row=dict(kl=kl,argmax_equal=same,max_abs=float((native.float()-actual.float()).abs().max()),
-            scope='native joint COMem prefill vs true memory KV plus separate query; verifies masks, RoPE, and cache placement')
+            scope='native joint Encbank prefill vs true memory KV plus separate query; verifies masks, RoPE, and cache placement')
         dump('exact_cache_control.json',row);assert abs(kl)<.001 and same,row
     with torch.inference_mode(),sdpa_kernel([SDPBackend.FLASH_ATTENTION,SDPBackend.EFFICIENT_ATTENTION]):
         start=time.perf_counter()
@@ -119,9 +119,9 @@ def main():
                 query=case['query_token_ids'];row=dict(id=case['id'],index=index,
                     source_document_sha256=case['source_document_sha256'],source_document_tokens=case['source_document_tokens'],
                     selected_indices=case['selected_indices'],memory_tokens=n,query_tokens=len(query),arms={})
-                for arm in ['comem','kd256','kd_selected','kd2048']:
+                for arm in ['encbank','kd256','kd_selected','kd2048']:
                     torch.cuda.synchronize();begin=time.perf_counter()
-                    if arm=='comem':
+                    if arm=='encbank':
                         qh,bottom,qpos=reader.write_prefill(query)
                         logits,top,packed=reader.read_prefill(hidden[12][:,:1],[hidden[12][:,1:]],qh)
                         assert packed==n+qpos

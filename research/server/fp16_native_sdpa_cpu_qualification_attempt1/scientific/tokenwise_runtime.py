@@ -16,7 +16,7 @@ from honly_fp16 import HOnlyMemory
 def backbone(model):return model.get_base_model() if callable(getattr(model,'get_base_model',None)) else model
 def cache_tensors(cache):
     if cache is None:return ()
-    if getattr(cache,'_qcomem_kivi_bridge',False):return cache.tensor_items()
+    if getattr(cache,'_qencbank_kivi_bridge',False):return cache.tensor_items()
     if not isinstance(cache,DynamicCache):raise TypeError('Only bound native DynamicCache/KIVI Cache')
     return tuple((f'layer.{i}.{name}',t) for i,layer in enumerate(cache.layers) for name in ('keys','values') if isinstance(t:=getattr(layer,name,None),torch.Tensor))
 def storage(t):return str(t.device),t.untyped_storage().data_ptr(),t.untyped_storage().nbytes()
@@ -35,13 +35,13 @@ class NativeEntry:
         for device,_,nbytes in keys:by_device[device]=by_device.get(device,0)+nbytes
         return {'representation':self.representation,'unique_tensor_storage_bytes':sum(x[2] for x in keys),'tensor_storage_bytes_by_device':by_device,'raw_id_cpu_tensor_bytes':self.raw_ids.untyped_storage().nbytes(),'document_tokens':self.raw_ids.numel(),'prefix_tokens':self.cache.get_seq_length(),'model_state_included':False,'query_state_included':False,'native_hidden_or_KV_host_offload':False}
     def release(self):
-        if getattr(self.cache,'_qcomem_kivi_bridge',False):self.cache.release()
+        if getattr(self.cache,'_qencbank_kivi_bridge',False):self.cache.release()
         self.raw_ids=None;self.cache=None
 
 class NativeRequest:
     def __init__(self,model,entry):
         self.model=model;self.device=next(model.parameters()).device
-        self.cache=entry.cache.fork() if getattr(entry.cache,'_qcomem_kivi_bridge',False) else copy.deepcopy(entry.cache)
+        self.cache=entry.cache.fork() if getattr(entry.cache,'_qencbank_kivi_bridge',False) else copy.deepcopy(entry.cache)
         sourcekeys={storage(t) for _,t in entry.tensor_items()}
         if any(storage(t) in sourcekeys for _,t in cache_tensors(self.cache)):raise RuntimeError('Request aliases immutable native/packed entry')
         self.position=self.cache.get_seq_length();self.selected_indices=None;self.prefix_tokens=self.position
@@ -60,7 +60,7 @@ class NativeRequest:
             self.head_calls+=1;return self.model.lm_head(output.last_hidden_state[:, -1:])
         return None
     def close(self):
-        if getattr(self.cache,'_qcomem_kivi_bridge',False):self.cache.release()
+        if getattr(self.cache,'_qencbank_kivi_bridge',False):self.cache.release()
         self.cache=None
 
 class HRequest:

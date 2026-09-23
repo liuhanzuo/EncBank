@@ -2,7 +2,7 @@
 from pathlib import Path
 import json,os,tempfile,time
 approved=Path('/srv/encbank').resolve()
-expected=Path('/srv/encbank/qcomem_runtime_20260911/t89dnlim3').resolve()
+expected=Path('/srv/encbank/qencbank_runtime_20260911/t89dnlim3').resolve()
 rows={}
 for key in ['TMPDIR','VLLM_RPC_BASE_PATH']:
  p=Path(os.environ[key]).resolve();p.relative_to(approved);assert p==expected and p.is_dir()

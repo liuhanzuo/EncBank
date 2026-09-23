@@ -5,10 +5,10 @@ import hashlib,json,os
 os.environ['CUDA_VISIBLE_DEVICES']=''
 from transformers import AutoTokenizer
 H=Path(__file__).resolve().parent;H.relative_to(Path('/srv/encbank').resolve())
-S=H.parent/'comem_refill_retest_20260919';P=json.loads((S/'plan.json').read_text());M=Path(P['model']).resolve();M.relative_to(Path('/srv/encbank').resolve())
+S=H.parent/'encbank_refill_retest_20260919';P=json.loads((S/'plan.json').read_text());M=Path(P['model']).resolve();M.relative_to(Path('/srv/encbank').resolve())
 g=json.loads((M/'generation_config.json').read_text());stop=g['eos_token_id'];stop=set(stop if isinstance(stop,list) else [stop]);tok=AutoTokenizer.from_pretrained(M,local_files_only=True)
 rows=[]
-for path in sorted((S/'run_comem/mailbox').glob('*.response.json')):
+for path in sorted((S/'run_encbank/mailbox').glob('*.response.json')):
     r=json.loads(path.read_text());ids=r.get('generated_ids',[])
     assert r['generated_tokens']==len(ids)
     assert tok.decode(ids,skip_special_tokens=True)==r['text'],'Decoded text mismatch'

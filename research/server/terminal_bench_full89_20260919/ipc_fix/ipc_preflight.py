@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,json,os,socket,tempfile,time,uuid
 import zmq
 H=Path(__file__).resolve().parent
-root=Path('/srv/encbank/qcomem_runtime_20260911/t89i3').resolve()
+root=Path('/srv/encbank/qencbank_runtime_20260911/t89i3').resolve()
 root.relative_to(Path('/srv/encbank').resolve());assert root.is_dir()
 os.environ['TMPDIR']=os.environ['VLLM_RPC_BASE_PATH']=str(root);tempfile.tempdir=None
 assert tempfile.gettempdir()==str(root)

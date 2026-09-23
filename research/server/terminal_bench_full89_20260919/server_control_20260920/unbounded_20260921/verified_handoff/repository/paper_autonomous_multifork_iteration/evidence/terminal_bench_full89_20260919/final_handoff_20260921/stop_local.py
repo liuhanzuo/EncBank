@@ -3,7 +3,7 @@ from pathlib import Path
 import ctypes,datetime,hashlib,json,os,subprocess,time,tomllib
 from ctypes import wintypes
 H=Path(__file__).resolve().parent;B=H.parent;ROOT=Path('/srv/encbank/legacy_workspace')
-NAMES=['comem_k12_no_task_deadline_r6_20260920','comem_k48_no_task_deadline_r6_20260920']
+NAMES=['encbank_k12_no_task_deadline_r6_20260920','encbank_k48_no_task_deadline_r6_20260920']
 def now():return datetime.datetime.now().astimezone().isoformat()
 def save(p,d):p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf8',newline='\n')
 def load(p):return json.loads(p.read_text(encoding='utf8'))
@@ -13,7 +13,7 @@ def norm(s):return str(s or '').replace('\\','/').lower()
 def owned(p):
  c=norm(p['CommandLine']);return p['Name'].lower()=='python.exe' and any(norm(B/n/'windows_owner.py') in c for n in NAMES)
 def monitor(p):return p['Name'].lower()=='python.exe' and norm(B/'runtime_binding_recovery_20260920/resource_monitor.py') in norm(p['CommandLine'])
-cfg=tomllib.loads((Path(os.environ.get('CODEX_HOME','/srv/encbank/client/.codex'))/'automations/q-comem/automation.toml').read_text(encoding='utf8'));assert cfg['status']=='PAUSED'
+cfg=tomllib.loads((Path(os.environ.get('CODEX_HOME','/srv/encbank/client/.codex'))/'automations/q-encbank/automation.toml').read_text(encoding='utf8'));assert cfg['status']=='PAUSED'
 save(H/'automation_paused.json',dict(at=now(),id=cfg['id'],status=cfg['status'],prompt=cfg['prompt']))
 before=ps();targets=[p for p in before if owned(p) or monitor(p)];assert {45952,39996}<={p['ProcessId'] for p in targets}
 snap={}

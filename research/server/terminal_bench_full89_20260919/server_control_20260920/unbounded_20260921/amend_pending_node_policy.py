@@ -1,4 +1,4 @@
-"""Apply the user's any-node policy only to held, never-started CoMem jobs."""
+"""Apply the user's any-node policy only to held, never-started Encbank jobs."""
 import hashlib
 import json
 import shutil
@@ -6,7 +6,7 @@ import subprocess
 import time
 from pathlib import Path
 
-S = Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920')
+S = Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920')
 U = S / 'unbounded_20260921'
 
 def sha(path):
@@ -17,7 +17,7 @@ for arm, job in [('k12', '115838'), ('k48', '115839')]:
     state = subprocess.check_output(['scontrol', 'show', 'job', job, '-o'], text=True)
     assert 'JobState=PENDING ' in state and 'Reason=JobHeldUser ' in state
     assert 'ReqNodeList=(null)' in state
-    assert not (h / 'run_comem').exists() and not (h / 'owner_registration.json').exists()
+    assert not (h / 'run_encbank').exists() and not (h / 'owner_registration.json').exists()
     archive = h / 'pre_any_node_20260921'
     archive.mkdir(exist_ok=False)
     manifest = json.loads((h / 'server_source_manifest.json').read_text())

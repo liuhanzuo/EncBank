@@ -2,7 +2,7 @@
 from pathlib import Path
 import hashlib,json,sys,time
 H=Path(__file__).resolve().parent;H.relative_to(Path('/srv/encbank').resolve())
-action,arm=sys.argv[1:3];assert arm in ['dense','raw_shared','comem'];R=H/('run_'+arm);B=R/'mailbox'
+action,arm=sys.argv[1:3];assert arm in ['dense','raw_shared','encbank'];R=H/('run_'+arm);B=R/'mailbox'
 def save(p,d):
  t=p.with_suffix('.tmp');t.write_text(json.dumps(d)+'\n');t.replace(p)
 if action=='status':

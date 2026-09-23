@@ -1,8 +1,8 @@
-"""Shared helpers for the CoMem eval drivers (data loading / scoring live in the
+"""Shared helpers for the Encbank eval drivers (data loading / scoring live in the
 per-benchmark modules; this holds only model loading + a CSV writer).
 
-The eval drivers import ONLY ``comem`` + their benchmark's data/scoring code — no
-dependency on the research repo. Each builds a :class:`comem.CoMem`, runs
+The eval drivers import ONLY ``encbank`` + their benchmark's data/scoring code — no
+dependency on the research repo. Each builds a :class:`encbank.Encbank`, runs
 ``generate_from_ids`` (the fused encode+write+select+decode reference path over a
 single prompt whose trailing chunk is the query), and applies the official metric.
 """
@@ -20,9 +20,9 @@ DTYPES = {"bfloat16": torch.bfloat16, "float16": torch.float16,
 def load_backbone(model_path, dtype="bfloat16", attn_impl="sdpa", device="cuda:0",
                   lora_adapter=""):
     """Load a stock ``*ForCausalLM`` + tokenizer (offline), optionally applying a
-    trained CoMem-distill LoRA adapter. Returns ``(model, tokenizer)``. The LoRA
-    delta is applied by the peft-wrapped Linear submodules when CoMem calls the
-    layers directly, so we hand CoMem the underlying ``base_model.model``."""
+    trained Encbank-distill LoRA adapter. Returns ``(model, tokenizer)``. The LoRA
+    delta is applied by the peft-wrapped Linear submodules when Encbank calls the
+    layers directly, so we hand Encbank the underlying ``base_model.model``."""
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True,
                                         local_files_only=True)
@@ -34,13 +34,13 @@ def load_backbone(model_path, dtype="bfloat16", attn_impl="sdpa", device="cuda:0
     ).to(device).eval()
     if lora_adapter:
         from peft import PeftModel
-        print(f"[comem-eval] loading LoRA adapter: {lora_adapter}")
+        print(f"[encbank-eval] loading LoRA adapter: {lora_adapter}")
         peft_model = PeftModel.from_pretrained(model, lora_adapter).eval()
         model = peft_model.base_model.model
     return model, tok
 
 
-# Full-model baselines that bypass the CoMem read-pack entirely (run the stock
+# Full-model baselines that bypass the Encbank read-pack entirely (run the stock
 # HF model over the raw ids). Dispatched via ``dense_generate`` in the drivers.
 DENSE_MODES = ("dense", "streamingllm")
 
@@ -48,10 +48,10 @@ DENSE_MODES = ("dense", "streamingllm")
 def resolve_baseline(baseline, resume_j, lora_adapter):
     """Resolve a mechanism-level baseline to (resume_j, no_retrieval, mode, lora).
 
-    * ``none``         -> CoMem: retrieval + given resume_j + LoRA.
+    * ``none``         -> Encbank: retrieval + given resume_j + LoRA.
     * ``kvdirect``     -> full-depth recompute (resume_j=0) + no retrieval + no LoRA.
     * ``hcache``       -> mid-layer recompute (given resume_j) + no retrieval + no LoRA.
-    * ``dense``        -> stock full-context generation (no CoMem, no LoRA).
+    * ``dense``        -> stock full-context generation (no Encbank, no LoRA).
     * ``streamingllm`` -> attention-sink + sliding-window truncation, then dense.
     """
     if baseline == "kvdirect":
@@ -60,13 +60,13 @@ def resolve_baseline(baseline, resume_j, lora_adapter):
         return resume_j, True, "hcache", ""
     if baseline in DENSE_MODES:
         return resume_j, False, baseline, ""
-    return resume_j, False, "comem", lora_adapter
+    return resume_j, False, "encbank", lora_adapter
 
 
 @torch.no_grad()
 def dense_generate(model, tokenizer, input_ids, mode="dense", max_new_tokens=32,
                    sink_size=4, window_size=4096):
-    """Full-model generation baselines (no CoMem read-pack).
+    """Full-model generation baselines (no Encbank read-pack).
 
     * ``dense``        -> stock greedy generation over the entire prompt.
     * ``streamingllm`` -> keep the first ``sink_size`` tokens + the last

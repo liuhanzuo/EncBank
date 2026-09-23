@@ -2,7 +2,7 @@
   "schema": "LoCoMo1986_streaming_native_FP16_v1",
   "frozen_at": "2026-09-14T22:54:21.250691+08:00",
   "arm_order": [
-    "streamingllm_style_comem"
+    "streamingllm_style_encbank"
   ],
   "backbone_dtype": "float16",
   "attention_backend": "sdpa",
@@ -14,7 +14,7 @@
     "query_tokens_per_call": 1,
     "prefix_tokens": 4,
     "recent_tokens": 4096,
-    "selection": "CoMem_public_combined_prompt_first4_last4096"
+    "selection": "Encbank_public_combined_prompt_first4_last4096"
   },
   "fixture": {
     "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_full_prediction_36h_20260913/package/inference_fixture.json",
@@ -25,22 +25,22 @@
     "sha256": "1dd9dd8db7d965a3d1b0a94503c2ac8b58674a1693262707256a2c0d18a09c8f"
   },
   "scorer": {
-    "path": "tmp_external_baselines/comem_official/eval/locomo.py",
+    "path": "tmp_external_baselines/encbank_official/eval/locomo.py",
     "sha256": "0459d0128deaf30b46a07b43c35b22e6b101e1afa47fdd2a802400ec610768db"
   },
   "activation": {
     "path": "paper_autonomous_multifork_iteration/evidence/qwen_access_repair_20260911/package/quality/bindings/adapter_activation.json",
     "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
   },
-  "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_streamingllm_style_comem",
-  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
-  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_streamingllm_style_encbank",
+  "model_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/adapter",
   "resource_policy": {
     "allocator_cap_bytes": 214748364800,
     "minimum_free_bytes": 236223201280,
     "stable_idle_seconds": 45
   },
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "native_attention_runtime_files": {
     "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
     "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
@@ -85,10 +85,10 @@
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/tokenwise_runtime.py": "d35ed28ae8ffb4db1dbf348b55ccd3c7d5f65b30f403cc90ceb5158d4e8ce3ac",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
     "tmp_external_baselines/kv_quant/KIVI/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
@@ -105,7 +105,7 @@
     "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/backend_gate.py": "6936fbb3f1a70d230329be8183f0c3c7cfe5fd9503a129f119ec946d4a5bd699",
     "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/natural_qa.py": "70dfb327389bfef5628e5b8e8aa981af2667a245e9a4571c68de7f7e9a59fae5",
     "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/protocol.py": "bf48c01dc0c5a9eba343a6a4160799f0a3c366318b80d445cdc26e73e9830316",
-    "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/qcomem_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
+    "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/qencbank_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
     "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/record_shell_exit.py": "27ff44a5cd2067f24a3b045e3ec4a024dc376fbfe07baa0794caeccb855c4e12",
     "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/resource_guard.py": "4ab1f426704a6e6abb519f5e0ea3935e97cda6a70fc37a19b7dd9a258d090cbb",
     "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/resource_worker.py": "fb79be21ad954f47b15118a122ba03603abc471a4375ace0e2c19a149a6c34d6",
@@ -115,7 +115,7 @@
   },
   "batch_output": "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/run/attempt1",
   "outputs": {
-    "streamingllm_style_comem": "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/run/attempt1/streamingllm_style_comem"
+    "streamingllm_style_encbank": "paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/streaming/package/run/attempt1/streamingllm_style_encbank"
   },
   "items_per_arm": 1986,
   "documents_per_arm": 10,
@@ -144,11 +144,11 @@
   "training_or_runtime_offload": false,
   "automatic_retry": false,
   "on_actual_OOM": "Stop on every nonzero including OOM, retain failure and partial outputs; no retry or later arm continuation; no fabricated zero score.",
-  "precision_scope": "Qwen3-8B base FP16, LoRA OFF; StreamingLLM-style CoMem first4/last4096",
+  "precision_scope": "Qwen3-8B base FP16, LoRA OFF; StreamingLLM-style Encbank first4/last4096",
   "BOS_policy": "Prior BOS151643/scalarEOS151645/first-step suppression; fixed independently of 54-question BOS sensitivity outcomes.",
   "input_scope": "All original1986 questions/10 full conversation documents, all source ordinal order and categories1..5. No shard filtering, cropping, dropping or retokenization. Fixed # Question header is shared document; all full queries preserved. Explicit BOS151643 is the declared difference from upstream tokenizer; no chat template.",
   "analysis": {
-    "metric": "Exact pinned CoMem eval/locomo.py score_sample and run_scoring: native F1/EM/acc with category5 refusal handling; NOT published semantic fullJudge",
+    "metric": "Exact pinned Encbank eval/locomo.py score_sample and run_scoring: native F1/EM/acc with category5 refusal handling; NOT published semantic fullJudge",
     "contrasts": [],
     "bootstrap_executed": false,
     "native_only_on_remote": true,
@@ -167,7 +167,7 @@
     "B300 hardware identity without actual proof",
     "semantic scores from native lexical/refusal diagnostics"
   ],
-  "preparation_scope": "Authorized fresh StreamingLLM-style CoMem first4/last4096 local FP16 rerun: Qwen3-8B base, LoRA OFF, full1986 LoCoMo, no chat, cap48; original method preserved.",
+  "preparation_scope": "Authorized fresh StreamingLLM-style Encbank first4/last4096 local FP16 rerun: Qwen3-8B base, LoRA OFF, full1986 LoCoMo, no chat, cap48; original method preserved.",
   "local_execution_permitted": false,
   "dispatch_scope": "REMOTE_ONLY: last working MuSiQue Slurm single GPU/singleton envelope, actual native exits; parent must verify shell and Slurm accounting after batch closure.",
   "request_timing": "Pre-call synchronize then perf_counter before open_request, first/last non-EOS argmax.item observations, (N-1)/(last-first) when N>=2; EOS decision and cleanup/fullRead separately. No Write/fingerprint or fixed-work infra claim.",
@@ -238,9 +238,9 @@
       "sha256": "4c8779aeac769aadb9e8378282fe6dfef40d336d87bd5914e8145438a66df229"
     }
   },
-  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/locomo_paper_streaming_20260916_attempt1",
+  "task_cache_root": "/srv/encbank/qencbank_align_codex_20260911/task_cache/locomo_paper_streaming_20260916_attempt1",
   "scheduler": {
-    "job_name": "qcomem-locomo-streaming-20260916-codex",
+    "job_name": "qencbank-locomo-streaming-20260916-codex",
     "gres": "gpu:1",
     "dependency": "singleton",
     "maximum_concurrent_project_GPUs": 4,
@@ -324,14 +324,14 @@
       "sha256": "b4b7a31ddb23194b2d7f208e137c04fa6221a69d96fc4f6eb455eae365042773"
     },
     "cache_fix": {
-      "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_full_prediction_36h_20260913/package/qcomem_triton_cache.py",
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_full_prediction_36h_20260913/package/qencbank_triton_cache.py",
       "sha256": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715"
     },
     "no_original_package_changed": true
   },
   "method_configuration": {
-    "method": "StreamingLLM-style CoMem first4/last4096",
-    "runtime_arm": "streamingllm_style_comem",
+    "method": "StreamingLLM-style Encbank first4/last4096",
+    "runtime_arm": "streamingllm_style_encbank",
     "adapter_active": false,
     "prompt_policy": "combined_BOS_document_query_first4_last4096",
     "rolling_KV_cache": false
@@ -345,8 +345,8 @@
   },
   "duplicate_policy": "Fresh named missing HCache-style LoCoMo cell only; dispatcher rejects existing output or active same name. No automatic retry.",
   "source_official_commit": "2c407a6bf9d1503ebb004847f664b01d2ad898cc",
-  "literature_replication_boundary": "Public CoMem commit2c407a6bf9d1503ebb004847f664b01d2ad898cc comparator mode, exact local explicit document/query/BOS contract and FP16/nativeSDPA. HCache-style is the public comparator, not the production HCache scheduler. KV-Direct recomputes full depth at Read, not Dense persistent KV.",
-  "job_name": "qcomem-locomo-streaming-20260916-codex",
+  "literature_replication_boundary": "Public Encbank commit2c407a6bf9d1503ebb004847f664b01d2ad898cc comparator mode, exact local explicit document/query/BOS contract and FP16/nativeSDPA. HCache-style is the public comparator, not the production HCache scheduler. KV-Direct recomputes full depth at Read, not Dense persistent KV.",
+  "job_name": "qencbank-locomo-streaming-20260916-codex",
   "root_post_owner_only": false,
   "launch_permission_scope": "User authorized fresh missing-baseline generation. Only root invokes dispatch, serializes submissions, and preserves four running/pending GPU limit.",
   "frozen_baseline_lineage": {
@@ -380,7 +380,7 @@
   },
   "scientific_limits": [
     "Local FP16 base-model rerun, LoRA OFF; not published checkpoint/precision reproduction.",
-    "CoMem public first4/last4096 prompt truncation comparator; not a full rolling-cache StreamingLLM implementation.",
+    "Encbank public first4/last4096 prompt truncation comparator; not a full rolling-cache StreamingLLM implementation.",
     "Natural generation TTFT/throughput and phase allocator memory are distinct from fixed-work timing and full-device peaks.",
     "Infrastructure failures supply no scientific score; preserve actual hardware and all raw outputs."
   ],

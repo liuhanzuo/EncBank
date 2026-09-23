@@ -1,9 +1,9 @@
 {
     "task": {
-        "path": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/tasks/sqlite-db-truncate"
+        "path": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/tasks/sqlite-db-truncate"
     },
     "trial_name": "qualification-sqlite-db-truncate",
-    "trials_dir": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_env_qualification_20260921/qualification",
+    "trials_dir": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_env_qualification_20260921/qualification",
     "install_only": true,
     "agent": {
         "import_path": "tb_agent_rpc:ConcurrentDenseTerminus",
@@ -22,7 +22,7 @@
         "type": "singularity",
         "import_path": "apptainer_environment:ManagedApptainerEnvironment",
         "kwargs": {
-            "singularity_image_cache_dir": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/sif",
+            "singularity_image_cache_dir": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/sif",
             "singularity_no_mount": "home,tmp,bind-paths"
         }
     },

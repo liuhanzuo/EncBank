@@ -3,7 +3,7 @@ S1 -- Layer-wise context-binding curve: residual stream vs attention K/V.
 
 QUESTION
 --------
-CoMem (C2) stores the residual stream h_j of a chunk, computed in isolation with
+Encbank (C2) stores the residual stream h_j of a chunk, computed in isolation with
 chunk-local positions, then injects it into a freshly-assembled read pack and
 recomputes layers [j, L).  Its five-arm contrast found that at 16k essentially the
 whole accuracy loss is carried by depth itself (A .52 -> E .16), not by chunk
@@ -27,7 +27,7 @@ CONDITIONS (all on the same target chunk of c tokens)
   ISO_POS  chunk forwarded alone, but keeping its true positions p..p+c-1.
            Difference from CTX isolates the loss of *attention context*.
   ISO      chunk forwarded alone with chunk-local positions 0..c-1.
-           This is exactly CoMem's write condition.
+           This is exactly Encbank's write condition.
            Difference from ISO_POS is the write-side *position* effect, which is an
            EXACT ZERO -- see the note below.  It is a plumbing check, not a finding.
   CTX_ALT  chunk sits at offset p but preceded by a DIFFERENT document.
@@ -37,12 +37,12 @@ CONDITIONS (all on the same target chunk of c tokens)
 
   So:  d(ISO_POS, CTX)  = attention-context binding  <- the quantity of interest
        d(ISO, ISO_POS)  = write-side position effect <- exactly zero, a check
-       d(ISO, CTX)      = total, what CoMem actually incurs
+       d(ISO, CTX)      = total, what Encbank actually incurs
        d(CTX_ALT, CTX)  = null scale
 
   Why the position pair is exactly zero: RoPE is translation invariant.  For a chunk
   forwarded alone, adding a constant to every position leaves every relative offset
-  unchanged, so ISO and ISO_POS are bit-identical.  CoMem's use of chunk-local
+  unchanged, so ISO and ISO_POS are bit-identical.  Encbank's use of chunk-local
   positions at WRITE time is therefore provably a no-op, and the entire write-side
   effect is attention context.  cos exactly 1.000 here means the position plumbing is
   right; anything else is a bug.  (The position question that is NOT trivial is
@@ -339,11 +339,11 @@ def main():
         solo = chunk_ids.unsqueeze(0).to(dev)
         r_isop = run(model, cap, solo, pos_true, keep_iso)
 
-        # ISO: chunk alone, chunk-local positions (CoMem's write condition)
+        # ISO: chunk alone, chunk-local positions (Encbank's write condition)
         r_iso = run(model, cap, solo, pos_local, keep_iso)
 
         # How much left context does a chunk need in order to be written correctly?
-        # CoMem's write pass forwards the chunk with nothing in front of it, which is
+        # Encbank's write pass forwards the chunk with nothing in front of it, which is
         # the regime where attention has no sink to park mass in.  Its read pack does
         # prepend a sink, but by then the stored state was already computed without
         # one.  These arms price that: one sink token, then short real prefixes.
@@ -364,7 +364,7 @@ def main():
         pairs = {
             "attn_ctx": (r_isop, r_ctx),   # loss of attention context
             "position": (r_iso, r_isop),   # position relocation only
-            "total": (r_iso, r_ctx),       # what CoMem incurs
+            "total": (r_iso, r_ctx),       # what Encbank incurs
             "null": (r_alt, r_ctx),        # swap the surrounding document
             **{k: (v, r_ctx) for k, v in prefix_arms.items()},
         }

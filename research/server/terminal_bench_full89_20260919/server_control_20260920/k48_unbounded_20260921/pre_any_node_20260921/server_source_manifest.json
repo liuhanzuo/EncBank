@@ -6,7 +6,7 @@
   "observe.py": "8c7bcb4c2536e60891b2a7e6b9c9aa1596bcbc594f029270d4607cc15011814c",
   "server.slurm": "ebd02342920228955e21b40f52c4d4ae52ee43df64a0108b81a7a0dc6274a561",
   "server_transport.py": "823aeeebaf7dd7212836b4ec6a3d803c03230b4a2f681f82830b54c0ab24aab6",
-  "comem_harbor_template.json": "9d991373a0de1937ddaff7cd333b74157dbb22eb53a84abf85cc130001cac165",
+  "encbank_harbor_template.json": "9d991373a0de1937ddaff7cd333b74157dbb22eb53a84abf85cc130001cac165",
   "unbounded_policy.py": "11f17ee7e3eec6112b2adc309ecf5e018bfafcaf06d6aa1d5d3a963b7d5fec09",
   "server_job.py": "ab2283e88f666d3b0447aa15bb570a7d7a2982e18572fd2245755c092bf38001",
   "service_loop.py": "60d7258a9f8802bfc6f6780106474367570f557edd2f07494de5a5d66bc62d2f",

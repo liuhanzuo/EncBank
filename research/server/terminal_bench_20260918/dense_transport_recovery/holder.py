@@ -2,7 +2,7 @@
 from pathlib import Path
 import json,os,subprocess,sys,time,traceback
 H=Path(__file__).resolve().parent;H.relative_to(Path('/srv/encbank').resolve());arm=sys.argv[1]
-assert arm in ['dense','raw_shared','comem'];R=H/('run_'+arm);assert not R.exists();(R/'mailbox').mkdir(parents=True)
+assert arm in ['dense','raw_shared','encbank'];R=H/('run_'+arm);assert not R.exists();(R/'mailbox').mkdir(parents=True)
 def save(n,d):(R/n).write_text(json.dumps(d,indent=2)+'\n')
 args=['/srv/encbank/Paper_Evolve/.venv/bin/python','-u',str(H/'agent_worker.py'),'--run',str(R)]
 with (R/'worker.stdout.log').open('wb') as out,(R/'worker.stderr.log').open('wb') as err:

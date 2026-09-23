@@ -1,4 +1,4 @@
-"""Independent-chunk H-only storage over pinned official CoMem primitives.
+"""Independent-chunk H-only storage over pinned official Encbank primitives.
 
 No document lower KV is retained. Lexical raw IDs are CPU input/index metadata;
 hidden states, packed codes and model/request state stay on the model device.
@@ -11,8 +11,8 @@ from typing import Callable, Sequence
 import torch
 
 from extracted_minmax import PackedTensor, quantize_tensor
-from vendor_comem.model import CoMem
-from vendor_comem import selectors
+from vendor_encbank.model import Encbank
+from vendor_encbank import selectors
 from quality_timing import QualityTiming
 
 CHUNK_SIZE = 512
@@ -150,7 +150,7 @@ class HOnlyMemory:
         # not merge, disable, unload or duplicate their weights.
         backbone = model.get_base_model() if callable(getattr(model, 'get_base_model', None)) else model
         backbone.eval()
-        self.engine = CoMem(backbone, resume_j=resume_j, top_prepay_b=0,
+        self.engine = Encbank(backbone, resume_j=resume_j, top_prepay_b=0,
                             block_diagonal=False, tokenizer=tokenizer)
         self.bits, self.group_size = bits, group_size
         self.reader_binding = str(reader_binding)

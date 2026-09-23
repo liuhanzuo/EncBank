@@ -38,7 +38,7 @@ import torch
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "exp"))
-sys.path.insert(0, str(ROOT / "COMem"))
+sys.path.insert(0, str(ROOT / "Encbank"))
 
 from s14_deployable_fix import (embed_to, eval_arms, forward_from, kl, pg19_text,  # noqa: E402
                                 prepare, rotate, samples_from, _qkv_pre)

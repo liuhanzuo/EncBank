@@ -8,7 +8,7 @@ def checked_file(spec):
     assert len(spec['sha256'])==64 and sha(local(spec['path']))==spec['sha256'];return local(spec['path'])
 def validate_backend_binding(plan,*,allow_unbound=False):
     assert plan['launch_permitted'] is True and plan['attention_backend']=='sdpa' and plan['backbone_dtype']=='float16'
-    assert plan['arm_order'] in (['comem_frozen_j12'],['streamingllm_style_comem'])
+    assert plan['arm_order'] in (['encbank_frozen_j12'],['streamingllm_style_encbank'])
     assert plan['method_configuration']['adapter_active'] is False and not plan['training_or_runtime_offload'] and not plan['automatic_retry']
     q=plan['backend_qualification'];policy=read(checked_file(q['registration']))
     assert policy['schema']=='native_SDPA_cluster_admission_v1' and policy['status']=='CPU_DERIVED_NATIVE_SDPA_ADMISSION_NOT_NEW_GPU_QUALIFICATION'

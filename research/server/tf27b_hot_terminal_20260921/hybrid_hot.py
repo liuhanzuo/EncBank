@@ -194,7 +194,7 @@ def sample(logit,generator,temperature=1.0,top_p=.95,top_k=20):
 
 @torch.no_grad()
 def quantum(rows,stop,context=262144,steps=32,forced=None,temperature=1.0,cancel=None):
-    """Batched decode for BOTH dense and streaming CoMem; CPU row metadata only."""
+    """Batched decode for BOTH dense and streaming Encbank; CPU row metadata only."""
     assert rows and len({x.s.arm=='dense' for x in rows})==1
     r=rows[0].r;dense=rows[0].s.arm=='dense';began=sync()
     up,upad=merge_caches([x.upper for x in rows],[x.upos for x in rows],r.config,0 if dense else r.j,r.L,consume=True)

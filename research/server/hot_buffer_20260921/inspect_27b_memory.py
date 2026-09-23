@@ -2,8 +2,8 @@
 import collections, glob, json, math, pathlib, struct, subprocess
 
 HOME = pathlib.Path('/srv/encbank')
-MODEL = HOME/'qcomem_runtime_20260911/models/Qwen3.8-27B-1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0'
-ROOT = HOME/'qcomem_align_codex_20260911/terminal_bench_full89_20260919'
+MODEL = HOME/'qencbank_runtime_20260911/models/Qwen3.8-27B-1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0'
+ROOT = HOME/'qencbank_align_codex_20260911/terminal_bench_full89_20260919'
 out = {'config': json.loads((MODEL/'config.json').read_text())}
 sizes = collections.Counter(); lora = 0; tensors = 0
 for path in MODEL.glob('*.safetensors'):
@@ -34,7 +34,7 @@ def stats(values):
     v=sorted(values)
     if not v:return None
     return {'n':len(v),'min':v[0],'median':v[len(v)//2],'p90':v[min(len(v)-1,int(len(v)*.9))],'max':v[-1]}
-for tag,rel in [('old_k12','comem_k12_no_task_deadline_r6_20260920/run_comem'),('old_k48','comem_k48_no_task_deadline_r6_20260920/run_comem'),('dense','server_control_20260920/dense_unbounded_20260921/run_dense')]:
+for tag,rel in [('old_k12','encbank_k12_no_task_deadline_r6_20260920/run_encbank'),('old_k48','encbank_k48_no_task_deadline_r6_20260920/run_encbank'),('dense','server_control_20260920/dense_unbounded_20260921/run_dense')]:
     r=ROOT/rel; rows=[]
     for path in (r/'mailbox').glob('*.response.json'):
         try: rows.append(json.loads(path.read_text()))

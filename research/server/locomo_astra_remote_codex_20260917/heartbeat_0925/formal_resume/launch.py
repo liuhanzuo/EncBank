@@ -120,7 +120,7 @@ def require_api_route(plan):
  assert 'model_providers.astra_judge_https.requires_openai_auth=true' in plan['codex']['config']
  assert 'forced_login_method="api"' in plan['codex']['config']
  assert 'model_providers.astra_judge_https.base_url='+json.dumps(route['base_url']) in plan['codex']['config']
- assert os.environ.get('QCOMEM_JUDGE_API_KEY'), 'API key must be inherited without logging'
+ assert os.environ.get('QENCBANK_JUDGE_API_KEY'), 'API key must be inherited without logging'
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--expected-plan-sha256',required=True);p.add_argument('--max-new-batches',type=int,default=1);a=p.parse_args();assert a.max_new_batches>=0
@@ -144,7 +144,7 @@ def main():
    try:
     env,home=child_environment(H,batch['batch_id'])
     env.pop('CODEX_ACCESS_TOKEN',None)
-    env['CODEX_API_KEY']=env['QCOMEM_JUDGE_API_KEY']
+    env['CODEX_API_KEY']=env['QENCBANK_JUDGE_API_KEY']
     for name in ('TMPDIR','XDG_CACHE_HOME','CODEX_SQLITE_HOME'):
      path=home/name.lower();path.mkdir();env[name]=str(path)
     receipt.update(credential_store='ephemeral',isolated_CODEX_HOME=str(home))

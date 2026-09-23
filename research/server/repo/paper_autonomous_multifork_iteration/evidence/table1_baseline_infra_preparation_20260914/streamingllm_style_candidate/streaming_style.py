@@ -1,4 +1,4 @@
-"""Pinned CoMem StreamingLLM-style prompt policy, explicitly not a rolling cache.
+"""Pinned Encbank StreamingLLM-style prompt policy, explicitly not a rolling cache.
 
 Question-independent Write stores raw document IDs. Query-dependent prefix
 selection and all model prefill occur inside Read/TTFT. No prompt token is

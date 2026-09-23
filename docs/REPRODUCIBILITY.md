@@ -2,7 +2,7 @@
 
 ## Two implementation layers
 
-The root `comem`, `train`, `eval`, and `bench` packages contain the base decoder
+The root `encbank`, `train`, `eval`, and `bench` packages contain the base decoder
 implementation. The 27B hybrid-attention runtime is a separate implementation
 under `runtime/hot_buffer`; it depends on Qwen3.5-family full-attention and
 DeltaNet cache internals. A local experiment label containing `Qwen3.8-27B`
@@ -30,7 +30,7 @@ require Linux, Slurm, and the relevant user-service/container configuration.
    are examples and some inherited metadata describes older experiments; the
    effective worker uses `task_concurrency=24` and `decode_batch_size=24`.
    Resolve the original checkpoint identity and PEFT conversion receipt against
-   your actual artifacts. `comem_peft.export_adapter` writes standard PEFT files
+   your actual artifacts. `encbank_peft.export_adapter` writes standard PEFT files
    and records exact tensor-roundtrip hashes.
 4. Generate fresh source/task manifests for the configured copy. Original
    snapshot manifests must not be used to claim that normalized publication
@@ -71,7 +71,10 @@ results without explicitly defining the comparison protocol.
 
 Only publication copies were changed. Live source and jobs were left untouched.
 Machine-specific paths, node aliases, and private-network addresses are replaced
-with examples. Source hashes are retained for traceability; no passing scientific
+with examples. Project names, Python identifiers, filenames, and origin path
+labels use Encbank throughout this publication checkout. The original source
+hashes still refer to the unchanged research artifacts; the published hashes
+cover the renamed files. Source hashes are retained for traceability; no passing scientific
 result is inferred from a static source check. The inventory maps local duplicate
 copies to their published equivalents and records which dependency/cache
 categories were omitted.

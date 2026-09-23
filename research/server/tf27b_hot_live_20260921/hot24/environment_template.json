@@ -1,7 +1,7 @@
 {
   "type": "singularity",
   "kwargs": {
-    "singularity_image_cache_dir": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/sif",
+    "singularity_image_cache_dir": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/sif",
     "singularity_no_mount": "home,tmp,bind-paths"
   },
   "import_path": "apptainer_environment:ManagedApptainerEnvironment"

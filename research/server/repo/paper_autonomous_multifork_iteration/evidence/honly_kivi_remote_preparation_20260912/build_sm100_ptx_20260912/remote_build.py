@@ -2,7 +2,7 @@
 from pathlib import Path
 import datetime,hashlib,json,os,subprocess,sys,traceback
 ROOT=Path('/srv/encbank').resolve();E=Path(__file__).resolve().parent;E.relative_to(ROOT)
-CUDA=ROOT/'qcomem_runtime_20260911/cuda12.8_kivi_codex_20260912';CUDA.resolve().relative_to(ROOT)
+CUDA=ROOT/'qencbank_runtime_20260911/cuda12.8_kivi_codex_20260912';CUDA.resolve().relative_to(ROOT)
 def now():return datetime.datetime.now().astimezone().isoformat()
 def sha(p):
  with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()

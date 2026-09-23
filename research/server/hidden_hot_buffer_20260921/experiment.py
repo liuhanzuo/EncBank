@@ -26,8 +26,8 @@ def main():
     torch.cuda.set_per_process_memory_fraction(96*2**30/total)
     import transformers.integrations.sdpa_attention as sdpa
     sdpa.use_gqa_in_sdpa=lambda *a,**kw:False
-    modelpath='/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B'
-    adapter=Path('/srv/encbank/comem_infra_recheck_20260912/adapter')
+    modelpath='/srv/encbank/encbank_sparse_slurm_20260912/models/Qwen3-8B'
+    adapter=Path('/srv/encbank/encbank_infra_recheck_20260912/adapter')
     assert hashlib.sha256((adapter/'adapter_model.safetensors').read_bytes()).hexdigest()=='1deb86bdc89206ab029ca67403fb3f96dda29fc68223eebec4fc49e97ec0eb13'
     status('LOAD_MODEL')
     tok=AutoTokenizer.from_pretrained(modelpath,local_files_only=True)

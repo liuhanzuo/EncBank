@@ -28,7 +28,7 @@
       "retained": {
         "log-summary-date-ranges": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/log-summary-date-ranges/log-summary-date-ranges__rXkgRPt/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/log-summary-date-ranges/log-summary-date-ranges__rXkgRPt/result.json",
             "sha256": "77fb0e257652be9acf2ff513a63d027257a1053b4bab2ab452cc26a88643d419",
             "bytes": 71804
           },
@@ -50,7 +50,7 @@
         },
         "mteb-retrieve": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/mteb-retrieve/mteb-retrieve__vpnQxPJ/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/mteb-retrieve/mteb-retrieve__vpnQxPJ/result.json",
             "sha256": "3bab36b44bc3f5f742f060d6a0736a68045974191465116bd19217b3154f7f93",
             "bytes": 6485073
           },
@@ -72,7 +72,7 @@
         },
         "multi-source-data-merger": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/multi-source-data-merger/multi-source-data-merger__gihuAws/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/multi-source-data-merger/multi-source-data-merger__gihuAws/result.json",
             "sha256": "a21982896d683796d36076ed1d1f8b8fb138ca5f023da5a20921c23d66641f6b",
             "bytes": 1545087
           },
@@ -94,7 +94,7 @@
         },
         "openssl-selfsigned-cert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/openssl-selfsigned-cert/openssl-selfsigned-cert__vovJW99/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/openssl-selfsigned-cert/openssl-selfsigned-cert__vovJW99/result.json",
             "sha256": "c1b65e8afef18661f594956137e3a4ea8c9ccab4585fc224292520197e46fd5e",
             "bytes": 2213728
           },
@@ -116,7 +116,7 @@
         },
         "polyglot-c-py": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/polyglot-c-py/polyglot-c-py__ufMBRNy/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/polyglot-c-py/polyglot-c-py__ufMBRNy/result.json",
             "sha256": "17092df8c6965fdc1efb96706116e2783b4e9ae20e3ab819bf87bfd2b6cc98bd",
             "bytes": 8412405
           },
@@ -138,7 +138,7 @@
         },
         "prove-plus-comm": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/prove-plus-comm/prove-plus-comm__Rq6rzom/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/prove-plus-comm/prove-plus-comm__Rq6rzom/result.json",
             "sha256": "29177fff189b239f4c57f8f20f0fc7463122f338e021d9da88ab6270a5a65521",
             "bytes": 2885622
           },
@@ -160,7 +160,7 @@
         },
         "pytorch-model-cli": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/pytorch-model-cli/pytorch-model-cli__EkMEvjz/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/pytorch-model-cli/pytorch-model-cli__EkMEvjz/result.json",
             "sha256": "5f763094dc1f2bf8a8059b5ff9ac3698f57174d2e0a8bf48af38738b5966f8a6",
             "bytes": 5631004
           },
@@ -182,7 +182,7 @@
         },
         "query-optimize": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/query-optimize/query-optimize__TuPKhU3/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/query-optimize/query-optimize__TuPKhU3/result.json",
             "sha256": "2c42d57470a1587e59d7826866c36b7d73777e8fa85dcd3672445cc9ee19c7f9",
             "bytes": 2708664
           },
@@ -204,7 +204,7 @@
         },
         "regex-log": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/regex-log/regex-log__cmVT8hP/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/regex-log/regex-log__cmVT8hP/result.json",
             "sha256": "b359f062a7dc29d5002b50156388bb5577033acc3dc215032131391dd3a5c9d9",
             "bytes": 5603604
           },
@@ -226,7 +226,7 @@
         },
         "distribution-search": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/distribution-search/distribution-search__EBrX9YS/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/distribution-search/distribution-search__EBrX9YS/result.json",
             "sha256": "6d1aa999c9ed2afc75007df47900bec7f79a37642c5b95daf652156e68e14e21",
             "bytes": 3022808
           },
@@ -248,7 +248,7 @@
         },
         "fix-git": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/fix-git/fix-git__Cm6Zmgf/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/fix-git/fix-git__Cm6Zmgf/result.json",
             "sha256": "f07301203c646dbecdb1093ecae98638c689bc619db251e04add7707e47e170b",
             "bytes": 1241083
           },
@@ -270,7 +270,7 @@
         },
         "git-leak-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/git-leak-recovery/git-leak-recovery__6sTZncm/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/git-leak-recovery/git-leak-recovery__6sTZncm/result.json",
             "sha256": "c06547e12071a594031e638d2586c2e5fb2e6b580b4b115f1b0f4365ad157a05",
             "bytes": 1547158
           },
@@ -292,7 +292,7 @@
         },
         "bn-fit-modify": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/bn-fit-modify__rGqSrWx/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/bn-fit-modify__rGqSrWx/result.json",
             "sha256": "48b1443c4001c330f3f1f30a16eb623631d592b1995b557edd2e8ae3594a42c4",
             "bytes": 5406950
           },
@@ -314,7 +314,7 @@
         },
         "break-filter-js-from-html": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/break-filter-js-from-html__qvc6CZD/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/break-filter-js-from-html__qvc6CZD/result.json",
             "sha256": "749b79760c2333396da809b32f064b1fc0fb29a929acfe08fd14591ec1566b26",
             "bytes": 5016579
           },
@@ -336,7 +336,7 @@
         },
         "build-cython-ext": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-cython-ext__BmZMyZN/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-cython-ext__BmZMyZN/result.json",
             "sha256": "665b187f37c03a20e390e7e332ade8d1f6767b62a3d763474a58dea43765d4cd",
             "bytes": 23623790
           },
@@ -358,7 +358,7 @@
         },
         "build-pmars": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-pmars__CHVXnWF/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-pmars__CHVXnWF/result.json",
             "sha256": "2a3313a97f2b466fed48aa63f12d5ecee23cfaf4012e577f3787576eaba7ee8a",
             "bytes": 15503851
           },
@@ -380,7 +380,7 @@
         },
         "build-pov-ray": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-pov-ray__mmmdmDa/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-pov-ray__mmmdmDa/result.json",
             "sha256": "f36de1fb071e12dfc9c7313d44f117f21088e3a344a822bb74feed170d575bf5",
             "bytes": 290859414
           },
@@ -402,7 +402,7 @@
         },
         "caffe-cifar-10": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/caffe-cifar-10__satJkn5/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/caffe-cifar-10__satJkn5/result.json",
             "sha256": "e466c2f9d7f83075271e50f7db6a33a4063070efe66066838705d851ff46b64c",
             "bytes": 87327666
           },
@@ -424,7 +424,7 @@
         },
         "cancel-async-tasks": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/cancel-async-tasks__iGyPz6m/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/cancel-async-tasks__iGyPz6m/result.json",
             "sha256": "d42c5ccfed8fbe0daed55536a6897cdaf3991615246d937584e7ddbd72d5a6a5",
             "bytes": 1256224
           },
@@ -446,7 +446,7 @@
         },
         "chess-best-move": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/chess-best-move__uiAerVu/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/chess-best-move__uiAerVu/result.json",
             "sha256": "165aafdabef609234eae544b1eb33fa41328546d9b351b9aae0413a46f142ac4",
             "bytes": 15205986
           },
@@ -468,7 +468,7 @@
         },
         "constraints-scheduling": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/constraints-scheduling__MkRA29T/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/constraints-scheduling__MkRA29T/result.json",
             "sha256": "ae353b6d29f484e80464e48a63bffde9a8f134635b57542d6f5ff887f2f6ba19",
             "bytes": 2042606
           },
@@ -490,7 +490,7 @@
         },
         "count-dataset-tokens": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/count-dataset-tokens__m487wKD/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/count-dataset-tokens__m487wKD/result.json",
             "sha256": "bd176668d495796b046874b5e46f7b0b1118adb41b5050555f0502b5f44e735d",
             "bytes": 2399441
           },
@@ -512,7 +512,7 @@
         },
         "crack-7z-hash": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/crack-7z-hash__uRSwtov/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/crack-7z-hash__uRSwtov/result.json",
             "sha256": "6f1c8c1611dfa8dfb1d8f604086ac4bd05f7930bc67281cdf62fcb351db62620",
             "bytes": 6294472
           },
@@ -534,7 +534,7 @@
         },
         "db-wal-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/db-wal-recovery__tG4mhoR/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/db-wal-recovery__tG4mhoR/result.json",
             "sha256": "bf81135d01af888db819494b387b6dbcfc5387946d66a89e8e581009bc4595cb",
             "bytes": 1973265
           },
@@ -556,7 +556,7 @@
         },
         "fix-code-vulnerability": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/fix-code-vulnerability/fix-code-vulnerability__bctjenA/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/fix-code-vulnerability/fix-code-vulnerability__bctjenA/result.json",
             "sha256": "8fa11d2abdeab913d87248c22a64b4ca253d54727a81e99d40bb03b833db19a6",
             "bytes": 7276056
           },
@@ -578,7 +578,7 @@
         },
         "fix-ocaml-gc": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/fix-ocaml-gc/fix-ocaml-gc__HdCib9L/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/fix-ocaml-gc/fix-ocaml-gc__HdCib9L/result.json",
             "sha256": "a900b2b237d887baadd6376950500fe7681f90ec33dd69fdcbe35fc8d7c15187",
             "bytes": 22267918
           },
@@ -600,7 +600,7 @@
         },
         "git-multibranch": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/git-multibranch/git-multibranch__q2TKdBo/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/git-multibranch/git-multibranch__q2TKdBo/result.json",
             "sha256": "d2a7c3639cea94eb138d142e4676663a3b41791e80555178ba9f8fa16c1d0d79",
             "bytes": 7475635
           },
@@ -622,7 +622,7 @@
         },
         "hf-model-inference": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/hf-model-inference/hf-model-inference__CWpZ95E/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/hf-model-inference/hf-model-inference__CWpZ95E/result.json",
             "sha256": "e620e21157ac429163e0b67c0cfc98e62e3e73d70dcc34ef5119d9afe6f66c4d",
             "bytes": 2375308
           },
@@ -644,7 +644,7 @@
         },
         "kv-store-grpc": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/kv-store-grpc/kv-store-grpc__biJRWre/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/kv-store-grpc/kv-store-grpc__biJRWre/result.json",
             "sha256": "4335563865364590d2ab75c7c848c680e398fd980bba3481c992097c5d13f90f",
             "bytes": 1192045
           },
@@ -666,7 +666,7 @@
         },
         "large-scale-text-editing": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/large-scale-text-editing/large-scale-text-editing__sJYuJec/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/large-scale-text-editing/large-scale-text-editing__sJYuJec/result.json",
             "sha256": "6601baef783952434701729dc350f9486cd4e9037cd291397683590b1c8fca2e",
             "bytes": 4922447
           },
@@ -688,7 +688,7 @@
         },
         "llm-inference-batching-scheduler": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/llm-inference-batching-scheduler/llm-inference-batching-scheduler__PSWxiyU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/llm-inference-batching-scheduler/llm-inference-batching-scheduler__PSWxiyU/result.json",
             "sha256": "7c3f2e778a834830553205b7fbbd1167382d6b0371a0e1de3fb242289f45c3d4",
             "bytes": 17714209
           },
@@ -710,7 +710,7 @@
         },
         "model-extraction-relu-logits": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/model-extraction-relu-logits/model-extraction-relu-logits__Eepp8vd/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/model-extraction-relu-logits/model-extraction-relu-logits__Eepp8vd/result.json",
             "sha256": "7819fffa555170edf55f52a441ae5e0f5b1586e35de369d7fc3c6a4da224c813",
             "bytes": 6921677
           },
@@ -732,7 +732,7 @@
         },
         "modernize-scientific-stack": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/modernize-scientific-stack/modernize-scientific-stack__eDx7g8w/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/modernize-scientific-stack/modernize-scientific-stack__eDx7g8w/result.json",
             "sha256": "25e49abccfb14f4c9214cd0b8c4f9f60abdc9991b5035f3dfd1963c03f42cc0c",
             "bytes": 2823404
           },
@@ -754,7 +754,7 @@
         },
         "nginx-request-logging": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/nginx-request-logging/nginx-request-logging__oEaAYp9/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/nginx-request-logging/nginx-request-logging__oEaAYp9/result.json",
             "sha256": "0c5ca071bebce59bae5d3cc4ba426ff33464bab61abbfadb4f5152d04a4aec88",
             "bytes": 2193843
           },
@@ -776,7 +776,7 @@
         },
         "polyglot-rust-c": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/polyglot-rust-c/polyglot-rust-c__A8yninu/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/polyglot-rust-c/polyglot-rust-c__A8yninu/result.json",
             "sha256": "01ccd2b7cd936b19fedbddc44a3671c304d020dc9fca19ca5e11232d8a918801",
             "bytes": 5445628
           },
@@ -798,7 +798,7 @@
         },
         "pypi-server": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/pypi-server/pypi-server__czJvsyd/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/pypi-server/pypi-server__czJvsyd/result.json",
             "sha256": "f62eb4e6bc68901b92c7184287243797af680b3ce4e6a59377ff73fae63a8b0e",
             "bytes": 5270933
           },
@@ -820,7 +820,7 @@
         },
         "pytorch-model-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/pytorch-model-recovery/pytorch-model-recovery__JfHY5xE/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/pytorch-model-recovery/pytorch-model-recovery__JfHY5xE/result.json",
             "sha256": "3219a60a6092ec3e2d1999a80f2487a4039634bf37fca932814dfc644726cece",
             "bytes": 4239243
           },
@@ -842,7 +842,7 @@
         },
         "reshard-c4-data": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/reshard-c4-data/reshard-c4-data__US2a84k/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/reshard-c4-data/reshard-c4-data__US2a84k/result.json",
             "sha256": "b73b573ec6c813f00235b723a2099dcb6b016caf3af77e6d8024c67d4c275ef3",
             "bytes": 43830685
           },
@@ -864,7 +864,7 @@
         },
         "cobol-modernization": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/cobol-modernization/cobol-modernization__8aWDwSc/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/cobol-modernization/cobol-modernization__8aWDwSc/result.json",
             "sha256": "889c7d774cb4967782ae534a5856c552752ab00bac8e7d05ad725f6e83fa82a2",
             "bytes": 137164869
           },
@@ -886,7 +886,7 @@
         },
         "code-from-image": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/code-from-image/code-from-image__kyTu4JN/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/code-from-image/code-from-image__kyTu4JN/result.json",
             "sha256": "dca9faf20cc3b3d081b650cd86022fd17198113163c2cdc9978478db047c9335",
             "bytes": 6203366
           },
@@ -908,7 +908,7 @@
         },
         "compile-compcert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/compile-compcert/compile-compcert__WgU9fc5/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/compile-compcert/compile-compcert__WgU9fc5/result.json",
             "sha256": "4b98dddbf8ca0cb9efc02e98810c415198b2f3bb4d7341df3ecca9e5501174c8",
             "bytes": 278287782
           },
@@ -930,7 +930,7 @@
         },
         "configure-git-webserver": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/configure-git-webserver/configure-git-webserver__Nwhuf5w/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/configure-git-webserver/configure-git-webserver__Nwhuf5w/result.json",
             "sha256": "62d42f35d5dfb92e177a3af2bd982ae14b0dcb068f5f833aacfdbfe33a636de5",
             "bytes": 11643238
           },
@@ -952,7 +952,7 @@
         },
         "custom-memory-heap-crash": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/custom-memory-heap-crash/custom-memory-heap-crash__iEpQCSU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/custom-memory-heap-crash/custom-memory-heap-crash__iEpQCSU/result.json",
             "sha256": "32496e5781d9df3c6602f9aa8473832ffb0e33491b4e05f99ee54d7586428e0f",
             "bytes": 19660893
           },
@@ -974,7 +974,7 @@
         },
         "dna-insert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/dna-insert/dna-insert__qgNZBKW/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/dna-insert/dna-insert__qgNZBKW/result.json",
             "sha256": "59d52369a5ced07b49a356f44771f07f062681ec65aaddaa5a847a515dd4e077",
             "bytes": 15826164
           },
@@ -996,7 +996,7 @@
         },
         "extract-elf": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/extract-elf/extract-elf__TawXF9Y/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/extract-elf/extract-elf__TawXF9Y/result.json",
             "sha256": "fd35bf2e8d091f4c509a35e8986c82d04449635b3aac624250561f4401906b61",
             "bytes": 8802703
           },
@@ -1018,7 +1018,7 @@
         },
         "extract-moves-from-video": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/extract-moves-from-video/extract-moves-from-video__PQgFUpZ/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/extract-moves-from-video/extract-moves-from-video__PQgFUpZ/result.json",
             "sha256": "225d6b7e343b21a26b38e7742a81b2e1505c33b6a3c27cb085c54ffe730ad6f0",
             "bytes": 772811225
           },
@@ -1040,7 +1040,7 @@
         },
         "financial-document-processor": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/financial-document-processor/financial-document-processor__iuKEQqH/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/financial-document-processor/financial-document-processor__iuKEQqH/result.json",
             "sha256": "5b076c3455363c3609e00dd39116af11045bd07ba49c3ed75908bd1cae92bfd5",
             "bytes": 4291326
           },
@@ -1062,7 +1062,7 @@
         },
         "gcode-to-text": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/gcode-to-text/gcode-to-text__VBgiqCS/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/gcode-to-text/gcode-to-text__VBgiqCS/result.json",
             "sha256": "4dd9879e9eb087f902dc65399f3cd1e9a2b647a2277060df806ed729d7dcb6a3",
             "bytes": 60191611
           },
@@ -1084,7 +1084,7 @@
         },
         "install-windows-3.11": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/install-windows-3.11/install-windows-3.11__MotdJqx/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/install-windows-3.11/install-windows-3.11__MotdJqx/result.json",
             "sha256": "cbd2872d8e4e196052d7f80c2153d28439cb0aef615d796fb954dbd4b43f4da2",
             "bytes": 208532967
           },
@@ -1106,7 +1106,7 @@
         },
         "largest-eigenval": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/largest-eigenval/largest-eigenval__DMzMaac/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/largest-eigenval/largest-eigenval__DMzMaac/result.json",
             "sha256": "163b1e605d7b80b640167b04e49e1f33f815f49300bc646c3675d7cfd42acec8",
             "bytes": 63322127
           },
@@ -1128,7 +1128,7 @@
         },
         "merge-diff-arc-agi-task": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/merge-diff-arc-agi-task/merge-diff-arc-agi-task__p6pBQVe/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/merge-diff-arc-agi-task/merge-diff-arc-agi-task__p6pBQVe/result.json",
             "sha256": "b1845285369f051bd5de6ac2c6cbfef997e0993e2b24c3a1e7d9ce0344f3d029",
             "bytes": 8171440
           },
@@ -1150,7 +1150,7 @@
         },
         "overfull-hbox": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/overfull-hbox/overfull-hbox__96rkieR/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/overfull-hbox/overfull-hbox__96rkieR/result.json",
             "sha256": "55f985ef31cfabc6c605fa6464c5dab2066220db876776270567b6ca05dc959e",
             "bytes": 13408830
           },
@@ -1172,7 +1172,7 @@
         },
         "password-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/password-recovery/password-recovery__Dycg6tf/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/password-recovery/password-recovery__Dycg6tf/result.json",
             "sha256": "205c65a5cb6815d8efa6f8b5d00079d89247a171a8191f2c4e0d7976ae1a9b7c",
             "bytes": 5967505
           },
@@ -1194,7 +1194,7 @@
         },
         "portfolio-optimization": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/portfolio-optimization/portfolio-optimization__kaqggJg/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/portfolio-optimization/portfolio-optimization__kaqggJg/result.json",
             "sha256": "f9f61df73eec23374f5c78bb35c3148a2fe98179f8d43ec94ae5083b18363cc4",
             "bytes": 5329416
           },
@@ -1216,7 +1216,7 @@
         },
         "protein-assembly": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/protein-assembly/protein-assembly__ZRFrGFj/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/protein-assembly/protein-assembly__ZRFrGFj/result.json",
             "sha256": "afef92bcb44cee913e98af7571a29439a5a11f4be10cd7d30e0b5f4c7d285da5",
             "bytes": 138217299
           },
@@ -1238,7 +1238,7 @@
         },
         "qemu-alpine-ssh": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/qemu-alpine-ssh/qemu-alpine-ssh__ez7mZ6b/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/qemu-alpine-ssh/qemu-alpine-ssh__ez7mZ6b/result.json",
             "sha256": "07ddef15536e97605bf43fb2d025f93c16cbb4c74af721c9b6cf3242563aecb2",
             "bytes": 116602292
           },
@@ -1260,7 +1260,7 @@
         },
         "qemu-startup": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/qemu-startup/qemu-startup__F3XZban/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/qemu-startup/qemu-startup__F3XZban/result.json",
             "sha256": "94d29449bfdc4e6b343de6a950f1ffba8b24c54b32205795b07842ea2d9c7358",
             "bytes": 36236808
           },
@@ -1282,7 +1282,7 @@
         },
         "raman-fitting": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/raman-fitting/raman-fitting__qxtQGYU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/raman-fitting/raman-fitting__qxtQGYU/result.json",
             "sha256": "5f26a2b47e063b2a6c6bb8a56026b75cda6933ef7c6b8b734bea7adfd19b850f",
             "bytes": 39350206
           },
@@ -1304,7 +1304,7 @@
         },
         "sam-cell-seg": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sam-cell-seg/sam-cell-seg__4rVBTLy/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sam-cell-seg/sam-cell-seg__4rVBTLy/result.json",
             "sha256": "76a6145fe4d14fe83350d27ef6120aa3ddf00710d8c935f65d2afc703cfb0718",
             "bytes": 176193004
           },
@@ -1326,7 +1326,7 @@
         },
         "sanitize-git-repo": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sanitize-git-repo/sanitize-git-repo__6i3Uk6e/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sanitize-git-repo/sanitize-git-repo__6i3Uk6e/result.json",
             "sha256": "01b433c8e948167e3cc47f2b94fc5ffe0f4c24cdfd72270c79c4ddc7c0c6f3cc",
             "bytes": 58633451
           },
@@ -1348,7 +1348,7 @@
         },
         "schemelike-metacircular-eval": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/schemelike-metacircular-eval/schemelike-metacircular-eval__V5eyNTN/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/schemelike-metacircular-eval/schemelike-metacircular-eval__V5eyNTN/result.json",
             "sha256": "db9a0ee62bb92531b94b8daceb12b8bd9719bc20cf0469252db3cc98c54e4e8a",
             "bytes": 431322897
           },
@@ -1370,7 +1370,7 @@
         },
         "sparql-university": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sparql-university/sparql-university__W5Wg4Q2/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sparql-university/sparql-university__W5Wg4Q2/result.json",
             "sha256": "aaf8ca42c91286ae44aabd4799aa4fe842b04ec8c43511cd689025ed33453f4e",
             "bytes": 7682868
           },
@@ -1392,7 +1392,7 @@
         },
         "sqlite-with-gcov": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sqlite-with-gcov/sqlite-with-gcov__SHRqXDV/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sqlite-with-gcov/sqlite-with-gcov__SHRqXDV/result.json",
             "sha256": "70141ca2854a33e29e9a19fb49c7500ef24e81f6808866970bb721e7cd27d796",
             "bytes": 3047571
           },
@@ -1414,7 +1414,7 @@
         },
         "train-fasttext": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/train-fasttext/train-fasttext__8dpMTmV/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/train-fasttext/train-fasttext__8dpMTmV/result.json",
             "sha256": "2d0709daea635ca9fc60ceb710621773c8b3012eec5b75fce4504791599fc593",
             "bytes": 65465989
           },
@@ -1436,7 +1436,7 @@
         },
         "tune-mjcf": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/tune-mjcf/tune-mjcf__DwBbTyb/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/tune-mjcf/tune-mjcf__DwBbTyb/result.json",
             "sha256": "57600c66813a68d3be65326410518421d0326e1be5b53eb75fd32d5a89c26904",
             "bytes": 24954194
           },
@@ -1458,7 +1458,7 @@
         },
         "video-processing": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/video-processing/video-processing__B6PA6LG/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/video-processing/video-processing__B6PA6LG/result.json",
             "sha256": "de137698f7e84b151b400e6703d046505b624f1340764b9cabe9f3a1fce3b6fa",
             "bytes": 61220406
           },
@@ -1480,7 +1480,7 @@
         },
         "filter-js-from-html": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r6_20260921/filter-js-from-html/filter-js-from-html__vNVSzDt/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r6_20260921/filter-js-from-html/filter-js-from-html__vNVSzDt/result.json",
             "sha256": "dd5dd819cb6b939c9a41cb9af9ea4132f32f259be580590560bb5676fc99eb3c",
             "bytes": 47563524
           },
@@ -1502,7 +1502,7 @@
         },
         "mailman": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r6_20260921/mailman/mailman__uPhfVyJ/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r6_20260921/mailman/mailman__uPhfVyJ/result.json",
             "sha256": "76a1af7ba9e384f2fafb9eaf76aea5b4e8b44902c7c276a21a72d96711b317f2",
             "bytes": 191790745
           },
@@ -1524,7 +1524,7 @@
         },
         "vulnerable-secret": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/dense/vulnerable-secret/vulnerable-secret__7DjtaTL/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/dense/vulnerable-secret/vulnerable-secret__7DjtaTL/result.json",
             "sha256": "d759ef559a425844680c713041d63d15acc6f131a8bea02f1486f1b549240fae",
             "bytes": 3486566
           },
@@ -1544,14 +1544,14 @@
           "all_H_checks": null,
           "source": "local_Docker_supplement",
           "parent_receipt": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/runs/dense/execution/receipts/vulnerable-secret.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/runs/dense/execution/receipts/vulnerable-secret.json",
             "sha256": "51b72a244bf05f985d8e75227bbc25984a25b807990589c56cdf4b75489cfaf0",
             "bytes": 322
           }
         },
         "torch-pipeline-parallelism": {
           "result": {
-            "path": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/torch-pipeline-parallelism/torch-pipeline-parallelism__hyd6qkG/result.json",
+            "path": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/torch-pipeline-parallelism/torch-pipeline-parallelism__hyd6qkG/result.json",
             "sha256": "6503af5fae29b9c84167977d3034a83876e6e6b35875bb0f269c819b5e77de17",
             "bytes": 59505368
           },
@@ -1571,14 +1571,14 @@
           "all_H_checks": null,
           "source": "Apptainer_recovery",
           "parent_receipt": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/dense_parallel8_recovery_r2_20260921/execution/task_outcomes/torch-pipeline-parallelism.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/dense_parallel8_recovery_r2_20260921/execution/task_outcomes/torch-pipeline-parallelism.json",
             "sha256": "17fac18f139f42cb68aecc1e0d6179f26cca4e07df4f33ec11fabb57552e71a5",
             "bytes": 547
           }
         },
         "torch-tensor-parallelism": {
           "result": {
-            "path": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/torch-tensor-parallelism/torch-tensor-parallelism__qbCakfe/result.json",
+            "path": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/torch-tensor-parallelism/torch-tensor-parallelism__qbCakfe/result.json",
             "sha256": "e9a7f2648a027a470a80eec47743390a13338b44f01341b5467c7bdda01e696a",
             "bytes": 35966410
           },
@@ -1598,7 +1598,7 @@
           "all_H_checks": null,
           "source": "Apptainer_recovery",
           "parent_receipt": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/dense_parallel8_recovery_r2_20260921/execution/task_outcomes/torch-tensor-parallelism.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/dense_parallel8_recovery_r2_20260921/execution/task_outcomes/torch-tensor-parallelism.json",
             "sha256": "77f9b998b3db267335ae67f9ae35782c2ab870f8fbd8777577d12e99acd6592b",
             "bytes": 541
           }
@@ -1627,7 +1627,7 @@
       "evidence": {
         "log-summary-date-ranges": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/log-summary-date-ranges/log-summary-date-ranges__rXkgRPt/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/log-summary-date-ranges/log-summary-date-ranges__rXkgRPt/result.json",
             "sha256": "77fb0e257652be9acf2ff513a63d027257a1053b4bab2ab452cc26a88643d419",
             "bytes": 71804
           },
@@ -1648,7 +1648,7 @@
         },
         "mteb-retrieve": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/mteb-retrieve/mteb-retrieve__vpnQxPJ/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/mteb-retrieve/mteb-retrieve__vpnQxPJ/result.json",
             "sha256": "3bab36b44bc3f5f742f060d6a0736a68045974191465116bd19217b3154f7f93",
             "bytes": 6485073
           },
@@ -1669,7 +1669,7 @@
         },
         "multi-source-data-merger": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/multi-source-data-merger/multi-source-data-merger__gihuAws/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/multi-source-data-merger/multi-source-data-merger__gihuAws/result.json",
             "sha256": "a21982896d683796d36076ed1d1f8b8fb138ca5f023da5a20921c23d66641f6b",
             "bytes": 1545087
           },
@@ -1690,7 +1690,7 @@
         },
         "openssl-selfsigned-cert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/openssl-selfsigned-cert/openssl-selfsigned-cert__vovJW99/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/openssl-selfsigned-cert/openssl-selfsigned-cert__vovJW99/result.json",
             "sha256": "c1b65e8afef18661f594956137e3a4ea8c9ccab4585fc224292520197e46fd5e",
             "bytes": 2213728
           },
@@ -1711,7 +1711,7 @@
         },
         "polyglot-c-py": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/polyglot-c-py/polyglot-c-py__ufMBRNy/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/polyglot-c-py/polyglot-c-py__ufMBRNy/result.json",
             "sha256": "17092df8c6965fdc1efb96706116e2783b4e9ae20e3ab819bf87bfd2b6cc98bd",
             "bytes": 8412405
           },
@@ -1732,7 +1732,7 @@
         },
         "prove-plus-comm": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/prove-plus-comm/prove-plus-comm__Rq6rzom/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/prove-plus-comm/prove-plus-comm__Rq6rzom/result.json",
             "sha256": "29177fff189b239f4c57f8f20f0fc7463122f338e021d9da88ab6270a5a65521",
             "bytes": 2885622
           },
@@ -1753,7 +1753,7 @@
         },
         "pytorch-model-cli": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/pytorch-model-cli/pytorch-model-cli__EkMEvjz/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/pytorch-model-cli/pytorch-model-cli__EkMEvjz/result.json",
             "sha256": "5f763094dc1f2bf8a8059b5ff9ac3698f57174d2e0a8bf48af38738b5966f8a6",
             "bytes": 5631004
           },
@@ -1774,7 +1774,7 @@
         },
         "query-optimize": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/query-optimize/query-optimize__TuPKhU3/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/query-optimize/query-optimize__TuPKhU3/result.json",
             "sha256": "2c42d57470a1587e59d7826866c36b7d73777e8fa85dcd3672445cc9ee19c7f9",
             "bytes": 2708664
           },
@@ -1795,7 +1795,7 @@
         },
         "regex-log": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/regex-log/regex-log__cmVT8hP/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/regex-log/regex-log__cmVT8hP/result.json",
             "sha256": "b359f062a7dc29d5002b50156388bb5577033acc3dc215032131391dd3a5c9d9",
             "bytes": 5603604
           },
@@ -1816,7 +1816,7 @@
         },
         "distribution-search": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/distribution-search/distribution-search__EBrX9YS/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/distribution-search/distribution-search__EBrX9YS/result.json",
             "sha256": "6d1aa999c9ed2afc75007df47900bec7f79a37642c5b95daf652156e68e14e21",
             "bytes": 3022808
           },
@@ -1837,7 +1837,7 @@
         },
         "fix-git": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/fix-git/fix-git__Cm6Zmgf/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/fix-git/fix-git__Cm6Zmgf/result.json",
             "sha256": "f07301203c646dbecdb1093ecae98638c689bc619db251e04add7707e47e170b",
             "bytes": 1241083
           },
@@ -1858,7 +1858,7 @@
         },
         "git-leak-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/git-leak-recovery/git-leak-recovery__6sTZncm/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_parallel_b/git-leak-recovery/git-leak-recovery__6sTZncm/result.json",
             "sha256": "c06547e12071a594031e638d2586c2e5fb2e6b580b4b115f1b0f4365ad157a05",
             "bytes": 1547158
           },
@@ -1879,7 +1879,7 @@
         },
         "bn-fit-modify": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/bn-fit-modify__rGqSrWx/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/bn-fit-modify__rGqSrWx/result.json",
             "sha256": "48b1443c4001c330f3f1f30a16eb623631d592b1995b557edd2e8ae3594a42c4",
             "bytes": 5406950
           },
@@ -1900,7 +1900,7 @@
         },
         "break-filter-js-from-html": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/break-filter-js-from-html__qvc6CZD/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/break-filter-js-from-html__qvc6CZD/result.json",
             "sha256": "749b79760c2333396da809b32f064b1fc0fb29a929acfe08fd14591ec1566b26",
             "bytes": 5016579
           },
@@ -1921,7 +1921,7 @@
         },
         "build-cython-ext": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-cython-ext__BmZMyZN/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-cython-ext__BmZMyZN/result.json",
             "sha256": "665b187f37c03a20e390e7e332ade8d1f6767b62a3d763474a58dea43765d4cd",
             "bytes": 23623790
           },
@@ -1942,7 +1942,7 @@
         },
         "build-pmars": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-pmars__CHVXnWF/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-pmars__CHVXnWF/result.json",
             "sha256": "2a3313a97f2b466fed48aa63f12d5ecee23cfaf4012e577f3787576eaba7ee8a",
             "bytes": 15503851
           },
@@ -1963,7 +1963,7 @@
         },
         "build-pov-ray": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-pov-ray__mmmdmDa/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/build-pov-ray__mmmdmDa/result.json",
             "sha256": "f36de1fb071e12dfc9c7313d44f117f21088e3a344a822bb74feed170d575bf5",
             "bytes": 290859414
           },
@@ -1984,7 +1984,7 @@
         },
         "caffe-cifar-10": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/caffe-cifar-10__satJkn5/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/caffe-cifar-10__satJkn5/result.json",
             "sha256": "e466c2f9d7f83075271e50f7db6a33a4063070efe66066838705d851ff46b64c",
             "bytes": 87327666
           },
@@ -2005,7 +2005,7 @@
         },
         "cancel-async-tasks": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/cancel-async-tasks__iGyPz6m/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/cancel-async-tasks__iGyPz6m/result.json",
             "sha256": "d42c5ccfed8fbe0daed55536a6897cdaf3991615246d937584e7ddbd72d5a6a5",
             "bytes": 1256224
           },
@@ -2026,7 +2026,7 @@
         },
         "chess-best-move": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/chess-best-move__uiAerVu/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/chess-best-move__uiAerVu/result.json",
             "sha256": "165aafdabef609234eae544b1eb33fa41328546d9b351b9aae0413a46f142ac4",
             "bytes": 15205986
           },
@@ -2047,7 +2047,7 @@
         },
         "constraints-scheduling": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/constraints-scheduling__MkRA29T/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/constraints-scheduling__MkRA29T/result.json",
             "sha256": "ae353b6d29f484e80464e48a63bffde9a8f134635b57542d6f5ff887f2f6ba19",
             "bytes": 2042606
           },
@@ -2068,7 +2068,7 @@
         },
         "count-dataset-tokens": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/count-dataset-tokens__m487wKD/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/count-dataset-tokens__m487wKD/result.json",
             "sha256": "bd176668d495796b046874b5e46f7b0b1118adb41b5050555f0502b5f44e735d",
             "bytes": 2399441
           },
@@ -2089,7 +2089,7 @@
         },
         "crack-7z-hash": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/crack-7z-hash__uRSwtov/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/crack-7z-hash__uRSwtov/result.json",
             "sha256": "6f1c8c1611dfa8dfb1d8f604086ac4bd05f7930bc67281cdf62fcb351db62620",
             "bytes": 6294472
           },
@@ -2110,7 +2110,7 @@
         },
         "db-wal-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/db-wal-recovery__tG4mhoR/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/db-wal-recovery__tG4mhoR/result.json",
             "sha256": "bf81135d01af888db819494b387b6dbcfc5387946d66a89e8e581009bc4595cb",
             "bytes": 1973265
           },
@@ -2131,7 +2131,7 @@
         },
         "fix-code-vulnerability": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/fix-code-vulnerability/fix-code-vulnerability__bctjenA/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/fix-code-vulnerability/fix-code-vulnerability__bctjenA/result.json",
             "sha256": "8fa11d2abdeab913d87248c22a64b4ca253d54727a81e99d40bb03b833db19a6",
             "bytes": 7276056
           },
@@ -2152,7 +2152,7 @@
         },
         "fix-ocaml-gc": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/fix-ocaml-gc/fix-ocaml-gc__HdCib9L/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/fix-ocaml-gc/fix-ocaml-gc__HdCib9L/result.json",
             "sha256": "a900b2b237d887baadd6376950500fe7681f90ec33dd69fdcbe35fc8d7c15187",
             "bytes": 22267918
           },
@@ -2173,7 +2173,7 @@
         },
         "git-multibranch": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/git-multibranch/git-multibranch__q2TKdBo/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/git-multibranch/git-multibranch__q2TKdBo/result.json",
             "sha256": "d2a7c3639cea94eb138d142e4676663a3b41791e80555178ba9f8fa16c1d0d79",
             "bytes": 7475635
           },
@@ -2194,7 +2194,7 @@
         },
         "hf-model-inference": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/hf-model-inference/hf-model-inference__CWpZ95E/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/hf-model-inference/hf-model-inference__CWpZ95E/result.json",
             "sha256": "e620e21157ac429163e0b67c0cfc98e62e3e73d70dcc34ef5119d9afe6f66c4d",
             "bytes": 2375308
           },
@@ -2215,7 +2215,7 @@
         },
         "kv-store-grpc": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/kv-store-grpc/kv-store-grpc__biJRWre/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/kv-store-grpc/kv-store-grpc__biJRWre/result.json",
             "sha256": "4335563865364590d2ab75c7c848c680e398fd980bba3481c992097c5d13f90f",
             "bytes": 1192045
           },
@@ -2236,7 +2236,7 @@
         },
         "large-scale-text-editing": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/large-scale-text-editing/large-scale-text-editing__sJYuJec/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/large-scale-text-editing/large-scale-text-editing__sJYuJec/result.json",
             "sha256": "6601baef783952434701729dc350f9486cd4e9037cd291397683590b1c8fca2e",
             "bytes": 4922447
           },
@@ -2257,7 +2257,7 @@
         },
         "llm-inference-batching-scheduler": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/llm-inference-batching-scheduler/llm-inference-batching-scheduler__PSWxiyU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/llm-inference-batching-scheduler/llm-inference-batching-scheduler__PSWxiyU/result.json",
             "sha256": "7c3f2e778a834830553205b7fbbd1167382d6b0371a0e1de3fb242289f45c3d4",
             "bytes": 17714209
           },
@@ -2278,7 +2278,7 @@
         },
         "model-extraction-relu-logits": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/model-extraction-relu-logits/model-extraction-relu-logits__Eepp8vd/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/model-extraction-relu-logits/model-extraction-relu-logits__Eepp8vd/result.json",
             "sha256": "7819fffa555170edf55f52a441ae5e0f5b1586e35de369d7fc3c6a4da224c813",
             "bytes": 6921677
           },
@@ -2299,7 +2299,7 @@
         },
         "modernize-scientific-stack": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/modernize-scientific-stack/modernize-scientific-stack__eDx7g8w/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/modernize-scientific-stack/modernize-scientific-stack__eDx7g8w/result.json",
             "sha256": "25e49abccfb14f4c9214cd0b8c4f9f60abdc9991b5035f3dfd1963c03f42cc0c",
             "bytes": 2823404
           },
@@ -2320,7 +2320,7 @@
         },
         "nginx-request-logging": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/nginx-request-logging/nginx-request-logging__oEaAYp9/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/nginx-request-logging/nginx-request-logging__oEaAYp9/result.json",
             "sha256": "0c5ca071bebce59bae5d3cc4ba426ff33464bab61abbfadb4f5152d04a4aec88",
             "bytes": 2193843
           },
@@ -2341,7 +2341,7 @@
         },
         "polyglot-rust-c": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/polyglot-rust-c/polyglot-rust-c__A8yninu/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/polyglot-rust-c/polyglot-rust-c__A8yninu/result.json",
             "sha256": "01ccd2b7cd936b19fedbddc44a3671c304d020dc9fca19ca5e11232d8a918801",
             "bytes": 5445628
           },
@@ -2362,7 +2362,7 @@
         },
         "pypi-server": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/pypi-server/pypi-server__czJvsyd/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/pypi-server/pypi-server__czJvsyd/result.json",
             "sha256": "f62eb4e6bc68901b92c7184287243797af680b3ce4e6a59377ff73fae63a8b0e",
             "bytes": 5270933
           },
@@ -2383,7 +2383,7 @@
         },
         "pytorch-model-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/pytorch-model-recovery/pytorch-model-recovery__JfHY5xE/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/pytorch-model-recovery/pytorch-model-recovery__JfHY5xE/result.json",
             "sha256": "3219a60a6092ec3e2d1999a80f2487a4039634bf37fca932814dfc644726cece",
             "bytes": 4239243
           },
@@ -2404,7 +2404,7 @@
         },
         "reshard-c4-data": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/reshard-c4-data/reshard-c4-data__US2a84k/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/reshard-c4-data/reshard-c4-data__US2a84k/result.json",
             "sha256": "b73b573ec6c813f00235b723a2099dcb6b016caf3af77e6d8024c67d4c275ef3",
             "bytes": 43830685
           },
@@ -2425,7 +2425,7 @@
         },
         "adaptive-rejection-sampler": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/adaptive-rejection-sampler/adaptive-rejection-sampler__jexfXUm/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/adaptive-rejection-sampler/adaptive-rejection-sampler__jexfXUm/result.json",
             "sha256": "cc93553e34670d75646458c9bcba9eae11c93bedda5afedde39e9fcb02c18ce5",
             "bytes": 60650640
           },
@@ -2465,7 +2465,7 @@
         },
         "cobol-modernization": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/cobol-modernization/cobol-modernization__8aWDwSc/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/cobol-modernization/cobol-modernization__8aWDwSc/result.json",
             "sha256": "889c7d774cb4967782ae534a5856c552752ab00bac8e7d05ad725f6e83fa82a2",
             "bytes": 137164869
           },
@@ -2486,7 +2486,7 @@
         },
         "code-from-image": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/code-from-image/code-from-image__kyTu4JN/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/code-from-image/code-from-image__kyTu4JN/result.json",
             "sha256": "dca9faf20cc3b3d081b650cd86022fd17198113163c2cdc9978478db047c9335",
             "bytes": 6203366
           },
@@ -2507,7 +2507,7 @@
         },
         "compile-compcert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/compile-compcert/compile-compcert__WgU9fc5/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/compile-compcert/compile-compcert__WgU9fc5/result.json",
             "sha256": "4b98dddbf8ca0cb9efc02e98810c415198b2f3bb4d7341df3ecca9e5501174c8",
             "bytes": 278287782
           },
@@ -2528,7 +2528,7 @@
         },
         "configure-git-webserver": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/configure-git-webserver/configure-git-webserver__Nwhuf5w/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/configure-git-webserver/configure-git-webserver__Nwhuf5w/result.json",
             "sha256": "62d42f35d5dfb92e177a3af2bd982ae14b0dcb068f5f833aacfdbfe33a636de5",
             "bytes": 11643238
           },
@@ -2549,7 +2549,7 @@
         },
         "custom-memory-heap-crash": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/custom-memory-heap-crash/custom-memory-heap-crash__iEpQCSU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/custom-memory-heap-crash/custom-memory-heap-crash__iEpQCSU/result.json",
             "sha256": "32496e5781d9df3c6602f9aa8473832ffb0e33491b4e05f99ee54d7586428e0f",
             "bytes": 19660893
           },
@@ -2570,7 +2570,7 @@
         },
         "dna-insert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/dna-insert/dna-insert__qgNZBKW/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/dna-insert/dna-insert__qgNZBKW/result.json",
             "sha256": "59d52369a5ced07b49a356f44771f07f062681ec65aaddaa5a847a515dd4e077",
             "bytes": 15826164
           },
@@ -2591,7 +2591,7 @@
         },
         "extract-elf": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/extract-elf/extract-elf__TawXF9Y/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/extract-elf/extract-elf__TawXF9Y/result.json",
             "sha256": "fd35bf2e8d091f4c509a35e8986c82d04449635b3aac624250561f4401906b61",
             "bytes": 8802703
           },
@@ -2612,7 +2612,7 @@
         },
         "extract-moves-from-video": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/extract-moves-from-video/extract-moves-from-video__PQgFUpZ/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/extract-moves-from-video/extract-moves-from-video__PQgFUpZ/result.json",
             "sha256": "225d6b7e343b21a26b38e7742a81b2e1505c33b6a3c27cb085c54ffe730ad6f0",
             "bytes": 772811225
           },
@@ -2633,7 +2633,7 @@
         },
         "feal-differential-cryptanalysis": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/feal-differential-cryptanalysis/feal-differential-cryptanalysis__AGQ9swZ/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/feal-differential-cryptanalysis/feal-differential-cryptanalysis__AGQ9swZ/result.json",
             "sha256": "b2d593e620b7d76ab93468344933485991d97a6d4fe15688d22cb44ae0aa2bd9",
             "bytes": 24892343
           },
@@ -2664,7 +2664,7 @@
         },
         "feal-linear-cryptanalysis": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/feal-linear-cryptanalysis/feal-linear-cryptanalysis__Hav2M5b/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/feal-linear-cryptanalysis/feal-linear-cryptanalysis__Hav2M5b/result.json",
             "sha256": "ed013809c7ab26850699314f3221d941281a7a3257a6afa6f9e951c8f5eb8977",
             "bytes": 43752325
           },
@@ -2695,7 +2695,7 @@
         },
         "financial-document-processor": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/financial-document-processor/financial-document-processor__iuKEQqH/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/financial-document-processor/financial-document-processor__iuKEQqH/result.json",
             "sha256": "5b076c3455363c3609e00dd39116af11045bd07ba49c3ed75908bd1cae92bfd5",
             "bytes": 4291326
           },
@@ -2716,7 +2716,7 @@
         },
         "gcode-to-text": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/gcode-to-text/gcode-to-text__VBgiqCS/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/gcode-to-text/gcode-to-text__VBgiqCS/result.json",
             "sha256": "4dd9879e9eb087f902dc65399f3cd1e9a2b647a2277060df806ed729d7dcb6a3",
             "bytes": 60191611
           },
@@ -2737,7 +2737,7 @@
         },
         "headless-terminal": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/headless-terminal/headless-terminal__xk3bir8/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/headless-terminal/headless-terminal__xk3bir8/result.json",
             "sha256": "385f894aa06cc054b271675b4cc6cbea8d863e587cfdefe84d8d1582568ad8c7",
             "bytes": 23345592
           },
@@ -2768,7 +2768,7 @@
         },
         "install-windows-3.11": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/install-windows-3.11/install-windows-3.11__MotdJqx/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/install-windows-3.11/install-windows-3.11__MotdJqx/result.json",
             "sha256": "cbd2872d8e4e196052d7f80c2153d28439cb0aef615d796fb954dbd4b43f4da2",
             "bytes": 208532967
           },
@@ -2789,7 +2789,7 @@
         },
         "largest-eigenval": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/largest-eigenval/largest-eigenval__DMzMaac/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/largest-eigenval/largest-eigenval__DMzMaac/result.json",
             "sha256": "163b1e605d7b80b640167b04e49e1f33f815f49300bc646c3675d7cfd42acec8",
             "bytes": 63322127
           },
@@ -2810,7 +2810,7 @@
         },
         "merge-diff-arc-agi-task": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/merge-diff-arc-agi-task/merge-diff-arc-agi-task__p6pBQVe/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/merge-diff-arc-agi-task/merge-diff-arc-agi-task__p6pBQVe/result.json",
             "sha256": "b1845285369f051bd5de6ac2c6cbfef997e0993e2b24c3a1e7d9ce0344f3d029",
             "bytes": 8171440
           },
@@ -2831,7 +2831,7 @@
         },
         "overfull-hbox": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/overfull-hbox/overfull-hbox__96rkieR/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/overfull-hbox/overfull-hbox__96rkieR/result.json",
             "sha256": "55f985ef31cfabc6c605fa6464c5dab2066220db876776270567b6ca05dc959e",
             "bytes": 13408830
           },
@@ -2852,7 +2852,7 @@
         },
         "password-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/password-recovery/password-recovery__Dycg6tf/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/password-recovery/password-recovery__Dycg6tf/result.json",
             "sha256": "205c65a5cb6815d8efa6f8b5d00079d89247a171a8191f2c4e0d7976ae1a9b7c",
             "bytes": 5967505
           },
@@ -2873,7 +2873,7 @@
         },
         "portfolio-optimization": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/portfolio-optimization/portfolio-optimization__kaqggJg/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/portfolio-optimization/portfolio-optimization__kaqggJg/result.json",
             "sha256": "f9f61df73eec23374f5c78bb35c3148a2fe98179f8d43ec94ae5083b18363cc4",
             "bytes": 5329416
           },
@@ -2894,7 +2894,7 @@
         },
         "protein-assembly": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/protein-assembly/protein-assembly__ZRFrGFj/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/protein-assembly/protein-assembly__ZRFrGFj/result.json",
             "sha256": "afef92bcb44cee913e98af7571a29439a5a11f4be10cd7d30e0b5f4c7d285da5",
             "bytes": 138217299
           },
@@ -2915,7 +2915,7 @@
         },
         "qemu-alpine-ssh": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/qemu-alpine-ssh/qemu-alpine-ssh__ez7mZ6b/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/qemu-alpine-ssh/qemu-alpine-ssh__ez7mZ6b/result.json",
             "sha256": "07ddef15536e97605bf43fb2d025f93c16cbb4c74af721c9b6cf3242563aecb2",
             "bytes": 116602292
           },
@@ -2936,7 +2936,7 @@
         },
         "qemu-startup": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/qemu-startup/qemu-startup__F3XZban/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/qemu-startup/qemu-startup__F3XZban/result.json",
             "sha256": "94d29449bfdc4e6b343de6a950f1ffba8b24c54b32205795b07842ea2d9c7358",
             "bytes": 36236808
           },
@@ -2957,7 +2957,7 @@
         },
         "raman-fitting": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/raman-fitting/raman-fitting__qxtQGYU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/raman-fitting/raman-fitting__qxtQGYU/result.json",
             "sha256": "5f26a2b47e063b2a6c6bb8a56026b75cda6933ef7c6b8b734bea7adfd19b850f",
             "bytes": 39350206
           },
@@ -2978,7 +2978,7 @@
         },
         "sam-cell-seg": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sam-cell-seg/sam-cell-seg__4rVBTLy/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sam-cell-seg/sam-cell-seg__4rVBTLy/result.json",
             "sha256": "76a6145fe4d14fe83350d27ef6120aa3ddf00710d8c935f65d2afc703cfb0718",
             "bytes": 176193004
           },
@@ -2999,7 +2999,7 @@
         },
         "sanitize-git-repo": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sanitize-git-repo/sanitize-git-repo__6i3Uk6e/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sanitize-git-repo/sanitize-git-repo__6i3Uk6e/result.json",
             "sha256": "01b433c8e948167e3cc47f2b94fc5ffe0f4c24cdfd72270c79c4ddc7c0c6f3cc",
             "bytes": 58633451
           },
@@ -3020,7 +3020,7 @@
         },
         "schemelike-metacircular-eval": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/schemelike-metacircular-eval/schemelike-metacircular-eval__V5eyNTN/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/schemelike-metacircular-eval/schemelike-metacircular-eval__V5eyNTN/result.json",
             "sha256": "db9a0ee62bb92531b94b8daceb12b8bd9719bc20cf0469252db3cc98c54e4e8a",
             "bytes": 431322897
           },
@@ -3041,7 +3041,7 @@
         },
         "sparql-university": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sparql-university/sparql-university__W5Wg4Q2/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sparql-university/sparql-university__W5Wg4Q2/result.json",
             "sha256": "aaf8ca42c91286ae44aabd4799aa4fe842b04ec8c43511cd689025ed33453f4e",
             "bytes": 7682868
           },
@@ -3062,7 +3062,7 @@
         },
         "sqlite-db-truncate": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sqlite-db-truncate/sqlite-db-truncate__mR6EME7/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sqlite-db-truncate/sqlite-db-truncate__mR6EME7/result.json",
             "sha256": "4601d6c293014c994aa919831e185ffec32cca54f1fbaac84de4a55bbc8207b3",
             "bytes": 6783745
           },
@@ -3093,7 +3093,7 @@
         },
         "sqlite-with-gcov": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sqlite-with-gcov/sqlite-with-gcov__SHRqXDV/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/sqlite-with-gcov/sqlite-with-gcov__SHRqXDV/result.json",
             "sha256": "70141ca2854a33e29e9a19fb49c7500ef24e81f6808866970bb721e7cd27d796",
             "bytes": 3047571
           },
@@ -3114,7 +3114,7 @@
         },
         "train-fasttext": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/train-fasttext/train-fasttext__8dpMTmV/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/train-fasttext/train-fasttext__8dpMTmV/result.json",
             "sha256": "2d0709daea635ca9fc60ceb710621773c8b3012eec5b75fce4504791599fc593",
             "bytes": 65465989
           },
@@ -3135,7 +3135,7 @@
         },
         "tune-mjcf": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/tune-mjcf/tune-mjcf__DwBbTyb/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/tune-mjcf/tune-mjcf__DwBbTyb/result.json",
             "sha256": "57600c66813a68d3be65326410518421d0326e1be5b53eb75fd32d5a89c26904",
             "bytes": 24954194
           },
@@ -3156,7 +3156,7 @@
         },
         "video-processing": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/video-processing/video-processing__B6PA6LG/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/video-processing/video-processing__B6PA6LG/result.json",
             "sha256": "de137698f7e84b151b400e6703d046505b624f1340764b9cabe9f3a1fce3b6fa",
             "bytes": 61220406
           },
@@ -3177,7 +3177,7 @@
         },
         "write-compressor": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/write-compressor/write-compressor__irZqTrW/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r5_20260920/write-compressor/write-compressor__irZqTrW/result.json",
             "sha256": "fc401ef451cd489c03cd667c32e298234f54cc74a4cda9ee3565044b46cf48db",
             "bytes": 16187878
           },
@@ -3217,7 +3217,7 @@
         },
         "filter-js-from-html": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r6_20260921/filter-js-from-html/filter-js-from-html__vNVSzDt/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r6_20260921/filter-js-from-html/filter-js-from-html__vNVSzDt/result.json",
             "sha256": "dd5dd819cb6b939c9a41cb9af9ea4132f32f259be580590560bb5676fc99eb3c",
             "bytes": 47563524
           },
@@ -3238,7 +3238,7 @@
         },
         "mailman": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r6_20260921/mailman/mailman__uPhfVyJ/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_dense_handoff/repository/.runtime/terminal_bench_full89_20260919/results/dense_no_task_deadline_r6_20260921/mailman/mailman__uPhfVyJ/result.json",
             "sha256": "76a1af7ba9e384f2fafb9eaf76aea5b4e8b44902c7c276a21a72d96711b317f2",
             "bytes": 191790745
           },
@@ -3259,7 +3259,7 @@
         },
         "regex-chess": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/dense/regex-chess/regex-chess__zzumhdr/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/dense/regex-chess/regex-chess__zzumhdr/result.json",
             "sha256": "7009402c6db6fc42f0eba81bfdce6bf1ba703a786a773948de106eae36afeaf9",
             "bytes": 190002455
           },
@@ -3308,7 +3308,7 @@
         },
         "vulnerable-secret": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/dense/vulnerable-secret/vulnerable-secret__7DjtaTL/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/dense/vulnerable-secret/vulnerable-secret__7DjtaTL/result.json",
             "sha256": "d759ef559a425844680c713041d63d15acc6f131a8bea02f1486f1b549240fae",
             "bytes": 3486566
           },
@@ -3329,7 +3329,7 @@
         },
         "rstan-to-pystan": {
           "result": {
-            "path": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/rstan-to-pystan/rstan-to-pystan__vpBLx2V/result.json",
+            "path": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/rstan-to-pystan/rstan-to-pystan__vpBLx2V/result.json",
             "sha256": "39849ca17f6e4445e259e88a210dcc5dd515f161e61d23fa6a970c0d0803a971",
             "bytes": 236080637
           },
@@ -3350,7 +3350,7 @@
         },
         "torch-pipeline-parallelism": {
           "result": {
-            "path": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/torch-pipeline-parallelism/torch-pipeline-parallelism__hyd6qkG/result.json",
+            "path": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/torch-pipeline-parallelism/torch-pipeline-parallelism__hyd6qkG/result.json",
             "sha256": "6503af5fae29b9c84167977d3034a83876e6e6b35875bb0f269c819b5e77de17",
             "bytes": 59505368
           },
@@ -3371,7 +3371,7 @@
         },
         "torch-tensor-parallelism": {
           "result": {
-            "path": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/torch-tensor-parallelism/torch-tensor-parallelism__qbCakfe/result.json",
+            "path": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/torch-tensor-parallelism/torch-tensor-parallelism__qbCakfe/result.json",
             "sha256": "e9a7f2648a027a470a80eec47743390a13338b44f01341b5467c7bdda01e696a",
             "bytes": 35966410
           },
@@ -3392,7 +3392,7 @@
         },
         "mcmc-sampling-stan": {
           "result": {
-            "path": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/mcmc-sampling-stan/mcmc-sampling-stan__suzZ6tv/result.json",
+            "path": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/dense_parallel8_recovery_r2_20260921/results/mcmc-sampling-stan/mcmc-sampling-stan__suzZ6tv/result.json",
             "sha256": "efed8aecb624ac17fbe81c716568611e1d607b68a8fceceb59d55802f7cada8d",
             "bytes": 235712585
           },
@@ -3414,7 +3414,7 @@
         "circuit-fibsqrt": [
           {
             "result": {
-              "path": "/srv/encbank/COMem_Migration_20260920/Part2/payload/qcomem/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/circuit-fibsqrt__PfuDGvs/result.json",
+              "path": "/srv/encbank/Encbank_Migration_20260920/Part2/payload/qencbank/.runtime/terminal_bench_full89_20260919/results/dense_vllm_batch2_toolchain_fix/circuit-fibsqrt__PfuDGvs/result.json",
               "sha256": "a6834dec137dbd7da5abf56ceb7ced4893495cf59f28bc186b0046e2aa0347ee",
               "bytes": 55673
             },
@@ -3437,7 +3437,7 @@
         "dna-assembly": [
           {
             "result": {
-              "path": "/srv/encbank/COMem_Migration_20260920/Part2/payload/qcomem/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/dna-assembly/dna-assembly__MSxVt4U/result.json",
+              "path": "/srv/encbank/Encbank_Migration_20260920/Part2/payload/qencbank/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume/dna-assembly/dna-assembly__MSxVt4U/result.json",
               "sha256": "c2677611851940199b38071d51e90a32a5059bf18b5ead3ffcaedef37577e870",
               "bytes": 26535018
             },
@@ -3470,7 +3470,7 @@
         "make-mips-interpreter": [
           {
             "result": {
-              "path": "/srv/encbank/COMem_Migration_20260920/Part2/payload/qcomem/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/make-mips-interpreter/make-mips-interpreter__d49D3AT/result.json",
+              "path": "/srv/encbank/Encbank_Migration_20260920/Part2/payload/qencbank/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/make-mips-interpreter/make-mips-interpreter__d49D3AT/result.json",
               "sha256": "e58ff7643743ea9ba8760b08b0e4affe7a3d99e1af938b0f80c8e7f4a91b8fe8",
               "bytes": 56628707
             },
@@ -3493,7 +3493,7 @@
         "path-tracing": [
           {
             "result": {
-              "path": "/srv/encbank/COMem_Migration_20260920/Part2/payload/qcomem/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/path-tracing/path-tracing__DCx3WJZ/result.json",
+              "path": "/srv/encbank/Encbank_Migration_20260920/Part2/payload/qencbank/.runtime/terminal_bench_full89_20260919/results/dense_nodefix37_20260920/path-tracing/path-tracing__DCx3WJZ/result.json",
               "sha256": "30ac0729722de17ab734e2394a7ac46663b03c3e062a280e845f15040e75f3d7",
               "bytes": 18479665
             },
@@ -3516,7 +3516,7 @@
         "path-tracing-reverse": [
           {
             "result": {
-              "path": "/srv/encbank/COMem_Migration_20260920/Part2/payload/qcomem/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/path-tracing-reverse/path-tracing-reverse__fvd728s/result.json",
+              "path": "/srv/encbank/Encbank_Migration_20260920/Part2/payload/qencbank/.runtime/terminal_bench_full89_20260919/results/dense_parallel_a/path-tracing-reverse/path-tracing-reverse__fvd728s/result.json",
               "sha256": "a92a45a0b5d5806dd365d844efe7c997eceda0c312c7898226fa630d4a4bdbf4",
               "bytes": 61799636
             },
@@ -3623,7 +3623,7 @@
       "retained": {
         "code-from-image": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_refill_retest_20260919/code-from-image/code-from-image__rpNY2cP/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_refill_retest_20260919/code-from-image/code-from-image__rpNY2cP/result.json",
             "sha256": "f51fde79a688de7be37b183af2cbf84f99234bcfab422fb08a9e85cad2ba4964",
             "bytes": 1593331
           },
@@ -3645,7 +3645,7 @@
         },
         "kv-store-grpc": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top12_nodefix64_20260920/kv-store-grpc/kv-store-grpc__ApH4EpX/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top12_nodefix64_20260920/kv-store-grpc/kv-store-grpc__ApH4EpX/result.json",
             "sha256": "7824b7e60a5a87ccfb1aa82d382f15d39ba1ee1e057b71160b4b8a8fb8a30191",
             "bytes": 1832415
           },
@@ -3667,7 +3667,7 @@
         },
         "openssl-selfsigned-cert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top12_nodefix64_20260920/openssl-selfsigned-cert/openssl-selfsigned-cert__PmPhQwy/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top12_nodefix64_20260920/openssl-selfsigned-cert/openssl-selfsigned-cert__PmPhQwy/result.json",
             "sha256": "a60ea6246c78b78797ff79448d681b7ae2f0f7969ed2b09c39e97475681a11dc",
             "bytes": 995768
           },
@@ -3689,7 +3689,7 @@
         },
         "prove-plus-comm": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top12_nodefix64_20260920/prove-plus-comm/prove-plus-comm__RHY3nw6/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top12_nodefix64_20260920/prove-plus-comm/prove-plus-comm__RHY3nw6/result.json",
             "sha256": "d9348ea876bc21b05fde8b8dfebd1d2b02d9c868d060104953b6131c92495859",
             "bytes": 588095
           },
@@ -3711,7 +3711,7 @@
         },
         "pypi-server": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top12_nodefix64_20260920/pypi-server/pypi-server__sQgKMV6/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top12_nodefix64_20260920/pypi-server/pypi-server__sQgKMV6/result.json",
             "sha256": "c7ad3adade6b98ca280929d8f070de5e782e8933c91e95d07ee9dba4019eecdd",
             "bytes": 1411777
           },
@@ -3733,7 +3733,7 @@
         },
         "configure-git-webserver": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/configure-git-webserver/configure-git-webserver__EbSirnE/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/configure-git-webserver/configure-git-webserver__EbSirnE/result.json",
             "sha256": "80c8e66be6fcf97aa29e42039a2fb921b0c7380ff5325aac711206cfdfd88ce2",
             "bytes": 2691543
           },
@@ -3755,7 +3755,7 @@
         },
         "constraints-scheduling": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/constraints-scheduling/constraints-scheduling__QSqFFPi/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/constraints-scheduling/constraints-scheduling__QSqFFPi/result.json",
             "sha256": "d908228028be686cdfe1ec78d6c91a47e20d5cd359f8c84fc2e680d0c41804d0",
             "bytes": 881714
           },
@@ -3777,7 +3777,7 @@
         },
         "db-wal-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/db-wal-recovery/db-wal-recovery__yTbTCHx/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/db-wal-recovery/db-wal-recovery__yTbTCHx/result.json",
             "sha256": "16aaab00ea803f551445085735d03f4a2b2fb90588985f47d04ed5107ea0ed35",
             "bytes": 1218590
           },
@@ -3799,7 +3799,7 @@
         },
         "feal-differential-cryptanalysis": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/feal-differential-cryptanalysis/feal-differential-cryptanalysis__xksY6vz/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/feal-differential-cryptanalysis/feal-differential-cryptanalysis__xksY6vz/result.json",
             "sha256": "a4f2a019153ddc3bebf1639484b471496bda4620acd7c2573d578c407a6d8b64",
             "bytes": 3326228
           },
@@ -3821,7 +3821,7 @@
         },
         "fix-code-vulnerability": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/fix-code-vulnerability/fix-code-vulnerability__h8BBGTm/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/fix-code-vulnerability/fix-code-vulnerability__h8BBGTm/result.json",
             "sha256": "a1cff0670bab9ea0e7a49451cfb7e34e01c19c0f6c14765962667b0a160bd8cd",
             "bytes": 3359944
           },
@@ -3843,7 +3843,7 @@
         },
         "fix-git": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/fix-git/fix-git__dF72bSP/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/fix-git/fix-git__dF72bSP/result.json",
             "sha256": "d7b13c5b1da2626b3318e02f29d2df1eeec3764d63bd4caa1e606252d65a963b",
             "bytes": 2203229
           },
@@ -3865,7 +3865,7 @@
         },
         "git-leak-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/git-leak-recovery/git-leak-recovery__XyUWbTU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/git-leak-recovery/git-leak-recovery__XyUWbTU/result.json",
             "sha256": "387f95d2b28437118bf9c1994c30ffd6f6bc7d39b769d104b7f2d68b5f5c5e93",
             "bytes": 1306776
           },
@@ -3887,7 +3887,7 @@
         },
         "git-multibranch": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/git-multibranch/git-multibranch__4aLx9bU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/git-multibranch/git-multibranch__4aLx9bU/result.json",
             "sha256": "a4263856b60e81117622c5458c0c1a023a11df09d0d4b6e0fc877a4e4192bd01",
             "bytes": 1704535
           },
@@ -3909,7 +3909,7 @@
         },
         "vulnerable-secret": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/k12/vulnerable-secret/vulnerable-secret__RZZyrQ6/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/k12/vulnerable-secret/vulnerable-secret__RZZyrQ6/result.json",
             "sha256": "b0f37b94d09252a6ea5220beba818bd7c2ff61a5cbcd9e7eba40c9f16ffe1e0a",
             "bytes": 2747166
           },
@@ -3929,7 +3929,7 @@
           "all_H_checks": true,
           "source": "local_Docker_supplement",
           "parent_receipt": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/runs/k12/execution/receipts/vulnerable-secret.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/runs/k12/execution/receipts/vulnerable-secret.json",
             "sha256": "1dcde2db360a461621dc89911da41fa15147372febeed99369184ba69f25a828",
             "bytes": 367
           }
@@ -4015,7 +4015,7 @@
       "evidence": {
         "code-from-image": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_refill_retest_20260919/code-from-image/code-from-image__rpNY2cP/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_refill_retest_20260919/code-from-image/code-from-image__rpNY2cP/result.json",
             "sha256": "f51fde79a688de7be37b183af2cbf84f99234bcfab422fb08a9e85cad2ba4964",
             "bytes": 1593331
           },
@@ -4036,7 +4036,7 @@
         },
         "kv-store-grpc": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top12_nodefix64_20260920/kv-store-grpc/kv-store-grpc__ApH4EpX/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top12_nodefix64_20260920/kv-store-grpc/kv-store-grpc__ApH4EpX/result.json",
             "sha256": "7824b7e60a5a87ccfb1aa82d382f15d39ba1ee1e057b71160b4b8a8fb8a30191",
             "bytes": 1832415
           },
@@ -4057,7 +4057,7 @@
         },
         "openssl-selfsigned-cert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top12_nodefix64_20260920/openssl-selfsigned-cert/openssl-selfsigned-cert__PmPhQwy/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top12_nodefix64_20260920/openssl-selfsigned-cert/openssl-selfsigned-cert__PmPhQwy/result.json",
             "sha256": "a60ea6246c78b78797ff79448d681b7ae2f0f7969ed2b09c39e97475681a11dc",
             "bytes": 995768
           },
@@ -4078,7 +4078,7 @@
         },
         "prove-plus-comm": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top12_nodefix64_20260920/prove-plus-comm/prove-plus-comm__RHY3nw6/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top12_nodefix64_20260920/prove-plus-comm/prove-plus-comm__RHY3nw6/result.json",
             "sha256": "d9348ea876bc21b05fde8b8dfebd1d2b02d9c868d060104953b6131c92495859",
             "bytes": 588095
           },
@@ -4099,7 +4099,7 @@
         },
         "pypi-server": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top12_nodefix64_20260920/pypi-server/pypi-server__sQgKMV6/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top12_nodefix64_20260920/pypi-server/pypi-server__sQgKMV6/result.json",
             "sha256": "c7ad3adade6b98ca280929d8f070de5e782e8933c91e95d07ee9dba4019eecdd",
             "bytes": 1411777
           },
@@ -4120,7 +4120,7 @@
         },
         "configure-git-webserver": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/configure-git-webserver/configure-git-webserver__EbSirnE/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/configure-git-webserver/configure-git-webserver__EbSirnE/result.json",
             "sha256": "80c8e66be6fcf97aa29e42039a2fb921b0c7380ff5325aac711206cfdfd88ce2",
             "bytes": 2691543
           },
@@ -4141,7 +4141,7 @@
         },
         "constraints-scheduling": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/constraints-scheduling/constraints-scheduling__QSqFFPi/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/constraints-scheduling/constraints-scheduling__QSqFFPi/result.json",
             "sha256": "d908228028be686cdfe1ec78d6c91a47e20d5cd359f8c84fc2e680d0c41804d0",
             "bytes": 881714
           },
@@ -4162,7 +4162,7 @@
         },
         "db-wal-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/db-wal-recovery/db-wal-recovery__yTbTCHx/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/db-wal-recovery/db-wal-recovery__yTbTCHx/result.json",
             "sha256": "16aaab00ea803f551445085735d03f4a2b2fb90588985f47d04ed5107ea0ed35",
             "bytes": 1218590
           },
@@ -4183,7 +4183,7 @@
         },
         "distribution-search": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/distribution-search/distribution-search__apjBoxT/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/distribution-search/distribution-search__apjBoxT/result.json",
             "sha256": "021dd182d157dd3bc80402f87a60f274bfd677d2229a0e2f0d302d1cc2ced213",
             "bytes": 3160342
           },
@@ -4214,7 +4214,7 @@
         },
         "feal-differential-cryptanalysis": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/feal-differential-cryptanalysis/feal-differential-cryptanalysis__xksY6vz/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/feal-differential-cryptanalysis/feal-differential-cryptanalysis__xksY6vz/result.json",
             "sha256": "a4f2a019153ddc3bebf1639484b471496bda4620acd7c2573d578c407a6d8b64",
             "bytes": 3326228
           },
@@ -4235,7 +4235,7 @@
         },
         "feal-linear-cryptanalysis": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/feal-linear-cryptanalysis/feal-linear-cryptanalysis__wSX7yyr/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/feal-linear-cryptanalysis/feal-linear-cryptanalysis__wSX7yyr/result.json",
             "sha256": "fae4d1bbcaef4e7068e74a1572d9a1802a34a1fe66d5fcd63185a6d8698865ed",
             "bytes": 11451589
           },
@@ -4266,7 +4266,7 @@
         },
         "fix-code-vulnerability": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/fix-code-vulnerability/fix-code-vulnerability__h8BBGTm/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/fix-code-vulnerability/fix-code-vulnerability__h8BBGTm/result.json",
             "sha256": "a1cff0670bab9ea0e7a49451cfb7e34e01c19c0f6c14765962667b0a160bd8cd",
             "bytes": 3359944
           },
@@ -4287,7 +4287,7 @@
         },
         "fix-git": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/fix-git/fix-git__dF72bSP/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/fix-git/fix-git__dF72bSP/result.json",
             "sha256": "d7b13c5b1da2626b3318e02f29d2df1eeec3764d63bd4caa1e606252d65a963b",
             "bytes": 2203229
           },
@@ -4308,7 +4308,7 @@
         },
         "git-leak-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/git-leak-recovery/git-leak-recovery__XyUWbTU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/git-leak-recovery/git-leak-recovery__XyUWbTU/result.json",
             "sha256": "387f95d2b28437118bf9c1994c30ffd6f6bc7d39b769d104b7f2d68b5f5c5e93",
             "bytes": 1306776
           },
@@ -4329,7 +4329,7 @@
         },
         "git-multibranch": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k12_no_task_deadline_r6_20260920/git-multibranch/git-multibranch__4aLx9bU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k12_no_task_deadline_r6_20260920/git-multibranch/git-multibranch__4aLx9bU/result.json",
             "sha256": "a4263856b60e81117622c5458c0c1a023a11df09d0d4b6e0fc877a4e4192bd01",
             "bytes": 1704535
           },
@@ -4350,7 +4350,7 @@
         },
         "regex-chess": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/k12/regex-chess/regex-chess__JJmXD38/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/k12/regex-chess/regex-chess__JJmXD38/result.json",
             "sha256": "904c04225f291a2f79ccaecc323eb99a0b3561ac54f5fb63cb2a5c8419e6d6b4",
             "bytes": 9483261
           },
@@ -4399,7 +4399,7 @@
         },
         "vulnerable-secret": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/k12/vulnerable-secret/vulnerable-secret__RZZyrQ6/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/hybrid_evidence/results/k12/vulnerable-secret/vulnerable-secret__RZZyrQ6/result.json",
             "sha256": "b0f37b94d09252a6ea5220beba818bd7c2ff61a5cbcd9e7eba40c9f16ffe1e0a",
             "bytes": 2747166
           },
@@ -4421,7 +4421,7 @@
         "headless-terminal": [
           {
             "result": {
-              "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_refill_retest_20260919/headless-terminal/headless-terminal__Af9coEM/result.json",
+              "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_refill_retest_20260919/headless-terminal/headless-terminal__Af9coEM/result.json",
               "sha256": "598749d5ac8b617c9d7cdbca7bd4b2c568e9690dc3f7b981562dfb70f98b8aa0",
               "bytes": 100167
             },
@@ -4444,7 +4444,7 @@
         "hf-model-inference": [
           {
             "result": {
-              "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_refill_retest_20260919/hf-model-inference/hf-model-inference__WvAjb7B/result.json",
+              "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_refill_retest_20260919/hf-model-inference/hf-model-inference__WvAjb7B/result.json",
               "sha256": "8a777a5861fc35dbf8d46bc3d62e44f0bc217b8fa79087586e99b07770b624a7",
               "bytes": 854212
             },
@@ -4467,7 +4467,7 @@
         "large-scale-text-editing": [
           {
             "result": {
-              "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top12_nodefix64_20260920/large-scale-text-editing/large-scale-text-editing__5mHZtoY/result.json",
+              "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top12_nodefix64_20260920/large-scale-text-editing/large-scale-text-editing__5mHZtoY/result.json",
               "sha256": "f9df931b42ce391f619d11f5dfd40f0ece7f680033f44b93914617cefaeaf397",
               "bytes": 60733
             },
@@ -4568,7 +4568,7 @@
       "retained": {
         "break-filter-js-from-html": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_20260920/break-filter-js-from-html/break-filter-js-from-html__PiyDjjo/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_20260920/break-filter-js-from-html/break-filter-js-from-html__PiyDjjo/result.json",
             "sha256": "4e1f492422b2cfd4c2472b842e6336be6dc2af5e3c84910f2f868a2658b91952",
             "bytes": 1803064
           },
@@ -4590,7 +4590,7 @@
         },
         "db-wal-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_20260920/db-wal-recovery/db-wal-recovery__XRXFmh2/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_20260920/db-wal-recovery/db-wal-recovery__XRXFmh2/result.json",
             "sha256": "ed96332daa3b82598f6182befa734ea2f876db42dae7f6cd606675dff878ddac",
             "bytes": 1455607
           },
@@ -4612,7 +4612,7 @@
         },
         "fix-code-vulnerability": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_20260920/fix-code-vulnerability/fix-code-vulnerability__At4PRzc/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_20260920/fix-code-vulnerability/fix-code-vulnerability__At4PRzc/result.json",
             "sha256": "92b5f04b155614d8c6414960b78c59836c64157cd375ec574b33e4778525f731",
             "bytes": 2997958
           },
@@ -4634,7 +4634,7 @@
         },
         "git-leak-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_20260920/git-leak-recovery/git-leak-recovery__jZaKjgP/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_20260920/git-leak-recovery/git-leak-recovery__jZaKjgP/result.json",
             "sha256": "5bbd11a1493ac1eff74a9f13ea567bf808175923cfa25e9a08cefc1a9f3e4f63",
             "bytes": 1539706
           },
@@ -4656,7 +4656,7 @@
         },
         "financial-document-processor": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_resume59_20260920/financial-document-processor/financial-document-processor__ixCU5uL/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_resume59_20260920/financial-document-processor/financial-document-processor__ixCU5uL/result.json",
             "sha256": "f41e332a629740157159d8875cf1639b290085ba51522c179e2fef2c2c0397cf",
             "bytes": 4143826
           },
@@ -4678,7 +4678,7 @@
         },
         "openssl-selfsigned-cert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_resume59_20260920/openssl-selfsigned-cert/openssl-selfsigned-cert__PHLtTWg/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_resume59_20260920/openssl-selfsigned-cert/openssl-selfsigned-cert__PHLtTWg/result.json",
             "sha256": "6dbb608ec6b13efe4e00ade1ce84fd7afa7ff922421fdb14d7ed2bcb48e8df32",
             "bytes": 647940
           },
@@ -4700,7 +4700,7 @@
         },
         "portfolio-optimization": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_resume59_20260920/portfolio-optimization/portfolio-optimization__TgsTtnu/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_resume59_20260920/portfolio-optimization/portfolio-optimization__TgsTtnu/result.json",
             "sha256": "748ca83b520fdb3f1aba0702500704029f1362e568b3a46583a90b785f04144d",
             "bytes": 3266423
           },
@@ -4722,7 +4722,7 @@
         },
         "pypi-server": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_resume59_20260920/pypi-server/pypi-server__eQm8ueQ/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_resume59_20260920/pypi-server/pypi-server__eQm8ueQ/result.json",
             "sha256": "9872e38ee648b0855e9c01346011c6a0e749daba7631f1c08064518e028c266f",
             "bytes": 1419481
           },
@@ -4744,7 +4744,7 @@
         },
         "code-from-image": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/code-from-image/code-from-image__SGAbhtc/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/code-from-image/code-from-image__SGAbhtc/result.json",
             "sha256": "ce0c1ac8226e9fc575958e7527dea0df93c406c25f575ba8f858c716c92aaaca",
             "bytes": 10456423
           },
@@ -4766,7 +4766,7 @@
         },
         "configure-git-webserver": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/configure-git-webserver/configure-git-webserver__NJZ8UgH/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/configure-git-webserver/configure-git-webserver__NJZ8UgH/result.json",
             "sha256": "34bbf8061957f10102509c3838f171528d6abb369f8bdf6120e97413ff448f3d",
             "bytes": 1870851
           },
@@ -4788,7 +4788,7 @@
         },
         "constraints-scheduling": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/constraints-scheduling/constraints-scheduling__qTTR6C4/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/constraints-scheduling/constraints-scheduling__qTTR6C4/result.json",
             "sha256": "27bc6994fa33f3060994acee48faa76b84552f7c68097b62fd7eb424101f7a57",
             "bytes": 1661536
           },
@@ -4810,7 +4810,7 @@
         },
         "count-dataset-tokens": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/count-dataset-tokens/count-dataset-tokens__Ltmkctk/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/count-dataset-tokens/count-dataset-tokens__Ltmkctk/result.json",
             "sha256": "ee45061ae0993b97f6461054e4f388f3aee462aaa2229756c237065387cb23b0",
             "bytes": 14175783
           },
@@ -4832,7 +4832,7 @@
         },
         "custom-memory-heap-crash": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/custom-memory-heap-crash/custom-memory-heap-crash__TWrbB5S/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/custom-memory-heap-crash/custom-memory-heap-crash__TWrbB5S/result.json",
             "sha256": "3b5d6d3f4ad5183a749fab648b98d7881bb0b38b51358fd5a5a1e64f96723409",
             "bytes": 47728571
           },
@@ -4854,7 +4854,7 @@
         },
         "extract-elf": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/extract-elf/extract-elf__WjxJu6k/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/extract-elf/extract-elf__WjxJu6k/result.json",
             "sha256": "d080403a507a1e9c0ec909b8b7afebd8a083a7ec0821173efbc74ed17c20ebfd",
             "bytes": 9756612
           },
@@ -4876,7 +4876,7 @@
         },
         "fix-git": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/fix-git/fix-git__aihD9y5/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/fix-git/fix-git__aihD9y5/result.json",
             "sha256": "a4fa5c60b3ca328abcebaf0714e5e41e74b95ff3be6d1b08b492e7b6c4bb2e92",
             "bytes": 1742010
           },
@@ -4898,7 +4898,7 @@
         },
         "git-multibranch": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/git-multibranch/git-multibranch__7FUgavd/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/git-multibranch/git-multibranch__7FUgavd/result.json",
             "sha256": "94436179ea3157c9ab11b701aac2b6c471bdd4c26cc32102610a3411f931ef66",
             "bytes": 4227132
           },
@@ -4920,7 +4920,7 @@
         },
         "hf-model-inference": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/hf-model-inference/hf-model-inference__Zyj4fSi/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/hf-model-inference/hf-model-inference__Zyj4fSi/result.json",
             "sha256": "1838a68cab84dfce85c7cc9f75dc1dd7211334e958c07050081283c56e2351fb",
             "bytes": 3897432
           },
@@ -4942,7 +4942,7 @@
         },
         "kv-store-grpc": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/kv-store-grpc/kv-store-grpc__Jxb4nh8/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/kv-store-grpc/kv-store-grpc__Jxb4nh8/result.json",
             "sha256": "ee8709e2c63903ca50bee4d2aec8af8423162323b0f751844e1135949ccbb4df",
             "bytes": 1516147
           },
@@ -4964,7 +4964,7 @@
         },
         "large-scale-text-editing": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/large-scale-text-editing/large-scale-text-editing__cidwHee/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/large-scale-text-editing/large-scale-text-editing__cidwHee/result.json",
             "sha256": "357edbbcfa4e2dbaca129c818e1ce67868370ac4366613ef7818a023b57e14de",
             "bytes": 3610359
           },
@@ -4986,7 +4986,7 @@
         },
         "log-summary-date-ranges": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/log-summary-date-ranges/log-summary-date-ranges__oFMLcXU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/log-summary-date-ranges/log-summary-date-ranges__oFMLcXU/result.json",
             "sha256": "831862a97b445fc9bccac03bf15d7c9a4b1687366d8e4ddff4c9bd324122c7ca",
             "bytes": 1434279
           },
@@ -5081,7 +5081,7 @@
       "evidence": {
         "break-filter-js-from-html": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_20260920/break-filter-js-from-html/break-filter-js-from-html__PiyDjjo/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_20260920/break-filter-js-from-html/break-filter-js-from-html__PiyDjjo/result.json",
             "sha256": "4e1f492422b2cfd4c2472b842e6336be6dc2af5e3c84910f2f868a2658b91952",
             "bytes": 1803064
           },
@@ -5102,7 +5102,7 @@
         },
         "db-wal-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_20260920/db-wal-recovery/db-wal-recovery__XRXFmh2/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_20260920/db-wal-recovery/db-wal-recovery__XRXFmh2/result.json",
             "sha256": "ed96332daa3b82598f6182befa734ea2f876db42dae7f6cd606675dff878ddac",
             "bytes": 1455607
           },
@@ -5123,7 +5123,7 @@
         },
         "fix-code-vulnerability": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_20260920/fix-code-vulnerability/fix-code-vulnerability__At4PRzc/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_20260920/fix-code-vulnerability/fix-code-vulnerability__At4PRzc/result.json",
             "sha256": "92b5f04b155614d8c6414960b78c59836c64157cd375ec574b33e4778525f731",
             "bytes": 2997958
           },
@@ -5144,7 +5144,7 @@
         },
         "git-leak-recovery": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_20260920/git-leak-recovery/git-leak-recovery__jZaKjgP/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_20260920/git-leak-recovery/git-leak-recovery__jZaKjgP/result.json",
             "sha256": "5bbd11a1493ac1eff74a9f13ea567bf808175923cfa25e9a08cefc1a9f3e4f63",
             "bytes": 1539706
           },
@@ -5165,7 +5165,7 @@
         },
         "financial-document-processor": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_resume59_20260920/financial-document-processor/financial-document-processor__ixCU5uL/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_resume59_20260920/financial-document-processor/financial-document-processor__ixCU5uL/result.json",
             "sha256": "f41e332a629740157159d8875cf1639b290085ba51522c179e2fef2c2c0397cf",
             "bytes": 4143826
           },
@@ -5186,7 +5186,7 @@
         },
         "openssl-selfsigned-cert": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_resume59_20260920/openssl-selfsigned-cert/openssl-selfsigned-cert__PHLtTWg/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_resume59_20260920/openssl-selfsigned-cert/openssl-selfsigned-cert__PHLtTWg/result.json",
             "sha256": "6dbb608ec6b13efe4e00ade1ce84fd7afa7ff922421fdb14d7ed2bcb48e8df32",
             "bytes": 647940
           },
@@ -5207,7 +5207,7 @@
         },
         "portfolio-optimization": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_resume59_20260920/portfolio-optimization/portfolio-optimization__TgsTtnu/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_resume59_20260920/portfolio-optimization/portfolio-optimization__TgsTtnu/result.json",
             "sha256": "748ca83b520fdb3f1aba0702500704029f1362e568b3a46583a90b785f04144d",
             "bytes": 3266423
           },
@@ -5228,7 +5228,7 @@
         },
         "pypi-server": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_top48_resume59_20260920/pypi-server/pypi-server__eQm8ueQ/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_top48_resume59_20260920/pypi-server/pypi-server__eQm8ueQ/result.json",
             "sha256": "9872e38ee648b0855e9c01346011c6a0e749daba7631f1c08064518e028c266f",
             "bytes": 1419481
           },
@@ -5249,7 +5249,7 @@
         },
         "code-from-image": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/code-from-image/code-from-image__SGAbhtc/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/code-from-image/code-from-image__SGAbhtc/result.json",
             "sha256": "ce0c1ac8226e9fc575958e7527dea0df93c406c25f575ba8f858c716c92aaaca",
             "bytes": 10456423
           },
@@ -5270,7 +5270,7 @@
         },
         "configure-git-webserver": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/configure-git-webserver/configure-git-webserver__NJZ8UgH/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/configure-git-webserver/configure-git-webserver__NJZ8UgH/result.json",
             "sha256": "34bbf8061957f10102509c3838f171528d6abb369f8bdf6120e97413ff448f3d",
             "bytes": 1870851
           },
@@ -5291,7 +5291,7 @@
         },
         "constraints-scheduling": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/constraints-scheduling/constraints-scheduling__qTTR6C4/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/constraints-scheduling/constraints-scheduling__qTTR6C4/result.json",
             "sha256": "27bc6994fa33f3060994acee48faa76b84552f7c68097b62fd7eb424101f7a57",
             "bytes": 1661536
           },
@@ -5312,7 +5312,7 @@
         },
         "count-dataset-tokens": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/count-dataset-tokens/count-dataset-tokens__Ltmkctk/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/count-dataset-tokens/count-dataset-tokens__Ltmkctk/result.json",
             "sha256": "ee45061ae0993b97f6461054e4f388f3aee462aaa2229756c237065387cb23b0",
             "bytes": 14175783
           },
@@ -5333,7 +5333,7 @@
         },
         "custom-memory-heap-crash": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/custom-memory-heap-crash/custom-memory-heap-crash__TWrbB5S/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/custom-memory-heap-crash/custom-memory-heap-crash__TWrbB5S/result.json",
             "sha256": "3b5d6d3f4ad5183a749fab648b98d7881bb0b38b51358fd5a5a1e64f96723409",
             "bytes": 47728571
           },
@@ -5354,7 +5354,7 @@
         },
         "distribution-search": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/distribution-search/distribution-search__TM8xKoD/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/distribution-search/distribution-search__TM8xKoD/result.json",
             "sha256": "beb86b796763aff75e217aef92ba9c629b44a40d59490b245b0dfdffceaf00c9",
             "bytes": 3181563
           },
@@ -5385,7 +5385,7 @@
         },
         "extract-elf": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/extract-elf/extract-elf__WjxJu6k/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/extract-elf/extract-elf__WjxJu6k/result.json",
             "sha256": "d080403a507a1e9c0ec909b8b7afebd8a083a7ec0821173efbc74ed17c20ebfd",
             "bytes": 9756612
           },
@@ -5406,7 +5406,7 @@
         },
         "feal-differential-cryptanalysis": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/feal-differential-cryptanalysis/feal-differential-cryptanalysis__bfKjVJ4/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/feal-differential-cryptanalysis/feal-differential-cryptanalysis__bfKjVJ4/result.json",
             "sha256": "3e72e3f47b77796ff577a5fd46d931002d1772af1c086ce0a4c13db4d0752749",
             "bytes": 8713154
           },
@@ -5437,7 +5437,7 @@
         },
         "fix-git": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/fix-git/fix-git__aihD9y5/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/fix-git/fix-git__aihD9y5/result.json",
             "sha256": "a4fa5c60b3ca328abcebaf0714e5e41e74b95ff3be6d1b08b492e7b6c4bb2e92",
             "bytes": 1742010
           },
@@ -5458,7 +5458,7 @@
         },
         "git-multibranch": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/git-multibranch/git-multibranch__7FUgavd/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/git-multibranch/git-multibranch__7FUgavd/result.json",
             "sha256": "94436179ea3157c9ab11b701aac2b6c471bdd4c26cc32102610a3411f931ef66",
             "bytes": 4227132
           },
@@ -5479,7 +5479,7 @@
         },
         "headless-terminal": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/headless-terminal/headless-terminal__rJZHJDU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/headless-terminal/headless-terminal__rJZHJDU/result.json",
             "sha256": "8f3a72a50d4673f3573bc8663251df8be4799ef283e0f8e2e4abccc6c826a352",
             "bytes": 8989943
           },
@@ -5510,7 +5510,7 @@
         },
         "hf-model-inference": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/hf-model-inference/hf-model-inference__Zyj4fSi/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/hf-model-inference/hf-model-inference__Zyj4fSi/result.json",
             "sha256": "1838a68cab84dfce85c7cc9f75dc1dd7211334e958c07050081283c56e2351fb",
             "bytes": 3897432
           },
@@ -5531,7 +5531,7 @@
         },
         "kv-store-grpc": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/kv-store-grpc/kv-store-grpc__Jxb4nh8/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/kv-store-grpc/kv-store-grpc__Jxb4nh8/result.json",
             "sha256": "ee8709e2c63903ca50bee4d2aec8af8423162323b0f751844e1135949ccbb4df",
             "bytes": 1516147
           },
@@ -5552,7 +5552,7 @@
         },
         "large-scale-text-editing": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/large-scale-text-editing/large-scale-text-editing__cidwHee/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/large-scale-text-editing/large-scale-text-editing__cidwHee/result.json",
             "sha256": "357edbbcfa4e2dbaca129c818e1ce67868370ac4366613ef7818a023b57e14de",
             "bytes": 3610359
           },
@@ -5573,7 +5573,7 @@
         },
         "log-summary-date-ranges": {
           "result": {
-            "path": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/comem_k48_no_task_deadline_r6_20260920/log-summary-date-ranges/log-summary-date-ranges__oFMLcXU/result.json",
+            "path": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/verified_handoff/repository/.runtime/terminal_bench_full89_20260919/results/encbank_k48_no_task_deadline_r6_20260920/log-summary-date-ranges/log-summary-date-ranges__oFMLcXU/result.json",
             "sha256": "831862a97b445fc9bccac03bf15d7c9a4b1687366d8e4ddff4c9bd324122c7ca",
             "bytes": 1434279
           },

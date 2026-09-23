@@ -35,7 +35,7 @@ def main():
         paths.add(hist/'package/plan.json');paths.update(hist/'package'/n for n in descriptions);paths.add(Path(__file__))
         m.update(plan_sha256=sha(P/'plan.json'),files=[{'relative_path':x.relative_to(ROOT).as_posix(),'local_path':str(x),'remote_path':REMOTE+'/'+x.relative_to(ROOT).as_posix(),'sha256':sha(x),'bytes':x.stat().st_size} for x in sorted(paths)])
         put(P/'upload_manifest.json',m)
-        cmds=read(H/'remote_commands.json');cmds['plan_sha256']=sha(P/'plan.json');cmds['upload_manifest']['sha256']=sha(P/'upload_manifest.json');cmds['roots_and_staged_check_command']='QCOMEM_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',cmds['remote_package']+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')]);put(H/'remote_commands.json',cmds)
+        cmds=read(H/'remote_commands.json');cmds['plan_sha256']=sha(P/'plan.json');cmds['upload_manifest']['sha256']=sha(P/'upload_manifest.json');cmds['roots_and_staged_check_command']='QENCBANK_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',cmds['remote_package']+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')]);put(H/'remote_commands.json',cmds)
         delta=read(H/'source_delta.json');delta.update(status='FINAL_SCOPE_ANNOTATIONS_CORRECTED_CPU_RECHECK_PENDING',plan=bind(P/'plan.json'),manifest=bind(P/'upload_manifest.json'),scope_annotation_correction=plan['scope_annotation_correction']);put(H/'source_delta.json',delta)
         out=H/'focused_checks_attempt2';assert not out.exists();out.mkdir();argv=[sys.executable,'-X','utf8','-B',str(checker),'--dataset',ds];start=now()
         with (out/'stdout.log').open('xb') as so,(out/'stderr.log').open('xb') as se:

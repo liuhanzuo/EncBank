@@ -1,7 +1,7 @@
 """Read-only snapshot of this research experiment; never submits or retries."""
 import hashlib,json,subprocess,time
 from pathlib import Path
-B=Path('/srv/encbank/qcomem_align_codex_20260911')
+B=Path('/srv/encbank/qencbank_align_codex_20260911')
 def read(path):
     try:return json.loads(path.read_text())
     except FileNotFoundError:return None

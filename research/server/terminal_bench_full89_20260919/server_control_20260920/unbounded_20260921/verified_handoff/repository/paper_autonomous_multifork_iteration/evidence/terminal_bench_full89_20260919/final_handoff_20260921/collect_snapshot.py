@@ -1,7 +1,7 @@
 from pathlib import Path
 import datetime,hashlib,json,shlex,subprocess
-H=Path(__file__).resolve().parent;B=H.parent;PY='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
-NAMES=dict(dense='dense_no_task_deadline_r6_20260921',top12='comem_k12_no_task_deadline_r6_20260920',top48='comem_k48_no_task_deadline_r6_20260920')
+H=Path(__file__).resolve().parent;B=H.parent;PY='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
+NAMES=dict(dense='dense_no_task_deadline_r6_20260921',top12='encbank_k12_no_task_deadline_r6_20260920',top48='encbank_k48_no_task_deadline_r6_20260920')
 def load(p):return json.loads(p.read_text(encoding='utf8'))
 cfg={k:dict(root=load(B/n/'plan.json')['remote_root'],arm=load(B/n/'plan.json')['arm'],job=load(B/n/'submission.json')['job_id']) for k,n in NAMES.items()}
 code=f'''from pathlib import Path

@@ -3,18 +3,18 @@ S6 -- Put the CacheBlend cache object on the same axes as arm A and arm B.
 
 WHY THIS ARM
 ------------
-Arms A and B so far were mine.  `COMem/comem/cacheblend.py` (450 lines of code, wired
+Arms A and B so far were mine.  `Encbank/encbank/cacheblend.py` (450 lines of code, wired
 into eval/_cli.py) implements the published member of the store-KV family: CacheBlend
 (Yao et al., EuroSys'25, arXiv:2405.16444) caches the FULL per-layer K/V of every chunk,
 concatenates the retrieved caches at query time, repairs positions, and selectively
 recomputes a small fraction of tokens.  Its own docstring gives the storage as 144
-KiB/token on Qwen3-8B against CoMem's 8 KiB -- arithmetic that matches the independent
+KiB/token on Qwen3-8B against Encbank's 8 KiB -- arithmetic that matches the independent
 derivation used throughout these experiments.
 
 Arm C here is that cache object without the selective-recompute repair, which makes it
 the clean upper end of the storage axis:
 
-    arm A (CoMem)      one depth-j residual        4 KB/token   recompute [j,L)
+    arm A (Encbank)      one depth-j residual        4 KB/token   recompute [j,L)
     arm B (Memo-T)     K,V at |S| chosen layers    4|S| KB      no recompute, gated
     arm C (CacheBlend) K,V at ALL L layers       112 KB/token   no recompute, no gate
 
@@ -186,8 +186,8 @@ def main():
     print(f"C  CacheBlend, full depth  | {L*kb_per_layer:6.0f} KB   | none      | {cf:.3f}")
     print("B  1 KV layer  (S3)        |      4 KB   | oracle    | 0.782")
     print("B  8 KV layers (S3)        |     32 KB   | oracle    | 0.313")
-    print("A  CoMem j=12  (S2)        |      4 KB   | none      | 0.372")
-    print("A  CoMem j=2   (S2)        |      4 KB   | none      | 0.029")
+    print("A  Encbank j=12  (S2)        |      4 KB   | none      | 0.372")
+    print("A  Encbank j=2   (S2)        |      4 KB   | none      | 0.029")
     print(f"\nwrote {out}")
 
 

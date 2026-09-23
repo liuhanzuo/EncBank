@@ -16,7 +16,7 @@ import sys
 HERE = Path(__file__).resolve().parent
 SOURCE = HERE / "frozen_validator"
 OUTPUT = HERE / "control"
-ENV_KEY = "QCOMEM_JUDGE_API_KEY"
+ENV_KEY = "QENCBANK_JUDGE_API_KEY"
 BASE_URL = "https://sbtunnel.xiaoaojianghu.fun/v1"
 PREFIX = "model_providers.astra_judge_https."
 PLAN_SHA = "9ab34359ac9ad4483f0f27b50d213681b0271b64ff6d0d833b0f2e0a62ce70d5"
@@ -68,7 +68,7 @@ def admission():
             if entry.stat().st_uid != os.getuid(): continue
             cmd=(entry/'cmdline').read_bytes().replace(b'\0',b' ').decode('utf-8','replace')
             exe=(entry/'exe').resolve().name
-            if exe=='codex' and ' exec ' in cmd and ('qcomem_astra' in cmd or 'locomo_astra_remote_codex' in cmd):
+            if exe=='codex' and ' exec ' in cmd and ('qencbank_astra' in cmd or 'locomo_astra_remote_codex' in cmd):
                 active.append({'pid':int(entry.name),'name':exe})
         except (FileNotFoundError,PermissionError,ProcessLookupError): pass
     return {'checked_at':now(),'status':'CLEAR' if not active else 'BLOCKED_ACTIVE_JUDGE',
@@ -77,7 +77,7 @@ def admission():
 
 def main():
     if len(sys.argv) != 1:
-        raise SystemExit("No arguments accepted; inherit QCOMEM_JUDGE_API_KEY")
+        raise SystemExit("No arguments accepted; inherit QENCBANK_JUDGE_API_KEY")
     key = json.loads(sys.stdin.buffer.read())["key"]
     os.environ[ENV_KEY] = key
     if not key or not key.strip():

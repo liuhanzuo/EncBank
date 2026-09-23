@@ -3,7 +3,7 @@ from pathlib import Path
 import json,os,signal,subprocess,sys,time
 from persistence import dump
 H=Path(__file__).resolve().parent;H.relative_to(Path('/srv/encbank').resolve())
-P=json.loads((H/'plan.json').read_text());R=H/'run_comem';assert not R.exists();(R/'mailbox').mkdir(parents=True)
+P=json.loads((H/'plan.json').read_text());R=H/'run_encbank';assert not R.exists();(R/'mailbox').mkdir(parents=True)
 args=[P['engine_python'],'-u',str(H/'agent_worker.py')]
 with (R/'worker.stdout.log').open('wb') as out,(R/'worker.stderr.log').open('wb') as err:
     p=subprocess.Popen(args,stdout=out,stderr=err,cwd=H,start_new_session=True)

@@ -2,14 +2,14 @@
 S16 -- Per-query latency and measured memory of the repaired read, Qwen3-8B bf16, on the
 paper's own RULER-style prompt (niah_multikey_1 at a chosen length), KV-cache decode path.
 
-Arms are the same objects as in s15_ruler_lower.py: pub (published CoMem, no write sink),
+Arms are the same objects as in s15_ruler_lower.py: pub (published Encbank, no write sink),
 pub_sink, fix_S (chunk K/V visible at --fix-layers), fix_all (all lower layers), j0 (RAG
 reference, full recompute over the pack).
 
 Phases, each bracketed by torch.cuda.synchronize(), median over --reps after one warmup:
   write    the selected top-k chunks written to depth j (+ lower K/V capture and rotation
-           for the fix arms) plus the sink.  NOTE: CoMemLower.build_bottom writes chunks one
-           at a time (unbatched); base CoMem.write_chunks batches equal-length chunks.  The
+           for the fix arms) plus the sink.  NOTE: EncbankLower.build_bottom writes chunks one
+           at a time (unbatched); base Encbank.write_chunks batches equal-length chunks.  The
            difference is an implementation choice of this prototype, not of the method, and
            is reported as is.
   write_all  every context chunk of the prompt written once (what a store pays per document);
@@ -38,13 +38,13 @@ from pathlib import Path
 import torch
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "COMem"))
+sys.path.insert(0, str(ROOT / "Encbank"))
 sys.path.insert(0, str(ROOT / "exp"))
 
-from comem import CoMem                                   # noqa: E402
-from comem import selectors as _sel                       # noqa: E402
+from encbank import Encbank                                   # noqa: E402
+from encbank import selectors as _sel                       # noqa: E402
 from eval import ruler as R                               # noqa: E402
-from s15_ruler_lower import CoMemLower, build_arms        # noqa: E402
+from s15_ruler_lower import EncbankLower, build_arms        # noqa: E402
 
 
 def sync():
@@ -54,7 +54,7 @@ def sync():
 
 def cache_chunk_bytes(cm):
     """Bytes of K+V for the chunk positions at layers in S (fix arms), else 0."""
-    if not isinstance(cm, CoMemLower) or cm._bottom is None:
+    if not isinstance(cm, EncbankLower) or cm._bottom is None:
         return 0
     cache, M = cm._bottom["cache"], cm._bottom["M"]
     first = 1 if cm.sink_in_cache else 0
@@ -79,7 +79,7 @@ def run_arm(arm, name, bos_id, sel_chunks, query_ids, steps, context_chunks, tim
         torch.cuda.reset_peak_memory_stats()
     out = {}
     sync(); t0 = time.perf_counter()
-    if isinstance(arm, CoMemLower):
+    if isinstance(arm, EncbankLower):
         sink_hj, sel_hj = arm.build_bottom(bos_id, sel_chunks)
     else:
         sink_hj = arm.write_chunk([bos_id])
@@ -105,13 +105,13 @@ def run_arm(arm, name, bos_id, sel_chunks, query_ids, steps, context_chunks, tim
     sync(); t3 = time.perf_counter()
     out["decode_s_per_tok"] = (t3 - t2) / max(1, steps - 1)
     out["peak_gib"] = (torch.cuda.max_memory_allocated() / 2**30) if dev.type == "cuda" else 0.0
-    if isinstance(arm, CoMemLower):
+    if isinstance(arm, EncbankLower):
         arm._bottom = None
     del bottom_cache, top_cache, sel_hj, q_hj, sink_hj
 
     if time_all:
         sync(); t4 = time.perf_counter()
-        if isinstance(arm, CoMemLower):
+        if isinstance(arm, EncbankLower):
             for ch in context_chunks:
                 arm._capture_lower(ch)
         else:

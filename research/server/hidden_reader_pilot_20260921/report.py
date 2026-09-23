@@ -15,7 +15,7 @@ for job in jobs:
 lines=['# Qwen3-8B hidden Reader：快速试验结果','',
     '4 组独立单 GPU 作业均完成，真实父进程 wait=0，Slurm COMPLETED / 0:0。模型与原 LoRA 同前轮实验，训练出的投影权重仅保存在服务器。','',
     '这是一轮正文 continuation 的小规模线性可行性试验：32 个文档拟合、4 个文档选择正则强度、8 个文档 held-out 测试。拟合 16,384 个历史位置；使用各层归一化前 K/V 监督的闭式仿射 ridge 拟合，没有做最终 logits 蒸馏，没有训练 query，也没有 agent 任务评分。','',
-    '每个测试文档为 4×512 个历史 token，后续正文 128 个输入位置；KL 和 top-1 一致率衡量对原 COMem teacher 的接近程度，NLL 衡量正文下一 token 的负对数似然，均不是任务成功率。','',
+    '每个测试文档为 4×512 个历史 token，后续正文 128 个输入位置；KL 和 top-1 一致率衡量对原 Encbank teacher 的接近程度，NLL 衡量正文下一 token 的负对数似然，均不是任务成功率。','',
     '| 策略 | 验证选定 ridge | 测试 KL ↓ | 对 teacher 的 top-1 一致率 ↑ | 测试 NLL ↓ | teacher NLL |',
     '|---|---:|---:|---:|---:|---:|']
 for s in summaries:

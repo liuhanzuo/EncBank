@@ -19,7 +19,7 @@ EOF
 apt-get -o Acquire::https::Proxy::download.docker.com="$proxy_url" update
 DEBIAN_FRONTEND=noninteractive apt-get -o Acquire::https::Proxy::download.docker.com="$proxy_url" install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 install -m 0755 -d /etc/systemd/system/docker.service.d
-cat > /etc/systemd/system/docker.service.d/comem-proxy.conf <<EOF
+cat > /etc/systemd/system/docker.service.d/encbank-proxy.conf <<EOF
 [Service]
 Environment="HTTP_PROXY=$proxy_url"
 Environment="HTTPS_PROXY=$proxy_url"

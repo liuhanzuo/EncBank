@@ -13,11 +13,11 @@ import urllib.error
 from email.utils import parsedate_to_datetime
 
 HOME_ROOT = Path('/srv/encbank')
-PROJECT = HOME_ROOT / 'qcomem_align_codex_20260911'
+PROJECT = HOME_ROOT / 'qencbank_align_codex_20260911'
 WORK = PROJECT / 'locomo_paper_astra_expansion_20260916/memoryllm_preparation'
 MODEL = PROJECT / 'models/memoryllm-8b-chat-a8dec23c6ef9'
-RUNTIME = HOME_ROOT / 'qcomem_runtime_20260911/memoryllm_20260916'
-BASE_PYTHON = HOME_ROOT / 'qcomem_runtime_20260911/python312/bin/python'
+RUNTIME = HOME_ROOT / 'qencbank_runtime_20260911/memoryllm_20260916'
+BASE_PYTHON = HOME_ROOT / 'qencbank_runtime_20260911/python312/bin/python'
 REVISION = 'a8dec23c6ef973ec2253d81a20a0a76228801cef'
 
 

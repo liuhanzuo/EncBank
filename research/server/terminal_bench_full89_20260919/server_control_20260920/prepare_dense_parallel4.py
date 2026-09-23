@@ -8,9 +8,9 @@ import tarfile
 import time
 import tomllib
 
-B = pathlib.Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919')
+B = pathlib.Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919')
 S = B / 'server_control_20260920'
-R = pathlib.Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+R = pathlib.Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 H = S / 'dense_parallel4_20260921'
 OLD = S / 'supplement_20260921/dense_supplement_20260921'
 TASKS = ['mcmc-sampling-stan', 'mteb-leaderboard', 'rstan-to-pystan',
@@ -33,7 +33,7 @@ def main():
     started = {e['task'] for line in old_events.read_text().splitlines()
                if (e := json.loads(line))['event'] == 'request_start'}
     assert not set(TASKS) & started
-    archive = pathlib.Path('/srv/encbank/COMem_Migration_20260920/QCOMEM_PROGRESS_EVIDENCE_20260921_1130.tar.gz')
+    archive = pathlib.Path('/srv/encbank/Encbank_Migration_20260920/QENCBANK_PROGRESS_EVIDENCE_20260921_1130.tar.gz')
     with tarfile.open(archive) as tar:
         name = next(n for n in tar.getnames() if n.endswith('/closed_verification.json'))
         verification = json.load(tar.extractfile(name))
@@ -59,7 +59,7 @@ def main():
              predecessor_job_id='113514', predecessor_root=str(B/'dense_no_task_deadline_r6_20260921'),
              predecessor_partition_reconciled=True, supplemental_only=False,
              selection='Five never-started tasks; exclude all normal outcomes, context boundaries and active supplement tasks',
-             job_name='qcomem-tb-dense-parallel4', ipc_root=str(R.parent/'t89dp4'),
+             job_name='qencbank-tb-dense-parallel4', ipc_root=str(R.parent/'t89dp4'),
              host_admission='Four tasks maximum; original8GiB each,40GiB server reservations plus2GiB fresh headroom',
              timeout_protocol='No cumulative task or Slurm allocation deadline; original12000s request fault guard retained',
              authorization='User explicitly permits up to4 GPUs and Dense concurrency4 or8; begin at4',
@@ -96,7 +96,7 @@ def main():
 '''
     (H/'server_owner.py').write_text(owner.replace(marker, inserted+marker))
     slurm = (H/'server.slurm').read_text().replace(oldroot,str(H)).replace(oldipc,p['ipc_root'])
-    slurm = slurm.replace('#SBATCH --time=36:00:00','#SBATCH --time=0').replace('#SBATCH --job-name=qcomem-tb-dense-server-r6','#SBATCH --job-name='+p['job_name'])
+    slurm = slurm.replace('#SBATCH --time=36:00:00','#SBATCH --time=0').replace('#SBATCH --job-name=qencbank-tb-dense-server-r6','#SBATCH --job-name='+p['job_name'])
     (H/'server.slurm').write_text(slurm)
     # These old reports are copied metadata, never used as qualification for this plan.
     for name in ['container_qualification.json','server_preflight.json','server_cpu_preflight.json']:
@@ -110,7 +110,7 @@ def main():
          all_prior_results_preserved=True, checkpoint_downloaded=False))
     # Validate model/engine imports and all five real environment setups without inference.
     qualify=f'''#!/bin/bash
-#SBATCH --job-name=qcomem-dense-p4-qualification
+#SBATCH --job-name=qencbank-dense-p4-qualification
 #SBATCH --partition=gpu
 #SBATCH --nodelist=gpu-node1
 #SBATCH --nodes=1

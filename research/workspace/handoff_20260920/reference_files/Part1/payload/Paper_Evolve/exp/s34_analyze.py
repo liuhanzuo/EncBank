@@ -16,7 +16,7 @@ Everything is the residual `fix_all - j0` paired within a (task, length, depth) 
 shared samples, house bootstrap B=4000, random.Random(0) reseeded per interval. j0 is measured
 in every run, never borrowed.
 
-SCALE CAVEAT, carried from E57 and checkable at COMem/eval/ruler.py:250: recall is
+SCALE CAVEAT, carried from E57 and checkable at Encbank/eval/ruler.py:250: recall is
 sum(1 for r in refs if r in pred)/len(refs), and variable_tracking has five refs per sample
 against one for the NIAH tasks. vt recall is five-way partial credit and NIAH recall is
 binary, so recall points are NOT the same unit across the two families. Within-cell residuals

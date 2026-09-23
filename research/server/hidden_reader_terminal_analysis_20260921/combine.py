@@ -1,7 +1,7 @@
 """Combine unique valid pairs, preserving infrastructure attempts separately."""
 import datetime,hashlib,json,statistics,subprocess
 from pathlib import Path
-B=Path('/srv/encbank/qcomem_align_codex_20260911'); OUT=Path(__file__).resolve().parent
+B=Path('/srv/encbank/qencbank_align_codex_20260911'); OUT=Path(__file__).resolve().parent
 R2=B/'hidden_reader_terminal_r2_20260921'; R4=B/'hidden_reader_terminal_r4_20260921'; R5=B/'hidden_reader_terminal_r5_20260921'
 def load(p):return json.loads(p.read_text()) if p.exists() else None
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -74,9 +74,9 @@ summary=dict(at=datetime.datetime.now().astimezone().isoformat(),expected_trials
     rows=rows,paired=paired,replays=replays,audit=audit,
     workers_closed=all(r['worker_parent'] and r['worker_parent']['actual_parent_wait'] and r['worker_parent']['exit_code']==0 for r in rows))
 save(OUT/'summary.json',summary)
-lines=['# COMem n24：真实 Terminal-Bench 探索实验','',f"更新时间：{summary['at']}；有效完成 {summary['valid_trials']}/12 次任务运行。",'',
-    '6 个预先选定的 Terminal-Bench 2.1 任务，每题 native/n24 各一个独立新环境。模型为 Qwen3-8B + 原 COMem LoRA，非 thinking、贪心生成。此结果独立于另一个 27B 全量 benchmark，不是完整 89 题成绩。','',
-    'native 是原 COMem 上层联合 prefill；n24 对历史第 13～24 层做联合因果计算，25～36 层限制在 chunk 内。当前 query/生成 token 仍执行全部层，上层读取全部选中历史 KV。H12 独立写入，chunk=512、top12；每次调用检索一次，生成中不重检索。未加入 hot KV buffer 或投影头。','',
+lines=['# Encbank n24：真实 Terminal-Bench 探索实验','',f"更新时间：{summary['at']}；有效完成 {summary['valid_trials']}/12 次任务运行。",'',
+    '6 个预先选定的 Terminal-Bench 2.1 任务，每题 native/n24 各一个独立新环境。模型为 Qwen3-8B + 原 Encbank LoRA，非 thinking、贪心生成。此结果独立于另一个 27B 全量 benchmark，不是完整 89 题成绩。','',
+    'native 是原 Encbank 上层联合 prefill；n24 对历史第 13～24 层做联合因果计算，25～36 层限制在 chunk 内。当前 query/生成 token 仍执行全部层，上层读取全部选中历史 KV。H12 独立写入，chunk=512、top12；每次调用检索一次，生成中不重检索。未加入 hot KV buffer 或投影头。','',
     '| 任务 | 配置 | 状态 | reward | 总耗时 s | 模型 s | prefill s | decode s | 调用 | 输出 token | 含历史/12块调用 |',
     '|---|---|---|---|---:|---:|---:|---:|---:|---:|---|']
 for r in rows:

@@ -13,7 +13,7 @@ came out at frac 0.000 -- an identity, not a result.
 
 So every number so far reflects the QUERY-side effect only: how many layers the query
 spends with the chunk visible.  Chunk staleness was identically zero and could not have
-been measured.  That is not what deployed CoMem or CacheBlend look like: they retrieve
+been measured.  That is not what deployed Encbank or CacheBlend look like: they retrieve
 several chunks from scattered parts of a document, each cached without the others, then
 concatenate them at fresh adjacent positions.  Cross-chunk attention is what breaks, and
 it is exactly what CacheBlend's selective recompute exists to repair.
@@ -27,7 +27,7 @@ A document of `--n-doc` chunks; `--k` of them are retrieved from scattered posit
             same object distill.py uses as its teacher.  It is not the full document;
             `full_doc` is reported separately so the cost of retrieval itself is visible.
   no_mem    [sink; query] -- the floor.
-  A         CoMem: every chunk written alone at chunk-local positions to h_j, query
+  A         Encbank: every chunk written alone at chunk-local positions to h_j, query
             written alone, packed at fresh contiguous positions, layers [j,L) recomputed.
   C         CacheBlend without the repair: every chunk's FULL per-layer K/V cached from
             an isolated encoding at the positions it will occupy, concatenated, query
@@ -38,7 +38,7 @@ DECOMPOSITION -- the point of this script
 -----------------------------------------
 Arm A is run three ways so the two error sources separate:
 
-  A_both    chunks isolated + query isolated            (deployed CoMem)
+  A_both    chunks isolated + query isolated            (deployed Encbank)
   A_chunk   chunks isolated, query's h_j TAKEN FROM ref (query side made perfect)
             -> what remains is CHUNK STALENESS alone
   A_query   chunks' h_j taken from ref, query isolated

@@ -1,8 +1,8 @@
 {
-  "schema": "RULER_multikey128k_100_FP16_frozen_CoMem_j12_v1",
+  "schema": "RULER_multikey128k_100_FP16_frozen_Encbank_j12_v1",
   "frozen_at": "2026-09-13T22:39:58.386468+08:00",
   "arm_order": [
-    "comem_frozen_j12"
+    "encbank_frozen_j12"
   ],
   "backbone_dtype": "float16",
   "attention_backend": "sdpa",
@@ -31,22 +31,22 @@
     "sha256": "3746322f9cc2726f04339412e520493c927843e162bb0280760b7d6310980305"
   },
   "scorer": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
     "sha256": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f"
   },
   "activation": {
     "path": "paper_autonomous_multifork_iteration/evidence/qwen_access_repair_20260911/package/quality/bindings/adapter_activation.json",
     "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
   },
-  "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_CoMem_j12_nativeH16",
-  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
-  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_Encbank_j12_nativeH16",
+  "model_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/adapter",
   "resource_policy": {
     "allocator_cap_bytes": 214748364800,
     "minimum_free_bytes": 236223201280,
     "stable_idle_seconds": 45
   },
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "native_attention_runtime_files": {
     "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
     "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
@@ -91,10 +91,10 @@
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/tokenwise_runtime.py": "d35ed28ae8ffb4db1dbf348b55ccd3c7d5f65b30f403cc90ceb5158d4e8ce3ac",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
     "tmp_external_baselines/kv_quant/KIVI/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
@@ -107,7 +107,7 @@
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/analyze.py": "cfd655434a0b85998ffce9210c5e495b66f873948f7d7b799e77c8ee3343a2d9",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/backend_gate.py": "21bdd4430ab7f1f9b792e3916cfd3b802d67a8e4a69d79c7ced03d5544ac60d4",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/protocol.py": "9edadeae0aa4f2354c186fd5027e0b6ec5aeee6d3d9610582815c6aa24d9f414",
-    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/qcomem_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/qencbank_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/record_shell_exit.py": "27ff44a5cd2067f24a3b045e3ec4a024dc376fbfe07baa0794caeccb855c4e12",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/resource_guard.py": "4ab1f426704a6e6abb519f5e0ea3935e97cda6a70fc37a19b7dd9a258d090cbb",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/resource_worker.py": "d54aeedc0d977fffccfffef3bf77f80c7f0146bec785808be1b6e71d7ff8c9d7",
@@ -117,7 +117,7 @@
   },
   "batch_output": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/run/attempt1",
   "outputs": {
-    "comem_frozen_j12": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/run/attempt1/comem_frozen_j12"
+    "encbank_frozen_j12": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/run/attempt1/encbank_frozen_j12"
   },
   "items_per_arm": 100,
   "documents_per_arm": 100,
@@ -148,7 +148,7 @@
   "training_or_runtime_offload": false,
   "automatic_retry": false,
   "on_actual_OOM": "Stop on every nonzero including OOM, retain failure and partial outputs; no retry or later arm continuation; no fabricated zero score.",
-  "precision_scope": "One adapter-free CoMem j12, FP16 backbone/native H, native SDPA; no LoRA or quantized or Dense arm executed.",
+  "precision_scope": "One adapter-free Encbank j12, FP16 backbone/native H, native SDPA; no LoRA or quantized or Dense arm executed.",
   "BOS_policy": "Prior BOS151643/scalarEOS151645/first-step suppression; fixed independently of 54-question BOS sensitivity outcomes.",
   "input_scope": "New complete100-item pinned official multikey128K cohort, seed42. No crop, no scaling/config change; full native unscaled positions beyond40960. Different examples from published paper; all generated rows retained.",
   "analysis": {
@@ -222,7 +222,7 @@
       "sha256": "4c8779aeac769aadb9e8378282fe6dfef40d336d87bd5914e8145438a66df229"
     }
   },
-  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/literature_frozen_j12_multikey128k_admission_continuation1",
+  "task_cache_root": "/srv/encbank/qencbank_align_codex_20260911/task_cache/literature_frozen_j12_multikey128k_admission_continuation1",
   "task": {
     "benchmark": "RULER",
     "task": "niah_multikey_1",
@@ -236,7 +236,7 @@
     "num_needle_v": 1,
     "num_needle_q": 1
   },
-  "job_name": "qcomem-lit-frozen-j12-multikey128k100-admcont1-codex",
+  "job_name": "qencbank-lit-frozen-j12-multikey128k100-admcont1-codex",
   "concurrency_policy": {
     "maximum_owned_requested_GPUs": 4,
     "GPUs_per_job": 1,
@@ -256,7 +256,7 @@
     "sha256": "f95c9b215daf7276c620867c81c4873a21993d9f459ec86b2cb530b4e3a05aaa"
   },
   "postprocess": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
     "sha256": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c"
   },
   "input_assembly_receipt": {
@@ -311,7 +311,7 @@
       "sha256": "68919edc8c56192378d708081531a31f3b9065b7d7f64e46cff7c3df9b56ed38"
     },
     "module": {
-      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/qcomem_triton_cache.py",
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_ruler_admission_continuations_20260913/multikey128k/package/qencbank_triton_cache.py",
       "sha256": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715"
     },
     "fix_provenance": {
@@ -364,7 +364,7 @@
     "scope": "Conservative maximum Slurm allowance for six long-input arms; not an ETA or evidence of runtime. Fresh scheduler admission required."
   },
   "method_configuration": {
-    "method": "CoMem frozen",
+    "method": "Encbank frozen",
     "runtime_arm": "h16",
     "resume_j": 12,
     "adapter_active": false,
@@ -377,7 +377,7 @@
   "first_cell_reason": "Missing locally matched frozen-j12 multikey128k100 algorithm cell; completed earlier six arms never rerun.",
   "frozen_baseline_lineage": {
     "verified_template_plan": {
-      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_comem_j12_single16k_v3/package/plan.json",
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_encbank_j12_single16k_v3/package/plan.json",
       "sha256": "8f09bdaa0668a48ed03ed8e9671eba13761e5fce36d7b1a8de2f901d199bbdc7"
     },
     "original_input_plan": {

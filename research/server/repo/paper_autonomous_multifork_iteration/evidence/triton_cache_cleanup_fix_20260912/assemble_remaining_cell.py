@@ -3,9 +3,9 @@ import argparse,ast,copy,datetime,difflib,hashlib,json,shlex
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
 SNAPSHOT=HERE/'remaining_candidate_snapshot.json'
-REMOTE='/srv/encbank/qcomem_align_codex_20260911/repo'
+REMOTE='/srv/encbank/qencbank_align_codex_20260911/repo'
 MODULE_SHA='273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715'
-HOOK="  from qcomem_triton_cache import install as install_triton_cache\n  record['triton_cache_cleanup_fix']=install_triton_cache(plan['task_cache_root']+'/triton')\n  save(output/'worker.json',record)\n"
+HOOK="  from qencbank_triton_cache import install as install_triton_cache\n  record['triton_cache_cleanup_fix']=install_triton_cache(plan['task_cache_root']+'/triton')\n  save(output/'worker.json',record)\n"
 PROVENANCE_HOOK="   provenance['triton_cache_cleanup_fix']=record['triton_cache_cleanup_fix']\n"
 def read(p):return json.loads(Path(p).read_text('utf-8-sig'))
 def sha(p):
@@ -29,7 +29,7 @@ def main():
   s=original[key];assert sha(ROOT/s['path'])==s['sha256'],(cell,key)
  prior=read(ROOT/original['actual_CPU_receipt']['path']);assert prior['actual_exit_code']==0 and prior['actual_parent_wait']
  old=read(BASE/'plan.json');plan=copy.deepcopy(old);fix=read(HERE/'provenance.json')
- assert sha(HERE/'qcomem_triton_cache.py')==MODULE_SHA==fix['fix_module']['sha256']
+ assert sha(HERE/'qencbank_triton_cache.py')==MODULE_SHA==fix['fix_module']['sha256']
  actual=read(HERE/'actual_remote_CPU_check_attempt2/stdout.json');actual_exit=read(HERE/'actual_remote_CPU_check_attempt2/execution_receipt.json')
  assert actual['status']=='PASS_actual_Triton36_CPU_install_factory_and_binary_text_put' and actual['module_sha256']==MODULE_SHA
  assert actual_exit['actual_exit_code']==0 and actual_exit['actual_parent_wait']
@@ -53,14 +53,14 @@ def main():
   write(P/src.name,after);sources[rel(P/src.name)]=sha(P/src.name)
   deltas.append({'base':bind(src),'new':bind(P/src.name),'byte_identical':src.read_bytes()==(P/src.name).read_bytes()})
   if before!=after:write(H/'source_diffs'/(src.name+'.diff'),''.join(difflib.unified_diff(before.splitlines(True),after.splitlines(True),fromfile=rel(src),tofile=rel(P/src.name))))
- write(P/'qcomem_triton_cache.py',(HERE/'qcomem_triton_cache.py').read_text('utf-8'));assert sha(P/'qcomem_triton_cache.py')==MODULE_SHA
- sources[rel(P/'qcomem_triton_cache.py')]=MODULE_SHA
+ write(P/'qencbank_triton_cache.py',(HERE/'qencbank_triton_cache.py').read_text('utf-8'));assert sha(P/'qencbank_triton_cache.py')==MODULE_SHA
+ sources[rel(P/'qencbank_triton_cache.py')]=MODULE_SHA
  plan.update(frozen_at=datetime.datetime.now().astimezone().isoformat(),source_sha256=sources,batch_output=rel(P/'run/attempt1'),task_cache_root=cache)
  if 'job_name' in old:plan['job_name']=new_job
  else:plan['scheduler']['job_name']=new_job
  plan['outputs']={a:plan['batch_output']+'/'+a for a in plan['arm_order']}
  plan['triton_cache_cleanup_fix']={'base_plan':original['plan'],'base_readiness':original['readiness'],'base_science_CPU_report':original['actual_CPU_report'],'base_actual_held_CPU_exit':original['actual_CPU_receipt'],
-  'module':bind(P/'qcomem_triton_cache.py'),'fix_provenance':bind(HERE/'provenance.json'),'captured_actual_installed_source':fix['captured_actual_installed_source'],'focused_fault_report':fix['focused_report'],'actual_held_fault_exit':fix['actual_held_CPU_exit'],
+  'module':bind(P/'qencbank_triton_cache.py'),'fix_provenance':bind(HERE/'provenance.json'),'captured_actual_installed_source':fix['captured_actual_installed_source'],'focused_fault_report':fix['focused_report'],'actual_held_fault_exit':fix['actual_held_CPU_exit'],
   'actual_installed_runtime_CPU_report':bind(HERE/'actual_remote_CPU_check_attempt2/stdout.json'),'actual_installed_runtime_CPU_exit':bind(HERE/'actual_remote_CPU_check_attempt2/execution_receipt.json'),'assembler':bind(Path(__file__)),'immutable_candidate_snapshot':bind(SNAPSHOT),
   'change':'Same proven process-local cache manager before torch/model/KIVI imports; only exact retained temporary leaf EBUSY after atomic replace can be tolerated, after committed-byte verification and a structured stderr event.',
   'same_science_inputs_model_datatypes_scoring_timing_and_all_original_rows':True,'previous_frozen_packages_and_shared_environment_unmodified':True,'trigger_other_cell_job':25084,'this_cell_not_claimed_failed':True,
@@ -69,7 +69,7 @@ def main():
   s=original['seed_annotation_erratum'];assert sha(ROOT/s['path'])==s['sha256'];plan['triton_cache_cleanup_fix']['separate_seed_annotation_erratum']=s
  save(P/'plan.json',plan)
  write(P/'batch.sbatch',namespace((BASE/'batch.sbatch').read_text('utf-8')).replace(sha(BASE/'plan.json'),sha(P/'plan.json')))
- manifest=read(BASE/'upload_manifest.json');paths={ROOT/x['relative_path'].replace(rel(BASE)+'/',rel(P)+'/') for x in manifest['files']};paths.add(P/'qcomem_triton_cache.py')
+ manifest=read(BASE/'upload_manifest.json');paths={ROOT/x['relative_path'].replace(rel(BASE)+'/',rel(P)+'/') for x in manifest['files']};paths.add(P/'qencbank_triton_cache.py')
  for s in plan['triton_cache_cleanup_fix'].values():
   if isinstance(s,dict) and 'path' in s:paths.add(ROOT/s['path'])
  for s in fix.values():
@@ -78,13 +78,13 @@ def main():
  save(P/'upload_manifest.json',manifest)
  commands=read(OLD/'remote_commands.json');rp=REMOTE+'/'+rel(P)
  commands.update(remote_package=rp,plan_sha256=sha(P/'plan.json'),upload_manifest={'path':str(P/'upload_manifest.json'),'sha256':sha(P/'upload_manifest.json')},manifest_itself_remote_path=rp+'/upload_manifest.json',sbatch_argv=['sbatch','--parsable',rp+'/batch.sbatch'])
- commands['sbatch_command']=shlex.join(commands['sbatch_argv']);commands['roots_and_staged_check_command']='QCOMEM_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')])
+ commands['sbatch_command']=shlex.join(commands['sbatch_argv']);commands['roots_and_staged_check_command']='QENCBANK_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')])
  save(H/'remote_commands.json',commands)
  for name in ('dispatch_once.py','remote_ops.py'):
   before=(OLD/name).read_text('utf-8');after=namespace(before);write(H/name,after)
   write(H/'source_diffs'/(name+'.diff'),''.join(difflib.unified_diff(before.splitlines(True),after.splitlines(True),fromfile=rel(OLD/name),tofile=rel(H/name))))
  save(H/'source_delta.json',{'status':'ASSEMBLED_FOCUSED_CPU_CHECKS_PENDING','cell':cell,'label':c['label'],'base_plan':bind(BASE/'plan.json'),'new_plan':bind(P/'plan.json'),'new_manifest':bind(P/'upload_manifest.json'),'source_changes':deltas,
-  'new_module':bind(P/'qcomem_triton_cache.py'),'old_control':old_control,'new_control':control,'old_job_name':old_job,'new_job_name':new_job,
+  'new_module':bind(P/'qencbank_triton_cache.py'),'old_control':old_control,'new_control':control,'old_job_name':old_job,'new_job_name':new_job,
   'allowed_changes':'Cache installation and provenance hook only in scientific worker; same-depth package paths, job/output/cache/control namespaces; separate fixed-module provenance. No data/method/datatype/scorer/natural timing change.',
   'no_SSH_GPU_input_generation_or_previous_frozen_file_changes':True})
  print(json.dumps({'status':'ASSEMBLED_CPU_ONLY_NOT_SUBMITTED','cell':cell,'plan':bind(P/'plan.json'),'manifest':bind(P/'upload_manifest.json')}))

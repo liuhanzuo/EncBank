@@ -28,7 +28,7 @@ for task,path in sorted(taskroots.items()):
 assert len(traces)>=3
 (R/'traces.json').write_text(json.dumps(traces,ensure_ascii=False,indent=2)+'\n')
 (R/'cache').mkdir()
-env=os.environ.copy();env.update(PYTHONPATH=str(R)+':'+str(R/'vendor')+':/srv/encbank/comem_infra_recheck_20260912/deps',PYTHONDONTWRITEBYTECODE='1',OMP_NUM_THREADS='2',MKL_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2')
+env=os.environ.copy();env.update(PYTHONPATH=str(R)+':'+str(R/'vendor')+':/srv/encbank/encbank_infra_recheck_20260912/deps',PYTHONDONTWRITEBYTECODE='1',OMP_NUM_THREADS='2',MKL_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2')
 for p in R.rglob('*.py'):ast.parse(p.read_text())
 check=subprocess.run([P['engine_python'],'-B','-c','import hot_memory,stream_session,gpu_experiment; print("imports passed")'],cwd=R,env=env,capture_output=True,text=True)
 (R/'import_check.json').write_text(json.dumps(dict(code=check.returncode,stdout=check.stdout,stderr=check.stderr),indent=2)+'\n')

@@ -2,9 +2,9 @@
 import hashlib,json,os
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
-REMOTE_ROOT='/srv/encbank/qcomem_align_codex_20260911/repo'
-ROOT=Path(os.environ.get('QCOMEM_REPO_ROOT','/srv/encbank/legacy_workspace')).resolve()
-PYTHON='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+REMOTE_ROOT='/srv/encbank/qencbank_align_codex_20260911/repo'
+ROOT=Path(os.environ.get('QENCBANK_REPO_ROOT','/srv/encbank/legacy_workspace')).resolve()
+PYTHON='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
 RESOURCE={'allocator_cap_bytes':200*2**30,'minimum_free_bytes':220*2**30,'stable_idle_seconds':45}
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def read(p):return json.loads(Path(p).read_text())

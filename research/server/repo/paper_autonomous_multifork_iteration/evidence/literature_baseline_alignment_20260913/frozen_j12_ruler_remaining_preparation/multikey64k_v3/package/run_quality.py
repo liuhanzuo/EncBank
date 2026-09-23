@@ -26,12 +26,12 @@ def run(model, tokenizer, fixture, arm, *, plan, output, provenance, profiler, n
     Method = load_method(plan)
     method = Method(model, tokenizer, "h16", resume_j=12, reader_binding=plan['reader_binding'],
                     bos_token_id=151643, eos_token_id=151645, kernels=kernels)
-    assert arm=='comem_frozen_j12' and method.memory.engine.resume_j==12 and method.memory.bits==16
+    assert arm=='encbank_frozen_j12' and method.memory.engine.resume_j==12 and method.memory.bits==16
     assert not any('lora_' in n for n,_ in model.named_parameters())
-    result = {'schema':'RULER_multikey64k_100_FP16_frozen_CoMem_j12_v1','status':'running','arm':arm,
+    result = {'schema':'RULER_multikey64k_100_FP16_frozen_Encbank_j12_v1','status':'running','arm':arm,
         'configuration':plan['configuration'],'provenance':provenance,'rows':[],'documents':[],
         'phases':profiler.records,'complete_quality_evidence':False,
-        'scope':'New independent frozen CoMem j12 LoRA OFF multikey64k100; exact original inputs and cap48; native FP16 SDPA natural quality diagnostics; not a published checkpoint or fixed-work infra claim.'}
+        'scope':'New independent frozen Encbank j12 LoRA OFF multikey64k100; exact original inputs and cap48; native FP16 SDPA natural quality diagnostics; not a published checkpoint or fixed-work infra claim.'}
     completed = {}; execution_index = 0; save(output,result)
     try:
         for document_id, indices in document_groups(fixture):
@@ -70,7 +70,7 @@ def run(model, tokenizer, fixture, arm, *, plan, output, provenance, profiler, n
                         row.update(generated,entry_hash_after=after,entry_unchanged=after==before,
                             elapsed_seconds_descriptive_not_fixed_work_timing=time.monotonic()-started)
                         row['retrieval_configuration'] = ({'selector':'iter_bm25','topk':12,'iter_hop_topk':4,
-                            'iter_rounds':0,'chunk_size':512} if arm=='comem_frozen_j12' else None)
+                            'iter_rounds':0,'chunk_size':512} if arm=='encbank_frozen_j12' else None)
                         group_rows.append(row); completed[index]=row; execution_index+=1
                         result['rows']=[completed[i] for i in sorted(completed)]; save(output,result)
                         print(f'{arm}: {execution_index}/100 id={item["id"]} tokens={row["generation_length"]}',flush=True)

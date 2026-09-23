@@ -1,6 +1,6 @@
 # Hot KV buffer: real agent trace replay and streaming qualification
 
-This experiment implements the cache proposal rather than only changing reconstruction depth. It uses the same server-resident Qwen3-8B and original COMem LoRA. No weights or adapters are exported.
+This experiment implements the cache proposal rather than only changing reconstruction depth. It uses the same server-resident Qwen3-8B and original Encbank LoRA. No weights or adapters are exported.
 
 Cold bank: independent H12 for 512-token chunks. Hot pool: actual upper-layer KV tensors, byte-budgeted LRU. Capacity 12/24/48 chunks corresponds to approximately 576/1152/2304 MiB of BF16 upper-24-layer KV, plus the sink. Active decode KV, H12, model and temporary copies are accounted for separately through measured peak allocation.
 

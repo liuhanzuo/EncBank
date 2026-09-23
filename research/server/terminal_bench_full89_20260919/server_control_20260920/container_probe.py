@@ -11,7 +11,7 @@ import time
 import tomllib
 from pathlib import Path
 
-ROOT = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+ROOT = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 
 
 def audit():
@@ -31,7 +31,7 @@ async def probe(task, output, candidate=False, managed=False):
     from harbor.environments.singularity.singularity import SingularityEnvironment
     if candidate:
         import importlib.util
-        spec = importlib.util.spec_from_file_location('comem_candidate', ROOT / 'container_backend_candidate/singularity.py')
+        spec = importlib.util.spec_from_file_location('encbank_candidate', ROOT / 'container_backend_candidate/singularity.py')
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         SingularityEnvironment = module.SingularityEnvironment
@@ -64,15 +64,15 @@ async def probe(task, output, candidate=False, managed=False):
     try:
         await asyncio.wait_for(environment.start(force_build=False), timeout=600)
         await command('terminal', 'id; pwd; command -v bash; command -v tmux; command -v asciinema')
-        await command('write', 'mkdir -p /opt/comem-probe; printf server-only > /opt/comem-probe/value')
+        await command('write', 'mkdir -p /opt/encbank-probe; printf server-only > /opt/encbank-probe/value')
         source = output / 'upload.txt'
         source.write_text('container-transfer-check\n')
-        await environment.upload_file(source, '/opt/comem-probe/upload.txt')
-        await environment.download_file('/opt/comem-probe/upload.txt', output / 'download.txt')
+        await environment.upload_file(source, '/opt/encbank-probe/upload.txt')
+        await environment.download_file('/opt/encbank-probe/upload.txt', output / 'download.txt')
         assert source.read_bytes() == (output / 'download.txt').read_bytes()
         report['checks']['file_roundtrip'] = 'PASS'
-        await command('tmux', "tmux -L comem-probe new-session -d -s check 'sleep 10'; tmux -L comem-probe has-session -t check; tmux -L comem-probe kill-server")
-        await command('home_isolation', 'test ! -e /srv/encbank/qcomem_runtime_20260911/models')
+        await command('tmux', "tmux -L encbank-probe new-session -d -s check 'sleep 10'; tmux -L encbank-probe has-session -t check; tmux -L encbank-probe kill-server")
+        await command('home_isolation', 'test ! -e /srv/encbank/qencbank_runtime_20260911/models')
         # Generic capability checks, not task solutions or verifier execution.
         for name, cmd in {
             'switch_uid': "su nobody -s /bin/sh -c 'id -u'",

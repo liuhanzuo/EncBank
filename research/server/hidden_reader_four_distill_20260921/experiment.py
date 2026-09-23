@@ -8,8 +8,8 @@ RUN_CONFIG=CONFIGS[ARM]
 DEPTHS=[12,16,20,24]
 assert DEPTHS[0]==12 and DEPTHS[-1]==24 and sorted(set(DEPTHS))==DEPTHS
 OUT=ROOT/ARM/'results'
-MODEL='/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B'
-ADAPTER='/srv/encbank/comem_infra_recheck_20260912/adapter'
+MODEL='/srv/encbank/encbank_sparse_slurm_20260912/models/Qwen3-8B'
+ADAPTER='/srv/encbank/encbank_infra_recheck_20260912/adapter'
 LAYERS=list(range(12,36))
 REGS=[.001,.01,.1]
 

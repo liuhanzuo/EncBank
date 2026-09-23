@@ -1,7 +1,7 @@
 """
-S11 -- Self-distillation of the CoMem read path, on our own verified forward.
+S11 -- Self-distillation of the Encbank read path, on our own verified forward.
 
-RECIPE -- taken from the paper and from COMem/train/distill.py, not invented here
+RECIPE -- taken from the paper and from Encbank/train/distill.py, not invented here
     teacher   the SAME pack read from j=0, adapters off, no grad.  Not the full
               document: the retrieval upper bound, which is what the paper distils
               against ("a student that reads from j=12 is trained to match a j=0
@@ -16,7 +16,7 @@ RECIPE -- taken from the paper and from COMem/train/distill.py, not invented her
               NOTE the paper says alpha=64 while distill.py defaults to 32; we follow
               the paper and record the discrepancy.
     optim     AdamW lr 1e-4, betas (0.9,0.95), warmup 50, cosine, grad clip 1.0.
-    j         9 for Qwen3-1.7B -- comem/model_registry.py pins resume_j = round(0.33*L)
+    j         9 for Qwen3-1.7B -- encbank/model_registry.py pins resume_j = round(0.33*L)
               and lists Qwen3-1.7B (L=28) -> 9 explicitly.  Earlier experiments here
               swept even j and never measured the canonical point.
 
@@ -33,10 +33,10 @@ different implementation and then measuring through this one would reintroduce e
 the train/inference mismatch the adapter exists to remove.
 
 METRICS -- the paper's, not ours
-    gap    CoMem-readout perplexity / teacher perplexity on the query tokens.
+    gap    Encbank-readout perplexity / teacher perplexity on the query tokens.
            1.0 is exact; the paper calls this the multiplicative LM tax
            (tab_hy3_distill.tex: "gap is the multiplicative LM tax
-           (CoMem-readout perplexity / full-context perplexity; 1.0 is exact)").
+           (Encbank-readout perplexity / full-context perplexity; 1.0 is exact)").
     top1   argmax agreement with the teacher, same tokens.
     frac   our own normalised KL, kept so this run is comparable to S2-S10.
 """
@@ -141,7 +141,7 @@ def windows(path, tok, chunk, n_ctx, seed=42):
 
 
 def read_pack(model, sink, chunks, query, j, dev, n_score, ckpt=False):
-    """The CoMem read: chunks written alone to depth j, packed, layers[j:] recomputed."""
+    """The Encbank read: chunks written alone to depth j, packed, layers[j:] recomputed."""
     pack_len = 1 + sum(c.shape[1] for c in chunks) + query.shape[1]
     pp = torch.arange(pack_len, device=dev).unsqueeze(0)
     if j == 0:
@@ -202,7 +202,7 @@ def evaluate(model, stream, sink, j, dev, n_ctx, n_score, n_eval):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True, help="local snapshot dir")
-    ap.add_argument("--data", default="/f/qcomem/data/pg19_train_64.jsonl")
+    ap.add_argument("--data", default="/f/qencbank/data/pg19_train_64.jsonl")
     ap.add_argument("--j", type=int, default=9, help="registry value for Qwen3-1.7B")
     ap.add_argument("--chunk", type=int, default=512)
     ap.add_argument("--n-ctx", type=int, default=3,

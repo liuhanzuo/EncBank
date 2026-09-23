@@ -7,19 +7,19 @@ import time
 import tomllib
 from pathlib import Path, PurePosixPath
 
-BASE = Path('/srv/encbank/COMem_Migration_20260920/Part2/payload/qcomem/.runtime/terminal_bench_full89_20260919')
-RUNTIME = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+BASE = Path('/srv/encbank/Encbank_Migration_20260920/Part2/payload/qencbank/.runtime/terminal_bench_full89_20260919')
+RUNTIME = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 H = Path(__file__).resolve().parent
 
 
 def main():
     assert os.name == 'posix'
     RUNTIME.resolve().relative_to(Path('/srv/encbank').resolve())
-    source_manifest = json.loads((H / 'runs/comem_k12_server_r6_20260920/task_manifest.json').read_text())
+    source_manifest = json.loads((H / 'runs/encbank_k12_server_r6_20260920/task_manifest.json').read_text())
     locations = json.loads((RUNTIME / 'task_source_locations.json').read_text())
-    migration = Path('/srv/encbank/COMem_Migration_20260920')
+    migration = Path('/srv/encbank/Encbank_Migration_20260920')
     configurations = {}
-    prefix = 'Part2/payload/qcomem/.runtime/terminal_bench_full89_20260919/tasks_no_total_deadline_20260920/'
+    prefix = 'Part2/payload/qencbank/.runtime/terminal_bench_full89_20260919/tasks_no_total_deadline_20260920/'
     with (migration / '_transfer/UPLOAD_MANIFEST.jsonl').open() as upload_manifest:
         for line in upload_manifest:
             item = json.loads(line)

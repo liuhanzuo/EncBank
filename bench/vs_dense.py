@@ -1,16 +1,16 @@
 #!/usr/bin/env python
-"""CoMem vs Dense — head-to-head speed + accuracy benchmark, and a decode
+"""Encbank vs Dense — head-to-head speed + accuracy benchmark, and a decode
 correctness gate.
 
 Modes (``--mode``):
 
-* ``profile``     — CoMem per-phase timing: WRITE serial (per-chunk) vs BATCHED
+* ``profile``     — Encbank per-phase timing: WRITE serial (per-chunk) vs BATCHED
                     (``write_chunks``), READ prefill, and per-step KV-cache DECODE.
 * ``speed``       — Dense (stock ``model.generate`` over the FULL context) vs
-                    CoMem prefill time / decode tok-s / peak GPU memory at each
+                    Encbank prefill time / decode tok-s / peak GPU memory at each
                     ``--context_lengths`` bucket. Dense OOMs / exceeds the RoPE
-                    window past ~32-64k (recorded as ``OOM``); CoMem stays constant.
-* ``accuracy``    — RULER ``niah_single`` recall, Dense vs CoMem, per length.
+                    window past ~32-64k (recorded as ``OOM``); Encbank stays constant.
+* ``accuracy``    — RULER ``niah_single`` recall, Dense vs Encbank, per length.
 * ``correctness`` — KV-cache decode logits == recompute decode logits (per-step
                     argmax identical, max|diff| < tol). Runs on a tiny random
                     Qwen3 on CPU (fp32) or the real model.
@@ -33,8 +33,8 @@ import time
 import torch
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from comem import CoMem                                    # noqa: E402
-from comem.selftest import build_tiny_qwen3, _TinyTok      # noqa: E402
+from encbank import Encbank                                    # noqa: E402
+from encbank.selftest import build_tiny_qwen3, _TinyTok      # noqa: E402
 
 _LEN_TOKENS = {"1k": 1024, "2k": 2048, "4k": 4096, "8k": 8192,
                "16k": 16384, "32k": 32768, "64k": 65536, "128k": 131072}
@@ -91,7 +91,7 @@ def run_correctness(cm, tokenizer, input_ids, *, chunk_size, topk, selector,
     argmax_ok = all(int(lb[s].argmax()) == int(lk[s].argmax()) for s in range(n))
     ok = (len(lb) == len(lk)) and (gb == gk) and argmax_ok and (max_diff < tol)
     print("=" * 72)
-    print("CoMem decode correctness: KV-cache vs recompute (per-step logits)")
+    print("Encbank decode correctness: KV-cache vs recompute (per-step logits)")
     print(f"  steps recompute={len(lb)} kv={len(lk)}  tokens identical={gb == gk}")
     print(f"  top-1 argmax identical every step: {argmax_ok}")
     print(f"  max|logit diff| over {n} steps: {max_diff:.3e}  (tol {tol:.1e})")
@@ -143,7 +143,7 @@ def _dense_answer(model, tokenizer, input_ids, *, max_new_tokens, device):
     return tokenizer.decode(out[0, input_ids.shape[1]:], skip_special_tokens=True).strip()
 
 
-def _comem_time(cm, tokenizer, input_ids, *, chunk_size, topk, selector,
+def _encbank_time(cm, tokenizer, input_ids, *, chunk_size, topk, selector,
                 sink_tokens, max_new_tokens, device, bare_q_ids):
     def once(mnt, stats=None):
         _sync(device)
@@ -174,7 +174,7 @@ def _comem_time(cm, tokenizer, input_ids, *, chunk_size, topk, selector,
 def run_profile(cm, tokenizer, *, lengths, chunk_size, topk, device, vocab,
                 decode_steps=16):
     print("=" * 78)
-    print(f"CoMem per-phase profile (resume_j={cm.resume_j}, topk={topk}, chunk={chunk_size})")
+    print(f"Encbank per-phase profile (resume_j={cm.resume_j}, topk={topk}, chunk={chunk_size})")
     print(f"{'ctx':>6} | {'#ctx':>5} | {'w_serial':>9} | {'w_batch':>8} | "
           f"{'speedup':>7} | {'read':>8} | {'dec/step':>8}")
     g = torch.Generator(device="cpu").manual_seed(0)
@@ -212,7 +212,7 @@ def run_profile(cm, tokenizer, *, lengths, chunk_size, topk, device, vocab,
 def run_speed(model, cm, tokenizer, *, lengths, chunk_size, topk, selector,
               sink_tokens, max_new_tokens, device, vocab):
     print("=" * 78)
-    print(f"Dense vs CoMem SPEED (resume_j={cm.resume_j}, topk={topk}, mnt={max_new_tokens})")
+    print(f"Dense vs Encbank SPEED (resume_j={cm.resume_j}, topk={topk}, mnt={max_new_tokens})")
     print(f"{'ctx':>6} | {'D_pref':>8} {'D_tok/s':>8} {'D_mem':>6} | "
           f"{'Q_pref':>8} {'Q_tok/s':>8} {'Q_mem':>6} {'read':>6}")
     g = torch.Generator(device="cpu").manual_seed(0)
@@ -222,7 +222,7 @@ def run_speed(model, cm, tokenizer, *, lengths, chunk_size, topk, selector,
         bare_q = ids[0].tolist()[-8:]
         d = _dense_time(model, tokenizer, ids, max_new_tokens=max_new_tokens, device=device)
         _cleanup(device)
-        q = _comem_time(cm, tokenizer, ids, chunk_size=chunk_size, topk=topk,
+        q = _encbank_time(cm, tokenizer, ids, chunk_size=chunk_size, topk=topk,
                         selector=selector, sink_tokens=sink_tokens,
                         max_new_tokens=max_new_tokens, device=device, bare_q_ids=bare_q)
         _cleanup(device)
@@ -235,8 +235,8 @@ def run_accuracy(model, cm, tokenizer, *, lengths, chunk_size, topk, selector,
                  sink_tokens, n_acc, max_new_tokens, device, base_seed, task):
     from eval import ruler
     print("=" * 78)
-    print(f"Dense vs CoMem ACCURACY RULER {task} string_match_all (n={n_acc}, {selector})")
-    print(f"{'ctx':>6} | {'Dense':>8} | {'CoMem':>8} | {'n':>4}")
+    print(f"Dense vs Encbank ACCURACY RULER {task} string_match_all (n={n_acc}, {selector})")
+    print(f"{'ctx':>6} | {'Dense':>8} | {'Encbank':>8} | {'n':>4}")
     rt = ruler._resolve_task(task)
     for L in lengths:
         target = ruler._LENGTH_TOKENS.get(L, _LEN_TOKENS.get(L, int(L)))
@@ -328,7 +328,7 @@ def main():
         is_tiny = False
         tol = args.tol if args.tol > 0 else (1e-4 if dtype == torch.float32 else 1e-2)
 
-    cm = CoMem(model, resume_j=resume_j, tokenizer=tokenizer)
+    cm = Encbank(model, resume_j=resume_j, tokenizer=tokenizer)
     print(f"[bench] backbone L={L} resume_j={resume_j} chunk_size={chunk_size} device={device}")
 
     speed_lengths = ["1k", "2k"] if is_tiny else args.context_lengths

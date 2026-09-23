@@ -1,4 +1,4 @@
-# Core (CoMem package + eval/train/bench)
+# Core (Encbank package + eval/train/bench)
 torch>=2.1
 transformers>=5.5
 numpy

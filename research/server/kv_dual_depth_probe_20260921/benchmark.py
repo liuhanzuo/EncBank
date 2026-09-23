@@ -15,8 +15,8 @@ import traceback
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / 'results'
-MODEL = '/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B'
-ADAPTER = '/srv/encbank/comem_infra_recheck_20260912/adapter'
+MODEL = '/srv/encbank/encbank_sparse_slurm_20260912/models/Qwen3-8B'
+ADAPTER = '/srv/encbank/encbank_infra_recheck_20260912/adapter'
 COUNTS = [1, 2, 4, 8, 12]
 WARMUPS, REPEATS = 2, 7
 METHODS = ['h12_full', 'dual_serial', 'dual_streams', 'dual_threads', 'half_13_24', 'half_25_36']

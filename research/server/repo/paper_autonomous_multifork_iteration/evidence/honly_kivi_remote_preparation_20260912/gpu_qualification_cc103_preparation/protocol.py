@@ -2,8 +2,8 @@
 import argparse,hashlib,importlib.util,json,sys
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[3]
-REMOTE_ROOT='/srv/encbank/qcomem_align_codex_20260911/repo'
-PYTHON='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+REMOTE_ROOT='/srv/encbank/qencbank_align_codex_20260911/repo'
+PYTHON='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
 ARMS=('kivi_half_synthetic',)
 RESOURCE={'allocator_cap_bytes':200*2**30,'minimum_free_bytes':220*2**30,'stable_idle_seconds':45}
 def sha(path):

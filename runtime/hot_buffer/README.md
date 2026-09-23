@@ -10,7 +10,7 @@ merged experiment. The full historical tree is preserved at
 | Hybrid model reader and legacy adapter | `hybrid_reader.py` |
 | Variable-length cache batching | `batch_cache.py` |
 | Multi-hop BM25 retrieval | `memory_selectors.py` |
-| PEFT conversion and execution modes | `comem_peft.py` |
+| PEFT conversion and execution modes | `encbank_peft.py` |
 | Model identity, fixed-row projections/norms, row-local SDPA | `model_setup.py`, `runtime_identity.py` |
 | Single shared model and independent sessions | `worker.py` |
 | Harbor/Terminus trials and supervision | `tb_agent.py`, `run_trial.py`, `parallel_trials.py`, `launch_trial_group.py` |
@@ -31,10 +31,10 @@ export PYTHONPATH="$PWD/runtime/hot_buffer:$PYTHONPATH"
 In a fresh server-side process with an already loaded compatible model:
 
 ```python
-from comem_peft import load_comem_peft
+from encbank_peft import load_encbank_peft
 from hybrid_reader import HybridReader
 
-model, _, targets = load_comem_peft(
+model, _, targets = load_encbank_peft(
     model, "/srv/encbank/adapters/my_peft_adapter", mode="merged_bf16"
 )
 reader = HybridReader(model, 21)

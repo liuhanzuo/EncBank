@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Top-level CoMem eval dispatcher.
+"""Top-level Encbank eval dispatcher.
 
 One entry point for every benchmark; routes ``--benchmark`` to the matching
 ``eval.<benchmark>`` driver and forwards all remaining args to that driver's own
@@ -27,7 +27,7 @@ BENCHMARKS = ["ruler", "babilong", "longbench", "longeval", "locomo"]
 
 def main():
     p = argparse.ArgumentParser(
-        description="CoMem eval dispatcher (routes --benchmark to eval.<benchmark>)",
+        description="Encbank eval dispatcher (routes --benchmark to eval.<benchmark>)",
         epilog="All other args are forwarded to the chosen driver "
                "(see: python -m eval.<benchmark> --help).")
     p.add_argument("--benchmark", required=True, choices=BENCHMARKS,

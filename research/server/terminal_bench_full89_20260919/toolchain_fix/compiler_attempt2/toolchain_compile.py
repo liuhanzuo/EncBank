@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,json,os,shutil,subprocess,time,traceback
 O=Path(__file__).resolve().parent;H=O.parent;H.resolve().relative_to(Path('/srv/encbank').resolve())
 assert os.environ.get('CUDA_VISIBLE_DEVICES')==''
-os.environ.update(PATH='/srv/encbank/venvs/rllm/bin:/usr/local/cuda/bin:'+os.environ['PATH'],CUDA_HOME='/usr/local/cuda',CPATH='/srv/encbank/.cache/python/include/python3.12',FLASHINFER_CUDA_ARCH_LIST='10.3',FLASHINFER_WORKSPACE_BASE=str(H),TVM_FFI_CACHE_DIR=str(H/'tvm_ffi'),MAX_JOBS='2',TMPDIR='/srv/encbank/qcomem_runtime_20260911/t89i4',VLLM_RPC_BASE_PATH='/srv/encbank/qcomem_runtime_20260911/t89i4',XDG_CACHE_HOME=str(H/'cache'),HF_HOME=str(H/'hf_cache'),PYTHONDONTWRITEBYTECODE='1')
+os.environ.update(PATH='/srv/encbank/venvs/rllm/bin:/usr/local/cuda/bin:'+os.environ['PATH'],CUDA_HOME='/usr/local/cuda',CPATH='/srv/encbank/.cache/python/include/python3.12',FLASHINFER_CUDA_ARCH_LIST='10.3',FLASHINFER_WORKSPACE_BASE=str(H),TVM_FFI_CACHE_DIR=str(H/'tvm_ffi'),MAX_JOBS='2',TMPDIR='/srv/encbank/qencbank_runtime_20260911/t89i4',VLLM_RPC_BASE_PATH='/srv/encbank/qencbank_runtime_20260911/t89i4',XDG_CACHE_HOME=str(H/'cache'),HF_HOME=str(H/'hf_cache'),PYTHONDONTWRITEBYTECODE='1')
 def save(n,d):(O/n).write_text(json.dumps(d,indent=2)+'\n')
 started=time.time();versions={}
 try:

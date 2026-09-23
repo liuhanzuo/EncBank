@@ -7,7 +7,7 @@ def now():return datetime.datetime.now().astimezone().isoformat()
 def main():
     args=parser().parse_args();plan,_=preflight(args,envelope=not args.check_only)
     if args.check_only:print('{"status":"CPU_source_and_record_bindings_checked_binary_remote_GPU_pending"}');return
-    assert Path(os.environ['QCOMEM_REPO_ROOT']).resolve()==ROOT
+    assert Path(os.environ['QENCBANK_REPO_ROOT']).resolve()==ROOT
     out=Path(args.output);parent=read(out/'execution.json');identity=parent['physical_gpu_identity']
     assert parent['status']=='worker_running' and parent['gpu_worker_started'] and parent['stable_interval_seconds']>=45
     record={'status':'preparing','pid':os.getpid(),'arm':args.arm,'started_at':now(),'plan_sha256':args.expected_plan_sha256,'model_loaded':False,'training_allowed':False,'runtime_offload_allowed':False,'quality_evidence':False,'profile_evidence':False,'physical_gpu_identity':identity}
@@ -38,7 +38,7 @@ def main():
         # Exact path imports before the test; no shadowable late campaign imports.
         kernels_module=module(HERE/'bridge.py','bridge')
         profile=module(HERE/'phase_profile.py','phase_profile')
-        checks=module(HERE/'kernel_checks.py','_qcomem_remote_kivi_kernel_checks')
+        checks=module(HERE/'kernel_checks.py','_qencbank_remote_kivi_kernel_checks')
         profiler=profile.Profiler(torch)
         with torch.inference_mode(),profiler.phase('outer_kernel_import_synthetic_checks_and_release'):
             binary=module(local(plan['binary']['path']),'kivi_gemv')

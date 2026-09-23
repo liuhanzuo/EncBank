@@ -6,9 +6,9 @@ import shutil
 from pathlib import Path, PurePosixPath
 
 H = Path(__file__).resolve().parent
-REMOTE = '/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920'
-RUNTIME = '/srv/encbank/qcomem_runtime_20260911/server_control_20260920'
-SOURCES = H.parent / 'handoff_20260920/source_increment/qcomem/paper_autonomous_multifork_iteration/evidence/terminal_bench_full89_20260919'
+REMOTE = '/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920'
+RUNTIME = '/srv/encbank/qencbank_runtime_20260911/server_control_20260920'
+SOURCES = H.parent / 'handoff_20260920/source_increment/qencbank/paper_autonomous_multifork_iteration/evidence/terminal_bench_full89_20260919'
 COMMON = ['server_owner.py', 'server_transport.py', 'host_admission.py', 'runtime_identity.py',
           'server_job.py', 'server_preflight.py', 'deploy.py', 'observe.py']
 WORKER = ['agent_worker.py', 'holder.py', 'live_mailbox.py', 'persistence.py', 'storage_preflight.py',
@@ -32,8 +32,8 @@ def replace(path, old, new):
 def build(backend='managed'):
     for arm, previous, name, job in [
         ('dense', 'dense_no_task_deadline_r5_20260920', 'dense_server_r6_20260920', '111876'),
-        ('comem', 'comem_k12_no_task_deadline_r5_20260920', 'comem_k12_server_r6_20260920', '111884'),
-        ('comem', 'comem_k48_no_task_deadline_r5_20260920', 'comem_k48_server_r6_20260920', '111886'),
+        ('encbank', 'encbank_k12_no_task_deadline_r5_20260920', 'encbank_k12_server_r6_20260920', '111884'),
+        ('encbank', 'encbank_k48_no_task_deadline_r5_20260920', 'encbank_k48_server_r6_20260920', '111886'),
     ]:
         source = SOURCES / previous
         output = H / 'runs' / name
@@ -59,27 +59,27 @@ def build(backend='managed'):
                     host_admission_root=RUNTIME + '/host_admission', host_memory_budget_mb=20480,
                     container_backend=backend, docker_host='unix:///var/run/docker.sock',
                     server_only=True, predecessor_root=str(PurePosixPath(REMOTE).parent / previous),
-                    predecessor_job_id=job, job_name='qcomem-tb-' + name.replace('_20260920', '').replace('_', '-'),
-                    predecessor_partition_reconciled=(arm == 'comem'), model_layers=64,
+                    predecessor_job_id=job, job_name='qencbank-tb-' + name.replace('_20260920', '').replace('_', '-'),
+                    predecessor_partition_reconciled=(arm == 'encbank'), model_layers=64,
                     transport='Authenticated cluster-local HTTP; durable server-side request/response records',
                     deployment_boundary='Linux controller and task environments; no client-computer dependency',
                     container_protocol_change=(backend != 'docker'),
-                    ipc_root='/srv/encbank/qcomem_runtime_20260911/' +
-                             {'dense': 't89sr6d', 'comem_k12': 't89sr6k12', 'comem_k48': 't89sr6k48'}[
-                                 'dense' if arm == 'dense' else ('comem_k12' if plan['top_k_chunks'] == 12 else 'comem_k48')])
+                    ipc_root='/srv/encbank/qencbank_runtime_20260911/' +
+                             {'dense': 't89sr6d', 'encbank_k12': 't89sr6k12', 'encbank_k48': 't89sr6k48'}[
+                                 'dense' if arm == 'dense' else ('encbank_k12' if plan['top_k_chunks'] == 12 else 'encbank_k48')])
         if backend == 'managed':
             plan.update(container_runtime='Managed Apptainer instance + per-task user service + slirp4netns',
                         container_cpu_enforcement='affinity_only_no_cgroup_cpu_quota',
                         container_memory_enforcement='per_task_service_cgroup_memory_max',
                         container_result_series='server_apptainer_not_pooled_with_legacy_docker',
                         container_qualified_nodes=['gpu-node1'],container_qualified_hostnames=['gpu-host'])
-            if arm == 'comem':
+            if arm == 'encbank':
                 plan['handoff_barrier_jobs']=['112400' if plan['top_k_chunks']==12 else '112403']
                 plan['predecessor_partition_reconciled']=False
-        if arm == 'comem':
+        if arm == 'encbank':
             plan['training_model_identity'] = dict(name='Qwen3.8-27B', j=21, L=64,
                 revision=plan['model_revision'],
-                path='/srv/encbank/comem_new_backbones_20260915/models/Qwen3.8-27B')
+                path='/srv/encbank/encbank_new_backbones_20260915/models/Qwen3.8-27B')
             replace(output / 'agent_worker.py',
                     "cfg=MODELS[1];assert cfg['j']==P['j'] and cfg['path']==P['model']",
                     "from runtime_identity import resolve_configs\n    training_cfg,cfg=resolve_configs(P,MODELS[1])")
@@ -106,22 +106,22 @@ def build(backend='managed'):
         save(output / (arm + '_harbor_template.json'), template)
         if (output / 'ipc_path_guard.py').exists():
             replace(output / 'ipc_path_guard.py',
-                    "expected=Path('/srv/encbank/qcomem_runtime_20260911/t89dnlim5').resolve()",
+                    "expected=Path('/srv/encbank/qencbank_runtime_20260911/t89dnlim5').resolve()",
                     "expected=Path(json.loads(Path('plan.json').read_text())['ipc_root']).resolve()")
         slurm = (source / (arm + '.slurm')).read_text()
         slurm = slurm.replace(str(PurePosixPath(REMOTE).parent / previous), plan['remote_root'])
-        slurm = slurm.replace('qcomem-tb-dense-nolimit-r5-codex', plan['job_name'])
+        slurm = slurm.replace('qencbank-tb-dense-nolimit-r5-codex', plan['job_name'])
         slurm = '\n'.join('#SBATCH --job-name=' + plan['job_name'] if line.startswith('#SBATCH --job-name=') else line for line in slurm.splitlines()) + '\n'
         if backend == 'managed':
             slurm = slurm.replace('#SBATCH --job-name='+plan['job_name'],
                                   '#SBATCH --job-name='+plan['job_name']+'\n#SBATCH --nodelist=gpu-node1')
         # All task containers and model process share one managed allocation.
         slurm = '\n'.join('#SBATCH --cpus-per-task=16' if line.startswith('#SBATCH --cpus-per-task=') else line for line in slurm.splitlines()) + '\n'
-        slurm = slurm.replace('/srv/encbank/qcomem_runtime_20260911/t89dnlim5', plan['ipc_root'])
+        slurm = slurm.replace('/srv/encbank/qencbank_runtime_20260911/t89dnlim5', plan['ipc_root'])
         slurm = slurm.replace(' -u holder.py', ' -u server_job.py')
         slurm = slurm.replace('set -euo pipefail', 'set -euo pipefail\numask 077')
         if 'VLLM_RPC_BASE_PATH=' not in slurm:
-            # CoMem has no vLLM sockets, but its temporary files still need the registered server location.
+            # Encbank has no vLLM sockets, but its temporary files still need the registered server location.
             slurm = slurm.replace('set -euo pipefail\numask 077',
                                   'set -euo pipefail\numask 077\nexport TMPDIR=' + plan['ipc_root'] + '\nmkdir -p "$TMPDIR"')
         (output / 'server.slurm').write_text(slurm, encoding='utf-8', newline='\n')

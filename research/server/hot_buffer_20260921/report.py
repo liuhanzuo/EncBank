@@ -20,7 +20,7 @@ result=dict(at=datetime.datetime.now().astimezone().isoformat(),complete=load('c
     qualification=load('qualification.json'),summary=summary,streaming=streams)
 (R/'summary.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
 lines=['# Hot KV buffer 初步实验','',f"快照：{result['at']}。GPU 完成记录：{result['complete']}。",'',
-    'Qwen3-8B + 原 COMem LoRA，512-token chunk，top12，GPU LRU 容量 12/24/48 个 chunk。选取六个真实 Terminal-Bench 会话最早的至多六次已返回请求，共 30 条；每组两轮独立缓存会话，第二轮反转顺序。每个请求强制一个 token 以计量 prefill，以下不是完整任务的加速率或得分。','',
+    'Qwen3-8B + 原 Encbank LoRA，512-token chunk，top12，GPU LRU 容量 12/24/48 个 chunk。选取六个真实 Terminal-Bench 会话最早的至多六次已返回请求，共 30 条；每组两轮独立缓存会话，第二轮反转顺序。每个请求强制一个 token 以计量 prefill，以下不是完整任务的加速率或得分。','',
     '| 配置 | 次数 | prefill 平均 ms | TTFT 平均 ms | 12块 prefill ms | KV命中率 | 当前/近期chunk命中 | 重建chunk | 缓存峰值 MiB | 分配峰值 GiB |',
     '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
 for r in summary:

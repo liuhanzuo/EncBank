@@ -1,23 +1,23 @@
-# CoMem self-distillation (`train/distill.py`)
+# Encbank self-distillation (`train/distill.py`)
 
-**The core CoMem read is training-free.** This LoRA self-distillation is an
+**The core Encbank read is training-free.** This LoRA self-distillation is an
 *optional* enhancement: it lets you **resume from a deeper split `j`** (a cheaper,
 smaller read pack) without paying the *depth cliff* on precise-localisation tasks,
 by teaching the upper layers to reconstruct the full-model behaviour from the
 shallow depth-`j` cache. In-window it pulls the resumed read back up to the dense
-upper bound; out of window it inherits CoMem's constant-cost length robustness.
+upper bound; out of window it inherits Encbank's constant-cost length robustness.
 
 ## Method — self-distillation (teacher `j=0`, student `j`)
 
 One model instance, LoRA toggled on/off to be student/teacher, so **no second copy
 in memory**:
 
-- **Teacher** = CoMem read at `resume_j = 0` with the adapters **disabled**
+- **Teacher** = Encbank read at `resume_j = 0` with the adapters **disabled**
   (`peft.disable_adapter()`) under `no_grad`. At `j=0` the packed read
   `[sink ; ctx… ; query]` is re-forwarded through the **whole** model with the
   query present — i.e. exactly the frozen base model on the packed sequence (the
   RAG upper bound, no loss).
-- **Student** = CoMem read at `resume_j = j` (default 12) with LoRA **on**. The
+- **Student** = Encbank read at `resume_j = j` (default 12) with LoRA **on**. The
   sink + context chunks are cached at depth `j` by the **frozen** bottom
   `layers[0:j]` (query-blind, `no_grad`); only the resume path `layers[j:]` — where
   the LoRA lives — is grad-bearing and learns to reconstruct the teacher from that
@@ -44,20 +44,20 @@ non-`forward` autograd graph.
 ```bash
 # single GPU
 python -m train.distill --model /path/to/Qwen3-8B --j auto \
-    --data data/pg19_train.jsonl --out outputs/comem_distill_j12
+    --data data/pg19_train.jsonl --out outputs/encbank_distill_j12
 
 # 8-GPU DDP
 torchrun --nproc_per_node 8 -m train.distill \
     --model /path/to/Qwen3-8B --j 12 --lora_rank 32 \
     --data data/pg19_train.jsonl --total_steps 1000 \
-    --out outputs/comem_distill_j12
+    --out outputs/encbank_distill_j12
 
 # correctness gate only (fp32, no training): teacher==full forward at j=0
 python -m train.distill --model /path/to/Qwen3-8B --j 12 \
     --out /tmp/_ck --self_test
 ```
 
-`--j auto` picks the per-backbone split depth from `comem/model_registry.py`
+`--j auto` picks the per-backbone split depth from `encbank/model_registry.py`
 (Qwen3-8B → 12), matching the eval CLI.
 
 ## Feed the adapter to eval
@@ -67,14 +67,14 @@ either to any eval driver's `--adapter`:
 
 ```bash
 python -m eval.run --benchmark ruler --model /path/to/Qwen3-8B --j auto \
-    --adapter outputs/comem_distill_j12/final \
+    --adapter outputs/encbank_distill_j12/final \
     --lengths 8k,16k,32k --n 100 --out ruler_results/qwen3_8b_distill
 ```
 
 `eval/_common.load_backbone` applies the LoRA (`PeftModel.from_pretrained`) and
-hands CoMem the wrapped `base_model.model`, so the delta is live when CoMem calls
+hands Encbank the wrapped `base_model.model`, so the delta is live when Encbank calls
 `layers[j:]` at read time. Eval with `--adapter none` (or omitting it) is the
-zero-training CoMem.
+zero-training Encbank.
 
 ## CLI (unified with eval)
 
@@ -101,7 +101,7 @@ the 8B backbone is frozen and shared between teacher and student.
 
 ## Self-contained
 
-`train/distill.py` depends only on the local `comem` package (+ `torch`,
+`train/distill.py` depends only on the local `encbank` package (+ `torch`,
 `transformers`, `peft`) — **no dependency on any research repo**. The `--self_test`
-gate and `python -m comem.selftest` both verify the CoMem read/write packing
+gate and `python -m encbank.selftest` both verify the Encbank read/write packing
 reproduces a stock full forward before you train.

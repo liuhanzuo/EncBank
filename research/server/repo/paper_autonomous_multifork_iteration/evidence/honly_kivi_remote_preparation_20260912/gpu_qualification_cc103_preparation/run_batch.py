@@ -29,7 +29,7 @@ def run_child(argv,out,record):
  return code
 def main():
  p=argparse.ArgumentParser();p.add_argument('--plan',required=True);p.add_argument('--expected-plan-sha256',required=True);a=p.parse_args()
- assert sys.executable==PYTHON and ROOT==Path(REMOTE_ROOT) and Path(os.environ['QCOMEM_REPO_ROOT'])==ROOT
+ assert sys.executable==PYTHON and ROOT==Path(REMOTE_ROOT) and Path(os.environ['QENCBANK_REPO_ROOT'])==ROOT
  assert sha(a.plan)==a.expected_plan_sha256
  plan=read(a.plan);root=local(plan['batch_output']);assert not root.exists();root.mkdir(parents=True,exist_ok=False)
  batch={'status':'starting','started_at':now(),'pid':os.getpid(),'plan_sha256':a.expected_plan_sha256,'slurm_job_id':os.environ.get('SLURM_JOB_ID'),'node':socket.gethostname(),'cuda_visible_devices':os.environ.get('CUDA_VISIBLE_DEVICES'),'arm_order':list(ARMS),'stages':[],'automatic_retry':False,'local_services_modified':False}

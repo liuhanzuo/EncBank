@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,json,sys,time
 from persistence import dump
 H=Path(__file__).resolve().parent;H.relative_to(Path('/srv/encbank').resolve())
-action,arm=sys.argv[1:3];assert arm=='dense' or (action=='wait' and arm=='comem');R=H/'run_dense';B=R/'mailbox'
+action,arm=sys.argv[1:3];assert arm=='dense' or (action=='wait' and arm=='encbank');R=H/'run_dense';B=R/'mailbox'
 if action=='status':
     print(json.dumps({n:json.loads((R/n).read_text()) for n in ['worker_ready.json','worker_failure.json','process_receipt.json','memory_cap_failure.json'] if (R/n).exists()}))
 elif action=='stop':

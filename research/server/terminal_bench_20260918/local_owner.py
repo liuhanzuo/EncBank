@@ -33,8 +33,8 @@ async def arm_run(arm):
         if launched:await exchange(arm,dict(action='stop',reason='local Harbor parent exited or controller failed'))
 async def main():
     assert not (O/'owner_registration.json').exists()
-    save(O/'owner_registration.json',dict(pid=os.getpid(),started_at=datetime.datetime.now().astimezone().isoformat(),source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),arms=['dense','raw_shared','comem']))
-    outcomes=await asyncio.gather(*(arm_run(a) for a in ['dense','raw_shared','comem']),return_exceptions=True)
+    save(O/'owner_registration.json',dict(pid=os.getpid(),started_at=datetime.datetime.now().astimezone().isoformat(),source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),arms=['dense','raw_shared','encbank']))
+    outcomes=await asyncio.gather(*(arm_run(a) for a in ['dense','raw_shared','encbank']),return_exceptions=True)
     save(O/'owner_complete.json',dict(ended_at=datetime.datetime.now().astimezone().isoformat(),outcomes=[repr(o) for o in outcomes]))
     if any(isinstance(o,BaseException) for o in outcomes):raise RuntimeError('A controller arm failed; inspect saved status, no retry')
 asyncio.run(main())

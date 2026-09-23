@@ -14,13 +14,13 @@
   ],
   "seed": 20260921,
   "task_selection": "Six named 2GiB tasks covering asynchronous code, memory debugging, text editing, logs, SQL optimization, database recovery; chosen before any 8B results.",
-  "task_root": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/tasks",
-  "host_admission_root": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/unbounded_host_admission",
+  "task_root": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/tasks",
+  "host_admission_root": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/unbounded_host_admission",
   "host_memory_budget_mb": 204800,
-  "harbor_python": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/harbor_env/bin/python",
+  "harbor_python": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/harbor_env/bin/python",
   "engine_python": "/srv/encbank/Paper_Evolve/.venv/bin/python",
-  "model": "/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B",
-  "adapter": "/srv/encbank/comem_infra_recheck_20260912/adapter",
+  "model": "/srv/encbank/encbank_sparse_slurm_20260912/models/Qwen3-8B",
+  "adapter": "/srv/encbank/encbank_infra_recheck_20260912/adapter",
   "adapter_sha256": "1deb86bdc89206ab029ca67403fb3f96dda29fc68223eebec4fc49e97ec0eb13",
   "allocator_gib": 96,
   "context_tokens": 40960,
@@ -41,7 +41,7 @@
   "concurrency": "One GPU per task pair; native and n24 sequential in fresh containers, order alternates across six tasks; six pairs may run concurrently.",
   "controlled_replay": "After both live trials, choose at most three native requests with most archived chunks, tie by step; replay identical histories with native/n36/n24 and the first up to128 recorded output tokens. Two measurements per arm; excluded from live time.",
   "quality_scope": "Exploratory six-task A/B, not full89 or the separate27B continuation.",
-  "environment_source": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_unbounded_20260921",
+  "environment_source": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_unbounded_20260921",
   "backend_sha256": {
     "apptainer_environment.py": "ffedc3adc317653f2ed10cd8e24d515b55d118b329276d53f222f5f928a3a782",
     "apptainer_service.py": "f490e323d051e478b78b30d21c36198939ecedbcd9740cd5cba8bfa8bc02c98c",
@@ -76,7 +76,7 @@
       "cpus": 1
     }
   ],
-  "predecessor": "/srv/encbank/qcomem_align_codex_20260911/hidden_reader_terminal_20260921",
+  "predecessor": "/srv/encbank/qencbank_align_codex_20260911/hidden_reader_terminal_20260921",
   "revision_reason": "Cache audit fix only: cloned H12 bank tensors now have version counters outside inference mode, identical values. Added three-turn GPU qualification for native and n24. Retain the already valid cancel-async-tasks pair; retry only infrastructure-invalid/incomplete remaining tasks.",
   "global_task_order": [
     "cancel-async-tasks",
@@ -87,7 +87,7 @@
     "sqlite-db-truncate"
   ],
   "predecessors": [
-    "/srv/encbank/qcomem_align_codex_20260911/hidden_reader_terminal_r2_20260921",
-    "/srv/encbank/qcomem_align_codex_20260911/hidden_reader_terminal_r3_20260921"
+    "/srv/encbank/qencbank_align_codex_20260911/hidden_reader_terminal_r2_20260921",
+    "/srv/encbank/qencbank_align_codex_20260911/hidden_reader_terminal_r3_20260921"
   ]
 }

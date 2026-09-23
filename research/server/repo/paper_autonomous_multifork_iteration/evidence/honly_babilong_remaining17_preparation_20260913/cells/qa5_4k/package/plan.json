@@ -44,14 +44,14 @@
     "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
   },
   "reader_binding": "local_Qwen3_8B_base_hashes_plus_custom_final4000_rank32_alpha32_3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119",
-  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
-  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "model_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/adapter",
   "resource_policy": {
     "allocator_cap_bytes": 214748364800,
     "minimum_free_bytes": 236223201280,
     "stable_idle_seconds": 45
   },
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "native_attention_runtime_files": {
     "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
     "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
@@ -96,10 +96,10 @@
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/tokenwise_runtime.py": "d35ed28ae8ffb4db1dbf348b55ccd3c7d5f65b30f403cc90ceb5158d4e8ce3ac",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
     "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/timed_runtime/natural_qa.py": "fe2b75db339e90be142432e73fd0824ec25e01fafc56caff0bd70109cce82716",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
@@ -112,7 +112,7 @@
     "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/analyze.py": "0f272fe695f75a5bd346bb5e32a72abfec56495fcf2fb41ac6b2ff7c8eab92c1",
     "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/backend_gate.py": "21bdd4430ab7f1f9b792e3916cfd3b802d67a8e4a69d79c7ced03d5544ac60d4",
     "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/protocol.py": "841fc935708c1f762b79cc4d03e663cd90b3153a548912d0af1dc2f4210f427b",
-    "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/qcomem_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
+    "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/qencbank_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
     "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/record_shell_exit.py": "27ff44a5cd2067f24a3b045e3ec4a024dc376fbfe07baa0794caeccb855c4e12",
     "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/resource_guard.py": "d0024c559d4bd0e6f0eb52c89229498decdc7a51cc0b4850ed233568560a2055",
     "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/resource_worker.py": "e1a790bd3c091aa6fc978de730f048e0300c7c1c6529f82ab9c8aa0f438a079e",
@@ -292,9 +292,9 @@
       "sha256": "4c8779aeac769aadb9e8378282fe6dfef40d336d87bd5914e8145438a66df229"
     }
   },
-  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/babilong_qa5_4k_remaining17_attempt1",
+  "task_cache_root": "/srv/encbank/qencbank_align_codex_20260911/task_cache/babilong_qa5_4k_remaining17_attempt1",
   "scheduler": {
-    "job_name": "qcomem-align-codex-babi-qa5-4k-r17",
+    "job_name": "qencbank-align-codex-babi-qa5-4k-r17",
     "gres": "gpu:1",
     "dependency": "singleton",
     "maximum_concurrent_project_GPUs": 4,
@@ -443,7 +443,7 @@
   "nested_cell_root_binding": {
     "package_parent_index_for_repository_root": 5,
     "local_controller_parent_index_for_repository_root": 4,
-    "strict_remote_root": "/srv/encbank/qcomem_align_codex_20260911/repo",
+    "strict_remote_root": "/srv/encbank/qencbank_align_codex_20260911/repo",
     "source0K_plan": {
       "path": "paper_autonomous_multifork_iteration/evidence/honly_babilong_preparation_20260912/package/plan.json",
       "sha256": "4ef7771c2679777823315d17d73e4081e3ec2ca1f36833495eaa0bab11741e3e"
@@ -507,7 +507,7 @@
       "sha256": "53a4bb9d4a3d39e9a7fe4cad9a1b43b07424721adea055e763eedbd0c9bba702"
     },
     "module": {
-      "path": "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/qcomem_triton_cache.py",
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_babilong_remaining17_preparation_20260913/cells/qa5_4k/package/qencbank_triton_cache.py",
       "sha256": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715"
     },
     "fix_provenance": {

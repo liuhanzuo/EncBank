@@ -15,8 +15,8 @@ import traceback
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "results"
-MODEL = "/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B"
-ADAPTER = "/srv/encbank/comem_infra_recheck_20260912/adapter"
+MODEL = "/srv/encbank/encbank_sparse_slurm_20260912/models/Qwen3-8B"
+ADAPTER = "/srv/encbank/encbank_infra_recheck_20260912/adapter"
 MISSES = [0, 1, 2, 4, 8, 12]
 WARMUPS, REPEATS = 2, 7
 
@@ -245,7 +245,7 @@ def main():
                         records.append(row);record_file.write(json.dumps(row)+"\n");record_file.flush()
                 gc.collect()
 
-            # Reference: ordinary CoMem generation with the joint 12-chunk cache.
+            # Reference: ordinary Encbank generation with the joint 12-chunk cache.
             # Always emit 512 tokens, ignoring EOS, for a fixed-shape timing comparison.
             status("DECODE_512",document=di)
             for warmup,count in [(True,32),(False,512)]:
@@ -295,7 +295,7 @@ def main():
         decode_ms_per_token=stats([x["ms_per_decode_token"] for x in decode_records]),
         scope="Microbenchmark, 3 saved PG19 inputs, one model process; no live agent trajectory or retrieval/eviction policy benchmark",
         reconstruction_boundary="GPU H through all 24 upper blocks with KV retention; excludes retrieval, initial H Write, LM head and query",
-        independent_scope="Independent chunk attention and chunk-local positions; changes document attention graph versus current joint CoMem",
+        independent_scope="Independent chunk attention and chunk-local positions; changes document attention graph versus current joint Encbank",
         prefix_scope="Unchanged ordered 12-chunk context; cached prefix and missing suffix; includes actual prefix clones",
         timer_scope="CUDA synchronized wall time plus CUDA events; fixed active pack 12x512+sink; output is 512 tokens with 511 decode forwards",
         source_manifest=json.loads((ROOT/"source_manifest.json").read_text()))

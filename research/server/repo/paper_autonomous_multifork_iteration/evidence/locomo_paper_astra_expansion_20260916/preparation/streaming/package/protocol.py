@@ -4,17 +4,17 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[5]
-ARMS = ('streamingllm_style_comem',)
-PYTHON='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
-REMOTE_ROOT='/srv/encbank/qcomem_align_codex_20260911/repo'
-MODEL_ROOT='/srv/encbank/qcomem_align_codex_20260911/exact_local_reader'
+ARMS = ('streamingllm_style_encbank',)
+PYTHON='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
+REMOTE_ROOT='/srv/encbank/qencbank_align_codex_20260911/repo'
+MODEL_ROOT='/srv/encbank/qencbank_align_codex_20260911/exact_local_reader'
 RESOURCE={'allocator_cap_bytes':200*2**30,'minimum_free_bytes':220*2**30,'stable_idle_seconds':45}
 def model_path(plan,part):
     assert part in ('model','adapter')
     p=Path(plan[part+'_root']); assert p==Path(MODEL_ROOT)/part
     p.resolve().relative_to(Path('/srv/encbank'))
     return p
-CONFIG = {'bos_token_id': 151643, 'eos_token_id': 151645, 'first_step_EOS_suppressed': True, 'max_new_tokens': 48, 'query_tokens_per_call': 1, 'prefix_tokens': 4, 'recent_tokens': 4096, 'selection': 'CoMem_public_combined_prompt_first4_last4096'}
+CONFIG = {'bos_token_id': 151643, 'eos_token_id': 151645, 'first_step_EOS_suppressed': True, 'max_new_tokens': 48, 'query_tokens_per_call': 1, 'prefix_tokens': 4, 'recent_tokens': 4096, 'selection': 'Encbank_public_combined_prompt_first4_last4096'}
 
 def sha(path):
     with Path(path).open('rb') as f: return hashlib.file_digest(f, 'sha256').hexdigest()
@@ -91,7 +91,7 @@ def preflight(args,envelope=False):
     from backend_gate import validate_backend_binding
     validate_backend_binding(plan,allow_unbound=bool(getattr(args,'check_only',False)))
     assert plan['schema']==SCHEMA and plan['arm_order']==list(ARMS) and plan['configuration']==CONFIG
-    assert plan['method_configuration']=={'method': 'StreamingLLM-style CoMem first4/last4096', 'runtime_arm': 'streamingllm_style_comem', 'adapter_active': False, 'prompt_policy': 'combined_BOS_document_query_first4_last4096', 'rolling_KV_cache': False}
+    assert plan['method_configuration']=={'method': 'StreamingLLM-style Encbank first4/last4096', 'runtime_arm': 'streamingllm_style_encbank', 'adapter_active': False, 'prompt_policy': 'combined_BOS_document_query_first4_last4096', 'rolling_KV_cache': False}
     assert plan['backbone_dtype']=='float16' and plan['attention_backend']=='sdpa'
     assert not plan['training_or_runtime_offload'] and not plan['automatic_retry']
     assert plan['resource_policy']==RESOURCE and plan['python']==PYTHON

@@ -24,7 +24,7 @@ def verify(family):
 def submit():
     assert json.loads((ROOT/'local_preflight.json').read_text())['status']=='PASS'
     for family in ['dense','k12','k48']:
-        verify(family);assert not (ROOT/family/('run_dense' if family=='dense' else 'run_comem')).exists()
+        verify(family);assert not (ROOT/family/('run_dense' if family=='dense' else 'run_encbank')).exists()
         p=json.loads((ROOT/family/'plan.json').read_text())
         result=subprocess.run([p['engine_python'],str(ROOT/family/'model_path_preflight.py')],capture_output=True,text=True,timeout=180)
         assert result.returncode==0,result.stderr
@@ -32,8 +32,8 @@ def submit():
         fcntl.flock(lock,fcntl.LOCK_EX)
         assert not (ROOT/'submission.json').exists()
         queue=subprocess.check_output(['squeue','-r','-u','liuhanzuo','-h','-o','%i|%j|%T|%b'],text=True)
-        own=[x for x in queue.splitlines() if any(s in x for s in ['qcomem-tb-','qcomem-agentmem-']) and 'gpu' in x.split('|')[-1].lower()]
-        known={'112400':'comem_k12_no_task_deadline_r6_20260920','112403':'comem_k48_no_task_deadline_r6_20260920','113514':'dense_no_task_deadline_r6_20260921'}
+        own=[x for x in queue.splitlines() if any(s in x for s in ['qencbank-tb-','qencbank-agentmem-']) and 'gpu' in x.split('|')[-1].lower()]
+        known={'112400':'encbank_k12_no_task_deadline_r6_20260920','112403':'encbank_k48_no_task_deadline_r6_20260920','113514':'dense_no_task_deadline_r6_20260921'}
         assert len(own)<4
         proofs=[]
         for line in own:
@@ -60,7 +60,7 @@ def run():
         row=dict(family=family,exit_code=proc.returncode,actual_parent_wait=True,epoch=time.time());rows.append(row)
         save(r/'allocation_receipt.json',row)
         assert proc.returncode==0,'GPU holder failed; no automatic replay'
-        receipt=json.loads((r/('run_dense' if family=='dense' else 'run_comem')/'process_receipt.json').read_text())
+        receipt=json.loads((r/('run_dense' if family=='dense' else 'run_encbank')/'process_receipt.json').read_text())
         assert receipt['actual_parent_wait']
     save(ROOT/'status.json',dict(state='all_holders_closed',completed=rows,job_id=os.environ['SLURM_JOB_ID'],epoch=time.time(),scores_require_local_result_audit=True))
 

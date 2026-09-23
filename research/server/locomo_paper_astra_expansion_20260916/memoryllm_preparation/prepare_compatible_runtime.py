@@ -5,9 +5,9 @@ from pathlib import Path
 import subprocess
 
 ROOT = Path('/srv/encbank')
-WORK = ROOT / 'qcomem_align_codex_20260911/locomo_paper_astra_expansion_20260916/memoryllm_preparation'
-ENV = ROOT / 'qcomem_runtime_20260911/memoryllm_torch210_20260916'
-BASE = ROOT / 'qcomem_runtime_20260911/python312/bin/python'
+WORK = ROOT / 'qencbank_align_codex_20260911/locomo_paper_astra_expansion_20260916/memoryllm_preparation'
+ENV = ROOT / 'qencbank_runtime_20260911/memoryllm_torch210_20260916'
+BASE = ROOT / 'qencbank_runtime_20260911/python312/bin/python'
 
 
 def main():
@@ -34,7 +34,7 @@ def main():
     freeze = subprocess.check_output([python, '-m', 'pip', 'freeze'], env=env, text=True)
     (WORK / 'runtime_torch210_freeze.txt').write_text(freeze)
     checks = {}
-    for name, path in [('torch251', str(ROOT / 'qcomem_runtime_20260911/memoryllm_20260916/bin/python')),
+    for name, path in [('torch251', str(ROOT / 'qencbank_runtime_20260911/memoryllm_20260916/bin/python')),
                        ('torch210', python)]:
         code = ('import torch,json;print(json.dumps(dict(torch=torch.__version__,cuda=torch.version.cuda,'
                 'architecture_flags=torch._C._cuda_getArchFlags(),cuda_initialized=torch.cuda.is_initialized(),'

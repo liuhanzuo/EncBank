@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 import datetime,hashlib,json,os,subprocess,sys,time,traceback
 import host_admission
 H=Path(__file__).resolve().parent;R=Path('/srv/encbank/legacy_workspace/.runtime/terminal_bench_full89_20260919')
-P=json.loads((H/'plan.json').read_text());REMOTE=P['remote_root'];PY='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+P=json.loads((H/'plan.json').read_text());REMOTE=P['remote_root'];PY='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
 O=H/'execution';BOX=R/'local_rpc_dense_capacity_resume/dense';RESULTS=R/'results/dense_capacity_resume'
 O.mkdir(exist_ok=True);BOX.mkdir(parents=True,exist_ok=True)
 def now():return datetime.datetime.now().astimezone().isoformat()
@@ -52,7 +52,7 @@ def host_capacity(active):
     ceiling=16*1024 if dense_closed else 4*1024
     # Conservatively charge full limits even for presently near-empty containers.
     return max(0,min(ceiling-used,available-reserve-used-2*1024)),dict(at=now(),available_mb=available,
-        dense_reserved_mb=reserve,active_comem_reserved_mb=used,additional_ceiling_mb=ceiling,safety_mb=2048)
+        dense_reserved_mb=reserve,active_encbank_reserved_mb=used,additional_ceiling_mb=ceiling,safety_mb=2048)
 def start_task(row):
     name=row['task'];cfg=json.loads((H/'dense_harbor_template.json').read_text())
     cfg.update(job_name=name,jobs_dir='/srv/encbank/legacy_workspace/.runtime/terminal_bench_full89_20260919/results/dense_capacity_resume')
@@ -93,7 +93,7 @@ def main():
                     code=child.wait();info['out'].close();info['err'].close()
                     task_requests=[json.loads(p.read_text()) for p in BOX.glob('*.request.json') if json.loads(p.read_text())['task']==name]
                     release=[]
-                    if P.get('arm','comem')=='comem':
+                    if P.get('arm','encbank')=='encbank':
                         for sid in sorted({q['task_id'] for q in task_requests}):release.append(ctl('release',sid))
                     results=list((RESULTS/name).glob('*/result.json'))
                     save(O/'receipts'/(name+'.json'),dict(task=name,exit_code=code,actual_parent_wait=getattr(child,'original_parent',True),actual_process_handle_wait=(not isinstance(code,str)),at=now(),

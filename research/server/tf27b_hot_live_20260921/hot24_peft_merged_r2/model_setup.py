@@ -10,7 +10,7 @@ def stabilize_decode_matmuls(model,rows=32):
 
     Dummy rows enter only row-independent linear projections and are discarded
     immediately. They never enter attention or DeltaNet state. Both dense and
-    CoMem use this path, including LoRA and lm_head. No parameter is modified.
+    Encbank use this path, including LoRA and lm_head. No parameter is modified.
     """
     count=0
     def wrap(original):
@@ -78,10 +78,10 @@ def load(plan,adapter=True):
         p=Path(plan['adapter_path']);assert hashlib.sha256(p.read_bytes()).hexdigest()==plan['adapter_sha256']
         saved=torch.load(p,map_location='cpu',weights_only=False)
         resolve_configs(plan,identity,saved);del saved
-        from comem_peft import load_comem_peft, file_sha
+        from encbank_peft import load_encbank_peft, file_sha
         assert plan['lora_execution']=='peft_merged_bf16'
         merge_start=time.perf_counter()
-        model,peft_owner,targets=load_comem_peft(model,plan['peft_adapter'],mode='merged_bf16')
+        model,peft_owner,targets=load_encbank_peft(model,plan['peft_adapter'],mode='merged_bf16')
         target_names=sorted(targets)
         assert len(target_names)==333 and not any('lora_' in n for n,_ in model.named_parameters())
         assert not any(type(m).__name__ in ['LoRALinear','LegacyArithmetic'] for m in model.modules())

@@ -23,7 +23,7 @@ from pathlib import Path
 import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from s15_ruler_lower import CoMemLower  # noqa: E402
+from s15_ruler_lower import EncbankLower  # noqa: E402
 
 
 class Stub:
@@ -40,14 +40,14 @@ def probe(layers, M=13, T=4, nq=3, sink_in_cache=True):
     kv_len = M + nq
     out = {}
     for l in sorted(set(layers) | {max(layers) + 1 if layers else 0}):
-        m = CoMemLower._bottom_mask(s, l, T, kv_len)[0, 0]
+        m = EncbankLower._bottom_mask(s, l, T, kv_len)[0, 0]
         chunk_open = bool(m[:, 1:M].any()) if sink_in_cache else bool(m[:, :M].any())
         sink_open = bool(m[:, 0].all())
         out[l] = (chunk_open, sink_open, int(m[:, 1:M].sum()))
     return out
 
 
-print("Unit-probing CoMemLower._bottom_mask with no model. M=13 cache cols (1 sink + 12"
+print("Unit-probing EncbankLower._bottom_mask with no model. M=13 cache cols (1 sink + 12"
       " chunk), T=4 query rows, 3 query cols.\n")
 ok = True
 for name, layers, j in (("the j=12 set that works in the paper", [1, 9, 11], 12),

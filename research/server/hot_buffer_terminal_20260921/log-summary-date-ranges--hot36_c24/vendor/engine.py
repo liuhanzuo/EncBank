@@ -2,14 +2,14 @@
 import collections,time
 import torch
 from transformers.cache_utils import DynamicCache
-from comem import CoMem
+from encbank import Encbank
 from bm25_index import BM25Index
 from prefix_store import PrefixStore
 
 METHODS=['raw','raw_kv','h_cpu','h_gpu','hybrid']
 BUDGET=8*2**30
 
-class Reader(CoMem):
+class Reader(Encbank):
     def _as_ids(self,ids):
         ids=torch.as_tensor(ids,device=self.device,dtype=torch.long)
         return ids[None,:] if ids.ndim==1 else ids

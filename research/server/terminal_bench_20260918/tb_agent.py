@@ -4,8 +4,8 @@ from pathlib import Path
 from harbor.agents.terminus_2.terminus_2 import Terminus2
 from harbor.llms.base import BaseLLM,LLMResponse,ContextLengthExceededError,OutputLengthExceededError
 from harbor.models.metric import UsageInfo
-REMOTE='/srv/encbank/qcomem_align_codex_20260911/terminal_bench_20260918'
-PY='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+REMOTE='/srv/encbank/qencbank_align_codex_20260911/terminal_bench_20260918'
+PY='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
 SSH='/mnt/c/Windows/System32/OpenSSH/ssh.exe'
 async def exchange(arm,data):
     p=await asyncio.create_subprocess_exec(SSH,'-o','BatchMode=yes','-o','ConnectTimeout=15','gpu-node1',f'{PY} {REMOTE}/bridge.py {arm}',stdin=asyncio.subprocess.PIPE,stdout=asyncio.subprocess.PIPE,stderr=asyncio.subprocess.PIPE)
@@ -43,6 +43,6 @@ class MailboxLLM(BaseLLM):
         else:reasoning,text=text,''  # Never execute an unclosed thinking segment as terminal commands.
         self.step+=1
         return LLMResponse(content=text.strip(),reasoning_content=reasoning,model_name='Qwen3.8-27B/'+self.arm,usage=UsageInfo(prompt_tokens=r['prompt_tokens'],completion_tokens=r['generated_tokens'],cache_tokens=min(r['prompt_tokens'],r.get('cached_prefix_tokens',0)),cost_usd=0),completion_token_ids=r['generated_ids'],extra={k:v for k,v in r.items() if k not in ['text','generated_ids']})
-class QCoMemTerminus(Terminus2):
+class QEncbankTerminus(Terminus2):
     def _init_llm(self,**kwargs):
-        arm=kwargs['model_name'].split('/')[-1];assert arm in ['dense','raw_shared','comem'];return MailboxLLM(arm)
+        arm=kwargs['model_name'].split('/')[-1];assert arm in ['dense','raw_shared','encbank'];return MailboxLLM(arm)

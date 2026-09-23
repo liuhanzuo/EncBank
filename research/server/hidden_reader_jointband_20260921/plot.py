@@ -9,7 +9,7 @@ rt=json.loads((R/'runtime_summary.json').read_text());sel=json.loads((R/'selecti
 depths=[12,14,16,18,20,24,28,32,36]
 plt.rcParams.update({'font.size':11,'axes.spines.top':False,'axes.spines.right':False})
 fig,axes=plt.subplots(1,2,figsize=(12,4.8),layout='constrained')
-for task,color,label in [('single','#37909b','Single NIAH'),('multikey','#bd7135','Multi-key NIAH'),('vt','#5269b7','Variable tracking (COMem)')]:
+for task,color,label in [('single','#37909b','Single NIAH'),('multikey','#bd7135','Multi-key NIAH'),('vt','#5269b7','Variable tracking (Encbank)')]:
     values=[screen['tasks'][task]['score']['n'+str(n)] for n in depths]
     axes[0].plot(depths,values,'o-',color=color,label=label)
     n=sel['selected_n'];axes[0].scatter([n],[confirm['tasks'][task]['score']['n'+str(n)]],marker='X',color=color,s=110,edgecolors='black',linewidths=.6,zorder=5)

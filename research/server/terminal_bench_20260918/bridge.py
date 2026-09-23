@@ -2,7 +2,7 @@
 from pathlib import Path
 import json,os,sys,time
 H=Path(__file__).resolve().parent;H.relative_to(Path('/srv/encbank').resolve())
-arm=sys.argv[1];assert arm in ['dense','raw_shared','comem'];R=H/('run_'+arm);B=R/'mailbox'
+arm=sys.argv[1];assert arm in ['dense','raw_shared','encbank'];R=H/('run_'+arm);B=R/'mailbox'
 def save(p,d):
     t=p.with_suffix('.tmp');t.write_text(json.dumps(d)+'\n');t.replace(p)
 for line in sys.stdin:

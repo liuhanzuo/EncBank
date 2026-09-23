@@ -27,7 +27,7 @@ def main():
   assert set(sample)=={'input','question','target'} and all(isinstance(v,str) for v in sample.values())
   # Target never participates in prompt rendering, document construction or tokenization.
   full=env['get_formatted_input'](sample['input'],sample['question'],cfg['examples'],cfg['instruction'],cfg['post_prompt'],template=cfg['template'])
-  sentinel='QCOMEM_BOUNDARY_SENTINEL_NEVER_SENT_TO_MODEL'
+  sentinel='QENCBANK_BOUNDARY_SENTINEL_NEVER_SENT_TO_MODEL'
   rendered=env['get_formatted_input'](sample['input'],sentinel,cfg['examples'],cfg['instruction'],cfg['post_prompt'],template=cfg['template'])
   marker='Question: '+sentinel;assert rendered.endswith(marker)
   prefix=rendered[:-len(marker)];assert prefix.endswith('>\n\n')

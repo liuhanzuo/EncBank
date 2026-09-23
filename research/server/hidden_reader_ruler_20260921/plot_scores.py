@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 R=Path(__file__).resolve().parent;s=json.loads((R/'scores.json').read_text())
 plt.rcParams.update({'font.size':11,'axes.spines.top':False,'axes.spines.right':False})
 fig,axes=plt.subplots(1,3,figsize=(14,4.7),sharey=True,layout='constrained')
-styles=[('comem','Original COMem','#111111','o','-'),('comem_split','True-KV split control','#888888','x','--'),
+styles=[('encbank','Original Encbank','#111111','o','-'),('encbank_split','True-KV split control','#888888','x','--'),
     ('kd256','KD 256 updates','#66a7cf','s','-'),('kd_selected','KD 640 (validation-selected)','#126da3','o','-'),('kd2048','KD 2048 endpoint','#cc652c','^','-')]
-for ax,task,title in zip(axes,['single','multikey','vt'],['Single-needle NIAH','Multi-key NIAH','Variable tracking (COMem version)']):
+for ax,task,title in zip(axes,['single','multikey','vt'],['Single-needle NIAH','Multi-key NIAH','Variable tracking (Encbank version)']):
     for arm,label,color,marker,line in styles:
         y=[s['cells'][task+length]['score'][arm] for length in ['8k','32k','128k']]
         ax.plot([0,1,2],y,color=color,marker=marker,linestyle=line,label=label,markersize=6,alpha=.9)

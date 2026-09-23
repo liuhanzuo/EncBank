@@ -1,7 +1,7 @@
 """CPU projection of the unmodified official generated cohort; no inference/scoring."""
 from pathlib import Path
 import ast,collections,datetime,hashlib,importlib.metadata,json,math,os,sys
-O=Path(__file__).resolve().parent;ROOT=Path('/srv/encbank/legacy_workspace');N=ROOT/'paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs'
+O=Path(__file__).resolve().parent;ROOT=Path('/srv/encbank/legacy_workspace');N=ROOT/'paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs'
 assert os.environ['PYTHONHASHSEED']=='42' and os.environ['USE_TORCH']=='0'
 sys.path.insert(0,str(N/'dependencies/site'))
 from transformers import AutoTokenizer
@@ -24,7 +24,7 @@ config=json.loads((model/'config.json').read_text());genconfig=json.loads((model
 assert config['bos_token_id']==151643 and config['eos_token_id']==151645 and config['max_position_embeddings']==40960
 assert genconfig['eos_token_id']==[151645,151643] and tokenizer.eos_token_id==151645
 encode=lambda s:tokenizer.encode(s,add_special_tokens=False)
-selector=ROOT/'tmp_external_baselines/comem_official/comem/selectors.py'
+selector=ROOT/'tmp_external_baselines/encbank_official/encbank/selectors.py'
 src=selector.read_text(encoding='utf-8');tree=ast.parse(src)
 names=['bm25_scores','iter_bm25_indices'];nodes=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in names]
 assert [n.name for n in nodes]==names
@@ -72,10 +72,10 @@ for i,m in enumerate(boundaries):
 assert len({x['item_id'] for x in items})==len({x['full_prompt_token_sha256'] for x in items})==100
 assert len({x['document_token_sha256'] for x in documents})==100
 protocol={'task':'niah_single_2','official_ruler_commit':'c3f5e3b4f87f97e048793bb510a3a6b19a46bf3a','seed':42,'PYTHONHASHSEED':42,
- 'replica_scope':'new fixed official-generator cohort for local Qwen3-8B/custom4000 matching replica, not public CoMem checkpoint or same published examples',
+ 'replica_scope':'new fixed official-generator cohort for local Qwen3-8B/custom4000 matching replica, not public Encbank checkpoint or same published examples',
  'official_max_seq_length':65536,'official_generation_reserve':128,'inference_generation_cap':48,'prompt_format':'plain, no chat template',
  'bos_token_id':151643,'prefix_token_ids':[151643],'eos_token_id':151645,'eos_token_ids':[151645],'do_sample':False,
- 'eos_resolution':'single tokenizer/config EOS per official CoMem; apply identically to every arm; original generation_config double EOS is metadata only',
+ 'eos_resolution':'single tokenizer/config EOS per official Encbank; apply identically to every arm; original generation_config double EOS is metadata only',
  'original_generation_config_eos_token_ids':genconfig['eos_token_id'],'original_model_max_position_embeddings':40960,
  'chunk_size':512,'chunk_overlap':0,'chunk_positions':'each document chunk starts locally at zero; explicit BOS sink outside chunk pool',
  'selector':'iter_bm25','topk':12,'iter_hop_topk':4,'iter_rounds':0,'resolved_rounds':3,
@@ -86,7 +86,7 @@ protocol={'task':'niah_single_2','official_ruler_commit':'c3f5e3b4f87f97e048793b
  'BPE_contract':'for all100: encode(document)+encode(query)==encode(original complete plain prompt), add_special_tokens=False',
  'metric':'official NVIDIA RULER string_match_all(preds:list[str], refs:list[list[str]]) -> rounded percent',
  'no_ground_truth_in_retriever':True,'no_model_inference':True,'generation_sampling':'all official100 in order, no gold or output selection'}
-fixture={'schema':'qcomem_official_ruler_input_v1','status':'FROZEN_CPU_INPUTS_NO_MODEL_EXECUTION','protocol':protocol,'documents':documents,'items':items}
+fixture={'schema':'qencbank_official_ruler_input_v1','status':'FROZEN_CPU_INPUTS_NO_MODEL_EXECUTION','protocol':protocol,'documents':documents,'items':items}
 write(O/'fixture.json',fixture)
 # This sidecar is for a separate CPU scorer. Original gold-derived positional metadata stays here only.
 labels={'schema':'ruler_scoring_labels_v1','fixture_sha256':sha(O/'fixture.json'),'items':[{'sample_index':i,'item_id':items[i]['item_id'],'references':r['outputs'],'original_saved_index':r['index'],'original_token_position_answer':r['token_position_answer']} for i,r in enumerate(raw)]}

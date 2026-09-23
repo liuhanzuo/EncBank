@@ -9,7 +9,7 @@ if (R/'vendor').exists():
     for p in old.rglob('*'):
         if p.is_file():assert (R/'vendor'/p.relative_to(old)).read_bytes()==p.read_bytes()
 else:shutil.copytree(old,R/'vendor',dirs_exist_ok=False)
-data=Path('/srv/encbank/comem_sparse_slurm_20260912/data/qasper_pilot')
+data=Path('/srv/encbank/encbank_sparse_slurm_20260912/data/qasper_pilot')
 def load(split):
     unique={}
     for line in (data/(split+'.jsonl')).read_text().splitlines():

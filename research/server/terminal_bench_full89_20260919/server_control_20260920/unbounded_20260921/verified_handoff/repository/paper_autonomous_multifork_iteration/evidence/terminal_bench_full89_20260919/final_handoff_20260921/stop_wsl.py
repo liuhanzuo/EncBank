@@ -1,8 +1,8 @@
-"""Stop only local Harbor processes for the two frozen old CoMem roots."""
+"""Stop only local Harbor processes for the two frozen old Encbank roots."""
 from pathlib import Path
 import datetime,json,os,signal,time
 H=Path(__file__).resolve().parent
-NAMES=['comem_k12_no_task_deadline_r6_20260920','comem_k48_no_task_deadline_r6_20260920']
+NAMES=['encbank_k12_no_task_deadline_r6_20260920','encbank_k48_no_task_deadline_r6_20260920']
 def snapshot():
  out={}
  for p in Path('/proc').iterdir():

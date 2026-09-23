@@ -13,13 +13,13 @@ def main():
         try:
             if p.stat().st_uid!=os.getuid():continue
             cmd=(p/'cmdline').read_bytes().replace(b'\0',b' ').decode('utf-8','replace')
-            if (p/'exe').resolve().name=='codex' and ' exec ' in cmd and ('qcomem_astra' in cmd or 'locomo_astra_remote_codex' in cmd):active.append(int(p.name))
+            if (p/'exe').resolve().name=='codex' and ' exec ' in cmd and ('qencbank_astra' in cmd or 'locomo_astra_remote_codex' in cmd):active.append(int(p.name))
         except (FileNotFoundError,PermissionError,ProcessLookupError):pass
     assert not active,'Existing remote judge is active'
     (H/'submission_once.lock').mkdir(exist_ok=False)
     payload=json.loads(sys.stdin.buffer.read());assert payload['key']
     env=os.environ.copy()
-    for name in ('CODEX_API_KEY','CODEX_ACCESS_TOKEN','OPENAI_API_KEY','QCOMEM_JUDGE_API_KEY'):env.pop(name,None)
+    for name in ('CODEX_API_KEY','CODEX_ACCESS_TOKEN','OPENAI_API_KEY','QENCBANK_JUDGE_API_KEY'):env.pop(name,None)
     argv=[sys.executable,'-X','utf8','-B',str(H/'coordinate.py'),expected]
     with (H/'coordinator_stdout.log').open('xb') as out,(H/'coordinator_stderr.log').open('xb') as err:
         child=subprocess.Popen(argv,stdin=subprocess.PIPE,stdout=out,stderr=err,cwd=H,env=env,start_new_session=True)

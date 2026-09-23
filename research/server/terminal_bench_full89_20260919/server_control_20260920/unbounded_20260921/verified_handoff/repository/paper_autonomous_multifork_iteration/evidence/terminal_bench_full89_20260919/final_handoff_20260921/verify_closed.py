@@ -3,7 +3,7 @@ from pathlib import Path
 from collections import Counter
 import datetime,hashlib,json
 ROOT=Path('/srv/encbank/legacy_workspace');H=Path(__file__).resolve().parent;B=H.parent;RT=ROOT/'.runtime/terminal_bench_full89_20260919'
-NAMES=dict(dense='dense_no_task_deadline_r6_20260921',top12='comem_k12_no_task_deadline_r6_20260920',top48='comem_k48_no_task_deadline_r6_20260920')
+NAMES=dict(dense='dense_no_task_deadline_r6_20260921',top12='encbank_k12_no_task_deadline_r6_20260920',top48='encbank_k48_no_task_deadline_r6_20260920')
 def load(p):return json.loads(p.read_text(encoding='utf8'))
 def ref(p):return dict(path=p.relative_to(ROOT).as_posix(),sha256=hashlib.sha256(p.read_bytes()).hexdigest())
 snapshot=load(H/'live_snapshot.json');arms={}
@@ -55,7 +55,7 @@ for arm,name in NAMES.items():
         failed=sum(x['verifier']['rewards']['reward']==0 for x in total),added_since_last_registration=len(total)-previously_registered,
         retained_normal=total,excluded=excluded,blocked_environment=base['blocked_environment'],old_pending_adjudication=base['pending_adjudication'],
         source=ref(D/'recovery_check.json'),plan=ref(D/'plan.json'),source_partition=ref(D/'partition_final.json'),
-        result_scope='Per-task parent wait. Old Dense cancelled; original CoMem services still running. Not full89 score.')
+        result_scope='Per-task parent wait. Old Dense cancelled; original Encbank services still running. Not full89 score.')
 out=dict(at=datetime.datetime.now().astimezone().isoformat(),status='PASS',live_snapshot=ref(H/'live_snapshot.json'),arms=arms,model_calls=0)
 dest=H/'closed_verification.json';assert not dest.exists();dest.write_text(json.dumps(out,indent=2)+'\n',encoding='utf8',newline='\n')
 print(json.dumps({k:dict(normal=v['normal_count'],passed=v['passed'],failed=v['failed'],added=v['added_since_last_registration'],excluded=dict(Counter(x['classification'] for x in v['excluded']))) for k,v in arms.items()},indent=2))

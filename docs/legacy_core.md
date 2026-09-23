@@ -1,15 +1,15 @@
-# CoMem — Comprehension Memory
+# Encbank — Comprehension Memory
 
 **Fixed-size, mid-depth-resume long-context memory for a plain (un-patched) decoder LLM.**
 
-CoMem lets an 8B model answer questions over arbitrarily long contexts with a
+Encbank lets an 8B model answer questions over arbitrarily long contexts with a
 **constant-size, constant-cost read**, by exploiting a simple observation:
 
 > A transformer completes most of its **comprehension** of a token span in its
 > *lower* layers; the *upper* layers increasingly just produce the next-token
 > distribution.
 
-So CoMem splits the backbone at a depth `j` (`resume_j`):
+So Encbank splits the backbone at a depth `j` (`resume_j`):
 
 - **WRITE** (once, per chunk, chunk-local): `embed → layers[0:j]` over each chunk in
   isolation, and **cache the depth-`j` hidden `h_j`** (the chunk's comprehended,
@@ -25,14 +25,14 @@ So CoMem splits the backbone at a depth `j` (`resume_j`):
 ### Why it works / headline results (Qwen3-8B; see `paper/`)
 
 - **Length robustness.** Full-context attention **collapses to 0** past its RoPE
-  window, while CoMem holds **RULER ≈ 100** and **LongEval ≈ 0.98 at 128k tokens** —
+  window, while Encbank holds **RULER ≈ 100** and **LongEval ≈ 0.98 at 128k tokens** —
   because the read pack is always a handful of chunks, never the whole context.
 - **Decode speed.** The resumed-band **KV-cache decode** (prefill both bands once,
   then push one token/step) runs **4–16× faster per token** than re-running the whole
   read every step, with byte-identical output.
 - **Cheap comprehension memory.** `h_j` is computed once per chunk with only the
   bottom `j` layers; retrieval is forward-free (lexical BM25 or cosine over the
-  cached `h_j`), so adding memory adds almost no compute over the writes CoMem
+  cached `h_j`), so adding memory adds almost no compute over the writes Encbank
   already does.
 
 ## Install
@@ -48,12 +48,12 @@ Requires a local causal-LM checkpoint (Llama-3-8B, Qwen3-8B, or an in-tree MoE).
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from comem import CoMem
+from encbank import Encbank
 
 tok = AutoTokenizer.from_pretrained(PATH)
 lm  = AutoModelForCausalLM.from_pretrained(PATH, torch_dtype="bfloat16").cuda().eval()
 
-model = CoMem(lm, resume_j=12, tokenizer=tok)   # split the backbone at layer 12
+model = Encbank(lm, resume_j=12, tokenizer=tok)   # split the backbone at layer 12
 model.encode(long_document)                     # comprehend once → cache h_j per chunk
 answer = model.generate("What is X?",           # retrieve topk → resume → decode
                         selector="bm25", topk=12, max_new_tokens=32)
@@ -73,30 +73,30 @@ answer = model.generate("What is X?",           # retrieve topk → resume → d
   `--iter_conf_ratio`× the round-1 best or `--iter_max_chunks` is hit; **kept as
   an opt-in selector for ρ-tuning experiments, no longer the default**),
   `recency`, `oracle`.
-- `mode`: `comem` (retrieval, fixed read; default), `kvdirect` / `hcache`
+- `mode`: `encbank` (retrieval, fixed read; default), `kvdirect` / `hcache`
   (no-retrieval baselines that pack **all** chunks — read grows O(context); build
-  `CoMem(resume_j=0)` for a faithful `kvdirect`).
-- Sharded MoE backbones: use `comem.CoMemMoE` / `comem.load_moe_comem`.
+  `Encbank(resume_j=0)` for a faithful `kvdirect`).
+- Sharded MoE backbones: use `encbank.EncbankMoE` / `encbank.load_moe_encbank`.
 
 ### Package layout
 
 ```
-comem/
-  model.py       # class CoMem: primitives (write/read/decode/resume) + encode/generate
+encbank/
+  model.py       # class Encbank: primitives (write/read/decode/resume) + encode/generate
   selectors.py   # bm25 / iter_bm25 / iter_bm25_adaptive / reader_attn / iter_reader_attn / recency / oracle
-  moe.py         # CoMemMoE: device_map-sharded MoE variant
-  selftest.py    # CPU correctness gate (python -m comem.selftest)
+  moe.py         # EncbankMoE: device_map-sharded MoE variant
+  selftest.py    # CPU correctness gate (python -m encbank.selftest)
 train/distill.py # LoRA self-distillation (teacher j=0 → student j) on PG19
-eval/            # thin drivers: build CoMem + generate + official scoring
+eval/            # thin drivers: build Encbank + generate + official scoring
   ruler.py  babilong.py  longbench.py  locomo.py  longeval.py
-bench/vs_dense.py# CoMem vs Dense speed/accuracy + decode correctness gate
+bench/vs_dense.py# Encbank vs Dense speed/accuracy + decode correctness gate
 paper/           # LaTeX source
 ```
 
 ## Correctness
 
 `generate` is byte-identical to the reference research implementation.
-`python -m comem.selftest` (CPU, tiny random Qwen3, fp32) checks:
+`python -m encbank.selftest` (CPU, tiny random Qwen3, fp32) checks:
 
 - **(A)** `j=0` write/read packing == a stock `model(input_ids)` forward (diff `0`),
 - **(B)** `resume_forward_ids` == full forward at several `j`,
@@ -107,7 +107,7 @@ paper/           # LaTeX source
 
 ## Reproducing the eval
 
-Each `eval/*.py` builds a `CoMem`, runs `generate_from_ids` per sample (the fused
+Each `eval/*.py` builds a `Encbank`, runs `generate_from_ids` per sample (the fused
 encode+write+select+decode over one prompt whose trailing chunk is the query), and
 applies the benchmark's **official** metric.
 
@@ -140,7 +140,7 @@ The old native flags (`--model_path`, `--resume_j`, `--limit`/`--num_samples`/
 
 ### Model → split depth (`--j auto`)
 
-`--j auto` picks the per-backbone split depth from `comem/model_registry.py`
+`--j auto` picks the per-backbone split depth from `encbank/model_registry.py`
 (`resume_j ≈ round(0.33 · num_hidden_layers)`); unknown models fall back to that
 formula with a warning.
 
@@ -196,7 +196,7 @@ and LoCoMo iterate their fixed datasets and use `--tasks` / `--locomo_data`.
 `eval/{longbench,longeval,locomo}.py` support `--score_only` to merge shards.
 Baselines: `--baseline {dense,kvdirect,hcache,streamingllm}` (`dense` = stock
 full-context generation; `streamingllm` = sink+sliding-window truncation then
-dense; `kvdirect`/`hcache` = no-retrieval CoMem packs). LoRA distillation:
+dense; `kvdirect`/`hcache` = no-retrieval Encbank packs). LoRA distillation:
 `train/distill.py` then eval with `--adapter <dir>`.
 
 ### Division of labor

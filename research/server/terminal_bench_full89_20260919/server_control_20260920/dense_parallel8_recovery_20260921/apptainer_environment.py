@@ -13,7 +13,7 @@ from harbor.environments.singularity.singularity import SingularityEnvironment
 from harbor.environments.base import ExecResult
 from harbor.environments.capabilities import EnvironmentResourceCapabilities, EnvironmentCapabilities
 
-ROOT = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+ROOT = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 
 
 class ManagedApptainerEnvironment(SingularityEnvironment):
@@ -26,7 +26,7 @@ class ManagedApptainerEnvironment(SingularityEnvironment):
         return EnvironmentCapabilities(mounted=True,disable_internet=True)
 
     async def start(self, force_build=False):
-        self._name = 'qcomem-ai-'+uuid.uuid4().hex[:12]
+        self._name = 'qencbank-ai-'+uuid.uuid4().hex[:12]
         self._root = ROOT/'managed_instances'/self._name
         self._root.mkdir(parents=True,mode=0o700)
         self._staging_dir = self._root/'staging'
@@ -84,8 +84,8 @@ class ManagedApptainerEnvironment(SingularityEnvironment):
             diagnostic = await self.exec('cat /etc/resolv.conf; cat /proc/net/route; readlink /proc/self/ns/net; cat /proc/self/cgroup',timeout_sec=15)
             (self._root/'network_diagnostic.json').write_text(diagnostic.model_dump_json(indent=2))
             bootstrap = '''set -e
-mkdir -p /tmp/comem-apt/partial /logs/agent /logs/verifier
-printf 'APT::Sandbox::User "root";\\nDir::Cache::archives "/tmp/comem-apt";\\n' > /etc/apt/apt.conf.d/99comem-runtime
+mkdir -p /tmp/encbank-apt/partial /logs/agent /logs/verifier
+printf 'APT::Sandbox::User "root";\\nDir::Cache::archives "/tmp/encbank-apt";\\n' > /etc/apt/apt.conf.d/99encbank-runtime
 if ! command -v tmux >/dev/null || ! command -v asciinema >/dev/null; then
   apt-get update -qq
   DEBIAN_FRONTEND=noninteractive apt-get install -y -qq tmux asciinema
@@ -96,7 +96,7 @@ command -v asciinema
             result = await self.exec(bootstrap,timeout_sec=300)
             (self._root/'bootstrap.json').write_text(result.model_dump_json(indent=2))
             assert result.return_code==0,result.stderr[-5000:]
-            shutil.copy2(Path(__file__).with_name('apptainer_executor.py'),self._staging_dir/'.comem_executor.py')
+            shutil.copy2(Path(__file__).with_name('apptainer_executor.py'),self._staging_dir/'.encbank_executor.py')
             await self._rpc({'op':'start_executor'},30)
             await self._upload_environment_dir_after_start()
         except BaseException:

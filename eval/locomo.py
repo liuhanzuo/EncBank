@@ -1,16 +1,16 @@
 #!/usr/bin/env python
-"""CoMem — LoCoMo (long-conversation memory) eval driver.
+"""Encbank — LoCoMo (long-conversation memory) eval driver.
 
-Runs CoMem on LoCoMo (ACL 2024): 10 extended two-speaker conversations with QA
+Runs Encbank on LoCoMo (ACL 2024): 10 extended two-speaker conversations with QA
 across 5 categories (multi-hop / single-hop / temporal / open-domain /
-adversarial). Thin: build CoMem, ``generate_from_ids`` per QA, score with
+adversarial). Thin: build Encbank, ``generate_from_ids`` per QA, score with
 SQuAD-style F1 / EM / substring-acc (category-5 = abstention-correct).
 Self-contained: LoCoMo parsing + scoring embedded (ported verbatim).
 
 Usage:
     python -m eval.locomo --model_path /path/to/Qwen3-8B --resume_j 12 \\
         --selector bm25 --topk 12 --locomo_data data/locomo10.json \\
-        --output_dir locomo_results/comem_j12
+        --output_dir locomo_results/encbank_j12
 """
 from __future__ import annotations
 
@@ -28,8 +28,8 @@ import torch
 from tqdm.auto import tqdm
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from comem import CoMem                          # noqa: E402
-from comem import selectors as _sel              # noqa: E402
+from encbank import Encbank                          # noqa: E402
+from encbank import selectors as _sel              # noqa: E402
 from eval import _cli                            # noqa: E402
 from eval._common import (load_backbone, resolve_baseline,  # noqa: E402
                           dense_generate, DENSE_MODES)
@@ -192,7 +192,7 @@ def run_scoring(output_dir):
     output_path = Path(output_dir)
     shard_files = sorted(output_path.glob("preds*.jsonl"))
     if not shard_files:
-        print(f"[CoMem-LoCoMo] no prediction files in {output_dir}")
+        print(f"[Encbank-LoCoMo] no prediction files in {output_dir}")
         return None
     preds, seen = [], set()
     for sf in shard_files:
@@ -223,7 +223,7 @@ def run_scoring(output_dir):
     results = {"benchmark": "locomo", "n_samples": n,
                "overall_f1": _avg(overall["f1"]), "overall_em": _avg(overall["em"]),
                "overall_acc": _avg(overall["acc"]), "by_category": {}}
-    print(f"\n[CoMem-LoCoMo] locomo  n={n}")
+    print(f"\n[Encbank-LoCoMo] locomo  n={n}")
     print(f"  OVERALL   F1={results['overall_f1']:6.2f}  "
           f"EM={results['overall_em']:6.2f}  acc={results['overall_acc']:6.2f}")
     for cat in sorted(by_cat, key=lambda c: (c == "?", c)):
@@ -240,7 +240,7 @@ def run_scoring(output_dir):
 
 
 def main():
-    p = argparse.ArgumentParser(description="CoMem LoCoMo eval")
+    p = argparse.ArgumentParser(description="Encbank LoCoMo eval")
     p.add_argument("--model", "--model_path", dest="model_path", default="")
     p.add_argument("--j", "--resume_j", dest="resume_j", type=_cli.j_type, default=12,
                    help="split depth (int) or 'auto' (per-model, see model_registry)")
@@ -256,7 +256,7 @@ def main():
     p.add_argument("--max_new_tokens", type=int, default=48)
     p.add_argument("--locomo_data", default="data/locomo10.json")
     p.add_argument("--categories", default=None)
-    p.add_argument("--output_dir", "--out", dest="output_dir", default="locomo_results/comem")
+    p.add_argument("--output_dir", "--out", dest="output_dir", default="locomo_results/encbank")
     p.add_argument("--max_samples", "--n", dest="max_samples", type=int, default=-1)
     p.add_argument("--num_shards", type=int, default=1)
     p.add_argument("--shard_index", type=int, default=0)
@@ -277,7 +277,7 @@ def main():
     data_path = args.locomo_data
     model, tok = load_backbone(args.model_path, args.dtype, args.attn_impl,
                                args.device, lora)
-    cm = CoMem(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
+    cm = Encbank(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
                block_diagonal=args.reuse_kv_blockdiag, tokenizer=tok)
     device = torch.device(args.device)
 
@@ -290,7 +290,7 @@ def main():
     if args.max_samples > 0:
         samples = samples[:args.max_samples]
     shard = samples[args.shard_index::args.num_shards]
-    print(f"[CoMem-LoCoMo] shard {args.shard_index}/{args.num_shards}: {len(shard)} samples")
+    print(f"[Encbank-LoCoMo] shard {args.shard_index}/{args.num_shards}: {len(shard)} samples")
 
     outdir = Path(args.output_dir)
     outdir.mkdir(parents=True, exist_ok=True)
@@ -330,7 +330,7 @@ def main():
             with open(outfile, "w") as f:
                 for r in buf:
                     f.write(json.dumps(r, ensure_ascii=False) + "\n")
-    print(f"[CoMem-LoCoMo] shard done: {len(buf)} samples ({time.time()-t0:.1f}s)")
+    print(f"[Encbank-LoCoMo] shard done: {len(buf)} samples ({time.time()-t0:.1f}s)")
     if args.num_shards == 1:
         run_scoring(args.output_dir)
 

@@ -33,7 +33,7 @@ class AgentLLM(BaseLLM):
         except BaseException:
             self.failed=True;save(self.box/(rid+'.cancel.json'),dict(at_epoch=time.time()));raise
         self.previous=messages;self.step+=1
-        return LLMResponse(content=result['text'].strip(),model_name='Qwen3-8B/COMem-'+self.arm,
+        return LLMResponse(content=result['text'].strip(),model_name='Qwen3-8B/Encbank-'+self.arm,
             usage=UsageInfo(prompt_tokens=result['prompt_tokens'],completion_tokens=result['generated_tokens'],cache_tokens=result.get('events',[{}])[0].get('hit_chunks',0)*512,cost_usd=0),
             prompt_token_ids=result['prompt_ids'],completion_token_ids=result['generated_ids'],
             extra={**{k:v for k,v in result.items() if k not in ['text','prompt_ids','generated_ids']},'transport_roundtrip_seconds':time.monotonic()-start})

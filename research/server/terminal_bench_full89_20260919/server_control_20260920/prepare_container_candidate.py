@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import harbor.environments.singularity.singularity as backend
 
-root = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+root = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 target = root / 'container_backend_candidate'
 target.mkdir(exist_ok=True)
 manifest = {}
@@ -16,9 +16,9 @@ for name in ['singularity.py', 'server.py', 'bootstrap.sh']:
         old = 'export DEBIAN_FRONTEND=noninteractive'
         new = '''export DEBIAN_FRONTEND=noninteractive
 # Diagnostic compatibility fix for root-mapped Apptainer package downloads.
-mkdir -p /tmp/comem-apt/partial
-printf 'APT::Sandbox::User "root";\\nDir::Cache::archives "/tmp/comem-apt";\\n' > /tmp/comem-apt.conf
-export APT_CONFIG=/tmp/comem-apt.conf'''
+mkdir -p /tmp/encbank-apt/partial
+printf 'APT::Sandbox::User "root";\\nDir::Cache::archives "/tmp/encbank-apt";\\n' > /tmp/encbank-apt.conf
+export APT_CONFIG=/tmp/encbank-apt.conf'''
         assert text.count(old) == 1
         text = text.replace(old, new)
         assert text.count('_SYS_PY=/usr/bin/python3') == 1

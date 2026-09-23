@@ -71,7 +71,7 @@ def check(check_container=True, checkpoint=False):
     model = subprocess.run(command, capture_output=True, text=True, timeout=180)
     assert model.returncode == 0, model.stderr
     checkpoint_result = None
-    if checkpoint and plan['arm'] == 'comem':
+    if checkpoint and plan['arm'] == 'encbank':
         script = """import json,torch
 from pathlib import Path
 from common import MODELS

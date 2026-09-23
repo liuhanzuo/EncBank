@@ -37,7 +37,7 @@ def materialize(arm):
 def preflight(h):
     p=read(h/'plan.json')
     args=[p['harbor_python'],str(h/'server_preflight.py')]
-    if p['arm']=='comem':args.append('--checkpoint')
+    if p['arm']=='encbank':args.append('--checkpoint')
     with (h/'submission_preflight.stdout.log').open('x') as out,(h/'submission_preflight.stderr.log').open('x') as err:
         result=subprocess.run(args,cwd=h,stdout=out,stderr=err)
     assert result.returncode==0,(str(h),read(h/'server_preflight.json'))
@@ -49,7 +49,7 @@ def submit(h):
         assert not (h/'submission.json').exists()
         for n,digest in read(h/'server_source_manifest.json').items():assert sha(h/n)==digest,n
         q=subprocess.check_output(['squeue','-r','-u','liuhanzuo','-h','-o','%i|%j|%T|%b'],text=True)
-        owned=[l for l in q.splitlines() if any(n in l for n in ['qcomem-tb-','qcomem-agentmem-']) and 'gpu' in l.split('|')[-1].lower()]
+        owned=[l for l in q.splitlines() if any(n in l for n in ['qencbank-tb-','qencbank-agentmem-']) and 'gpu' in l.split('|')[-1].lower()]
         assert len(owned)<4,owned
         assert all(any(a+'_unbounded_20260921'==x.name and str(read(x/'submission.json').get('job_id'))==l.split('|')[0] for a in ['dense','k12','k48'] for x in [S/(a+'_unbounded_20260921')] if (x/'submission.json').exists()) for l in owned),owned
         assert not any(p['job_name']==l.split('|')[1] for l in owned),owned

@@ -40,25 +40,25 @@ def predecessor_closed(plan):
         assert record['plan_sha256'] == hashlib.sha256((H / 'plan.json').read_bytes()).hexdigest()
         assert set(record['remaining_tasks']) == set(plan['tasks'])
     else:
-        failure = Path(plan['predecessor_root']) / 'run_comem/worker_failure.json'
+        failure = Path(plan['predecessor_root']) / 'run_encbank/worker_failure.json'
         assert 'AssertionError' in json.loads(failure.read_text())['error']
-        assert not (Path(plan['predecessor_root']) / 'run_comem/worker_ready.json').exists()
+        assert not (Path(plan['predecessor_root']) / 'run_encbank/worker_ready.json').exists()
     return rows[0]
 
 
 def submit():
     assert sys.platform == 'linux'
     plan = json.loads((H / 'plan.json').read_text())
-    preflight = check(check_container=True, checkpoint=(plan['arm'] == 'comem'))
+    preflight = check(check_container=True, checkpoint=(plan['arm'] == 'encbank'))
     save(H / 'server_preflight.json', preflight)
-    root = Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_20260918')
+    root = Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_20260918')
     with (root / 'admission.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
         check_source()
         prior = predecessor_closed(plan)
         assert not (H / 'submission.json').exists() and not (H / ('run_' + plan['arm'])).exists()
         queue = subprocess.check_output(['squeue', '-r', '-u', 'liuhanzuo', '-h', '-o', '%i|%j|%T|%b'], text=True)
-        own = [line for line in queue.splitlines() if 'qcomem-agentmem-' in line or 'qcomem-tb-' in line]
+        own = [line for line in queue.splitlines() if 'qencbank-agentmem-' in line or 'qencbank-tb-' in line]
         gpu_own=[line for line in own if 'gpu' in line.split('|')[-1].lower()]
         family='dense' if plan['arm']=='dense' else 'k'+str(plan['top_k_chunks'])
         assert not any(family in line.split('|')[1] for line in gpu_own), 'Another GPU controller owns this experiment arm: '+repr(gpu_own)

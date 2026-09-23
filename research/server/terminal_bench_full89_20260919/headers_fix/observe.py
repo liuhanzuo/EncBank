@@ -2,7 +2,7 @@
 from pathlib import Path
 import datetime,json,shlex,subprocess
 H=Path(__file__).resolve().parent;P=json.loads((H/'plan.json').read_text());REMOTE=P['remote_root']
-PY='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+PY='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
 def run(args):
     p=subprocess.run(args,capture_output=True,text=True,encoding='utf8',errors='replace',timeout=60)
     assert p.returncode==0,p.stderr;return p.stdout

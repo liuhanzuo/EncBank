@@ -3,7 +3,7 @@ from pathlib import Path
 import argparse,ast,copy,datetime,difflib,hashlib,json,shlex
 H=Path(__file__).resolve().parent.parent;ROOT=H.parents[2]
 FIX=H.parent/'honly_babilong_qa1_0k_admission_fixed_20260912'
-REMOTE='/srv/encbank/qcomem_align_codex_20260911/repo'
+REMOTE='/srv/encbank/qencbank_align_codex_20260911/repo'
 def read(p):return json.loads(Path(p).read_text('utf-8-sig'))
 def sha(p):
  with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
@@ -32,7 +32,7 @@ def main():
   gold=read(INPUT/'scoring_only/labels.json');save(INPUT/'scoring_only/projected_labels.json',{'fixture_sha256':sha(INPUT/'inference_fixture.json'),'items':[{'id':x['item_id'],'references':x['references']} for x in gold['items']]})
  else:
   receipt=read(C/'input_generation_attempt1/execution_receipt.json');assert receipt['actual_exit_code']==0 and receipt['actual_parent_wait']
- oldprefix=rel(BASE);newprefix=rel(P);job='qcomem-ruler-'+cell+'32k100-codex';cache='/srv/encbank/qcomem_align_codex_20260911/task_cache/ruler_'+cell+'32k100_attempt1'
+ oldprefix=rel(BASE);newprefix=rel(P);job='qencbank-ruler-'+cell+'32k100-codex';cache='/srv/encbank/qencbank_align_codex_20260911/task_cache/ruler_'+cell+'32k100_attempt1'
  def namespace(s):
   s=s.replace(oldprefix,newprefix).replace(old['task_cache_root'],cache).replace(old['job_name'],job)
   s=s.replace('ruler_'+cell+'16k100_admission_fixed_dispatch_attempt1','ruler_'+cell+'32k100_dispatch_attempt1').replace('ruler_'+cell+'16k100_dispatch_attempt1','ruler_'+cell+'32k100_dispatch_attempt1')
@@ -72,7 +72,7 @@ def main():
  save(P/'upload_manifest.json',m)
  commands=read(OLD/'remote_commands.json');rp=REMOTE+'/'+newprefix
  commands.update(remote_package=rp,plan_sha256=sha(P/'plan.json'),upload_manifest={'path':str(P/'upload_manifest.json'),'sha256':sha(P/'upload_manifest.json')},manifest_itself_remote_path=rp+'/upload_manifest.json',sbatch_argv=['sbatch','--parsable',rp+'/batch.sbatch'])
- commands['sbatch_command']=shlex.join(commands['sbatch_argv']);commands['roots_and_staged_check_command']='QCOMEM_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')]);save(C/'remote_commands.json',commands)
+ commands['sbatch_command']=shlex.join(commands['sbatch_argv']);commands['roots_and_staged_check_command']='QENCBANK_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')]);save(C/'remote_commands.json',commands)
  for name in ('dispatch_once.py','remote_ops.py'):write(C/name,namespace((OLD/name).read_text('utf-8')))
  save(C/'source_delta.json',{'status':'NEW32K_FOCUSED_CHECKS_PENDING','cell':cell+'32k','source_changes':deltas,'base_plan':bind(BASE/'plan.json'),'new_plan':bind(P/'plan.json'),'new_manifest':bind(P/'upload_manifest.json'),'input_rows':100,'source_cap':cap,'no_original_package_or_input_change':True,'no_GPU_SSH_model_execution':True})
  print(json.dumps({'cell':cell+'32k','status':'ASSEMBLED_CPU_ONLY','plan_sha256':sha(P/'plan.json'),'manifest_sha256':sha(P/'upload_manifest.json'),'length_ranges':plan['actual_frozen_input_lengths']}))

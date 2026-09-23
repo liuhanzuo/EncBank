@@ -60,7 +60,7 @@ def serve(P,R,B,model,reader,tok,stop,event,torch,DynamicCache,iter_bm25_indices
     def prepare(path):
         q=json.loads(path.read_text());rid=q['request_id'];sid=q['task_id'];began=stamp()
         reclaim('before_request_prefill')
-        reply=dict(request_id=rid,task=q['task'],task_id=sid,step=q['step'],arm='comem',status='error',
+        reply=dict(request_id=rid,task=q['task'],task_id=sid,step=q['step'],arm='encbank',status='error',
             queue_seconds=time.time()-q['published_epoch'])
         event('request_start',request_id=rid,task=q['task'],step=q['step'],live_sessions=len(sessions),batch_number=batch_number)
         status=cancelled(q)
@@ -155,7 +155,7 @@ def serve(P,R,B,model,reader,tok,stop,event,torch,DynamicCache,iter_bm25_indices
                     status=cancelled(row['q'])
                     if not status:
                         scores=logits[index,-1].float()/P['temperature']
-                        if not bool(torch.isfinite(scores).all()):raise FloatingPointError('Nonfinite batch8 CoMem logits; no sanitization/retry')
+                        if not bool(torch.isfinite(scores).all()):raise FloatingPointError('Nonfinite batch8 Encbank logits; no sanitization/retry')
                         values,indices=scores.topk(P['top_k']);cumulative=values.softmax(-1).cumsum(-1)
                         mask=cumulative>P['top_p'];mask[1:]=mask[:-1].clone();mask[0]=False;values[mask]=-float('inf')
                         token=int(indices[torch.multinomial(values.softmax(-1),1,generator=row['generator'])].item())

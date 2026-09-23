@@ -1,10 +1,10 @@
-"""Unified CLI surface shared by every CoMem eval driver.
+"""Unified CLI surface shared by every Encbank eval driver.
 
 Each ``eval/<bench>.py`` keeps its native flags but also exposes the
 collaborator-facing aliases so one habit works everywhere::
 
     --model <hf_path>   (alias of --model_path)
-    --j <int|auto>      (alias of --resume_j; ``auto`` -> comem.model_registry)
+    --j <int|auto>      (alias of --resume_j; ``auto`` -> encbank.model_registry)
     --n <int>           (alias of the driver's sample-count flag)
     --adapter <path>    (alias of --lora_adapter; ``none`` -> disabled)
     --out <dir>         (alias of the driver's output-dir flag)
@@ -12,11 +12,11 @@ collaborator-facing aliases so one habit works everywhere::
     --selector / --baseline / --topk / --chunk_size / ...
 
 ``--j auto`` picks the per-backbone split depth from
-:mod:`comem.model_registry`.
+:mod:`encbank.model_registry`.
 """
 from __future__ import annotations
 
-from comem.model_registry import resolve_resume_j
+from encbank.model_registry import resolve_resume_j
 
 # every driver advertises the same baseline vocabulary
 BASELINE_CHOICES = ["none", "dense", "kvdirect", "hcache", "streamingllm"]

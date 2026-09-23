@@ -5,7 +5,7 @@ WHY
 ---
 S13 selected the query-side cache layers S by greedy forward selection on ONE selection
 split of 8 documents, and reported sets like [3,6,8] at j=9, with layer 8 recurring in 4 of
-6 rows.  Per [[comem-layer9-anchor-retracted]] a single selection split cannot establish
+6 rows.  Per [[encbank-layer9-anchor-retracted]] a single selection split cannot establish
 that a layer is special.
 
 A 0-GPU pass over S13's own stored `cands` (the mean frac of every candidate layer at every

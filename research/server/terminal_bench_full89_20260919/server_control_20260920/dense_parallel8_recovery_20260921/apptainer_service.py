@@ -123,7 +123,7 @@ def main():
                         assert executor is None
                         with (root/'executor.log').open('wb') as log:
                             executor=subprocess.Popen(['apptainer','exec','--userns','--pwd',spec['workdir'],
-                                'instance://'+name,'env','TMPDIR=/tmp','python3','/staging/.comem_executor.py'],
+                                'instance://'+name,'env','TMPDIR=/tmp','python3','/staging/.encbank_executor.py'],
                                 env=env,stdin=subprocess.DEVNULL,stdout=log,stderr=log)
                         for _ in range(100):
                             assert executor.poll() is None,'Executor startup failed; see executor.log'

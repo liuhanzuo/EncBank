@@ -20,7 +20,7 @@ def main():
     a=p.parse_args();manifest=HERE/'upload_manifest.json'
     assert sha(manifest)==a.expected_manifest_sha256
     m=read(manifest);home=Path('/srv/encbank').resolve()
-    assert ROOT==Path(REMOTE_ROOT).resolve() and Path(os.environ['QCOMEM_REPO_ROOT']).resolve()==ROOT
+    assert ROOT==Path(REMOTE_ROOT).resolve() and Path(os.environ['QENCBANK_REPO_ROOT']).resolve()==ROOT
     managed_storage_paths(m,home)
     interpreter_identity=readonly_interpreter_identity()
     assert Path(m['model_root']).is_dir() and Path(m['adapter_root']).is_dir()

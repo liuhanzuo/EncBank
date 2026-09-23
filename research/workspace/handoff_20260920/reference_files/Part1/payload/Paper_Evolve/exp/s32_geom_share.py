@@ -1,7 +1,7 @@
 """Recompute the control's share with the CORRECT single-factor reference.
 
 WHY. The refutation round (2026-09-07) found that `fix_none` is built as
-`CoMemLower(model, j, tok, lower_layers=[])` and `CoMemLower.__init__` defaults
+`EncbankLower(model, j, tok, lower_layers=[])` and `EncbankLower.__init__` defaults
 `chunk_write_sink=True` (exp/s15_ruler_lower.py:72,77), so `build_bottom` prepends a BOS to
 every chunk before capturing h_j and the lower K/V (:142-145). `fix_none` therefore writes
 its chunks WITH a sink, exactly as `pub_sink` does.

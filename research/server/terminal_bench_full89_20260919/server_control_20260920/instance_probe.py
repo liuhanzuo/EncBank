@@ -2,13 +2,13 @@
 import json, os, subprocess, time, select
 from pathlib import Path
 
-ROOT = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+ROOT = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 job = os.environ['SLURM_JOB_ID']
 out = ROOT / ('instance-probe-' + job)
 out.mkdir(mode=0o700)
 env = dict(os.environ, APPTAINER_CONFIGDIR=str(out / 'config'), APPTAINER_TMPDIR=str(ROOT/'tmp'),
            APPTAINER_CACHEDIR=str(ROOT/'apptainer_cache'), TMPDIR=str(ROOT/'tmp'))
-name = 'comem-check-' + job
+name = 'encbank-check-' + job
 report = dict(job=job, model_calls=0, checks={})
 group = None
 network = None

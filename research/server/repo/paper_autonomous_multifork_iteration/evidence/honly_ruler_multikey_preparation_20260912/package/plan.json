@@ -18,8 +18,8 @@
     "minimum_free_bytes": 236223201280,
     "stable_idle_seconds": 45
   },
-  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
-  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "model_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/adapter",
   "activation": {
     "path": "paper_autonomous_multifork_iteration/evidence/qwen_access_repair_20260911/package/quality/bindings/adapter_activation.json",
     "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
@@ -37,19 +37,19 @@
     "sha256": "be2a2972a4cf1064ff63d32c874492a803dbba411c530b346170528a3356bfc7"
   },
   "scorer": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
     "sha256": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f"
   },
   "postprocess": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
     "sha256": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c"
   },
   "cpu_gate": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/report.json",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/report.json",
     "sha256": "157b23b4a42a41e717ff778220c69178343cc6f3f5fc4aa37afd19ef5e494e23"
   },
   "cpu_gate_actual_exit": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/execution.json",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/execution.json",
     "sha256": "c7652529a9db30ffc666630910fc68de65e890e2630e0dc602b14f23b816f8c6"
   },
   "dispatch_scope": "Remote Slurm single GPU only, all four arms in one allocation. Submit only after source/input staging and exact model/adapter remote SHA verification complete. Never invoke local launcher.",
@@ -57,14 +57,14 @@
   "source_sha256": {
     "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/honly.py": "18ec978ca2233238a7788c0fd82e4d3b9afaae0a6d4b959dd184975d5e47cd92",
     "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
-    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/vendor_comem/model.py": "f9155eb92d4ffd8dee5eb3a39383178f33b363fb315547e37c47d1c5812ef6e9",
-    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/vendor_encbank/model.py": "f9155eb92d4ffd8dee5eb3a39383178f33b363fb315547e37c47d1c5812ef6e9",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
     "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/quality_timing.py": "a2d0adc362c5e95c3b533758e2ccc01d5cc1d417e70dd6d08e2a8f3e1ae840a6",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
-    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f",
-    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c",
+    "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f",
+    "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c",
     "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/protocol.py": "13b82673de4546dc11fdc569e08c49497dae57f692923af26c94592ead31cc41",
     "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/resource_guard.py": "11ede03b0cd56d3c283b3e91f4a3d90af4c44fa8805e37709ab6d2b71cfba5be",
     "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/resource_worker.py": "48b8624efb84977302b337af178f41fa952b1ec567e6fd1ee74d028eea860ba9",
@@ -100,7 +100,7 @@
     "GPU multi-query reuse"
   ],
   "cpu_gate_receipt": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/execution.json",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/execution.json",
     "sha256": "c7652529a9db30ffc666630910fc68de65e890e2630e0dc602b14f23b816f8c6"
   },
   "model_expected_manifest": {
@@ -108,13 +108,13 @@
     "sha256": "9d040f1f3661da4b1569e93171d6877952eb906e501407403912cb050ef0802b"
   },
   "batch_output": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/run/attempt1",
-  "remote_python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
-  "remote_repo_root": "/srv/encbank/qcomem_align_codex_20260911/repo",
+  "remote_python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
+  "remote_repo_root": "/srv/encbank/qencbank_align_codex_20260911/repo",
   "artifact_staging_at_preparation": "Local CPU package only; root must stage and hash-verify before submission",
   "remote_exit_contract": "native worker actual wait for each arm; shell trap is not final Slurm controller accounting; final independent completion must check sacct job exit0",
   "device_block": "Observed driver-reported identity only; no confirmed B300 claim and no insertion into RTX5090 timing rows",
   "reused_remote_plan": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/remote_formal/plan.json",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/remote_formal/plan.json",
     "sha256": "a6cf2a44c0d13ae47022b1c3330fb9d805c364710e0c1c14ab0f950b8341ebf7"
   },
   "input_manifest": {

@@ -4,10 +4,10 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[5]
-ARMS = ('comem_frozen_j9',)
-PYTHON='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
-REMOTE_ROOT='/srv/encbank/qcomem_align_codex_20260911/repo'
-MODEL_ROOT='/srv/encbank/qcomem_align_codex_20260911/exact_local_reader'
+ARMS = ('encbank_frozen_j9',)
+PYTHON='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
+REMOTE_ROOT='/srv/encbank/qencbank_align_codex_20260911/repo'
+MODEL_ROOT='/srv/encbank/qencbank_align_codex_20260911/exact_local_reader'
 RESOURCE={'allocator_cap_bytes':200*2**30,'minimum_free_bytes':220*2**30,'stable_idle_seconds':45}
 def model_path(plan,part):
     assert part in ('model','adapter')
@@ -59,7 +59,7 @@ def parser():
 N=1986
 D=10
 PHASES=4013
-SCHEMA='CoMem_frozen_j9_full_quality_locomo1986_v1'
+SCHEMA='Encbank_frozen_j9_full_quality_locomo1986_v1'
 DATASET='locomo'
 FAMILY='LoCoMo'
 
@@ -91,7 +91,7 @@ def preflight(args,envelope=False):
     from backend_gate import validate_backend_binding
     validate_backend_binding(plan,allow_unbound=bool(getattr(args,'check_only',False)))
     assert plan['schema']==SCHEMA and plan['arm_order']==list(ARMS) and plan['configuration']==CONFIG
-    assert plan['method_configuration']=={'method': 'Frozen CoMem', 'runtime_arm': 'comem_frozen_j9', 'resume_j': 9, 'adapter_active': False, 'stored_bits': 16, 'retrieval': 'iter_bm25_top12_hop4_rounds0'}
+    assert plan['method_configuration']=={'method': 'Frozen Encbank', 'runtime_arm': 'encbank_frozen_j9', 'resume_j': 9, 'adapter_active': False, 'stored_bits': 16, 'retrieval': 'iter_bm25_top12_hop4_rounds0'}
     assert plan['backbone_dtype']=='float16' and plan['attention_backend']=='sdpa'
     assert not plan['training_or_runtime_offload'] and not plan['automatic_retry']
     assert plan['resource_policy']==RESOURCE and plan['python']==PYTHON

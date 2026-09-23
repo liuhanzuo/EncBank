@@ -3,7 +3,7 @@ from pathlib import Path
 import ctypes,datetime,hashlib,json,os,subprocess,time,tomllib
 from ctypes import wintypes
 H=Path(__file__).resolve().parent;B=H.parent;ROOT=Path('/srv/encbank/legacy_workspace')
-NAMES=['comem_k12_no_task_deadline_r6_20260920','comem_k48_no_task_deadline_r6_20260920']
+NAMES=['encbank_k12_no_task_deadline_r6_20260920','encbank_k48_no_task_deadline_r6_20260920']
 def now():return datetime.datetime.now().astimezone().isoformat()
 def save(p,d):p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf8',newline='\n')
 def load(p):return json.loads(p.read_text(encoding='utf8'))
@@ -14,7 +14,7 @@ def owned(p):
  c=norm(p['CommandLine']);return p['Name'].lower()=='python.exe' and any(norm(B/n/'windows_owner.py') in c for n in NAMES)
 def monitor(p):return p['Name'].lower()=='python.exe' and norm(B/'runtime_binding_recovery_20260920/resource_monitor.py') in norm(p['CommandLine'])
 
-before=ps();targets=[p for p in before if p["Name"].lower()=="ssh.exe" and p["ParentProcessId"] in [45952,39996] and any("/"+n+"/file_bridge.py wait comem " in str(p["CommandLine"]) for n in NAMES)]
+before=ps();targets=[p for p in before if p["Name"].lower()=="ssh.exe" and p["ParentProcessId"] in [45952,39996] and any("/"+n+"/file_bridge.py wait encbank " in str(p["CommandLine"]) for n in NAMES)]
 k=ctypes.WinDLL('kernel32',use_last_error=True);k.OpenProcess.argtypes=[wintypes.DWORD,wintypes.BOOL,wintypes.DWORD];k.OpenProcess.restype=wintypes.HANDLE
 k.TerminateProcess.argtypes=[wintypes.HANDLE,wintypes.UINT];k.WaitForSingleObject.argtypes=[wintypes.HANDLE,wintypes.DWORD];k.GetExitCodeProcess.argtypes=[wintypes.HANDLE,ctypes.POINTER(wintypes.DWORD)];k.CloseHandle.argtypes=[wintypes.HANDLE]
 closed=[]

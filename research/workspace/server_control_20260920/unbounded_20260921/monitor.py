@@ -5,12 +5,12 @@ parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--ssh-host',default='gpu-node1',help='SSH transport host for shared-file reads; actual-node process checks remain separate.')
 args=parser.parse_args()
 H=Path(__file__).resolve().parent
-remote='/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/observe_remote.py'
-r=subprocess.run(['ssh',args.ssh_host,'/srv/encbank/qcomem_runtime_20260911/python312/bin/python',remote],capture_output=True,text=True,encoding='utf-8',check=True)
+remote='/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/observe_remote.py'
+r=subprocess.run(['ssh',args.ssh_host,'/srv/encbank/qencbank_runtime_20260911/python312/bin/python',remote],capture_output=True,text=True,encoding='utf-8',check=True)
 d=json.loads(r.stdout);d['observer_ssh_host']=args.ssh_host;out=H/'monitoring';out.mkdir(exist_ok=True)
 stamp=datetime.datetime.now().strftime('%Y%m%d_%H%M%S');raw=json.dumps(d,indent=2,ensure_ascii=False)+'\n'
 (out/(stamp+'.json')).write_text(raw,encoding='utf-8');(out/'latest.json').write_text(raw,encoding='utf-8')
-lines=['COMem 三组服务器续跑（'+stamp+'）','',d['queue'].strip(),'','方法 | 新计划 | 本轮通过/失败 | 其中上下文失败 | 累计已核 | 累计通过/失败 | 请求/回复','--- | ---: | ---: | ---: | ---: | ---: | ---:']
+lines=['Encbank 三组服务器续跑（'+stamp+'）','',d['queue'].strip(),'','方法 | 新计划 | 本轮通过/失败 | 其中上下文失败 | 累计已核 | 累计通过/失败 | 请求/回复','--- | ---: | ---: | ---: | ---: | ---: | ---:']
 for a,x in d['arms'].items():lines.append(f"{a} | {x['planned']} | {x['new_passed']}/{x['new_failed']} | {x['new_context_failures']} | {x['cumulative_verified']}/89 | {x['cumulative_passed']}/{x['cumulative_failed']} | {x['requests']}/{x['responses']}")
 lines+=['','按2026-09-21用户最新口径，原生上下文容量耗尽计失败/0分，同时保留NATIVE_CONTEXT_CAPACITY标记、原始异常及回复SHA，不改原始verifier结果。']
 for a,x in d['arms'].items():

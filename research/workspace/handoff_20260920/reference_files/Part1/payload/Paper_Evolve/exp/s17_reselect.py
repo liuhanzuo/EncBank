@@ -6,7 +6,7 @@ WHY
 ---
 The |S|=3 sets used so far ({1,9,11} wikitext, {1,4,5} PG19) were greedy-selected in S13
 under the slot-aware write, on one 12-sample split each, and the S15 RULER runs then used
-{1,9,11} everywhere.  Per the retracted layer-9 anchor (memory: comem-layer9-anchor-
+{1,9,11} everywhere.  Per the retracted layer-9 anchor (memory: encbank-layer9-anchor-
 retracted), a layer set is only reportable when it recurs across >= 3 disjoint selection
 sets and the greedy step's runner-up margin is stated.  S15d also showed that
 variable_tracking wants ~6 lower layers, so the sweep goes to |S| = 6.

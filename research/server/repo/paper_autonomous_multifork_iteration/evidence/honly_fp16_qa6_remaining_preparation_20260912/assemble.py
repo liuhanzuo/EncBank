@@ -3,9 +3,9 @@ import argparse, ast, copy, datetime, difflib, hashlib, io, json, re, shlex, tok
 from pathlib import Path
 HERE=Path(__file__).resolve().parent; ROOT=HERE.parents[2]; E=HERE.parent
 OLD=E/'honly_narrativeqa_full_unscaled_admission_fixed_20260912'; BASE=OLD/'package'
-BFROOT=E/'comem_honly_formal_20260911/next_longbench_qa6'
+BFROOT=E/'encbank_honly_formal_20260911/next_longbench_qa6'
 FIX=E/'triton_cache_cleanup_fix_20260912'
-REMOTE='/srv/encbank/qcomem_align_codex_20260911/repo'
+REMOTE='/srv/encbank/qencbank_align_codex_20260911/repo'
 MODULE_SHA='273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715'
 CASES={'qasper':('qasper_full200_candidate','Qasper'), 'hotpotqa':('hotpot_full200_candidate','HotpotQA'), '2wikimqa':('twowiki_full200_candidate','2WikiMQA'), 'musique':('musique_full200_candidate','MuSiQue')}
 def read(p): return json.loads(Path(p).read_text('utf-8-sig'))
@@ -49,9 +49,9 @@ def main():
     assert maximum<=40960,'These completed cohorts must retain their original in-window scope'
     coverage={'status':'EXACT_ORIGINAL_BF16_COHORT_INPUTS_REUSED_WITHOUT_REENCODING','N':N,'D':D,'max_prompt_plus_cap':maximum,'model_config_max_position_embeddings':40960,'rope_theta':1000000,'rope_scaling':None,'YaRN':False,'fixture':bf['fixture'],'original_BF16_plan':bind(bfpath),'items':lengths}
     save(H/'input_coverage.json',coverage)
-    job='qcomem-'+ds+'200-fp16-cachefix-codex';cache='/srv/encbank/qcomem_align_codex_20260911/task_cache/'+ds+'200_fp16_cache_fixed_attempt1'
-    control='/srv/encbank/qcomem_align_codex_20260911/'+ds+'200_fp16_dispatch_cache_fixed_attempt1'
-    oldcontrol='/srv/encbank/qcomem_align_codex_20260911/narrativeqa200_unscaled_dispatch_admission_fixed_attempt1'
+    job='qencbank-'+ds+'200-fp16-cachefix-codex';cache='/srv/encbank/qencbank_align_codex_20260911/task_cache/'+ds+'200_fp16_cache_fixed_attempt1'
+    control='/srv/encbank/qencbank_align_codex_20260911/'+ds+'200_fp16_dispatch_cache_fixed_attempt1'
+    oldcontrol='/srv/encbank/qencbank_align_codex_20260911/narrativeqa200_unscaled_dispatch_admission_fixed_attempt1'
     schema='full_'+ds+'200_FP16_six_method_remote_quality_v1'
     def namespace(t):return t.replace(rel(BASE),rel(P)).replace(old['job_name'],job).replace(old['task_cache_root'],cache).replace(oldcontrol,control)
     def scientific(t,name):
@@ -69,7 +69,7 @@ def main():
         if name=='resource_worker.py':
             t=t.replace("'max_new_tokens':128",f"'max_new_tokens':{cap}")
             anchor='  import torch,transformers,peft,triton\n';assert t.count(anchor)==1
-            t=t.replace(anchor,"  from qcomem_triton_cache import install as install_triton_cache\n  record['triton_cache_cleanup_fix']=install_triton_cache(plan['task_cache_root']+'/triton')\n  save(output/'worker.json',record)\n"+anchor)
+            t=t.replace(anchor,"  from qencbank_triton_cache import install as install_triton_cache\n  record['triton_cache_cleanup_fix']=install_triton_cache(plan['task_cache_root']+'/triton')\n  save(output/'worker.json',record)\n"+anchor)
             anchor="   provenance['backend_qualification']=plan['backend_qualification']\n";assert t.count(anchor)==1
             t=t.replace(anchor,"   provenance['triton_cache_cleanup_fix']=record['triton_cache_cleanup_fix']\n"+anchor)
         if name=='analyze.py':t=numbers(t,{'128':cap,'20260912':20260911})
@@ -79,8 +79,8 @@ def main():
         before=src.read_text('utf-8');after=scientific(before,src.name);write(P/src.name,after);sources[rel(P/src.name)]=sha(P/src.name)
         deltas.append({'base':bind(src),'new':bind(P/src.name),'byte_identical':src.read_bytes()==(P/src.name).read_bytes()})
         if before!=after:write(H/'source_diffs'/(src.name+'.diff'),''.join(difflib.unified_diff(before.splitlines(True),after.splitlines(True),fromfile=rel(src),tofile=rel(P/src.name))))
-    write(P/'qcomem_triton_cache.py',(FIX/'qcomem_triton_cache.py').read_text('utf-8'));assert sha(P/'qcomem_triton_cache.py')==MODULE_SHA
-    sources[rel(P/'qcomem_triton_cache.py')]=MODULE_SHA
+    write(P/'qencbank_triton_cache.py',(FIX/'qencbank_triton_cache.py').read_text('utf-8'));assert sha(P/'qencbank_triton_cache.py')==MODULE_SHA
+    sources[rel(P/'qencbank_triton_cache.py')]=MODULE_SHA
     for key in ('fixture','labels','scorer','official_eval'):plan[key]=copy.deepcopy(bf[key])
     plan.update(schema=schema,frozen_at=datetime.datetime.now().astimezone().isoformat(),source_sha256=sources,batch_output=rel(P/'run/attempt1'),task_cache_root=cache,job_name=job,items_per_arm=N,documents_per_arm=D,expected_complete_phases_per_arm=phase,expected_total_answers=6*N,expected_total_Writes=6*D,expected_total_phases=6*phase)
     plan['configuration']['max_new_tokens']=cap;plan['outputs']={a:plan['batch_output']+'/'+a for a in plan['arm_order']}
@@ -96,7 +96,7 @@ def main():
     plan['method_lineage']={'Narrative_FP16_plan':bind(BASE/'plan.json'),'actual_bound_natural_reader':old['natural_qa_adapter'],'Narrative_reader_binding_correction':bind(OLD/'completion_preparation/binding_correction.json'),'all_original_tokenwise_runtime_source_hashes_unchanged':True,'MFQA_FP16_already_complete_do_not_rerun':True,'Narrative_FP16_job_25168_active_do_not_duplicate':True,'scientific_changes_vs_Narrative':'Dataset, full cohort cardinality, official dataset cap, original BF16 bootstrap seed20260911; identical six FP16 methods, full-query natural reader, model/adapter/runtime/timing/position measurement.'}
     fix=read(FIX/'provenance.json');actual=read(FIX/'actual_remote_CPU_check_attempt2/stdout.json');ex=read(FIX/'actual_remote_CPU_check_attempt2/execution_receipt.json')
     assert actual['module_sha256']==MODULE_SHA and actual['status']=='PASS_actual_Triton36_CPU_install_factory_and_binary_text_put' and ex['actual_exit_code']==0 and ex['actual_parent_wait']
-    plan['triton_cache_cleanup_fix']={'module':bind(P/'qcomem_triton_cache.py'),'fix_provenance':bind(FIX/'provenance.json'),'actual_installed_runtime_CPU_report':bind(FIX/'actual_remote_CPU_check_attempt2/stdout.json'),'actual_installed_runtime_CPU_exit':bind(FIX/'actual_remote_CPU_check_attempt2/execution_receipt.json'),'change':'Exact proven process-local cache manager before model/KIVI imports. Only verified committed bytes after atomic replace permit exact temporary-leaf EBUSY cleanup tolerance, structured stderr event retained.','shared_installed_code_unmodified':True}
+    plan['triton_cache_cleanup_fix']={'module':bind(P/'qencbank_triton_cache.py'),'fix_provenance':bind(FIX/'provenance.json'),'actual_installed_runtime_CPU_report':bind(FIX/'actual_remote_CPU_check_attempt2/stdout.json'),'actual_installed_runtime_CPU_exit':bind(FIX/'actual_remote_CPU_check_attempt2/execution_receipt.json'),'change':'Exact proven process-local cache manager before model/KIVI imports. Only verified committed bytes after atomic replace permit exact temporary-leaf EBUSY cleanup tolerance, structured stderr event retained.','shared_installed_code_unmodified':True}
     save(P/'plan.json',plan)
     write(P/'batch.sbatch',namespace((BASE/'batch.sbatch').read_text('utf-8')).replace(sha(BASE/'plan.json'),sha(P/'plan.json')))
     # Retain proven backend dependency closure, replace cohort-bound fixture/labels and package.
@@ -109,7 +109,7 @@ def main():
     save(P/'upload_manifest.json',manifest)
     rp=REMOTE+'/'+rel(P);commands=read(OLD/'remote_commands.json')
     commands.update(remote_package=rp,plan_sha256=sha(P/'plan.json'),upload_manifest={'path':str(P/'upload_manifest.json'),'sha256':sha(P/'upload_manifest.json')},manifest_itself_remote_path=rp+'/upload_manifest.json',sbatch_argv=['sbatch','--parsable',rp+'/batch.sbatch'],scope=plan['preparation_scope'])
-    commands['sbatch_command']=shlex.join(commands['sbatch_argv']);commands['roots_and_staged_check_command']='QCOMEM_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')])
+    commands['sbatch_command']=shlex.join(commands['sbatch_argv']);commands['roots_and_staged_check_command']='QENCBANK_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')])
     save(H/'remote_commands.json',commands)
     for name in ('dispatch_once.py','remote_ops.py'):
         before=(OLD/name).read_text('utf-8');after=namespace(before)

@@ -6,8 +6,8 @@ import sys
 import time
 from pathlib import Path
 
-S = Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920')
-M = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920/managed_instances')
+S = Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920')
+M = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920/managed_instances')
 root = (S / sys.argv[1]).resolve()
 assert root.is_relative_to(S)
 

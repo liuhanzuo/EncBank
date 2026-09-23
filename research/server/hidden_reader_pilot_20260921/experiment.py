@@ -4,8 +4,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 ARM=sys.argv[1]
 OUT=ROOT/ARM/'results'
-MODEL='/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B'
-ADAPTER='/srv/encbank/comem_infra_recheck_20260912/adapter'
+MODEL='/srv/encbank/encbank_sparse_slurm_20260912/models/Qwen3-8B'
+ADAPTER='/srv/encbank/encbank_infra_recheck_20260912/adapter'
 LAYERS=list(range(12,36))
 REGS=[.001,.01,.1]
 

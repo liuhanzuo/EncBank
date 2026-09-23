@@ -1,6 +1,6 @@
 """S29 -- put the REPAIRED read F(S) into the S14 roofline ledger.
 
-WHY. S14's roofline prices two arms on one ruler: CoMem's read (stream one residual per
+WHY. S14's roofline prices two arms on one ruler: Encbank's read (stream one residual per
 token, then recompute L-j layers over the pack -- compute bound) and the KV family's read
 (stream a full-depth cache, then do almost no arithmetic -- bandwidth bound). It showed they
 sit on opposite sides of the roofline ridge, which is why a FLOPs-only ledger was biased.
@@ -16,13 +16,13 @@ drift: CFG, linear_per_token_per_layer, self_attn_flops, cross_attn_flops from s
 the HW table from s14_roofline. Bytes per token: residual 2d; one layer of K/V 4*n_kv*hd;
 weights per layer = lin (numerically, since lin FLOPs = 2*params).
 
-    F(S) WRITE   identical FLOPs to CoMem's write -- the tap is free, the keys and values
+    F(S) WRITE   identical FLOPs to Encbank's write -- the tap is free, the keys and values
                  were already computed by the same forward -- and j weight-layers streamed,
                  D x 2d residual bytes written, PLUS D x |S| x KV bytes written.
     F(S) READ    the query's own lower band runs over Q tokens only, attending to a cache of
                  M+1 entries at the layers in S: j x lin x Q + |S| x cross_attn(Q, M+1).
                  Then the pack of P tokens goes through the upper L-j layers exactly as in
-                 CoMem: (L-j) x (lin x P + self_attn(P)).
+                 Encbank: (L-j) x (lin x P + self_attn(P)).
                  Bytes: ALL L weight-layers are streamed (j below, L-j above), the pack's
                  residuals P x 2d are read from the store, and the cache costs M x |S| x KV.
 
@@ -31,8 +31,8 @@ weights per layer = lin (numerically, since lin FLOPs = 2*params).
 
 A BOOKKEEPING ASYMMETRY, stated because it is easy to misread. S14's A_j read charges
 (L-j) weight-layers over the pack and nothing else -- it does NOT charge the query's own
-lower band, which CoMem must also run to produce h_j^q. The F(S) read here DOES charge it
-(j x lin x Q). So F(S=0) is not "CoMem plus nothing"; it sits 0.179% above the A_j row for
+lower band, which Encbank must also run to produce h_j^q. The F(S) read here DOES charge it
+(j x lin x Q). So F(S=0) is not "Encbank plus nothing"; it sits 0.179% above the A_j row for
 that reason alone. The cost attributable to the cache is the F(S=0) -> F(S=j) difference,
 +0.089%, and that is the number to quote for "what does |S| cost".
 
@@ -86,7 +86,7 @@ def main():
     rows = []
     # the two S14 reference arms, recomputed here so every row is on one ruler
     rows.append(dict(
-        arm=f"A_j{j} (CoMem)", kb=b_resid / 1024,
+        arm=f"A_j{j} (Encbank)", kb=b_resid / 1024,
         write=stage(j * (lin * D + write_attn), j * w_layer + D * b_resid),
         read=stage((L - j) * (lin * P + self_attn_flops(P)),
                    (L - j) * w_layer + P * b_resid)))
@@ -119,7 +119,7 @@ def main():
               f"{wr['t']:8.2f}")
 
     base = next(r for r in rows if r["arm"].startswith(f"A_j{j}"))
-    print(f"\nread time relative to CoMem's own read ({1000*base['read']['t']:.2f} ms):")
+    print(f"\nread time relative to Encbank's own read ({1000*base['read']['t']:.2f} ms):")
     for r in rows:
         print(f"  {r['arm']:22s} {r['read']['t'] / base['read']['t']:6.3f}x   "
               f"AI {r['read']['ai']:7.1f} against ridge {ridge:.0f}")

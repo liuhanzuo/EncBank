@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""CoMem — LongEval (LongChat lines-retrieval) eval driver.
+"""Encbank — LongEval (LongChat lines-retrieval) eval driver.
 
 The cleanest single-hop exact-retrieval benchmark: a record of N lines
 
@@ -7,13 +7,13 @@ The cleanest single-hop exact-retrieval benchmark: a record of N lines
 
 after which the model returns the REGISTER_CONTENT of one queried line. bm25 has a
 rare, discriminative needle (the queried line label) to lock onto. Thin: build
-CoMem, ``generate_from_ids``, judge by exact-value match. Self-contained (prompt
+Encbank, ``generate_from_ids``, judge by exact-value match. Self-contained (prompt
 synthesis + judging embedded, ported verbatim).
 
 Usage:
     python -m eval.longeval --model_path /path/to/Qwen3-8B --resume_j 12 \\
         --selector bm25 --topk 12 --lengths 4k 8k 16k 32k --num_samples 50 \\
-        --output_dir longeval_results/comem_j12
+        --output_dir longeval_results/encbank_j12
 """
 from __future__ import annotations
 
@@ -31,8 +31,8 @@ import torch
 from tqdm.auto import tqdm
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from comem import CoMem                          # noqa: E402
-from comem import selectors as _sel              # noqa: E402
+from encbank import Encbank                          # noqa: E402
+from encbank import selectors as _sel              # noqa: E402
 from eval import _cli                            # noqa: E402
 from eval._common import (load_backbone, resolve_baseline,  # noqa: E402
                           dense_generate, DENSE_MODES)
@@ -102,7 +102,7 @@ def _oracle_needle_chunks(input_ids, expected_value, target_label, tokenizer, ch
 
 
 def main():
-    p = argparse.ArgumentParser(description="CoMem LongEval eval")
+    p = argparse.ArgumentParser(description="Encbank LongEval eval")
     p.add_argument("--model", "--model_path", dest="model_path", required=True)
     p.add_argument("--j", "--resume_j", dest="resume_j", type=_cli.j_type, default=12,
                    help="split depth (int) or 'auto' (per-model, see model_registry)")
@@ -121,7 +121,7 @@ def main():
     p.add_argument("--seed", type=int, default=1234)
     p.add_argument("--num_shards", type=int, default=1)
     p.add_argument("--shard_index", type=int, default=0)
-    p.add_argument("--output_dir", "--out", dest="output_dir", default="longeval_results/comem")
+    p.add_argument("--output_dir", "--out", dest="output_dir", default="longeval_results/encbank")
     p.add_argument("--device", default="cuda:0")
     p.add_argument("--dtype", default="bfloat16", choices=["bfloat16", "float16", "float32"])
     p.add_argument("--attn_impl", default="sdpa")
@@ -133,7 +133,7 @@ def main():
     dense_mode = mode if mode in DENSE_MODES else None
     model, tok = load_backbone(args.model_path, args.dtype, args.attn_impl,
                                args.device, lora)
-    cm = CoMem(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
+    cm = Encbank(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
                block_diagonal=args.reuse_kv_blockdiag, tokenizer=tok)
     device = torch.device(args.device)
     outdir = Path(args.output_dir)
@@ -189,10 +189,10 @@ def main():
         with open(outdir / f"longeval_{length}{shard_tag}.json", "w") as f:
             json.dump({"length": length, "summary": summary[length],
                        "records": records}, f, indent=2)
-        print(f"[CoMem-LongEval] {length}: acc={acc:.3f} ({correct}/{total})")
+        print(f"[Encbank-LongEval] {length}: acc={acc:.3f} ({correct}/{total})")
     with open(outdir / f"_summary{shard_tag}.json", "w") as f:
         json.dump(summary, f, indent=2)
-    print("[CoMem-LongEval] done.")
+    print("[Encbank-LongEval] done.")
 
 
 if __name__ == "__main__":

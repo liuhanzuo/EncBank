@@ -151,7 +151,7 @@ def make_cache(num_layers,bits):
     class KiviCache(Cache):
         def __init__(self):
             super().__init__(layers=[KiviLayer() for _ in range(num_layers)],offloading=False)
-            self._qcomem_kivi_bridge=True;self.frozen=False;self.released=False
+            self._qencbank_kivi_bridge=True;self.frozen=False;self.released=False
         def tensor_items(self):
             return tuple((f'layer.{i}.{n}',t) for i,layer in enumerate(self.layers) for n,t in layer.state.tensor_items())
         def freeze(self):
@@ -209,7 +209,7 @@ def install_attention_bridge(model,kernels):
     if len({p.device for p in model.parameters()})!=1 or getattr(model,'hf_device_map',None):raise ValueError('One device, no model offload')
     previous=[]
     def forward(attention,hidden_states,position_embeddings,attention_mask,past_key_values=None,**kwargs):
-        if not getattr(past_key_values,'_qcomem_kivi_bridge',False) or past_key_values.released:raise TypeError('Explicit live KIVI HF Cache required')
+        if not getattr(past_key_values,'_qencbank_kivi_bridge',False) or past_key_values.released:raise TypeError('Explicit live KIVI HF Cache required')
         state=past_key_values.layers[attention.layer_idx].state
         state.live_mutable()
         query,key,value=project_qkv(attention,hidden_states,position_embeddings,apply_rotary_pos_emb)

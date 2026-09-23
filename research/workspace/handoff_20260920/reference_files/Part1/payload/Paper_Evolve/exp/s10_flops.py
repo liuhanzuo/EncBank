@@ -5,12 +5,12 @@ WHY
 ---
 S9 reported read compute in "token-layers over the context" and gave the KV family a
 flat ZERO, because it never recomputes context tokens.  That is the single simplification
-in that table most favourable to the KV family and least favourable to CoMem: the query
+in that table most favourable to the KV family and least favourable to Encbank: the query
 still has to attend to every cached key at every layer where the cache is visible, and
 that term is not zero.  This replaces the proxy with actual FLOPs.
 
-It also adds the term S9 omitted entirely on the other side: the WRITE pass.  CoMem
-writes a chunk through j layers; the KV family writes through all L.  That is CoMem's
+It also adds the term S9 omitted entirely on the other side: the WRITE pass.  Encbank
+writes a chunk through j layers; the KV family writes through all L.  That is Encbank's
 real compute advantage and it belongs in the same ledger as its read disadvantage,
 otherwise the comparison is rigged in the opposite direction.
 
@@ -92,7 +92,7 @@ def main():
     # The WRITE pass is chunk-local in BOTH families: each chunk is encoded on its own,
     # so its self-attention is quadratic in the CHUNK, not in the document.  Modelling it
     # as one D-token sequence makes the write term quadratic in D and inflates the
-    # break-even by ~5x at D=128k, which is the wrong answer in CoMem's favour.
+    # break-even by ~5x at D=128k, which is the wrong answer in Encbank's favour.
     n_chunks = max(1, D // args.chunk)
     write_attn = n_chunks * self_attn_flops(args.chunk)
 
@@ -103,7 +103,7 @@ def main():
         r = (L - j) * (lin * P + self_attn_flops(P))
         rows.append(dict(arm=f"A_j{j}", bytes_kb=kb_resid, write=w, read=r,
                          frac=FRAC_A.get(j)))
-        print(f"A  CoMem j={j:<2d}  |  {kb_resid:5.0f} KB  |  {w/1e9:9.1f}  | "
+        print(f"A  Encbank j={j:<2d}  |  {kb_resid:5.0f} KB  |  {w/1e9:9.1f}  | "
               f"{r/1e9:9.1f}  |        | {FRAC_A.get(j)}")
 
     # KV family: write all L layers once, read = query through L layers + cache attention
@@ -121,13 +121,13 @@ def main():
 
     a2 = next(x for x in rows if x["arm"] == "A_j2")
     kv = next(x for x in rows if x["arm"] == f"KV_S{L}")
-    print(f"\nread cost, CoMem j=2 vs full-depth KV: "
+    print(f"\nread cost, Encbank j=2 vs full-depth KV: "
           f"{a2['read']/kv['read']:.0f}x  "
           f"({a2['read']/1e9:.0f} vs {kv['read']/1e9:.1f} GFLOP)")
     print("so the KV family's read is NOT free once the cache attention is counted, "
           "but including it moves the ratio from infinity to a finite number only.")
 
-    # amortisation: CoMem writes cheaply, reads expensively. After how many reads of the
+    # amortisation: Encbank writes cheaply, reads expensively. After how many reads of the
     # same document does the cheaper write stop paying for the more expensive read?
     print("\nbreak-even in TOTAL compute (write once, then R reads of the same document):")
     print("  R* = (write_KV - write_A) / (read_A - read_KV)")
@@ -136,9 +136,9 @@ def main():
         num = kv["write"] - a["write"]
         den = a["read"] - kv["read"]
         rstar = num / den if den > 0 else float("inf")
-        print(f"  CoMem j={j:<2d}: R* = {rstar:6.2f} reads   "
+        print(f"  Encbank j={j:<2d}: R* = {rstar:6.2f} reads   "
               f"(write saving {num/1e9:.0f} GFLOP, read penalty {den/1e9:.0f} GFLOP/read)")
-    print("  R* is the number of reads a document can absorb before CoMem's cheaper")
+    print("  R* is the number of reads a document can absorb before Encbank's cheaper")
     print("  write is used up by its more expensive reads.  It scales with D/P, i.e.")
     print("  with how selective retrieval is: a long document read through a small")
     print("  pack is exactly where the depth split pays.")

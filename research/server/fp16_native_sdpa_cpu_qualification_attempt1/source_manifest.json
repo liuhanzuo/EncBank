@@ -6,47 +6,47 @@
     "scientific/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
     "scientific/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "scientific/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
-    "scientific/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "scientific/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "scientific/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "scientific/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "scientific/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "scientific/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
     "remote_cpu_supervisor.py": "7fa6f218e04b9ac18af87843b70f63114528888f4612e3a12341f2e43ea39413"
   },
   "origin_sha256": {
     "check_native_sdpa_cpu.py": {
-      "path": "F:\\qcomem\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\native_sdpa_controls_candidate\\check_native_sdpa_cpu.py",
+      "path": "F:\\qencbank\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\native_sdpa_controls_candidate\\check_native_sdpa_cpu.py",
       "sha256": "17fa2c8de94fee859195623bd0348b000f1c7a8eff8db106e4fbbe24795e9425"
     },
     "scientific/tokenwise_runtime.py": {
-      "path": "F:\\qcomem\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\tokenwise_runtime.py",
+      "path": "F:\\qencbank\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\tokenwise_runtime.py",
       "sha256": "d35ed28ae8ffb4db1dbf348b55ccd3c7d5f65b30f403cc90ceb5158d4e8ce3ac"
     },
     "scientific/runtime/bridge.py": {
-      "path": "F:\\qcomem\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\bridge.py",
+      "path": "F:\\qencbank\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\bridge.py",
       "sha256": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf"
     },
     "scientific/runtime/extracted_minmax.py": {
-      "path": "F:\\qcomem\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\extracted_minmax.py",
+      "path": "F:\\qencbank\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\extracted_minmax.py",
       "sha256": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8"
     },
     "scientific/runtime/honly_fp16.py": {
-      "path": "F:\\qcomem\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\honly_fp16.py",
+      "path": "F:\\qencbank\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\honly_fp16.py",
       "sha256": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73"
     },
-    "scientific/runtime/vendor_comem/__init__.py": {
-      "path": "F:\\qcomem\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\vendor_comem\\__init__.py",
+    "scientific/runtime/vendor_encbank/__init__.py": {
+      "path": "F:\\qencbank\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\vendor_encbank\\__init__.py",
       "sha256": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a"
     },
-    "scientific/runtime/vendor_comem/model.py": {
-      "path": "F:\\qcomem\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\vendor_comem\\model.py",
+    "scientific/runtime/vendor_encbank/model.py": {
+      "path": "F:\\qencbank\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\vendor_encbank\\model.py",
       "sha256": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df"
     },
-    "scientific/runtime/vendor_comem/selectors.py": {
-      "path": "F:\\qcomem\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\vendor_comem\\selectors.py",
+    "scientific/runtime/vendor_encbank/selectors.py": {
+      "path": "F:\\qencbank\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\runtime\\vendor_encbank\\selectors.py",
       "sha256": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78"
     }
   },
-  "remote_directory": "/srv/encbank/qcomem_align_codex_20260911/fp16_native_sdpa_cpu_qualification_attempt1",
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "remote_directory": "/srv/encbank/qencbank_align_codex_20260911/fp16_native_sdpa_cpu_qualification_attempt1",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "test_tolerance": {
     "atol": 0.005,
     "rtol": 0.01

@@ -28,11 +28,11 @@
     "query_tokens_per_call": 1
   },
   "fixture": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/inference_fixture.json",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/inference_fixture.json",
     "sha256": "85e663a47430c07991a494bd4a3fd282dfd0f23d1e24eaf89e3671f09ca4a969"
   },
   "labels": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/scoring_only/labels.json",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/scoring_only/labels.json",
     "sha256": "1c094d020d84f42c88d8f13f3eefd672179c9b6a7583546ac41fbd72b57b9985"
   },
   "scorer": {
@@ -44,14 +44,14 @@
     "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
   },
   "reader_binding": "local_Qwen3_8B_base_hashes_plus_custom_final4000_rank32_alpha32_3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119",
-  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
-  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "model_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/adapter",
   "resource_policy": {
     "allocator_cap_bytes": 214748364800,
     "minimum_free_bytes": 236223201280,
     "stable_idle_seconds": 45
   },
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "native_attention_runtime_files": {
     "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
     "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
@@ -96,10 +96,10 @@
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/tokenwise_runtime.py": "d35ed28ae8ffb4db1dbf348b55ccd3c7d5f65b30f403cc90ceb5158d4e8ce3ac",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
     "tmp_external_baselines/kv_quant/KIVI/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
@@ -118,7 +118,7 @@
     "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/run_batch.py": "e9ca3f5be1db08f71ea995e8109979a94dfd0d1b4d2317a59359702756bcf41d",
     "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/run_quality.py": "0fbf9e6fe2fe3e9f3ee079a313d3ab70c306a7741d4f27f56b06d7e1667ac3be",
     "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/validate_staged.py": "3a7248bb0469161fe2cafb9d9a121c2ff267e1bc894c381a0a83e83de08a32f9",
-    "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/qcomem_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715"
+    "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/qencbank_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715"
   },
   "batch_output": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/run/attempt1",
   "outputs": {
@@ -291,7 +291,7 @@
       "sha256": "4c8779aeac769aadb9e8378282fe6dfef40d336d87bd5914e8145438a66df229"
     }
   },
-  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/2wikimqa200_fp16_cache_fixed_attempt1",
+  "task_cache_root": "/srv/encbank/qencbank_align_codex_20260911/task_cache/2wikimqa200_fp16_cache_fixed_attempt1",
   "task": {
     "benchmark": "LongBench",
     "dataset": "2wikimqa",
@@ -306,7 +306,7 @@
     "max_prompt_plus_cap": 17083,
     "drop_long_inputs": false
   },
-  "job_name": "qcomem-2wikimqa200-fp16-cachefix-codex",
+  "job_name": "qencbank-2wikimqa200-fp16-cachefix-codex",
   "concurrency_policy": {
     "maximum_owned_requested_GPUs": 4,
     "GPUs_per_job": 1,
@@ -328,15 +328,15 @@
   "full_input_coverage_maximum": 17083,
   "original_cohort": {
     "plan": {
-      "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/plan.json",
+      "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/plan.json",
       "sha256": "26f5d8da906afdaa911942b6a76a398b66ad61affbb980d5aa5561dc1fe6625d"
     },
     "fixture": {
-      "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/inference_fixture.json",
+      "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/inference_fixture.json",
       "sha256": "85e663a47430c07991a494bd4a3fd282dfd0f23d1e24eaf89e3671f09ca4a969"
     },
     "labels": {
-      "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/scoring_only/labels.json",
+      "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/scoring_only/labels.json",
       "sha256": "1c094d020d84f42c88d8f13f3eefd672179c9b6a7583546ac41fbd72b57b9985"
     },
     "original_bootstrap": {
@@ -371,7 +371,7 @@
   },
   "triton_cache_cleanup_fix": {
     "module": {
-      "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/qcomem_triton_cache.py",
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/qencbank_triton_cache.py",
       "sha256": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715"
     },
     "fix_provenance": {

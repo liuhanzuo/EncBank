@@ -2,7 +2,7 @@
 import hashlib,json,tarfile,time
 from pathlib import Path
 
-F=Path('/srv/encbank/COMem_Migration_20260920/final_handoff_20260921/dense_supplement_20260921')
+F=Path('/srv/encbank/Encbank_Migration_20260920/final_handoff_20260921/dense_supplement_20260921')
 U=Path(__file__).resolve().parent
 O=U/'verified_dense_handoff'
 def sha(p):

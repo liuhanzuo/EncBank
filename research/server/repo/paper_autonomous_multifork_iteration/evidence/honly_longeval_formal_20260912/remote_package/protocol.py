@@ -5,9 +5,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 ARMS = ('dense', 'h16', 'h8', 'h4')
-PYTHON='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
-REMOTE_ROOT='/srv/encbank/qcomem_align_codex_20260911/repo'
-MODEL_ROOT='/srv/encbank/qcomem_align_codex_20260911/exact_local_reader'
+PYTHON='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
+REMOTE_ROOT='/srv/encbank/qencbank_align_codex_20260911/repo'
+MODEL_ROOT='/srv/encbank/qencbank_align_codex_20260911/exact_local_reader'
 RESOURCE={'allocator_cap_bytes':200*2**30,'minimum_free_bytes':220*2**30,'stable_idle_seconds':45}
 def model_path(plan,part):
     assert part in ('model','adapter')

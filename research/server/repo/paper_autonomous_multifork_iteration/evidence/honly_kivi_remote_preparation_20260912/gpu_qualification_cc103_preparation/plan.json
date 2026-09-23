@@ -1,7 +1,7 @@
 {
   "schema": "kivi_half_cc103_sm100ptx_remote_tiny_qualification_v1",
   "scope": "Original Half numerical and tail qualification on allocated cc10.3 using plain sm100 plus compute100 PTX; no model or benchmark quality",
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "versions": {
     "torch": "2.10.0+cu128",
     "triton": "3.6.0",
@@ -115,8 +115,8 @@
   "rms_tolerance": 0.001,
   "expected_closed_phases": 7,
   "frozen_at": "2026-09-12T12:13:18.157644+08:00",
-  "remote_python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
-  "remote_repo_root": "/srv/encbank/qcomem_align_codex_20260911/repo",
+  "remote_python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
+  "remote_repo_root": "/srv/encbank/qencbank_align_codex_20260911/repo",
   "resource_policy": {
     "allocator_cap_bytes": 214748364800,
     "minimum_free_bytes": 236223201280,

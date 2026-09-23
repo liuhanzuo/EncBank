@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-"""CoMem — BABILong (synthetic long-context recall) eval driver.
+"""Encbank — BABILong (synthetic long-context recall) eval driver.
 
-Runs CoMem on BABILong (qa1..qa10 x lengths). Thin: build CoMem,
+Runs Encbank on BABILong (qa1..qa10 x lengths). Thin: build Encbank,
 ``generate_from_ids`` per sample, write the nested CSV layout the official
 ``babilong.metrics`` scorer consumes. Self-contained apart from the ``babilong``
 package (prompts + metric) which is the benchmark's own code — install it (pip
@@ -14,7 +14,7 @@ network is needed once the dataset is cached under ``~/.cache/huggingface`` or
 Usage:
     python -m eval.babilong --model_path /path/to/Llama-3-8B --resume_j 6 \\
         --selector bm25 --topk 4 --tasks qa1 qa2 qa5 --lengths 0k 1k 2k 4k 8k 16k \\
-        --output_name comem_j6
+        --output_name encbank_j6
 """
 from __future__ import annotations
 
@@ -29,8 +29,8 @@ import torch
 from tqdm.auto import tqdm
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from comem import CoMem                          # noqa: E402
-from comem import selectors as _sel              # noqa: E402
+from encbank import Encbank                          # noqa: E402
+from encbank import selectors as _sel              # noqa: E402
 from eval import _cli                            # noqa: E402
 from eval._common import (load_backbone, resolve_baseline, write_results_csv,  # noqa: E402
                           dense_generate, DENSE_MODES)
@@ -97,7 +97,7 @@ def load_babilong_dataset(dataset_name, split_name, cache_dir=None):
 
 
 def main():
-    p = argparse.ArgumentParser(description="CoMem BABILong eval")
+    p = argparse.ArgumentParser(description="Encbank BABILong eval")
     p.add_argument("--model", "--model_path", dest="model_path", required=True)
     p.add_argument("--j", "--resume_j", dest="resume_j", type=_cli.j_type, default=6,
                    help="split depth (int) or 'auto' (per-model, see model_registry)")
@@ -146,13 +146,13 @@ def main():
         args.results_folder = str(out.parent) if out.parent != Path("") else "."
         args.output_name = out.name
     if not args.output_name:
-        args.output_name = "comem"
+        args.output_name = "encbank"
     resume_j, no_retrieval, mode, lora = resolve_baseline(
         args.baseline, args.resume_j, args.lora_adapter)
     dense_mode = mode if mode in DENSE_MODES else None
     model, tok = load_backbone(args.model_path, args.dtype, args.attn_impl,
                                args.device, lora)
-    cm = CoMem(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
+    cm = Encbank(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
                block_diagonal=args.reuse_kv_blockdiag, tokenizer=tok)
     device = torch.device(args.device)
     sharded = args.num_shards > 1
@@ -221,8 +221,8 @@ def main():
                 if len(df) % 10 == 0:
                     write_results_csv(df, outfile)
             write_results_csv(df, outfile)
-            print(f"[CoMem-BABILong] saved {len(df)} -> {outfile}")
-    print("[CoMem-BABILong] done. Score with babilong.metrics.compare_answers.")
+            print(f"[Encbank-BABILong] saved {len(df)} -> {outfile}")
+    print("[Encbank-BABILong] done. Score with babilong.metrics.compare_answers.")
 
 
 if __name__ == "__main__":

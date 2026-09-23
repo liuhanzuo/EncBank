@@ -20,7 +20,7 @@ def check_runtime_node(plan):
     candidates = [r for r in qualification['checks'] if r['task'] in plan['tasks']
                   and r['status'] == 'PASS' and r['network_policy']['network_mode'] == 'public']
     task = min(candidates, key=lambda r: r['elapsed_seconds'])['task']
-    template = json.loads((root / 'comem_harbor_template.json').read_text())
+    template = json.loads((root / 'encbank_harbor_template.json').read_text())
     started = time.time()
     row = dict(status='FAIL', hostname=socket.gethostname(), job_id=os.environ['SLURM_JOB_ID'],
                task=task, scope='allocated_host_runtime_smoke_not_all_task_qualification',

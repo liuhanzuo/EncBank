@@ -1,7 +1,7 @@
 import os,subprocess,time,sys
 from common import ROOT,PLAN as P,save,verify_sources
 verify_sources();env=os.environ.copy()
-env.update(PYTHONPATH=str(ROOT)+':'+str(ROOT/'vendor')+':/srv/encbank/comem_infra_recheck_20260912/deps',
+env.update(PYTHONPATH=str(ROOT)+':'+str(ROOT/'vendor')+':/srv/encbank/encbank_infra_recheck_20260912/deps',
     PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1',PYTHONHASHSEED='0',OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='4',
     TOKENIZERS_PARALLELISM='false',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',HF_HOME=str(ROOT/'cache'),
     CPATH='/srv/encbank/.cache/python/include/python3.12',TORCHINDUCTOR_CACHE_DIR=str(ROOT/'compile_cache'))

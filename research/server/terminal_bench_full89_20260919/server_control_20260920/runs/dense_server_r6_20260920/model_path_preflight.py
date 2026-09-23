@@ -10,7 +10,7 @@ for row in M['files']:
     s=p.stat();assert (s.st_size,s.st_mtime_ns)==(row['bytes'],row['mtime_ns']),p
     if not p.name.endswith('.safetensors'):assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256'],p
     checked.append(p.name)
-if P['arm']=='comem':
+if P['arm']=='encbank':
     cp=Path(P['adapter_path']).resolve(strict=True);cp.relative_to(BOUND)
     assert str(cp)==M['adapter'] and hashlib.sha256(cp.read_bytes()).hexdigest()==P['adapter_sha256']==M['adapter_sha256']
 print(json.dumps(dict(status='PASS',epoch=time.time(),model=str(model),files=len(checked),small_files_SHA_rechecked=True,

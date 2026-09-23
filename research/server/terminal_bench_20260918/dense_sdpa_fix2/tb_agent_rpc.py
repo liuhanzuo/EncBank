@@ -43,6 +43,6 @@ class MailboxLLM(BaseLLM):
   else:reasoning,text=text,''
   self.last_messages=messages;self.step+=1
   return LLMResponse(content=text.strip(),reasoning_content=reasoning,model_name='Qwen3.8-27B/'+self.arm,usage=UsageInfo(prompt_tokens=r['prompt_tokens'],completion_tokens=r['generated_tokens'],cache_tokens=min(r['prompt_tokens'],r.get('cached_prefix_tokens',0)),cost_usd=0),completion_token_ids=r['generated_ids'],extra={k:v for k,v in r.items() if k not in ['text','generated_ids']})
-class QCoMemTerminus(Terminus2):
+class QEncbankTerminus(Terminus2):
  def _init_llm(self,**kwargs):
-  arm=kwargs['model_name'].split('/')[-1];assert arm in ['dense','raw_shared','comem'];return MailboxLLM(arm)
+  arm=kwargs['model_name'].split('/')[-1];assert arm in ['dense','raw_shared','encbank'];return MailboxLLM(arm)

@@ -3,7 +3,7 @@ import argparse,ast,copy,datetime,difflib,hashlib,json,re,shlex
 from pathlib import Path
 H=Path(__file__).resolve().parent;ROOT=H.parents[2];E=H.parent
 R=E/'honly_ruler_parallel_preparation_20260912';LE=E/'honly_longeval128k_cache_fixed_20260912/package'
-REMOTE='/srv/encbank/qcomem_align_codex_20260911/repo'
+REMOTE='/srv/encbank/qencbank_align_codex_20260911/repo'
 def read(p):return json.loads(Path(p).read_text('utf-8-sig'))
 def sha(p):
  with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
@@ -40,10 +40,10 @@ def main():
   labels=read(I/'scoring_only/labels.json');save(I/'scoring_only/projected_labels.json',{'fixture_sha256':sha(I/'inference_fixture.json'),'items':[{'id':x['item_id'],'references':x['references']} for x in labels['items']]})
  fixture=read(I/'inference_fixture.json');maximum=max(1+len(x['document_token_ids'])+len(x['query_token_ids'])+cap for x in fixture['items'])
  assert 40960<maximum<=length*1024+(61 if kind=='vt' else 0)
- job=f'qcomem-ruler-{kind}{length}k100-fp16-codex';cache=f'/srv/encbank/qcomem_align_codex_20260911/task_cache/ruler_{kind}{length}k100_fp16_attempt1';control=f'ruler_{kind}{length}k100_fp16_dispatch_attempt1'
+ job=f'qencbank-ruler-{kind}{length}k100-fp16-codex';cache=f'/srv/encbank/qencbank_align_codex_20260911/task_cache/ruler_{kind}{length}k100_fp16_attempt1';control=f'ruler_{kind}{length}k100_fp16_dispatch_attempt1'
  oldcontrol=re.search("CONTROL='([^']+)'",(OLD/'dispatch_once.py').read_text())[1]
  def adapt(t):
-  t=t.replace(rel(BASE),rel(P)).replace(old['job_name'],job).replace(old['task_cache_root'],cache).replace(oldcontrol,'/srv/encbank/qcomem_align_codex_20260911/'+control)
+  t=t.replace(rel(BASE),rel(P)).replace(old['job_name'],job).replace(old['task_cache_root'],cache).replace(oldcontrol,'/srv/encbank/qencbank_align_codex_20260911/'+control)
   return t.replace('32K',str(length)+'K').replace('32k',str(length)+'k').replace('32768',str(length*1024))
  core={k:v for k,v in old['source_sha256'].items() if not k.startswith(rel(BASE)+'/') and k!=old['natural_qa_adapter']['path']}
  core[le['natural_qa_adapter']['path']]=le['natural_qa_adapter']['sha256'];sources=dict(core);deltas=[]
@@ -78,7 +78,7 @@ def main():
  plan['input_scope']=f'New complete100-item pinned official {kind}{length}K cohort, seed42. No crop, no scaling/config change; full native unscaled positions beyond40960. Different examples from published paper; all generated rows retained.'
  plan['preparation_scope']='CPU-only remaining-length package; no GPU result, feasibility or quality inference from input arithmetic.'
  plan['preparation_provenance']={'base32K_plan':bind(BASE/'plan.json'),'base32K_completion':bind(OLD/'completion_registration.json'),'input_route_delta':bind(C/'input_source_delta.json'),'assembler':bind(Path(__file__)),'high_position_runtime_reference':bind(LE/'plan.json'),'passive_position_adapter':le['natural_qa_adapter'],'original_model_max_position_embeddings':40960,'rope_configuration_changed':False,'all_original_generated_rows_retained':True,'allowed_delta':'New task-length inputs and namespace; admission maximum bound to full prompt plus cap; already qualified high-position guard, original/effective config observations and passive natural-read position diagnostics. Method arithmetic/quantizers/native attention/timing/scoring/bootstrap unchanged.'}
- plan['triton_cache_cleanup_fix']['module']=bind(P/'qcomem_triton_cache.py')
+ plan['triton_cache_cleanup_fix']['module']=bind(P/'qencbank_triton_cache.py')
  plan['scheduler_allowance']={'walltime':'24:00:00','scope':'Conservative maximum Slurm allowance for six long-input arms; not an ETA or evidence of runtime. Fresh scheduler admission required.'}
  plan['not_claimed']=list(dict.fromkeys(plan['not_claimed']+['native_pretrained128K_context','whole_model_high_position_correctness','GPU_capacity_or_feasibility_from_CPU_arithmetic','quality_from_CPU_arithmetic']))
  save(P/'plan.json',plan)
@@ -92,7 +92,7 @@ def main():
  save(P/'upload_manifest.json',manifest)
  commands=read(OLD/'remote_commands.json');rp=REMOTE+'/'+rel(P)
  commands.update(remote_package=rp,plan_sha256=sha(P/'plan.json'),upload_manifest={'path':str(P/'upload_manifest.json'),'sha256':sha(P/'upload_manifest.json')},manifest_itself_remote_path=rp+'/upload_manifest.json',sbatch_argv=['sbatch','--parsable',rp+'/batch.sbatch'])
- commands['sbatch_command']=shlex.join(commands['sbatch_argv']);commands['roots_and_staged_check_command']='QCOMEM_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')]);save(C/'remote_commands.json',commands)
+ commands['sbatch_command']=shlex.join(commands['sbatch_argv']);commands['roots_and_staged_check_command']='QENCBANK_REPO_ROOT='+REMOTE+' '+shlex.join([plan['python'],'-B',rp+'/validate_staged.py','--expected-manifest-sha256',sha(P/'upload_manifest.json')]);save(C/'remote_commands.json',commands)
  for name in ('dispatch_once.py','remote_ops.py'):
   before=(OLD/name).read_text('utf-8');after=adapt(before)
   if name=='dispatch_once.py':after=re.sub(r'ROOT=HERE.parents\[\d\]', 'ROOT=HERE.parents[3]',after)

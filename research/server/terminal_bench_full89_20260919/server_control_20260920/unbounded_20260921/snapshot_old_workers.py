@@ -8,7 +8,7 @@ from pathlib import Path
 import subprocess
 import time
 
-B = Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919')
+B = Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919')
 OUT = B/'server_control_20260920/unbounded_20260921/old_worker_snapshots'
 
 def save(path, data):
@@ -28,8 +28,8 @@ def save(path, data):
 def main():
     reports = []
     for arm, job in [('k12','112400'),('k48','112403')]:
-        p = B/f'comem_{arm}_no_task_deadline_r6_20260920'
-        w = p/'run_comem'
+        p = B/f'encbank_{arm}_no_task_deadline_r6_20260920'
+        w = p/'run_encbank'
         d = OUT/arm
         spec = importlib.util.spec_from_file_location('old_mailbox',p/'live_mailbox.py')
         module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)

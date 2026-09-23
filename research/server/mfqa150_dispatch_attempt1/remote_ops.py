@@ -18,11 +18,11 @@ def main():
  control=Path(a.control).resolve();control.relative_to(home);assert control.is_dir()
  assert sha(control/'upload_manifest.json')==a.manifest_sha256
  manifest=read(control/'upload_manifest.json');root=Path(manifest['remote_root']).resolve()
- assert root==Path('/srv/encbank/qcomem_align_codex_20260911/repo') and len(manifest['files'])==25
- relative='paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/formal_preparation/package'
+ assert root==Path('/srv/encbank/qencbank_align_codex_20260911/repo') and len(manifest['files'])==25
+ relative='paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/next_longbench_qa6/formal_preparation/package'
  here=root/relative;here.resolve().relative_to(home);root.relative_to(home)
- cache=(home/'qcomem_align_codex_20260911/task_cache/mfqa150_attempt1').resolve();cache.relative_to(home)
- python='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+ cache=(home/'qencbank_align_codex_20260911/task_cache/mfqa150_attempt1').resolve();cache.relative_to(home)
+ python='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
  if a.mode=='validate':
   assert not (control/'package_validation.json').exists(),'Refuse repeated package validation'
   assert sha(control/'sparse_package.tar')==a.archive_sha256
@@ -85,16 +85,16 @@ def main():
   rec['model_files_verified']=model_verified
   assert not (root/plan['batch_output']).exists(),'Output namespace already exists'
   for value in plan['outputs'].values():assert not (root/value).exists()
-  queue=subprocess.run(['squeue','--me','--name=qcomem-align-codex','--noheader','--format=%i|%T|%j'],capture_output=True,text=True)
+  queue=subprocess.run(['squeue','--me','--name=qencbank-align-codex','--noheader','--format=%i|%T|%j'],capture_output=True,text=True)
   rec['pre_submit_queue']={'argv':queue.args,'actual_exit_code':queue.returncode,'stdout':queue.stdout,'stderr':queue.stderr};assert queue.returncode==0
   for line in queue.stdout.splitlines():
    job=line.split('|')[0].strip();detail=subprocess.run(['scontrol','--oneliner','show','job',job],capture_output=True,text=True)
    assert detail.returncode==0
    rec.setdefault('existing_job_details',[]).append({'job_id':job,'stdout':detail.stdout,'actual_exit_code':detail.returncode})
    assert 'Command='+str(here/'batch.sbatch') not in detail.stdout,'Same namespace already submitted'
-  assert not queue.stdout.strip(),'An active qcomem batch exists; do not submit a duplicate/overlapping namespace'
+  assert not queue.stdout.strip(),'An active qencbank batch exists; do not submit a duplicate/overlapping namespace'
   processes=subprocess.run(['ps','-u','liuhanzuo','-o','pid=,ppid=,args='],capture_output=True,text=True);assert processes.returncode==0
-  owned=[line for line in processes.stdout.splitlines() if '/qcomem_align_codex_20260911/' in line and any(name in line for name in ('run_batch.py','resource_worker.py','run_quality.py'))]
+  owned=[line for line in processes.stdout.splitlines() if '/qencbank_align_codex_20260911/' in line and any(name in line for name in ('run_batch.py','resource_worker.py','run_quality.py'))]
   rec['active_owned_workers']=owned;assert not owned,'An owned model or batch worker is still active'
   gpu=subprocess.run(['nvidia-smi','--query-gpu=uuid,name,memory.total,memory.free','--format=csv,noheader,nounits'],capture_output=True,text=True);assert gpu.returncode==0
   apps=subprocess.run(['nvidia-smi','--query-compute-apps=gpu_uuid,pid,process_name,used_gpu_memory','--format=csv,noheader,nounits'],capture_output=True,text=True);assert apps.returncode==0

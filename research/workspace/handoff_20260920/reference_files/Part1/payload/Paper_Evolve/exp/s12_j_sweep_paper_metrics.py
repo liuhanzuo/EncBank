@@ -3,7 +3,7 @@ S12 -- Sweep the split depth j in the PAPER's metrics, and test its flat-plateau
 
 TWO THINGS THIS SETTLES
 -----------------------
-1. The canonical operating point was never measured.  `comem/model_registry.py` pins
+1. The canonical operating point was never measured.  `encbank/model_registry.py` pins
    `resume_j = round(0.33 * L)` and lists Qwen3-1.7B (L=28) -> **9** explicitly, but
    S2/S9 swept even j only and skipped it.
 
@@ -16,7 +16,7 @@ TWO THINGS THIS SETTLES
 
 WHY THIS SETTING IS THE COMPARABLE ONE
 --------------------------------------
-The paper's `gap` is "CoMem-readout perplexity / **full-context** perplexity"
+The paper's `gap` is "Encbank-readout perplexity / **full-context** perplexity"
 (tab_hy3_distill.tex:19-21).  Our S2-S9 reference was the RETRIEVED PACK, which is a
 strict subset of the document -- not the same object.  In this PG19 language-modelling
 setting there is no retrieval: every one of the n_ctx context chunks goes into the pack,

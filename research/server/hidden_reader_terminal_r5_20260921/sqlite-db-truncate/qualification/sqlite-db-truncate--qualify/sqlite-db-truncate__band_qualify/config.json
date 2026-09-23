@@ -1,13 +1,13 @@
 {
     "task": {
-        "path": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/tasks/sqlite-db-truncate"
+        "path": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/tasks/sqlite-db-truncate"
     },
     "trial_name": "sqlite-db-truncate__band_qualify",
-    "trials_dir": "/srv/encbank/qcomem_align_codex_20260911/hidden_reader_terminal_r5_20260921/sqlite-db-truncate/qualification/sqlite-db-truncate--qualify",
+    "trials_dir": "/srv/encbank/qencbank_align_codex_20260911/hidden_reader_terminal_r5_20260921/sqlite-db-truncate/qualification/sqlite-db-truncate--qualify",
     "install_only": true,
     "agent": {
         "import_path": "tb_agent:JointBandTerminus",
-        "model_name": "Qwen3-8B/COMem-qualify",
+        "model_name": "Qwen3-8B/Encbank-qualify",
         "kwargs": {
             "enable_summarize": false,
             "proactive_summarization_threshold": 0,
@@ -21,7 +21,7 @@
         "type": "singularity",
         "import_path": "apptainer_environment:ManagedApptainerEnvironment",
         "kwargs": {
-            "singularity_image_cache_dir": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/sif",
+            "singularity_image_cache_dir": "/srv/encbank/qencbank_runtime_20260911/server_control_20260920/sif",
             "singularity_no_mount": "home,tmp,bind-paths"
         }
     },

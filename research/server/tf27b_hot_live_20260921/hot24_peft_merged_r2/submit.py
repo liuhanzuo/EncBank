@@ -17,9 +17,9 @@ with (T/'hot24_peft_submission.lock').open('a') as lock:
     assert proof['model_calls']==0 and proof['qualification_container_closed']
     assert not list(Path(previous[0]['root']).joinpath('mailbox').glob('*/*.request.json'))
     queue=subprocess.check_output(['squeue','-r','-h','-u','liuhanzuo','-o','%i|%j|%T|%b|%N'],text=True)
-    assert '121985|' not in queue and 'qcomem-kernel-' not in queue,'Wait for isolated speed pilot release'
+    assert '121985|' not in queue and 'qencbank-kernel-' not in queue,'Wait for isolated speed pilot release'
     assert 'tf27b-tb-hot24-peft' not in queue and '122024|' not in queue
-    formal=[x for x in queue.splitlines() if ('qcomem-tb-' in x or 'qcomem-agentmem-' in x) and 'gpu' in x.split('|')[3]]
+    formal=[x for x in queue.splitlines() if ('qencbank-tb-' in x or 'qencbank-agentmem-' in x) and 'gpu' in x.split('|')[3]]
     assert len(formal)<=4,formal
     cmd=['sbatch','--parsable','--job-name=tf27b-tb-hot24-peft','--partition=gpu',
         '--time=UNLIMITED','--no-requeue','--cpus-per-task=56','--mem=160G','--gres=gpu:nvidia_l20d:1',

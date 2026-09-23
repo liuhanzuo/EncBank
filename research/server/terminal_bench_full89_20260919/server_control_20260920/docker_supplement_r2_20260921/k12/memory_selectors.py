@@ -1,11 +1,11 @@
-"""Context-chunk selectors for CoMem (Comprehension Memory).
+"""Context-chunk selectors for Encbank (Comprehension Memory).
 
 Given a set of context chunks (each cached as a depth-``j`` hidden ``h_j`` plus
 its raw token ids) and a query, a *selector* returns the ordered indices of the
 ``topk`` chunks to pack into the read. Every selector here EXCEPT ``dense_bge``
-is FORWARD-FREE beyond the bottom-``j`` writes CoMem already performs: they
+is FORWARD-FREE beyond the bottom-``j`` writes Encbank already performs: they
 consume only the cached ``h_j`` tensors and/or the raw token ids, so retrieval
-adds no extra model forward and CoMem's compute saving is preserved.
+adds no extra model forward and Encbank's compute saving is preserved.
 ``dense_bge`` is the deliberate exception (a small FROZEN external sentence
 encoder), so its retrieval latency / index size are reported separately.
 
@@ -39,7 +39,7 @@ Selectors
 
 Also exposes the oracle needle locator (``locate_needle_chunks`` /
 ``find_subsequence_ids``) so the eval drivers can build the oracle chunk set
-without importing anything outside ``comem``.
+without importing anything outside ``encbank``.
 
 All primitives are lifted verbatim (formulae + defaults) from the QCMem research
 code: the BM25 scorer (``k1=1.5``, ``b=0.75``) and the needle locator match the
@@ -47,7 +47,7 @@ original ``run_babilong_mem_space`` helpers, the reader-attn / iterative
 selectors match ``eval_qcmem_babilong``, and ``dense_bge`` ports the frozen
 BGE-large-en-v1.5 retriever (CLS + L2 + cosine, official query instruction,
 stable ``(-score, idx)`` tie-break) from ``eval_p1_9_dense_rag.DenseRetriever``
-— so CoMem reproduces the published retrieval rankings bit-for-bit.
+— so Encbank reproduces the published retrieval rankings bit-for-bit.
 """
 from __future__ import annotations
 
@@ -116,7 +116,7 @@ class DenseBGERetriever:
     Passages are encoded WITHOUT the instruction, the query WITH the official
     ``BGE_QUERY_INSTRUCTION``; both are truncated to the encoder's 512-token
     position budget (standard dense-RAG behaviour). Held frozen and used
-    read-only — this is a RETRIEVER, not part of the CoMem backbone.
+    read-only — this is a RETRIEVER, not part of the Encbank backbone.
 
     The encoder is loaded lazily on first use so constructing the object (e.g.
     from an eval driver's argparse) never touches the disk.
@@ -126,7 +126,7 @@ class DenseBGERetriever:
     retriever_path:
         Local HF directory of the BGE checkpoint (loaded ``local_files_only``).
     device / dtype:
-        Where/how to run the encoder. Defaults to the CoMem eval convention
+        Where/how to run the encoder. Defaults to the Encbank eval convention
         (``cuda:0`` + ``bfloat16``); pass ``float32`` for a deterministic CPU run.
     batch_size:
         Chunk-encoding batch size (chunks are ~512 backbone tokens each).
@@ -553,7 +553,7 @@ def select_context_chunk_indices(
         if dense_retriever is None or dense_tokenizer is None:
             raise ValueError(
                 "selector 'dense_bge' needs dense_retriever= (a "
-                "comem.selectors.DenseBGERetriever) and dense_tokenizer= (the "
+                "encbank.selectors.DenseBGERetriever) and dense_tokenizer= (the "
                 "backbone tokenizer used to detokenise the chunks)")
         scores = dense_bge_scores(context_chunks, list(query_ids),
                                   dense_retriever, dense_tokenizer)

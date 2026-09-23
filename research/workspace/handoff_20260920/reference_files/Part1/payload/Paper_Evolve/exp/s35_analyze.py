@@ -16,7 +16,7 @@ two checkpoints have different L.
 Only the two NIAH tasks: within that family the retrieval, the haystack and the scoring are
 identical and only the needle count differs, so single-vs-multikey is the one clean contrast
 for a difficulty claim. variable_tracking is excluded because its recall is five-way partial
-credit against NIAH's binary (COMem/eval/ruler.py:250 divides by len(refs)), so it is not on a
+credit against NIAH's binary (Encbank/eval/ruler.py:250 divides by len(refs)), so it is not on a
 common scale.
 
 Residual = fix_all - j0, paired within a cell on the 50 shared samples, house bootstrap

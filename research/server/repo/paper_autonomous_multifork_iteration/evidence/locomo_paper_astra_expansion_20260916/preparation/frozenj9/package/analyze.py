@@ -68,7 +68,7 @@ def main():
         for doc,(_,indices) in zip(docs,groups):
             assert doc['source_indices']==indices and doc['item_ids']==[ids[i] for i in indices] and doc['completed_queries']==len(indices)
             assert doc['entry_writes']==1 and doc['entry_unchanged_all_queries'] and doc['entry_release']['all_tracked_tensor_objects_released']
-            if arm=='comem_frozen_j9':assert doc['store']['document_lower_KV_bytes']==0 and doc['store']['resume_j']==9 and doc['store']['bits']==16 and not doc['store']['native_hidden_or_KV_host_offload']
+            if arm=='encbank_frozen_j9':assert doc['store']['document_lower_KV_bytes']==0 and doc['store']['resume_j']==9 and doc['store']['bits']==16 and not doc['store']['native_hidden_or_KV_host_offload']
             else:assert doc['store']['prefix_tokens']==doc['document_tokens']+1 and not doc['store']['native_hidden_or_KV_host_offload']
         for index,(row,item) in enumerate(zip(rows,items)):
             assert row['source_index']==index and row['document_id']==item['document_id'] and row['dataset']==item['dataset']==DATASET
@@ -85,7 +85,7 @@ def main():
             assert row['decode_forward_count']==(len(tokens) if row['stopped_on_eos'] else len(tokens)-1) and row['head_calls']==row['decode_forward_count']+1
             assert row['pending_token_id_before_request_release']==(None if row['stopped_on_eos'] else tokens[-1])
             selected=row['selected_chunk_indices']
-            if arm=='comem_frozen_j9':
+            if arm=='encbank_frozen_j9':
                 assert selected==sorted(set(selected)) and 0<len(selected)<=12 and all(0<=i<(len(item['document_token_ids'])+511)//512 for i in selected)
             else:assert selected is None
         for row in rows:

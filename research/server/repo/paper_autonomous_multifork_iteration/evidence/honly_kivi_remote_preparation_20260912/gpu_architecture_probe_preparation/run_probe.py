@@ -39,7 +39,7 @@ def main():
  plan=preflight(a.expected_plan_sha256)
  if a.check_only:
   assert not local(plan['batch_output']).exists();print('{"status":"PASS_CPU_paths_hashes_no_GPU"}');return
- assert sys.executable==PYTHON and ROOT==Path(REMOTE_ROOT) and Path(os.environ['QCOMEM_REPO_ROOT']).resolve()==ROOT
+ assert sys.executable==PYTHON and ROOT==Path(REMOTE_ROOT) and Path(os.environ['QENCBANK_REPO_ROOT']).resolve()==ROOT
  assert os.environ['PYTORCH_CUDA_ALLOC_CONF']=='backend:native'
  for key in ('TMPDIR','XDG_CACHE_HOME','HF_HOME','TORCH_HOME','TRITON_CACHE_DIR','TORCH_EXTENSIONS_DIR','CUDA_CACHE_PATH'):
   path=Path(os.environ[key]).resolve();path.relative_to(Path('/srv/encbank').resolve());path.mkdir(parents=True,exist_ok=True)

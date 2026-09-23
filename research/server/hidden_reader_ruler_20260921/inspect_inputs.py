@@ -1,6 +1,6 @@
 import hashlib,json
 from pathlib import Path
-E=Path('/srv/encbank/qcomem_align_codex_20260911/repo/paper_autonomous_multifork_iteration/evidence')
+E=Path('/srv/encbank/qencbank_align_codex_20260911/repo/paper_autonomous_multifork_iteration/evidence')
 paths=[
 ('single8k','honly_fp16_ruler8k_pair_preparation_20260912/single8k/inputs'),
 ('multikey8k','honly_ruler_multikey_preparation_20260912/inputs'),

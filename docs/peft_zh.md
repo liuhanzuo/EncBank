@@ -1,19 +1,19 @@
-# CoMem PEFT 加载入口
+# Encbank PEFT 加载入口
 
-以PEFT0.20.0、Torch2.14.0、Transformers5.16.1为本次验证版本。代码与attempts/peft_r1/comem_peft.py相同；最终结果见上级PEFT_INTEGRATION_20260922.md。
+以PEFT0.20.0、Torch2.14.0、Transformers5.16.1为本次验证版本。代码与attempts/peft_r1/encbank_peft.py相同；最终结果见上级PEFT_INTEGRATION_20260922.md。
 
 服务器上的标准adapter目录：
 
-`/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/comem_vllm_pilot_20260922/attempts/peft_r1/peft_adapter`
+`/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/encbank_vllm_pilot_20260922/attempts/peft_r1/peft_adapter`
 
 只在新的服务器模型进程中使用，原始模型、adapter文件保持原样：
 
 ```python
-from comem_peft import load_comem_peft
+from encbank_peft import load_encbank_peft
 from hybrid_reader import HybridReader
 
 # model由既有load_model(runtime_cfg)加载；转换文件与该27B revision绑定。
-model, peft_owner, targets = load_comem_peft(
+model, peft_owner, targets = load_encbank_peft(
     model, adapter_directory, mode="compat"
 )
 reader = HybridReader(model, j=21)

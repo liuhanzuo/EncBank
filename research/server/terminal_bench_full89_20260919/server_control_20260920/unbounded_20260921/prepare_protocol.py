@@ -2,9 +2,9 @@
 import argparse,hashlib,json,shutil,tomllib
 from pathlib import Path
 
-B=Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919')
+B=Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919')
 S=B/'server_control_20260920'; U=S/'unbounded_20260921'
-R=Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+R=Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 
 def save(p,v):p.write_text(json.dumps(v,indent=2)+'\n')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -23,7 +23,7 @@ def prepare(arm,name,tasks,qualification=False):
        task_walltime_seconds=None,gpu_allocation_walltime_seconds=None,
        official_task_timeouts=False,server_only=True,automatic_scientific_retries=0,
        host_memory_budget_mb=204800,host_admission_root=str(R/'unbounded_host_admission'),
-       job_name='qcomem-tb-'+arm+'-unbounded',evidence_id='E-TB21-UNBOUNDED-20260921-'+arm,
+       job_name='qencbank-tb-'+arm+'-unbounded',evidence_id='E-TB21-UNBOUNDED-20260921-'+arm,
        ipc_root=str(R.parent/('t89ub'+arm)),
        timeout_protocol='No task, request, verifier, setup, idle, or Slurm deadline; elapsed time recorded. Native position capacity and physical memory limits remain explicit.',
        token_protocol='No configured generation-token cap. Stop on EOS; report native-context capacity as incomplete, never ordinary quality zero.',
@@ -59,7 +59,7 @@ def prepare(arm,name,tasks,qualification=False):
     if qualification:
         shutil.copy2(U/'qualify_all_environments.py',h/'qualify_all_environments.py')
         q=f'''#!/bin/bash
-#SBATCH --job-name=qcomem-unbounded-envcheck
+#SBATCH --job-name=qencbank-unbounded-envcheck
 #SBATCH --partition=gpu
 #SBATCH --nodelist=gpu-node1
 #SBATCH --cpus-per-task=32

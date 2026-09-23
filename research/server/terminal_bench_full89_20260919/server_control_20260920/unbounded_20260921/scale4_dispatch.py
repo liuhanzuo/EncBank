@@ -33,11 +33,11 @@ def main():
         with (S.parent.parent/'terminal_bench_20260918/admission.lock').open('a') as admission:
             fcntl.flock(admission,fcntl.LOCK_EX)
             queue=subprocess.check_output(['squeue','-r','-u','liuhanzuo','-h','-o','%i|%j|%T|%b'],text=True)
-            owned=[v for v in queue.splitlines() if any(n in v for n in ['qcomem-tb-','qcomem-agentmem-']) and 'gpu' in v.split('|')[-1].lower()]
+            owned=[v for v in queue.splitlines() if any(n in v for n in ['qencbank-tb-','qencbank-agentmem-']) and 'gpu' in v.split('|')[-1].lower()]
             save(D/'dispatcher_status.json',dict(epoch=time.time(),pending_shards=pending,benchmark_gpu_queue=owned,gpu_limit=4))
             if len(owned)<4:
                 rid=pending[0]; spec=runs[rid]; h=Path(spec['root']); p=read(h/'plan.json')
-                assert not (h/'submission.json').exists() and not (h/'run_comem').exists()
+                assert not (h/'submission.json').exists() and not (h/'run_encbank').exists()
                 assert read(h/'server_cpu_preflight.json')['status']=='PASS'
                 assert sha(h/'server_source_manifest.json')==spec['source_manifest_sha256']
                 for n,digest in read(h/'server_source_manifest.json').items(): assert sha(h/n)==digest,n

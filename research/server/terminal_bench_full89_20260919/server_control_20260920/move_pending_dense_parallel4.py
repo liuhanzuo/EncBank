@@ -6,7 +6,7 @@ import subprocess
 import tarfile
 import time
 
-H=pathlib.Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/dense_parallel4_20260921')
+H=pathlib.Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/dense_parallel4_20260921')
 
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()

@@ -2,9 +2,9 @@
 import argparse,ast,csv,datetime,hashlib,io,json,os,re,shlex,subprocess,tarfile
 from pathlib import Path
 RELATIVE='paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/infllm/package'
-REMOTE='/srv/encbank/qcomem_align_codex_20260911/repo'
-PYTHON='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
-CONTROL='/srv/encbank/qcomem_align_codex_20260911/locomo_paper_infllm_20260916_dispatch_attempt1'
+REMOTE='/srv/encbank/qencbank_align_codex_20260911/repo'
+PYTHON='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
+CONTROL='/srv/encbank/qencbank_align_codex_20260911/locomo_paper_infllm_20260916_dispatch_attempt1'
 def now():return datetime.datetime.now().astimezone().isoformat()
 def sha(p):
  with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
@@ -72,9 +72,9 @@ def main():
     if name.endswith('.py'):ast.parse((root/name).read_text(encoding='utf-8-sig'),filename=str(root/name))
    cache=Path(plan['task_cache_root']).resolve();cache.relative_to(home)
    for leaf in ('tmp','xdg','hf','torch','triton'):(cache/leaf).mkdir(parents=True,exist_ok=True)
-   env=dict(os.environ);env.update(QCOMEM_REPO_ROOT=REMOTE,TMPDIR=str(cache/'tmp'),XDG_CACHE_HOME=str(cache/'xdg'),HF_HOME=str(cache/'hf'),TORCH_HOME=str(cache/'torch'),TRITON_CACHE_DIR=str(cache/'triton'),PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES='-1',USE_TORCH='0',USE_TF='0',USE_FLAX='0',PYTHONUTF8='1',PYTHONHASHSEED='42',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
+   env=dict(os.environ);env.update(QENCBANK_REPO_ROOT=REMOTE,TMPDIR=str(cache/'tmp'),XDG_CACHE_HOME=str(cache/'xdg'),HF_HOME=str(cache/'hf'),TORCH_HOME=str(cache/'torch'),TRITON_CACHE_DIR=str(cache/'triton'),PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES='-1',USE_TORCH='0',USE_TF='0',USE_FLAX='0',PYTHONUTF8='1',PYTHONHASHSEED='42',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
    original_check=[PYTHON,'-B',str(here/'validate_staged.py'),'--expected-manifest-sha256',a.manifest_sha256]
-   assert shlex.split(commands['roots_and_staged_check_command'])==['QCOMEM_REPO_ROOT='+REMOTE,*original_check]
+   assert shlex.split(commands['roots_and_staged_check_command'])==['QENCBANK_REPO_ROOT='+REMOTE,*original_check]
    check=held(control,'original_validate_staged',original_check,env=env);report['children'].append(check);save(control/'package_validation.json',report);assert check['actual_exit_code']==0
    for arm in plan['arm_order']:
     argv=[PYTHON,'-B',str(here/'resource_worker.py'),'--plan',str(here/'plan.json'),'--expected-plan-sha256',a.expected_plan_sha256,'--arm',arm,'--output',str(root/plan['outputs'][arm]),'--check-only']
@@ -114,7 +114,7 @@ def main():
    detail=held(control,'existing_job_'+job,['scontrol','--oneliner','show','job',job]);assert detail['actual_exit_code']==0
    existing.append(dict(job_id=job,**detail));text=detail['stdout']
    assert 'Command='+str(here/'batch.sbatch') not in text,'Same output namespace already submitted'
-   if 'qcomem' in fields[2].lower() or '/qcomem_align_codex_20260911/' in text:
+   if 'qencbank' in fields[2].lower() or '/qencbank_align_codex_20260911/' in text:
     assert fields[2]!=plan['job_name'],'Same cell job name already active or pending'
     match=re.search(r'(?:^| )ReqTRES=([^ ]+)',text);assert match,'Cannot establish owned requested resources'
     resources=dict(x.split('=',1) for x in match.group(1).split(','))
@@ -130,7 +130,7 @@ def main():
   rec['owned_GPU_requests_after_submission']=owned_GPU_requests+1
   rec['existing_job_details']=existing
   processes=held(control,'fresh_owned_processes',['ps','-u','liuhanzuo','-o','pid=,ppid=,args=']);assert processes['actual_exit_code']==0
-  workers=[line for line in processes['stdout'].splitlines() if '/qcomem_align_codex_20260911/' in line and any(token in line for token in ('run_batch.py','resource_worker.py','run_quality.py','resource_launch.py'))]
+  workers=[line for line in processes['stdout'].splitlines() if '/qencbank_align_codex_20260911/' in line and any(token in line for token in ('run_batch.py','resource_worker.py','run_quality.py','resource_launch.py'))]
   rec['access_host_owned_workers']=workers
   rec['CPU_loading_check_scope']='Slurm all owned job commands across assigned nodes plus access-host ps; access-host ps is not compute-node process evidence. Allocated worker performs actual GPU admission.'
   assert all(any(namespace+'/' in line for namespace in owned_namespaces) for line in workers),'Unregistered task-owned access-host loading process; inspect before launch'

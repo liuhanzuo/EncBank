@@ -12,11 +12,11 @@ sides of the roofline knee.
     does almost no arithmetic -- 32 query tokens through 28 layers.  It is BANDWIDTH
     bound.  Pricing it in FLOPs charges it for the cheap resource and gives it the
     expensive one for free.
-  * CoMem's read moves one residual (4 KB/token) and then recomputes L-j layers over the
+  * Encbank's read moves one residual (4 KB/token) and then recomputes L-j layers over the
     whole pack.  It is COMPUTE bound.  Pricing it in FLOPs charges it correctly.
 
-So FLOPs-only understates the KV family's read cost and leaves CoMem's unchanged, which
-biases the break-even against CoMem.  This script measures how much.
+So FLOPs-only understates the KV family's read cost and leaves Encbank's unchanged, which
+biases the break-even against Encbank.  This script measures how much.
 
 MODEL -- identical to S10, imported rather than restated so the two cannot drift.
 Bytes are added on top:
@@ -124,8 +124,8 @@ def main():
     print("That is the bias S10 could not see: its read was priced on the resource it "
           "barely uses.\n")
 
-    print("break-even R* = reads of one document before the KV family overtakes CoMem")
-    print("  (higher R* = CoMem stays ahead longer)")
+    print("break-even R* = reads of one document before the KV family overtakes Encbank")
+    print("  (higher R* = Encbank stays ahead longer)")
     print("   arm     | R* FLOPs-only | R* with bytes |  shift")
     print("  ---------+---------------+---------------+--------")
     out_rows = []
@@ -144,8 +144,8 @@ def main():
 
     print("\nreading: the simplification was real -- the two arms are on opposite sides")
     print("of the roofline knee -- but correcting it moves R* by only a few percent, in")
-    print("CoMem's favour.  It does not rescue the matched-bytes claim; the downgrade in")
-    print("[[comem-matched-bytes-selling-point]] stands on its own numbers.")
+    print("Encbank's favour.  It does not rescue the matched-bytes claim; the downgrade in")
+    print("[[encbank-matched-bytes-selling-point]] stands on its own numbers.")
 
     o = Path(args.out)
     o.parent.mkdir(parents=True, exist_ok=True)

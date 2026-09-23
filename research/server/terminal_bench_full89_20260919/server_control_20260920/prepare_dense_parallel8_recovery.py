@@ -6,11 +6,11 @@ import shutil
 import subprocess
 import time
 
-B = Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919')
+B = Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919')
 S = B / 'server_control_20260920'
 OLD = S / 'dense_parallel4_20260921'
 H = S / 'dense_parallel8_recovery_20260921'
-R = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+R = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 TASKS = ['mcmc-sampling-stan', 'rstan-to-pystan', 'torch-pipeline-parallelism', 'torch-tensor-parallelism']
 
 def read(p): return json.loads(p.read_text())
@@ -100,7 +100,7 @@ def main():
     runtime = R/H.name
     p = read(H/'plan.json')
     p.update(remote_root=str(H), tasks=TASKS, concurrent_tasks=8, host_memory_budget_mb=73728,
-             evidence_id='E-TB21-DENSE-P8-ENVRECOVERY-20260921', job_name='qcomem-tb-dense-p8-recovery',
+             evidence_id='E-TB21-DENSE-P8-ENVRECOVERY-20260921', job_name='qencbank-tb-dense-p8-recovery',
              predecessor_job_id='114849', predecessor_root=old_root,
              ipc_root=str(R.parent/'t89dp8r'), selection='Only four audited zero-model environment failures from114849',
              host_admission='Requested ceiling8; four eligible8GiB tasks;72GiB reservations with2GiB fresh headroom',
@@ -148,7 +148,7 @@ def main():
          startup_fix='Disjoint CPU affinities for the four selected tasks and serialized mount startup; no model/concurrent-task serialization',
          no_model_artifacts_downloaded=True))
     qualify=f'''#!/bin/bash
-#SBATCH --job-name=qcomem-p8-recovery-qualification
+#SBATCH --job-name=qencbank-p8-recovery-qualification
 #SBATCH --partition=gpu
 #SBATCH --nodelist=gpu-node1
 #SBATCH --nodes=1

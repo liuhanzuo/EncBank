@@ -1,7 +1,7 @@
 """Compact read-only observer for this research's jobs, not other controllers."""
 import json,subprocess
 from pathlib import Path
-B=Path('/srv/encbank/qcomem_align_codex_20260911')
+B=Path('/srv/encbank/qencbank_align_codex_20260911')
 R=B/'hidden_reader_terminal_r4_20260921'
 def load(p):return json.loads(p.read_text()) if p.exists() else None
 jobs=load(R/'jobs/submissions_run.json') or []

@@ -60,7 +60,7 @@ def main():
     query_fn.body = [copy.deepcopy(query_assign), ast.Return(value=ast.Name(id='query', ctx=ast.Load()))]
     query_module = ast.fix_missing_locations(ast.Module(body=[query_fn], type_ignores=[]))
     exec(compile(query_module, str(source_path), 'exec'), env)
-    # No import of upstream eval module, CoMem, model, scorer or oracle helper.
+    # No import of upstream eval module, Encbank, model, scorer or oracle helper.
     from transformers import AutoTokenizer
     tokenizer = AutoTokenizer.from_pretrained(ROOT / 'models/Qwen3-8B',
                                                local_files_only=True, use_fast=True)

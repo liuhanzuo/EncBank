@@ -14,7 +14,7 @@ env=os.environ.copy()
 env.update(PYTHONDONTWRITEBYTECODE='1',PYTHONUNBUFFERED='1',PYTHONHASHSEED='0',
     OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='4',TOKENIZERS_PARALLELISM='false',
     HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',HF_HUB_DISABLE_PROGRESS_BARS='1',
-    PYTHONPATH=str(root/'vendor')+':/srv/encbank/comem_infra_recheck_20260912/deps',
+    PYTHONPATH=str(root/'vendor')+':/srv/encbank/encbank_infra_recheck_20260912/deps',
     CPATH='/srv/encbank/.cache/python/include/python3.12')
 for key,name in [('TMPDIR','tmp'),('TRITON_CACHE_DIR','triton'),('CUDA_CACHE_PATH','cuda'),
                  ('TORCHINDUCTOR_CACHE_DIR','inductor'),('XDG_CACHE_HOME','xdg'),('HF_HOME','hf')]:

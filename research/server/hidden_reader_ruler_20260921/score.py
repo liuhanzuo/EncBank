@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 from official_scoring import string_match_all
 R=Path(__file__).resolve().parent
-ARMS=['comem','kd256','kd_selected','kd2048']
+ARMS=['encbank','kd256','kd_selected','kd2048']
 def save(name,o):(R/name).write_text(json.dumps(o,indent=2,ensure_ascii=False)+'\n')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 configs=json.loads((R/'configs.json').read_text());inventory={x['cell']:x for x in json.loads((R/'input_inventory.json').read_text())}
@@ -39,16 +39,16 @@ def describe(arrays):
     result=dict(items=len(joined),score={a:round(float(means[j]),4) for j,a in enumerate(ARMS)},comparison={})
     for j,arm in enumerate(ARMS[1:],1):
         d=boots[:,j]-boots[:,0]
-        result['comparison'][arm]=dict(delta_vs_comem_pp=round(float(means[j]-means[0]),4),
+        result['comparison'][arm]=dict(delta_vs_encbank_pp=round(float(means[j]-means[0]),4),
             paired_95ci_pp=np.quantile(d,[.025,.975]).tolist(),
             lower_score_items=int((joined[:,j]<joined[:,0]).sum()),higher_score_items=int((joined[:,j]>joined[:,0]).sum()),
-            comem_full_correct_to_student_not_full=int(((joined[:,0]==1)&(joined[:,j]<1)).sum()),
-            student_full_correct_from_comem_not_full=int(((joined[:,0]<1)&(joined[:,j]==1)).sum()),
+            encbank_full_correct_to_student_not_full=int(((joined[:,0]==1)&(joined[:,j]<1)).sum()),
+            student_full_correct_from_encbank_not_full=int(((joined[:,0]<1)&(joined[:,j]==1)).sum()),
             delta_vs_kd256_pp=round(float(means[j]-means[1]),4))
     return result
 result=dict(checkpoints=json.loads((R/'checkpoints.json').read_text()),cells={c:describe([x]) for c,x in scores.items()},
     groups={g:describe([x for c,x in scores.items() if predicate(c)]) for g,predicate in [
-        ('official_niah_only',lambda c:not c.startswith('vt')),('comem_ruler_style_vt',lambda c:c.startswith('vt')),('all_three_tasks_exploratory',lambda c:True)]},
+        ('official_niah_only',lambda c:not c.startswith('vt')),('encbank_ruler_style_vt',lambda c:c.startswith('vt')),('all_three_tasks_exploratory',lambda c:True)]},
     bootstrap='10,000 paired item bootstrap draws stratified by task/length; no multiplicity adjustment; describes this frozen sample, not all RULER',
     source_verification=[])
 manifest=json.loads((R/'source_manifest.json').read_text())

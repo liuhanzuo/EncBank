@@ -20,7 +20,7 @@ so "store one residual" and "store one layer of KV" cost exactly the same.  (On 
 GQA model such as the 8B, one residual buys two layers of KV instead; the identity is
 d/(2*d_kv) layers.)  That makes the two families directly comparable at fixed storage:
 
-  arm A (CoMem)   store h_j of the chunk, injected into a fresh pack, recompute [j,L).
+  arm A (Encbank)   store h_j of the chunk, injected into a fresh pack, recompute [j,L).
                   The chunk keeps computing, and it does so in a pack it never saw.
   arm B (Memo-T)  store K_j,V_j of the chunk; the query runs all L layers alone and at
                   layer j additionally attends to that stored memory.  The chunk never
@@ -107,7 +107,7 @@ def forward_from(model, h, position_ids, start: int, mem_layer=None, mem=None, g
                  causal: bool = True, final: bool = True, ckpt: bool = False):
     """Run layers [start, L) on `h`, returning logits at the last position.
 
-    `h` is a residual stream, so `start > 0` is exactly the CoMem read: hand the upper
+    `h` is a residual stream, so `start > 0` is exactly the Encbank read: hand the upper
     band a state it did not compute itself.
     """
     pos_emb = model.model.rotary_emb(h, position_ids)

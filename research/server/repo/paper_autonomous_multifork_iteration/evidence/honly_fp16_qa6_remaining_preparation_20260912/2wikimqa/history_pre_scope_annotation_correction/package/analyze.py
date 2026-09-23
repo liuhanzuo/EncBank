@@ -1,4 +1,4 @@
-"""Saved-output official CoMem VT recall; require all six successful native exits first."""
+"""Saved-output official Encbank VT recall; require all six successful native exits first."""
 from pathlib import Path
 import argparse, ast, collections, datetime, random, re, statistics, string
 from protocol import ARMS, CONFIG, HERE, local, read, save, sha, document_groups, token_sha

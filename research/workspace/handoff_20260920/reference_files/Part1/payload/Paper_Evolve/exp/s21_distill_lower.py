@@ -4,27 +4,27 @@ can be compared and composed on the same backbone.
 
 WHY A LOCAL TRAINER
 -------------------
-The repo's own trainer (COMem/train/distill.py) uses peft, whose LoRA dispatcher calls
+The repo's own trainer (Encbank/train/distill.py) uses peft, whose LoRA dispatcher calls
 is_torchao_available(); the torchao 0.13 in this machine's user site-packages raises there,
 and disabling user site-packages hides `packaging`, which transformers needs. Rather than
 install into a shared environment, this file trains the same recipe with the hand-rolled
 LoRA of exp/s11_distill.py and saves a plain state_dict that exp/s15_ruler_lower.py can
 load (--adapter-pt), so the adapter is exercised by exactly the forward the evaluation uses.
 
-RECIPE -- taken from COMem/train/distill.py and the base paper, not invented here
+RECIPE -- taken from Encbank/train/distill.py and the base paper, not invented here
     teacher   the SAME pack read from j=0 with the adapter OFF, no grad. Not the full
               document: the retrieval upper bound the base paper distils against.
     student   the pack read from depth j with LoRA attached to layers[j:].
     loss      bidirectional KL on the teacher's top-k support,
               lam*KL(p||q) + (1-lam)*KL(q||p), lam=0.6, k=64  (distill.py:81-96)
-    LoRA      r=32, alpha=32 on q,k,v,o,gate,up,down in layers[j:] only (COMem/train/
+    LoRA      r=32, alpha=32 on q,k,v,o,gate,up,down in layers[j:] only (Encbank/train/
               README.md defaults; scale = alpha/r = 1.0).
     optim     AdamW lr 1e-4, 50 warmup steps, cosine, grad clip 1.0, 1000 total steps
-              -- COMem/train/README.md's documented run.
+              -- Encbank/train/README.md's documented run.
     data      PG19 windows of (n_ctx+1) chunks: n_ctx context chunks + 1 query chunk.
 
 THE TWO PATHS (--path)
-    base   student reads as published CoMem does: chunks written alone to h_j, query
+    base   student reads as published Encbank does: chunks written alone to h_j, query
            written alone to h_j, pack recomputed from j. This reproduces the base paper's
            adapter, whose job is to teach the upper band to read a blind lower band.
     lower  student reads with the repair: the chunks' lower-band K/V are cached and the
@@ -33,7 +33,7 @@ THE TWO PATHS (--path)
            memory, which is the composition question.
 The teacher is identical in both cases, so the two adapters are comparable.
 
-Nothing about COMem/comem/model.py changes; the LoRA is attached to a model this script
+Nothing about Encbank/encbank/model.py changes; the LoRA is attached to a model this script
 loaded and is written to its own file.
 """
 
@@ -48,12 +48,12 @@ import torch
 import torch.nn.functional as F
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "COMem"))
+sys.path.insert(0, str(ROOT / "Encbank"))
 sys.path.insert(0, str(ROOT / "exp"))
 
-from comem import CoMem                                        # noqa: E402
+from encbank import Encbank                                        # noqa: E402
 from s11_distill import LoRALinear, attach_lora, windows       # noqa: E402
-from s15_ruler_lower import CoMemLower                         # noqa: E402
+from s15_ruler_lower import EncbankLower                         # noqa: E402
 
 
 def flat_state(model):
@@ -99,7 +99,7 @@ def student_logits(cm, sink_id, ctx_chunks, query_ids, n_score, lower):
 
 
 def distill_loss(student, t_idx, t_val, lam=0.6):
-    """Bidirectional KL on the teacher's top-k support (COMem/train/distill.py:81-96)."""
+    """Bidirectional KL on the teacher's top-k support (Encbank/train/distill.py:81-96)."""
     log_q = torch.log_softmax(student.float(), -1).gather(-1, t_idx)
     log_p = torch.log_softmax(t_val.float(), -1)
     p, q = log_p.exp(), log_q.exp()
@@ -130,7 +130,7 @@ def main():
     ap.add_argument("--n-ctx", type=int, default=7)
     ap.add_argument("--score", type=int, default=512,
                     help="query positions scored per step; 512 = the whole query chunk, "
-                         "which is COMem/train/distill.py's --query_loss_tokens 0")
+                         "which is Encbank/train/distill.py's --query_loss_tokens 0")
     ap.add_argument("--rank", type=int, default=32)
     ap.add_argument("--alpha", type=int, default=32)   # rank 32 / alpha 32 = scale 1.0
     ap.add_argument("--topk", type=int, default=64)
@@ -147,7 +147,7 @@ def main():
     ap.add_argument("--need-gb", type=float, default=10.0)
     ap.add_argument("--idle-slack-gb", type=float, default=8.0)
     ap.add_argument("--grad-ckpt", action="store_true",
-                    help="checkpoint the read layer loop (CoMem.grad_checkpoint)")
+                    help="checkpoint the read layer loop (Encbank.grad_checkpoint)")
     ap.add_argument("--cpu-smoke", action="store_true")
     args = ap.parse_args()
     lower = args.path == "lower"
@@ -182,9 +182,9 @@ def main():
     n_train = sum(p.numel() for p in params)
 
     # teacher: j=0, adapter forced off; student: depth j, adapter on
-    cm0 = CoMem(model, resume_j=0, tokenizer=tok)
-    cm = (CoMemLower(model, j, tok, lower_layers=None) if lower
-          else CoMem(model, resume_j=j, tokenizer=tok))
+    cm0 = Encbank(model, resume_j=0, tokenizer=tok)
+    cm = (EncbankLower(model, j, tok, lower_layers=None) if lower
+          else Encbank(model, resume_j=j, tokenizer=tok))
     if not lower:
         cm.write_sink = False          # the published write, which is what the base adapter fixes
     cm.grad_checkpoint = bool(args.grad_ckpt)

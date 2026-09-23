@@ -11,13 +11,13 @@ root=Path(__file__).resolve().parent
 home=Path('/srv/encbank').resolve()
 assert home in root.resolve().parents
 assert not (root/'submission.json').exists(), 'Inspect existing submission; never blindly resubmit'
-archive=home/'COMem_Migration_20260920/Part1/payload/Paper_Evolve/exp/comem_deployment_b300_20260919/payload.tar'
+archive=home/'Encbank_Migration_20260920/Part1/payload/Paper_Evolve/exp/encbank_deployment_b300_20260919/payload.tar'
 vendor=root/'vendor';vendor.mkdir(exist_ok=True)
 with tarfile.open(archive) as tar:
     for member in tar.getmembers():
         name=member.name
         allowed=(name in ['engine.py','bm25_index.py','prefix_store.py','workloads.json'] or
-            (name.startswith('comem/') and name.endswith('.py')))
+            (name.startswith('encbank/') and name.endswith('.py')))
         if not allowed:continue
         assert member.isfile() and not Path(name).is_absolute() and '..' not in Path(name).parts
         dest=vendor/name;dest.parent.mkdir(parents=True,exist_ok=True)
@@ -34,7 +34,7 @@ with (root.parent/'kv_rebuild_submit.lock').open('a') as lock:
     fcntl.flock(lock,fcntl.LOCK_EX)
     queue=subprocess.check_output(['squeue','-u','liuhanzuo','-h','-o','%i|%j|%T|%N'],text=True)
     assert 'qcm-kvdual-8b' not in queue
-    own=[line for line in queue.splitlines() if any(x in line for x in ['qcomem-tb-','qcm-kvrebuild-','qcm-kvdual-'])]
+    own=[line for line in queue.splitlines() if any(x in line for x in ['qencbank-tb-','qcm-kvrebuild-','qcm-kvdual-'])]
     assert len(own)<4, own
     command=['sbatch','--parsable','--job-name=qcm-kvdual-8b','--dependency=singleton','--no-requeue',
         '--partition=gpu','--nodelist=gpu-node1','--nodes=1','--ntasks=1','--gres=gpu:nvidia_l20d:1',

@@ -41,7 +41,7 @@ runtime.__path__ = []
 sys.modules.update({'triton': triton, 'triton.runtime': runtime})
 official = load('triton.runtime.cache', SAVED)
 runtime.cache = official
-fix = load('qcomem_triton_cache', HERE/'qcomem_triton_cache.py')
+fix = load('qencbank_triton_cache', HERE/'qencbank_triton_cache.py')
 fix.REMOTE_HOME = WORK  # Test-only local boundary; production constant unchanged.
 assert hashlib.sha256(SAVED.read_bytes()).hexdigest() == fix.EXPECTED_OFFICIAL_SOURCE_SHA256
 assert fix.CleanupTolerantFileCacheManager.__bases__ == (official.FileCacheManager,)
@@ -148,13 +148,13 @@ with patch.dict(os.environ, {'TRITON_CACHE_DIR': str(WORK/'different')}):
     raises(RuntimeError, lambda: fix.install(str(WORK)))
 checks.append('process_local_install_official_selection_and_version_source_path_guards')
 
-tree = ast.parse((HERE/'qcomem_triton_cache.py').read_text('utf-8'))
+tree = ast.parse((HERE/'qencbank_triton_cache.py').read_text('utf-8'))
 assert not any(isinstance(n, ast.Assign) and any(isinstance(t, ast.Attribute) and ast.unparse(t) == 'os.removedirs' for t in n.targets) for n in ast.walk(tree))
 assert 'torch' not in sys.modules and 'transformers' not in sys.modules
 checks.append('no_global_removedirs_patch_no_model_framework_or_GPU')
 report = {'status':'PASS_FOCUSED_CPU_CACHE_CLEANUP_FAULT_INJECTION', 'checks':checks, 'count':len(checks),
           'official_source_sha256':fix.EXPECTED_OFFICIAL_SOURCE_SHA256,
-          'module_sha256':hashlib.sha256((HERE/'qcomem_triton_cache.py').read_bytes()).hexdigest(),
+          'module_sha256':hashlib.sha256((HERE/'qencbank_triton_cache.py').read_bytes()).hexdigest(),
           'test_source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
           'installed_runtime_used':False, 'test_runtime':'captured actual cache.py executed with version/knob containers stubbed; real CPU filesystem and inherited official methods',
           'production_installer_rechecks_actual_runtime_source':True,

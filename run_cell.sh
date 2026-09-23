@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run one CoMem eval cell (a single benchmark x model, all other knobs default
+# Run one Encbank eval cell (a single benchmark x model, all other knobs default
 # to sensible values). Thin wrapper over `python -m eval.run`.
 #
 # Usage:
@@ -14,8 +14,8 @@
 #
 # Env overrides:
 #   PYTHON_BIN  python interpreter (default: python)
-#   J           split depth (default: auto -> comem.model_registry)
-#   BASELINE    none|dense|kvdirect|hcache|streamingllm (default: none = CoMem)
+#   J           split depth (default: auto -> encbank.model_registry)
+#   BASELINE    none|dense|kvdirect|hcache|streamingllm (default: none = Encbank)
 #   SELECTOR    bm25|reader_attn|recency|oracle|... (default: driver default)
 set -euo pipefail
 

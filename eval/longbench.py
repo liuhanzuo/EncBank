@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-"""CoMem — LongBench (real long-document QA) eval driver.
+"""Encbank — LongBench (real long-document QA) eval driver.
 
-Runs CoMem on LongBench's genuine long-context QA tasks (narrativeqa / qasper /
-hotpotqa / 2wikimqa / musique / multifieldqa_en). Thin: build CoMem,
+Runs Encbank on LongBench's genuine long-context QA tasks (narrativeqa / qasper /
+hotpotqa / 2wikimqa / musique / multifieldqa_en). Thin: build Encbank,
 ``generate_from_ids`` per sample, score with the official SQuAD-style token-F1 /
 EM (``qa_f1_score``). Self-contained: prompt templates + F1/EM + JSONL loader +
 shard merge scorer are embedded here (ported verbatim from the research repo).
@@ -13,7 +13,7 @@ context/input/answers), falling back to HuggingFace ``THUDM/LongBench``.
 Usage:
     python -m eval.longbench --model_path /path/to/Qwen3-8B --resume_j 12 \\
         --selector bm25 --topk 12 --tasks narrativeqa qasper hotpotqa 2wikimqa \\
-        --output_dir longbench_results/comem_j12
+        --output_dir longbench_results/encbank_j12
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ import torch
 from tqdm.auto import tqdm
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from comem import CoMem                          # noqa: E402
+from encbank import Encbank                          # noqa: E402
 from eval import _cli                            # noqa: E402
 from eval._common import (load_backbone, resolve_baseline,  # noqa: E402
                           dense_generate, DENSE_MODES)
@@ -211,7 +211,7 @@ def run_scoring(output_dir, datasets_list):
 
 
 def main():
-    p = argparse.ArgumentParser(description="CoMem LongBench eval")
+    p = argparse.ArgumentParser(description="Encbank LongBench eval")
     p.add_argument("--model", "--model_path", dest="model_path", default="")
     p.add_argument("--j", "--resume_j", dest="resume_j", type=_cli.j_type, default=12,
                    help="split depth (int) or 'auto' (per-model, see model_registry)")
@@ -229,7 +229,7 @@ def main():
     p.add_argument("--max_samples", "--n", dest="max_samples", type=int, default=-1)
     p.add_argument("--num_shards", type=int, default=1)
     p.add_argument("--shard_index", type=int, default=0)
-    p.add_argument("--output_dir", "--out", dest="output_dir", default="longbench_results/comem")
+    p.add_argument("--output_dir", "--out", dest="output_dir", default="longbench_results/encbank")
     p.add_argument("--device", default="cuda:0")
     p.add_argument("--dtype", default="bfloat16", choices=["bfloat16", "float16", "float32"])
     p.add_argument("--attn_impl", default="sdpa")
@@ -248,7 +248,7 @@ def main():
     dense_mode = mode if mode in DENSE_MODES else None
     model, tok = load_backbone(args.model_path, args.dtype, args.attn_impl,
                                args.device, lora)
-    cm = CoMem(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
+    cm = Encbank(model, resume_j=resume_j, top_prepay_b=args.top_prepay_b,
                block_diagonal=args.reuse_kv_blockdiag, tokenizer=tok)
     device = torch.device(args.device)
     all_data = load_longbench_dataset(args.hf_dataset, datasets_list, args.data_dir)
@@ -298,7 +298,7 @@ def main():
                     for r in buf:
                         f.write(json.dumps(r, ensure_ascii=False) + "\n")
         f1 = sum(compute_f1_multi(r["pred"], r["answers"]) for r in buf) / max(1, len(buf)) * 100
-        print(f"[CoMem-LongBench] {ds_name}: F1={f1:.2f}% ({len(buf)}, {time.time()-t0:.1f}s)")
+        print(f"[Encbank-LongBench] {ds_name}: F1={f1:.2f}% ({len(buf)}, {time.time()-t0:.1f}s)")
     if args.num_shards == 1:
         run_scoring(args.output_dir, datasets_list)
 

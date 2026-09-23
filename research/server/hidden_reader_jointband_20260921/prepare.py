@@ -19,14 +19,14 @@ protocol=dict(history_write='independent512-token H12; sink as its own block',
     positions='packed positions retained for all blocks, including physically batched local phase',
     query_decode='all36 blocks for query/generated tokens; blocks1..12 see query/continuation only; blocks13..36 see every retrieved memory block',
     trainable_parameters=0,projection_heads='original model K/V projections only; no learned cross-depth heads',
-    independent_variable='joint causal depth n',fixed='same original COMem weights, retrieval, prompts, caps, scoring, query visibility',
+    independent_variable='joint causal depth n',fixed='same original Encbank weights, retrieval, prompts, caps, scoring, query visibility',
     n_grid=[12,14,16,18,20,24,28,32,36],screen_items_per_cell=32,confirmation_items_per_cell=68,
     selection_rule='smallest n whose task-mean loss vs native is <=2pp for each of single/multikey/VT and no cell loss exceeds5pp; fallback n36 if none',
     confirm_arms='native,n12,selected_n,n36 with duplicates removed; selection uses only first32/cell',
     timing='H12-ready to all upper history KV ready; two warmups then five wall/CUDA timings, chunk counts1/4/12; excludes retrieval/H12-write/query/decode',
     caveat='full original MLP and projections still execute at every history layer; this isolates attention locality, not the preceding learned-KV-head approximation',
     cache_dependency='post-joint states depend on ordered retrieved prefix; they are not a context-free per-chunk cache',
-    benchmark_scope='same3 tasks x3 lengths; NIAH official generator, variable tracking COMem RULER-style; no full13-task RULER claim')
+    benchmark_scope='same3 tasks x3 lengths; NIAH official generator, variable tracking Encbank RULER-style; no full13-task RULER claim')
 (R/'protocol.json').write_text(json.dumps(protocol,indent=2)+'\n')
 for p in R.glob('*.py'):compile(p.read_text(),str(p),'exec')
 manifest={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest() for p in R.rglob('*') if p.is_file()}

@@ -1,6 +1,6 @@
 import json,time
 from pathlib import Path
-R=Path('/srv/encbank/qcomem_align_codex_20260911/hidden_reader_terminal_r5_20260921')
+R=Path('/srv/encbank/qencbank_align_codex_20260911/hidden_reader_terminal_r5_20260921')
 for task,root in json.loads((R/'roots.json').read_text()).items():
     C=Path(root);rs=sorted((C/'mailbox'/task).glob('*.response.json'),key=lambda p:p.stat().st_mtime)
     if not rs:continue

@@ -14,5 +14,5 @@ for cell,c in cfg.items():
     co=C/cell/'results'
     if c['control_only'] and (co/'parent_exit.json').exists() and json.loads((co/'parent_exit.json').read_text())['returncode']==0:
         controls=[json.loads(x) for x in (co/'predictions.jsonl').read_text().splitlines()];assert len(controls)==100
-        scores['comem_split']=string_match_all([r['arms']['comem_split']['prediction'] for r in controls],[labels[r['id']] for r in controls])
+        scores['encbank_split']=string_match_all([r['arms']['encbank_split']['prediction'] for r in controls],[labels[r['id']] for r in controls])
     print(json.dumps(dict(cell=cell,items=100,scores=scores,interim_only=True)))

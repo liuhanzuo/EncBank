@@ -6,10 +6,10 @@ from resource_guard import query,require_identity
 def now():return datetime.datetime.now().astimezone().isoformat()
 def main():
  args=parser().parse_args();plan,activation=preflight(args,envelope=not args.check_only)
- assert args.arm=='comem_frozen_j12' and not args.arm.startswith('h')
+ assert args.arm=='encbank_frozen_j12' and not args.arm.startswith('h')
  if args.check_only:print('{"status":"native_file_bindings_checked_no_cuda"}');return
  run,natural_read=resolve_driver(plan)  # Exact origin before sys.path mutations and model imports.
- assert Path(os.environ['QCOMEM_REPO_ROOT']).resolve()==ROOT
+ assert Path(os.environ['QENCBANK_REPO_ROOT']).resolve()==ROOT
  output=Path(args.output);parent=read(output/'execution.json')
  assert parent['status']=='worker_running' and parent['gpu_worker_started'] and parent['stable_interval_seconds']>=45
  identity=parent['physical_gpu_identity'];record={'status':'preparing','arm':args.arm,'pid':os.getpid(),'plan_sha256':args.expected_plan_sha256,'started_at':now(),'model_loaded':False,'training_allowed':False,'runtime_offload_allowed':False,'fallback_allowed':False,'quality_evidence':False,'physical_gpu_identity':identity}
@@ -21,7 +21,7 @@ def main():
   for name,info in activation['files'].items():assert sha(model_path(plan,'adapter')/name)==info['sha256'],name
   from backend_gate import qualified_node_identity
   record['node_identity']=qualified_node_identity(plan,os.environ,socket.gethostname())
-  from qcomem_triton_cache import install as install_triton_cache
+  from qencbank_triton_cache import install as install_triton_cache
   record['triton_cache_cleanup_fix']=install_triton_cache(plan['task_cache_root']+'/triton')
   save(output/'worker.json',record)
   import torch,transformers,peft,triton
@@ -46,7 +46,7 @@ def main():
    record.setdefault('pre_migration_checks',[]).append(snapshot);save(output/'worker.json',record)
    assert free>=RESOURCE['minimum_free_bytes'],'Fresh CUDA free-memory admission denied'
   gate()
-  sys.path[:0]=[str(ROOT),str(ROOT/'tmp_external_baselines/comem_official'),str(ROOT/'gpu/kvquant_quality_balanced')]
+  sys.path[:0]=[str(ROOT),str(ROOT/'tmp_external_baselines/encbank_official'),str(ROOT/'gpu/kvquant_quality_balanced')]
   from eval._common import load_backbone
   from phase_profile import Profiler
   profiler=Profiler(torch)
@@ -71,7 +71,7 @@ def main():
    save(output/'worker.json',record)
    provenance={'plan_sha256':args.expected_plan_sha256,'fixture_sha256':plan['fixture']['sha256'],'activation_sha256':plan['activation']['sha256'],'source_sha256':plan['source_sha256'],'model_file_sha256':activation['model_file_sha256'],'adapter_file_sha256':{},'adapter_files_audited_but_unused':activation['files'],'torch':torch.__version__,'transformers':transformers.__version__,'peft':peft.__version__,'gpu':torch.cuda.get_device_name(0),'physical_gpu_identity':identity,'slurm_job_id':os.environ['SLURM_JOB_ID'],'attention_backend':'sdpa','backbone_dtype':'torch.float16','model_load':{k:v for k,v in record.items() if k.startswith('model_')},'resource_policy':RESOURCE,'reader_binding':plan['reader_binding'],'adapter_active':args.arm.startswith('h'),'same_custom_reader_for_H16_H8_H4':False,'method_configuration':plan['method_configuration'],'exact_paper_checkpoint_replication':False,'first_step_EOS_suppressed':True,'single_EOS_override':151645,'explicit_BOS_from_model_config':151643,'original_tokenizer_BOS':tokenizer.bos_token_id,'original_generation_config_EOS':read(model_path(plan,'model')/'generation_config.json')['eos_token_id'],'lexical_metadata_CPU_is_not_H_or_KV_offload':True,'device_block':'gpu-node1 Slurm single physical GPU; never RTX5090 timing evidence'}
    provenance['triton_cache_cleanup_fix']=record['triton_cache_cleanup_fix']
-   provenance.update(fixture=plan['fixture'],physical_gpu_identity=identity,resource_policy=RESOURCE,scope='New independent frozen CoMem j12 LoRA OFF single64k100; exact original inputs and cap48; native FP16 SDPA.')
+   provenance.update(fixture=plan['fixture'],physical_gpu_identity=identity,resource_policy=RESOURCE,scope='New independent frozen Encbank j12 LoRA OFF single64k100; exact original inputs and cap48; native FP16 SDPA.')
    assert model.config._attn_implementation=='sdpa'
    assert model.config.num_hidden_layers==36 and model.config.hidden_size==4096
    assert model.config.bos_token_id==151643 and tokenizer.eos_token_id==151645

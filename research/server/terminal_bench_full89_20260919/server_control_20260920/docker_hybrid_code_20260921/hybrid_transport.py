@@ -8,7 +8,7 @@ from pathlib import Path
 from server_transport import save, verify_response
 
 SSH='/mnt/c/Windows/System32/OpenSSH/ssh.exe'
-PY='/srv/encbank/qcomem_runtime_20260911/python312/bin/python'
+PY='/srv/encbank/qencbank_runtime_20260911/python312/bin/python'
 
 
 class Transport:

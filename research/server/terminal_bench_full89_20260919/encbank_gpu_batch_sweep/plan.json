@@ -1,0 +1,63 @@
+{
+  "engine_python": "/srv/encbank/Paper_Evolve/.venv/bin/python",
+  "model": "/srv/encbank/encbank_new_backbones_20260915/models/Qwen3.8-27B",
+  "j": 21,
+  "adapter_path": "/srv/encbank/encbank_new_backbones_formal_20260915/training/Qwen3.8-27B/adapter-final.pt",
+  "adapter_sha256": "9253fbb9bda190857ee83ba60ad32cc024efc0faa6a896fcb616423f3bae1ce9",
+  "device_cap_gib": 240,
+  "admission_free_gib": 250,
+  "seed": 20260919,
+  "evidence_id": "E-ENCBANK-GPU-BATCH-SWEEP-20260919",
+  "remote_root": "/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/encbank_gpu_batch_sweep",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "precision": "BF16 base and H16, FP32 suffix LoRA rank32 alpha32 final4000",
+  "purpose": "Matched16-session fixed-token batch-size sweep; not live variable-length serving or benchmark quality",
+  "chunk_tokens": 512,
+  "selected_chunks": 12,
+  "query_tokens": 256,
+  "output_positions": 64,
+  "validation_positions": 16,
+  "warmup_positions": 16,
+  "repetitions": 3,
+  "order": [
+    [
+      "serial",
+      "batch2",
+      "batch4",
+      "batch8",
+      "batch16"
+    ],
+    [
+      "batch16",
+      "batch8",
+      "batch4",
+      "batch2",
+      "serial"
+    ],
+    [
+      "batch4",
+      "serial",
+      "batch16",
+      "batch2",
+      "batch8"
+    ]
+  ],
+  "pair_batch_size": null,
+  "padding": false,
+  "offload": false,
+  "selection": "Fixed selected pack, excluding BM25 and Write from timed Read. Each independent chunk written once.",
+  "correctness_gate": "Finite logits; row permutation and replacing session B must leave session A logits unchanged within atol=rtol=0.002; all H banks immutable.",
+  "serial_comparison": "Report full-vocabulary BF16 differences, top1 match and probability total variation; no automatic deployment or output-equivalence claim.",
+  "timing": "Each mode processes the SAME16 sessions,64 output positions each. Initial logits plus63 fixed decode forwards. No sampling/tool/BM25/Write timing.",
+  "nvml": "Parent samples owned process group every 2s; sampled peak is not guaranteed instantaneous maximum.",
+  "worker_walltime_minutes": 45,
+  "cohort_size": 16,
+  "batch_sizes": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "authorization": "Use the268GiB devices according to measured capacity; new cap240GiB, free250GiB."
+}

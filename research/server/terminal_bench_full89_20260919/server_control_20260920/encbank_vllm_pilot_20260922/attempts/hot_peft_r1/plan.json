@@ -1,0 +1,21 @@
+{
+  "model": "/srv/encbank/qencbank_runtime_20260911/models/Qwen3.8-27B-1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "training_model_identity": {
+    "name": "Qwen3.8-27B",
+    "j": 21,
+    "L": 64,
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "path": "/srv/encbank/encbank_new_backbones_20260915/models/Qwen3.8-27B"
+  },
+  "model_layers": 64,
+  "j": 21,
+  "adapter_path": "/srv/encbank/qencbank_runtime_20260911/models/Qwen3.8-27B-adapter-final4000-9253fbb9.pt",
+  "adapter_sha256": "9253fbb9bda190857ee83ba60ad32cc024efc0faa6a896fcb616423f3bae1ce9",
+  "allocator_gib": 248,
+  "fixed_decode_linear_rows": 32,
+  "stable_decode_norms": true,
+  "row_decode_sdpa": true,
+  "context_tokens": 262144,
+  "hot_chunks": 24
+}

@@ -8,8 +8,8 @@ def save(p,d):
     temp=p.with_suffix('.tmp');temp.write_text(json.dumps(d,indent=2)+'\n');temp.replace(p)
 def main():
     expected=sys.argv[1];assert sha(H/'plan.json')==expected
-    os.environ['QCOMEM_JUDGE_API_KEY']=json.loads(sys.stdin.buffer.read())['key']
-    assert os.environ['QCOMEM_JUDGE_API_KEY']
+    os.environ['QENCBANK_JUDGE_API_KEY']=json.loads(sys.stdin.buffer.read())['key']
+    assert os.environ['QENCBANK_JUDGE_API_KEY']
     state={'status':'RUNNING','pid':os.getpid(),'started_at':now(),'plan_sha256':expected,'automatic_retry':False,'steps':[]}
     save(H/'coordinator_status.json',state)
     try:

@@ -23,7 +23,9 @@ def main():
             errors.append('Published source hash mismatch: '+rel)
         checked.add(rel)
     python_count = 0
-    for name in ['comem','train','eval','bench','runtime','tools']:
+    for name in ['encbank','train','eval','bench','runtime','tools']:
+        if not (ROOT/name).is_dir():
+            errors.append('Missing source directory: '+name)
         for path in (ROOT/name).rglob('*.py'):
             try:
                 ast.parse(path.read_text(encoding='utf-8-sig'),filename=str(path))
@@ -43,6 +45,9 @@ def main():
             continue
         if credential.search(data.decode('utf-8-sig')):
             errors.append('Credential pattern: '+str(path.relative_to(ROOT)))
+        old_name = 'co' + 'mem'
+        if old_name in path.relative_to(ROOT).as_posix().lower() or old_name in data.decode('utf-8-sig').lower():
+            errors.append('Legacy project spelling: '+str(path.relative_to(ROOT)))
     plan=json.loads((ROOT/'runtime/hot_buffer/plan.example.json').read_text())
     assert plan['task_concurrency']==plan['decode_batch_size']==24
     assert plan['hot_chunks']==24 and len(plan['tasks'])==len(set(plan['tasks']))==32

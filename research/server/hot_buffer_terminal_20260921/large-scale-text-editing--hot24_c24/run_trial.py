@@ -10,7 +10,7 @@ async def main():
     directory=ROOT/('qualification' if qualify else 'results')/(task+'--'+arm)
     config=dict(task={'path':str(__import__('pathlib').Path(PLAN['task_root'])/task)},
         trial_name=task+'__band_'+arm,trials_dir=str(directory),install_only=qualify,
-        agent={'import_path':'tb_agent:JointBandTerminus','model_name':'Qwen3-8B/COMem-'+arm,
+        agent={'import_path':'tb_agent:JointBandTerminus','model_name':'Qwen3-8B/Encbank-'+arm,
             'kwargs':{'enable_summarize':False,'proactive_summarization_threshold':0,'interleaved_thinking':False,
                 'collect_rollout_details':True,'store_all_messages':True,'record_terminal_session':False}},
         environment=json.loads((ROOT/'environment_template.json').read_text()),verifier={})

@@ -1,7 +1,7 @@
 """Execute unmodified official niah.py; collect read-only source boundaries."""
 from pathlib import Path
 import os,sys,json,runpy,hashlib,importlib.metadata,ast,datetime
-O=Path(__file__).resolve().parent;ROOT=Path(r'/srv/encbank/legacy_workspace');N=ROOT/'paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs'
+O=Path(__file__).resolve().parent;ROOT=Path(r'/srv/encbank/legacy_workspace');N=ROOT/'paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs'
 assert os.environ.get('PYTHONHASHSEED')=='42'
 assert os.environ.get('USE_TORCH')=='0'
 DATA=N/'official_ruler/scripts/data';SRC=DATA/'synthetic/niah.py'
@@ -43,7 +43,7 @@ plan={'status':'FROZEN_BEFORE_NEW_DATA_GENERATION','task':'niah_single_2','offic
  'prefix_contract':'single explicit model-config BOS; not in document chunks; no chat template',
  'document_contract':'official fixed task instruction + generated full context + fixed newline separator; independently tokenized',
  'query_contract':'official entire question+answerprefix; independently tokenized, no truncation; barequestion excludes answerprefix',
- 'retrieval':{'selector':'iter_bm25','topk':12,'iter_hop_topk':4,'iter_rounds':0,'source':'tmp_external_baselines/comem_official/comem/selectors.py'},
+ 'retrieval':{'selector':'iter_bm25','topk':12,'iter_hop_topk':4,'iter_rounds':0,'source':'tmp_external_baselines/encbank_official/encbank/selectors.py'},
  'versions':{k:importlib.metadata.version(k) for k in ['transformers','tokenizers','numpy','nltk','wonderwords','PyYAML','tenacity']}}
 (O/'generation_plan.json').write_text(json.dumps(plan,indent=2)+'\n',encoding='utf-8')
 sys.argv=args

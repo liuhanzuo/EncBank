@@ -1,6 +1,6 @@
 #!/bin/bash
 set -uo pipefail
-ROOT=/srv/encbank/qcomem_runtime_20260911/server_control_20260920
+ROOT=/srv/encbank/qencbank_runtime_20260911/server_control_20260920
 export APPTAINER_TMPDIR="$ROOT/tmp"
 export APPTAINER_CACHEDIR="$ROOT/apptainer_cache"
 export TMPDIR="$ROOT/tmp"

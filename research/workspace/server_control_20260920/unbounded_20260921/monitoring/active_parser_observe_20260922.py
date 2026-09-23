@@ -4,8 +4,8 @@ import json
 import time
 from pathlib import Path
 
-S = Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920')
-B = Path('/srv/encbank/qcomem_runtime_20260911/server_control_20260920')
+S = Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920')
+B = Path('/srv/encbank/qencbank_runtime_20260911/server_control_20260920')
 
 def read(path):
     return json.loads(path.read_text()) if path.exists() else None

@@ -6,7 +6,7 @@ BASE=ROOT.parent
 E=BASE/'repo/paper_autonomous_multifork_iteration/evidence'
 shutil.copytree(BASE/'hidden_reader_four_distill_20260921/vendor',ROOT/'vendor',dirs_exist_ok=True)
 sys.path.insert(0,str(ROOT/'vendor'))
-from comem.selectors import iter_bm25_indices
+from encbank.selectors import iter_bm25_indices
 import torch
 torch.set_num_threads(4)
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -51,17 +51,17 @@ for cell,rel in paths:
     row=dict(cell=cell,source_fixture=str(fixture),source_fixture_sha256=sha(fixture),source_labels=str(labelpath),
         source_labels_sha256=sha(labelpath),input_sha256=sha(p),labels_sha256=sha(lp),items=len(items),
         min_selected=min(len(x['selected_indices']) for x in packed),max_selected=max(len(x['selected_indices']) for x in packed),
-        provenance='COMem embedded RULER-style variable tracking, hop 4' if cell.startswith('vt') else 'official NVIDIA RULER NIAH generator, frozen existing COMem fixture')
+        provenance='Encbank embedded RULER-style variable tracking, hop 4' if cell.startswith('vt') else 'official NVIDIA RULER NIAH generator, frozen existing Encbank fixture')
     inventory.append(row);configs[cell]=dict(input=str(p),input_sha256=sha(p),items=100)
     print(json.dumps(row),flush=True)
 save(ROOT/'configs.json',configs);save(ROOT/'input_inventory.json',inventory)
-scorer=E/'comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py'
+scorer=E/'encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py'
 assert sha(scorer)=='6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f'
 shutil.copyfile(scorer,ROOT/'official_scoring.py')
 save(ROOT/'protocol.json',dict(at=datetime.datetime.now().astimezone().isoformat(),
-    model='Qwen3-8B',adapter='original unmerged COMem LoRA',chunk_tokens=512,topk=12,
+    model='Qwen3-8B',adapter='original unmerged Encbank LoRA',chunk_tokens=512,topk=12,
     selector='iter_bm25',iter_hop_topk=4,iter_rounds=0,skip_nonpositive_scores=True,sort_packing='source order',
-    arms=['comem','kd256','kd_selected','kd2048'],selection='minimum held-out validation KL across both longer runs; RULER never used for checkpoint selection',
+    arms=['encbank','kd256','kd_selected','kd2048'],selection='minimum held-out validation KL across both longer runs; RULER never used for checkpoint selection',
     long_endpoint='2048 total updates from the run selected by validation; separately reported, never substituted for best validation checkpoint',
     history_depths=[12,16,20,24],history_write='chunk independent, no hidden checkpoint after H24',
     lower_query_attention='query and generated continuation only, identical for all arms',
@@ -69,4 +69,4 @@ save(ROOT/'protocol.json',dict(at=datetime.datetime.now().astimezone().isoformat
     generation='greedy, first-step EOS suppressed, scalar EOS 151645, no prompt/template edits',
     memory_execution='only retrieved chunks written lazily; projected KV resident during decode; quality test, not full-bank write or end-to-end performance benchmark',
     score='official string_match_all reference substring recall, case insensitive, percent',official_scorer_sha256=sha(scorer),
-    scope='3 tasks x 3 lengths x 100 paired items; NOT the complete 13-task RULER score; VT is separately identified as COMem RULER-style'))
+    scope='3 tasks x 3 lengths x 100 paired items; NOT the complete 13-task RULER score; VT is separately identified as Encbank RULER-style'))

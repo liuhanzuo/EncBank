@@ -9,7 +9,7 @@ def main():
  assert args.arm=='public_kvdirect_j0' and not args.arm.startswith('h')
  if args.check_only:print('{"status":"native_file_bindings_checked_no_cuda"}');return
  run,natural_read=resolve_driver(plan)  # Exact origin before sys.path mutations and model imports.
- assert Path(os.environ['QCOMEM_REPO_ROOT']).resolve()==ROOT
+ assert Path(os.environ['QENCBANK_REPO_ROOT']).resolve()==ROOT
  output=Path(args.output);parent=read(output/'execution.json')
  assert parent['status']=='worker_running' and parent['gpu_worker_started'] and parent['stable_interval_seconds']>=45
  identity=parent['physical_gpu_identity'];record={'status':'preparing','arm':args.arm,'pid':os.getpid(),'plan_sha256':args.expected_plan_sha256,'started_at':now(),'model_loaded':False,'training_allowed':False,'runtime_offload_allowed':False,'fallback_allowed':False,'quality_evidence':False,'physical_gpu_identity':identity}
@@ -44,7 +44,7 @@ def main():
    record.setdefault('pre_migration_checks',[]).append(snapshot);save(output/'worker.json',record)
    assert free>=RESOURCE['minimum_free_bytes'],'Fresh CUDA free-memory admission denied'
   gate()
-  sys.path[:0]=[str(ROOT),str(ROOT/'tmp_external_baselines/comem_official'),str(ROOT/'gpu/kvquant_quality_balanced')]
+  sys.path[:0]=[str(ROOT),str(ROOT/'tmp_external_baselines/encbank_official'),str(ROOT/'gpu/kvquant_quality_balanced')]
   from eval._common import load_backbone
   from phase_profile import Profiler
   profiler=Profiler(torch)

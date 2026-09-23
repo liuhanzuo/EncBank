@@ -45,7 +45,7 @@ WHAT THIS CANNOT SHOW
     One model (Qwen3-1.7B, L=28), one chunk size, one k, one corpus, one retrieval rule,
     and greedy/heuristic placements only -- an untried set could beat all of these.  It
     measures a read-time quantity; it says nothing about wall clock or accuracy.  Per
-    [[comem-layer9-anchor-retracted]], a single selection set cannot establish that any
+    [[encbank-layer9-anchor-retracted]], a single selection set cannot establish that any
     particular layer is special; this script reports a per-layer CURVE with paired
     bootstrap intervals rather than picking a winner.
 """

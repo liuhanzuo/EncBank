@@ -8,7 +8,7 @@
   "server.slurm": "eaa18331f6e7e2c5a234387d0da6aca0cccbdadf7ff792f9226baf0270c71c80",
   "server_transport.py": "78a38758716b4f72081e7e7cc59fc82e55c1b846acc1c557b796f1ba3d7d2fe5",
   "gpu.sh": "acf777f0f98af1508c3a23835dfecd73a789081c1f9c234efa0963483acbd11d",
-  "comem_harbor_template.json": "be3264e5719fed0ed27beba94ed6ba8a98f73371333865ceae1bb162477cb794",
+  "encbank_harbor_template.json": "be3264e5719fed0ed27beba94ed6ba8a98f73371333865ceae1bb162477cb794",
   "server_job.py": "ab2283e88f666d3b0447aa15bb570a7d7a2982e18572fd2245755c092bf38001",
   "service_loop.py": "d975ff44a6ff8e5f672a786fde6556ebac53ef2929ef56724d6c2a4fa3531b34",
   "hybrid_transport.py": "c9e194998f8334106bd91e48570f73ac9127b10724c7fb71cd2a4dc7f5c34249",

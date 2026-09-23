@@ -1,10 +1,10 @@
-"""Shared native CoMem weights; task-local H banks and transient split caches."""
+"""Shared native Encbank weights; task-local H banks and transient split caches."""
 from pathlib import Path
 import gc,hashlib,json,os,platform,subprocess,time,traceback
 from persistence import dump
 from session import Session,digest,request_seed
 from live_mailbox import Mailbox
-H=Path(__file__).resolve().parent;P=json.loads((H/'plan.json').read_text());R=H/'run_comem';B=R/'mailbox'
+H=Path(__file__).resolve().parent;P=json.loads((H/'plan.json').read_text());R=H/'run_encbank';B=R/'mailbox'
 def transport_status():
     return {n:json.loads((R/n).read_text()) for n in ['worker_ready.json','worker_failure.json','process_receipt.json','memory_cap_failure.json','worker_complete.json'] if (R/n).exists()}
 transport=Mailbox(B,transport_status);B=transport.path()

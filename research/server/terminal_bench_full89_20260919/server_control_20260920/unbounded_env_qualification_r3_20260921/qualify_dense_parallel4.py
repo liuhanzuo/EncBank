@@ -37,7 +37,7 @@ async def check(task, semaphore):
             await asyncio.wait_for(env.start(force_build=False),timeout=600)
             agent=ConcurrentDenseTerminus(logs_dir=out/'agent',model_name=template['agents'][0]['model_name'],**template['agents'][0]['kwargs'])
             await asyncio.wait_for(agent.setup(env),timeout=600)
-            result=await env.exec('command -v tmux; command -v asciinema; cat /proc/self/cgroup; test ! -e /srv/encbank/qcomem_runtime_20260911/models',timeout_sec=30)
+            result=await env.exec('command -v tmux; command -v asciinema; cat /proc/self/cgroup; test ! -e /srv/encbank/qencbank_runtime_20260911/models',timeout_sec=30)
             assert result.return_code==0,result.stderr
             record=json.loads((env._root/'service.json').read_text())
             assert int(record['memory_max'])==cfg['environment']['memory_mb']*2**20

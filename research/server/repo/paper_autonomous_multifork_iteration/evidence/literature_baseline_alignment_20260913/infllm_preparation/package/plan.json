@@ -40,7 +40,7 @@
     "sha256": "26fb8c47aa62e5761c2e92d2410e4d566d2bb55ddbd3ffe26fe035f20018480a"
   },
   "scorer": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
     "sha256": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f"
   },
   "activation": {
@@ -48,14 +48,14 @@
     "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
   },
   "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_InfLLM_resident",
-  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
-  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "model_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/adapter",
   "resource_policy": {
     "allocator_cap_bytes": 214748364800,
     "minimum_free_bytes": 236223201280,
     "stable_idle_seconds": 45
   },
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "native_attention_policy": "InfLLM upstream Torch multistage joint softmax, not SDPA; native PyTorch allocator and Qwen3 layers",
   "natural_qa_adapter": {
     "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/timed_runtime/natural_qa.py",
@@ -128,10 +128,10 @@
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/utils/patch_mc.py": "d104d0e705da70e36dcef94ea4b23d2095a4a7b3fc7d669ee61a6132e1f460a4",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/requirements.txt": "f43f2d945e903cc61498e9bc3f78942b8f4435d9950cc60e837fe2681681c6e2",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/setup.py": "9f60852ba452aa91f3db7efa6730d3a37eb645d6aa04fa3c662fd7f3f7944a52",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
     "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/timed_runtime/natural_qa.py": "fe2b75db339e90be142432e73fd0824ec25e01fafc56caff0bd70109cce82716",
-    "tmp_external_baselines/comem_official/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "tmp_external_baselines/encbank_official/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "batch_output": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/run/attempt1",
   "outputs": {
@@ -219,7 +219,7 @@
       ]
     }
   },
-  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/literature_infllm_resident_single16k_attempt1",
+  "task_cache_root": "/srv/encbank/qencbank_align_codex_20260911/task_cache/literature_infllm_resident_single16k_attempt1",
   "task": {
     "benchmark": "RULER",
     "task": "niah_single_2",
@@ -233,7 +233,7 @@
     "num_needle_v": 1,
     "num_needle_q": 1
   },
-  "job_name": "qcomem-lit-infllm-resident-single16k100-codex",
+  "job_name": "qencbank-lit-infllm-resident-single16k100-codex",
   "concurrency_policy": {
     "maximum_owned_requested_GPUs": 4,
     "GPUs_per_job": 1,
@@ -253,7 +253,7 @@
     "sha256": "cf7a09504ceb13ece1e10a0ecd8a57cf85f7c0e0812b9030c25efa2eeea54991"
   },
   "postprocess": {
-    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
+    "path": "paper_autonomous_multifork_iteration/evidence/encbank_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
     "sha256": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c"
   },
   "input_assembly_receipt": {

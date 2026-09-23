@@ -2,7 +2,7 @@
 import sys
 from pathlib import Path
 R=Path(__file__).resolve().parent
-sys.path[:0]=[str(R/'vendor'),'/srv/encbank/comem_infra_recheck_20260912/deps']
+sys.path[:0]=[str(R/'vendor'),'/srv/encbank/encbank_infra_recheck_20260912/deps']
 import peft,torch,transformers
 from band_reader import JointBand
 from common import save

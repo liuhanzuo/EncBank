@@ -1,7 +1,7 @@
 """Read only; run on the actual Slurm node, passing that node alias as argv[1]."""
 import hashlib,json,os,socket,subprocess,sys,time
 from pathlib import Path
-T=Path('/srv/encbank/qcomem_align_codex_20260911/tf27b_hot_live_20260921')
+T=Path('/srv/encbank/qencbank_align_codex_20260911/tf27b_hot_live_20260921')
 entry=next(x for x in json.loads((T/'submissions.json').read_text()) if x['label']=='hot24_peft_merged')
 R=Path(entry['root']);job=entry['job']
 def read(path):return json.loads(path.read_text()) if path.exists() else None

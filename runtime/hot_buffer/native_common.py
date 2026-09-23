@@ -7,14 +7,14 @@ import transformers
 from transformers import AutoConfig, AutoModelForCausalLM, AutoModelForImageTextToText, AutoTokenizer
 
 ROOT = Path(__file__).resolve().parent
-REMOTE = '/srv/encbank/comem_new_backbones_formal_20260915'
+REMOTE = '/srv/encbank/encbank_new_backbones_formal_20260915'
 MODELS = [
     dict(name='Qwen3.5-9B', j=6, L=32, revision='c202236235762e1c871ad0ccb60c8ee5ba337b9a'),
     dict(name='Qwen3.8-27B', j=21, L=64, revision='1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0'),
 ]
 for cfg in MODELS:
-    cfg['path'] = '/srv/encbank/comem_new_backbones_20260915/models/' + cfg['name']
-TRAIN_DATA = '/srv/encbank/comem_new_backbones_20260915/data/pg19_train_64.jsonl'
+    cfg['path'] = '/srv/encbank/encbank_new_backbones_20260915/models/' + cfg['name']
+TRAIN_DATA = '/srv/encbank/encbank_new_backbones_20260915/data/pg19_train_64.jsonl'
 ARMS = ['cache_lora', 'cache_without_lora', 'replay_base', 'replay_shared_lora',
         'kvdirect', 'streamingllm', 'hcache_style']
 STEPS, WINDOW, CHUNK, SHARDS = 4000, 4096, 512, 4

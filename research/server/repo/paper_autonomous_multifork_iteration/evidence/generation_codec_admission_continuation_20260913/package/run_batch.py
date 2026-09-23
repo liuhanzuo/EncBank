@@ -29,7 +29,7 @@ def run_child(argv,out,record):
  return code
 def main():
  p=argparse.ArgumentParser();p.add_argument('--plan',required=True);p.add_argument('--expected-plan-sha256',required=True);a=p.parse_args()
- assert sys.executable==PYTHON and ROOT==Path(REMOTE_ROOT) and Path(os.environ['QCOMEM_REPO_ROOT'])==ROOT
+ assert sys.executable==PYTHON and ROOT==Path(REMOTE_ROOT) and Path(os.environ['QENCBANK_REPO_ROOT'])==ROOT
  assert sha(a.plan)==a.expected_plan_sha256
  plan=read(a.plan)
  from backend_gate import validate_backend_binding

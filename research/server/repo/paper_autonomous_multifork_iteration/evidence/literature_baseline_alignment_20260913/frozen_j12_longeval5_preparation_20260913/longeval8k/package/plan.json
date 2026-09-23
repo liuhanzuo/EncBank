@@ -1,8 +1,8 @@
 {
-  "schema": "LongEval_longeval8k_100_FP16_frozen_CoMem_j12_remote_v1",
+  "schema": "LongEval_longeval8k_100_FP16_frozen_Encbank_j12_remote_v1",
   "frozen_at": "2026-09-13T22:33:07.927125+08:00",
   "arm_order": [
-    "comem_frozen_j12"
+    "encbank_frozen_j12"
   ],
   "backbone_dtype": "float16",
   "attention_backend": "sdpa",
@@ -31,16 +31,16 @@
     "sha256": "aa9b94ee8c9106dcf3f0d4e871e1b65ac3ec8c56f72f56251fdf64671d899083"
   },
   "scorer": {
-    "path": "tmp_external_baselines/comem_official/eval/longeval.py",
+    "path": "tmp_external_baselines/encbank_official/eval/longeval.py",
     "sha256": "632c20409080779e715f8e9e6cfbdb562a387ebe985260f321e555b039797234"
   },
   "activation": {
     "path": "paper_autonomous_multifork_iteration/evidence/qwen_access_repair_20260911/package/quality/bindings/adapter_activation.json",
     "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
   },
-  "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_CoMem_j12_nativeH16",
-  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
-  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_Encbank_j12_nativeH16",
+  "model_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qencbank_align_codex_20260911/exact_local_reader/adapter",
   "resource_policy": {
     "allocator_cap_bytes": 214748364800,
     "minimum_free_bytes": 236223201280,
@@ -50,7 +50,7 @@
     "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/environment/recovery_attempt3/completion_receipt.json",
     "sha256": "1ad467954292aefa6f7e6588903b4aa96be583a3c739063d9c3c1fa854fe321f"
   },
-  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "python": "/srv/encbank/qencbank_runtime_20260911/python312/bin/python",
   "native_attention_runtime_files": {
     "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
     "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
@@ -103,10 +103,10 @@
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
     "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
-    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
-    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_encbank/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/encbank_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
     "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
     "results/external-kvtuner-fp32meta-mistral7b-codex-20260908/resource_policy_recovery_attempt1/migration_guard.py": "1e460504c8320fe850ed91db7fdb0d3cc0b6a32d62d347d9d7cfc302a20102b2",
     "tmp_external_baselines/kv_quant/KIVI/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
@@ -119,7 +119,7 @@
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/analyze.py": "e16bfd540624af553a46dd9b4e116bcaa22905e4915120fa3f9af84f0d691aed",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/backend_gate.py": "21bdd4430ab7f1f9b792e3916cfd3b802d67a8e4a69d79c7ced03d5544ac60d4",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/protocol.py": "2bda4a9315d8b605e4e91e31314262a9fd4dfcc27241d91d2927dab2ded36ba5",
-    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/qcomem_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/qencbank_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/record_shell_exit.py": "27ff44a5cd2067f24a3b045e3ec4a024dc376fbfe07baa0794caeccb855c4e12",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/resource_guard.py": "4ab1f426704a6e6abb519f5e0ea3935e97cda6a70fc37a19b7dd9a258d090cbb",
     "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/resource_worker.py": "7f5b27bfc83f192fd6dd9a7c049b6c4c7ff35bc7e049dfcc1cab5edd3d0581da",
@@ -129,7 +129,7 @@
   },
   "batch_output": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/run/attempt1",
   "outputs": {
-    "comem_frozen_j12": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/run/attempt1/comem_frozen_j12"
+    "encbank_frozen_j12": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_longeval5_preparation_20260913/longeval8k/package/run/attempt1/encbank_frozen_j12"
   },
   "items_per_arm": 100,
   "documents_per_arm": 100,
@@ -160,11 +160,11 @@
   "training_or_runtime_offload": false,
   "automatic_retry": false,
   "on_actual_OOM": "Stop on every nonzero, including OOM; preserve failed arm/partial native exits. No automatic retry or later-arm continuation. Partial is not a zero score or full six-method evidence.",
-  "precision_scope": "One adapter-free CoMem j12, FP16 backbone/native H, native SDPA; no LoRA or quantized or Dense arm executed.",
+  "precision_scope": "One adapter-free Encbank j12, FP16 backbone/native H, native SDPA; no LoRA or quantized or Dense arm executed.",
   "BOS_policy": "Prior BOS151643/scalarEOS151645/first-step suppression; fixed independently of 54-question BOS sensitivity outcomes.",
   "input_scope": "New pinned original LongEval 8K/100 source ordinals0..99, seed1234, cap16; full original generated text/query, fixed question-independent > and newline delimiter ownership; no crop, oracle or score-dependent selection. Not five lengths or paper same-example replication.",
   "analysis": {
-    "metric": "Pinned CoMem LongEval extract_prediction first >=4 digits then exact string comparison; raw output/empty/cap/zero preserved",
+    "metric": "Pinned Encbank LongEval extract_prediction first >=4 digits then exact string comparison; raw output/empty/cap/zero preserved",
     "contrasts": [],
     "bootstrap_executed": false,
     "future_matched_contrasts": "Only after complete independent closure; no prior saved scores relabeled."
@@ -177,7 +177,7 @@
     "remote Half binary compatibility",
     "new real-model natural-QA qualification from18mocks"
   ],
-  "preparation_scope": "New independent frozen CoMem j12 longeval8k100 with exact original inputs, cap16 and scorer; not a failed-batch continuation.",
+  "preparation_scope": "New independent frozen Encbank j12 longeval8k100 with exact original inputs, cap16 and scorer; not a failed-batch continuation.",
   "input_projection": {
     "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/inputs/projection_receipt.json",
     "sha256": "db32b5bf6b08553b3c0889f57bd42bf7f1b6e46fedeb2bb8a050f5592f57436c"
@@ -201,7 +201,7 @@
     "ttft_seconds"
   ],
   "method_configuration": {
-    "method": "CoMem frozen",
+    "method": "Encbank frozen",
     "runtime_arm": "h16",
     "resume_j": 12,
     "adapter_active": false,
@@ -246,12 +246,12 @@
     "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/resource_policy.json",
     "sha256": "68fcbffde962fc2a89f30ffc463d02a5d12af74284be7cb155d116a0ec31f9e2"
   },
-  "job_name": "qcomem-lit-frozen-j12-longeval8k100-v1-codex",
-  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/literature_frozen_j12_longeval8k_v1_attempt1",
+  "job_name": "qencbank-lit-frozen-j12-longeval8k100-v1-codex",
+  "task_cache_root": "/srv/encbank/qencbank_align_codex_20260911/task_cache/literature_frozen_j12_longeval8k_v1_attempt1",
   "launch_permitted": true,
   "frozen_baseline_lineage": {
     "verified_template_plan": {
-      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_comem_j12_single16k_v3/package/plan.json",
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_encbank_j12_single16k_v3/package/plan.json",
       "sha256": "8f09bdaa0668a48ed03ed8e9671eba13761e5fce36d7b1a8de2f901d199bbdc7"
     },
     "original_input_plan": {

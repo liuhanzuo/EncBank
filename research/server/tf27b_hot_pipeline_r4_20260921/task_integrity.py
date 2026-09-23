@@ -2,7 +2,7 @@
 import hashlib,json,tomllib
 from pathlib import Path
 
-ORIGINAL=Path('/srv/encbank/COMem_Migration_20260920/Part2/payload/qcomem/.runtime/terminal_bench_full89_20260919/tasks')
+ORIGINAL=Path('/srv/encbank/Encbank_Migration_20260920/Part2/payload/qencbank/.runtime/terminal_bench_full89_20260919/tasks')
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def verify_tasks(task_root,manifest,tasks):
     root=Path(task_root);files={};changes=[]

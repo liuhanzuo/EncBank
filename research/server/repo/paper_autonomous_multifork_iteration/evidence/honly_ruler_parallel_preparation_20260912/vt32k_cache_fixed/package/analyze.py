@@ -1,4 +1,4 @@
-"""Saved-output official CoMem VT recall; require all six successful native exits first."""
+"""Saved-output official Encbank VT recall; require all six successful native exits first."""
 from pathlib import Path
 import argparse, ast, collections, datetime, random, re, statistics, string
 from protocol import ARMS, CONFIG, HERE, local, read, save, sha, document_groups, token_sha
@@ -111,7 +111,7 @@ def main():
         contrasts[arm+'_minus_'+ref]={'mean_points':statistics.fmean(delta),'descriptive_95_percentile_interval':[values[249],values[9749]],'H_storage_precision_isolation':ref=='h16' and arm in ('h8','h4')}
     save(args.output,{'status':'complete_six_RULER_VT32K600_answers_600_Writes_3606_phases_pending_parent_shell_Slurm_and_independent_verification',
         'plan_sha256':args.expected_plan_sha256,'finished_at':datetime.datetime.now().astimezone().isoformat(),'arms':reports,'paired_contrasts':contrasts,
-        'resampling':plan['analysis'],'scope':'Six new RULER VT32K100 methods, official CoMem generator/scorer; one new cell, no completed old arms rerun, no full15cell macro or fixed infra claim',
+        'resampling':plan['analysis'],'scope':'Six new RULER VT32K100 methods, official Encbank generator/scorer; one new cell, no completed old arms rerun, no full15cell macro or fixed infra claim',
         'limits':['H methods use active custom FP32 LoRA; Dense and new KIVI methods LoRA off; whole-method comparison; separate acquisition/GPU blocks','Same native SDPA primitive policy is not identical CUDA dispatch or attention graph','Intervals including0 do not establish equivalence/noninferiority']})
     print({a:r['official_string_match_all_percent'] for a,r in reports.items()})
 

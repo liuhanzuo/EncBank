@@ -5,7 +5,7 @@ import shutil
 import time
 from pathlib import Path
 
-S = Path('/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920')
+S = Path('/srv/encbank/qencbank_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920')
 U = S / 'unbounded_20260921'
 D = U / 'scale4_20260921'
 
@@ -41,8 +41,8 @@ for arm in ['k12', 'k48']:
         h.mkdir(exist_ok=False)
         old_runtime = str(Path(p['rpc_root']).parent)
         new_runtime = str(Path(old_runtime).parent / name)
-        ipc = '/srv/encbank/qcomem_runtime_20260911/t89s4' + arm + suffix
-        new_job_name = 'qcomem-tb-' + arm + '-scale4-' + suffix
+        ipc = '/srv/encbank/qencbank_runtime_20260911/t89s4' + arm + suffix
+        new_job_name = 'qencbank-tb-' + arm + '-scale4-' + suffix
         # Only paths and deployment names are substituted; inference implementation is preserved.
         replacements = [(str(old), str(h)), (old_runtime, new_runtime),
                         (p['ipc_root'], ipc), (p['job_name'], new_job_name)]
@@ -58,10 +58,10 @@ for arm in ['k12', 'k48']:
             scale4_partition=suffix, scale4_authorization='User requested more GPUs and higher total concurrency; existing tasks finish normally, delegate only never-started tasks.',
             allocation_policy='At most4 running+pending benchmark GPU allocations; each8 tasks; any eligible node.')
         save(h / 'plan.json', plan)
-        template = read(h / 'comem_harbor_template.json')
+        template = read(h / 'encbank_harbor_template.json')
         template['job_name'] = name
         template['tasks'] = [dict(path=str(Path(plan['task_root']) / t)) for t in tasks]
-        save(h / 'comem_harbor_template.json', template)
+        save(h / 'encbank_harbor_template.json', template)
         q = read(old / 'container_qualification.json')
         for source_name, digest in q['backend_hashes'].items(): assert sha(h / source_name) == digest, source_name
         q.update(tasks=tasks, checks=[r for r in q['checks'] if r['task'] in tasks],

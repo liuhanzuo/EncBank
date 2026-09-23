@@ -1,10 +1,10 @@
 """Freeze an independent Hot24 PEFT-merged real Terminal-Bench arm."""
 import ast,hashlib,json,shutil,time
 from pathlib import Path
-B=Path('/srv/encbank/qcomem_align_codex_20260911')
+B=Path('/srv/encbank/qencbank_align_codex_20260911')
 SRC=B/'tf27b_hot_live_20260921/hot24'
 R=B/'tf27b_hot_live_20260921/hot24_peft_merged'
-PILOT=B/'terminal_bench_full89_20260919/server_control_20260920/comem_vllm_pilot_20260922/attempts/peft_r1'
+PILOT=B/'terminal_bench_full89_20260919/server_control_20260920/encbank_vllm_pilot_20260922/attempts/peft_r1'
 assert not R.exists(),'Never overwrite or duplicate an existing experiment'
 manifest=json.loads((SRC/'source_manifest.json').read_text())
 for name,d in manifest.items():assert hashlib.sha256((SRC/name).read_bytes()).hexdigest()==d,name
@@ -12,7 +12,7 @@ R.mkdir()
 for name in manifest:
     if name in ['plan.json','hot24_preflight.json']:continue
     shutil.copyfile(SRC/name,R/name)
-shutil.copyfile(PILOT/'comem_peft.py',R/'comem_peft.py')
+shutil.copyfile(PILOT/'encbank_peft.py',R/'encbank_peft.py')
 p=json.loads((SRC/'plan.json').read_text())
 plan=dict(p,experiment='Qwen3.8-27B Transformers Hot24 PEFT-merged independent Terminal-Bench arm',
     variant='hot24_peft_merged',lora_execution='peft_merged_bf16',
@@ -29,10 +29,10 @@ path=R/'model_setup.py';source=path.read_text()
 old="resolve_configs(plan,identity,saved);reader.attach();load_state(reader,saved,identity);del saved"
 assert source.count(old)==1
 new="""resolve_configs(plan,identity,saved);del saved
-        from comem_peft import load_comem_peft, file_sha
+        from encbank_peft import load_encbank_peft, file_sha
         assert plan['lora_execution']=='peft_merged_bf16'
         merge_start=time.perf_counter()
-        model,peft_owner,targets=load_comem_peft(model,plan['peft_adapter'],mode='merged_bf16')
+        model,peft_owner,targets=load_encbank_peft(model,plan['peft_adapter'],mode='merged_bf16')
         target_names=sorted(targets)
         assert len(target_names)==333 and not any('lora_' in n for n,_ in model.named_parameters())
         assert not any(type(m).__name__ in ['LoRALinear','LegacyArithmetic'] for m in model.modules())
@@ -69,7 +69,7 @@ for path,expected in json.loads((R/'task_manifest.json').read_text()).items():as
 proof=dict(epoch=time.time(),source=str(SRC),root=str(R),tasks_unchanged=True,resources_unchanged=True,
     predecessor_source_manifest_sha256=hashlib.sha256((SRC/'source_manifest.json').read_bytes()).hexdigest(),
     unchanged_sources=[n for n in manifest if (R/n).exists() and hashlib.sha256((R/n).read_bytes()).hexdigest()==manifest[n]],
-    modified_sources=['model_setup.py','worker.py','plan.json'],new_sources=['comem_peft.py','merged_qualification.py'],
+    modified_sources=['model_setup.py','worker.py','plan.json'],new_sources=['encbank_peft.py','merged_qualification.py'],
     reason='Explicit user-requested merged-LoRA experiment; startup qualification revised to distinguish identical core from new weight execution.')
 (R/'variant_diff.json').write_text(json.dumps(proof,indent=2)+'\n')
 print(json.dumps(proof))

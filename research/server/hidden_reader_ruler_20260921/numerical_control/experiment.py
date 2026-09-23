@@ -1,4 +1,4 @@
-"""Paired original COMem / hidden-to-KV RULER quality evaluation, server only."""
+"""Paired original Encbank / hidden-to-KV RULER quality evaluation, server only."""
 import collections,datetime,hashlib,json,os,sys,time,traceback
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
@@ -40,8 +40,8 @@ def main():
         w=torch.load(p,map_location='cuda',weights_only=False)['weights']
         assert set(w)==set(range(12,36))-{12,16,20,24}
         weights[arm]={l:tuple(t.to(torch.bfloat16) for t in pair) for l,pair in w.items()}
-    MODEL='/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B'
-    ADAPTER='/srv/encbank/comem_infra_recheck_20260912/adapter'
+    MODEL='/srv/encbank/encbank_sparse_slurm_20260912/models/Qwen3-8B'
+    ADAPTER='/srv/encbank/encbank_infra_recheck_20260912/adapter'
     assert sha(Path(ADAPTER)/'adapter_model.safetensors')=='1deb86bdc89206ab029ca67403fb3f96dda29fc68223eebec4fc49e97ec0eb13'
     status('LOAD_MODEL')
     tok=AutoTokenizer.from_pretrained(MODEL,local_files_only=True)
@@ -102,7 +102,7 @@ def main():
         h=reader._run_layers(qh,slice(12,36),mask,p,reader.rotary_emb(qh,position_ids=p),past_key_values=top,use_cache=True)
         return reader.lm_head(reader.norm(h[:,-1:])),bottom,top,qpos
     def split_true_cache(native,top,query,n,check=False):
-        # Use true COMem memory KV to qualify the student's cache/query path.
+        # Use true Encbank memory KV to qualify the student's cache/query path.
         c=fresh()
         for l in range(12,36):c.update(top.layers[l].keys[:,:,:n].clone(),top.layers[l].values[:,:,:n].clone(),l)
         actual,bottom,newtop,qpos=query_prefill(query,c,n)
@@ -128,14 +128,14 @@ def main():
                 query=case['query_token_ids'];row=dict(id=case['id'],index=index,
                     source_document_sha256=case['source_document_sha256'],source_document_tokens=case['source_document_tokens'],
                     selected_indices=case['selected_indices'],memory_tokens=n,query_tokens=len(query),arms={})
-                arms=['comem_split'] if cfg['control_only'] else ['comem','comem_split','kd256','kd_selected','kd2048']
+                arms=['encbank_split'] if cfg['control_only'] else ['encbank','encbank_split','kd256','kd_selected','kd2048']
                 for arm in arms:
                     torch.cuda.synchronize();begin=time.perf_counter()
-                    if arm in ['comem','comem_split']:
+                    if arm in ['encbank','encbank_split']:
                         qh,bottom,qpos=reader.write_prefill(query)
                         logits,top,packed=reader.read_prefill(hidden[12][:,:1],[hidden[12][:,1:]],qh)
                         assert packed==n+qpos
-                        if arm=='comem_split':logits,bottom,top,qpos=split_true_cache(logits,top,query,n,check=index==0)
+                        if arm=='encbank_split':logits,bottom,top,qpos=split_true_cache(logits,top,query,n,check=index==0)
                     else:logits,bottom,top,qpos=query_prefill(query,cache_from_hidden(hidden,weights[arm]),n)
                     torch.cuda.synchronize();prefill_ms=(time.perf_counter()-begin)*1000
                     generated=[];stop='length';eos=case['eos_token_id'];cap=case['max_new_tokens']

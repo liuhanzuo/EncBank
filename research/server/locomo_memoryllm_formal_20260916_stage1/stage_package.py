@@ -9,7 +9,7 @@ import tarfile
 import time
 
 HOME = Path('/srv/encbank')
-CONTROL = HOME / 'qcomem_align_codex_20260911/locomo_memoryllm_formal_20260916_stage1'
+CONTROL = HOME / 'qencbank_align_codex_20260911/locomo_memoryllm_formal_20260916_stage1'
 
 
 def sha(path):
