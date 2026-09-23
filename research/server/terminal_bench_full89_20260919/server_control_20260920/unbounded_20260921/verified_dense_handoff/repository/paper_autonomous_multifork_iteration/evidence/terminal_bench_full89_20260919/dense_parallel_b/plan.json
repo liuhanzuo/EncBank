@@ -1,0 +1,713 @@
+{
+  "evidence_id": "E-COMEM-TB21-FULL89-DENSE-PARALLEL-B-20260919",
+  "benchmark": "Terminal-Bench 2.1",
+  "revision": "7131e4375048a0e408a8fb404b5f499d726b695b",
+  "tasks": [
+    "distribution-search",
+    "dna-assembly",
+    "dna-insert",
+    "extract-elf",
+    "feal-differential-cryptanalysis",
+    "filter-js-from-html",
+    "financial-document-processor",
+    "fix-git",
+    "fix-ocaml-gc",
+    "git-leak-recovery",
+    "gpt2-codegolf",
+    "hf-model-inference",
+    "largest-eigenval",
+    "mailman",
+    "make-doom-for-mips",
+    "mcmc-sampling-stan",
+    "model-extraction-relu-logits",
+    "modernize-scientific-stack",
+    "mteb-leaderboard",
+    "nginx-request-logging",
+    "password-recovery",
+    "path-tracing",
+    "polyglot-rust-c",
+    "protein-assembly",
+    "pypi-server",
+    "pytorch-model-recovery",
+    "qemu-startup",
+    "raman-fitting",
+    "regex-chess",
+    "sanitize-git-repo",
+    "sqlite-db-truncate",
+    "torch-pipeline-parallelism",
+    "train-fasttext",
+    "tune-mjcf",
+    "winning-avg-corewars",
+    "write-compressor"
+  ],
+  "attempts_per_task": 1,
+  "order": "Ascending official task RAM, then name, within disjoint duration-balanced shard",
+  "concurrent_tasks": 4,
+  "model": "/srv/encbank/comem_new_backbones_20260915/models/Qwen3.8-27B",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "dtype": "bfloat16",
+  "lora": false,
+  "engine": "vllm",
+  "engine_version": "0.22.1",
+  "engine_python": "/srv/encbank/venvs/rllm/bin/python",
+  "context_tokens": 262144,
+  "max_new_tokens": 32768,
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "top_k": 20,
+  "seed": 20260919,
+  "reasoning_effort": "xhigh",
+  "preserve_thinking": true,
+  "summarization": false,
+  "context_cropping": false,
+  "official_task_timeouts": true,
+  "runtime_offload": false,
+  "device_cap_gib": 80,
+  "admission_free_gib": 80,
+  "kv_pool_gib": 20,
+  "max_num_batched_tokens": 4096,
+  "max_num_seqs": 4,
+  "max_cudagraph_capture_size": 4,
+  "enable_prefix_caching": true,
+  "mamba_cache_mode": "align",
+  "language_model_only": true,
+  "native_kv_dtype": "auto (model BF16); recurrent state dtype recorded by engine",
+  "speculative_decoding": false,
+  "automatic_scientific_retries": 0,
+  "publication_boundary": "Full 89-task registered local protocol; not an exact replication of Qwen reported 73.0 because full original settings/repeats were not disclosed here.",
+  "old_short3": "Separate completed low-thinking native-SDPA experiment. No reuse or overwrite of its predictions.",
+  "remote_root": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/dense_parallel_b",
+  "timeout_inventory": [
+    {
+      "task": "modernize-scientific-stack",
+      "agent_seconds": 600.0,
+      "verifier_seconds": 600.0
+    },
+    {
+      "task": "overfull-hbox",
+      "agent_seconds": 750.0,
+      "verifier_seconds": 360.0
+    },
+    {
+      "task": "adaptive-rejection-sampler",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "build-cython-ext",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "build-pmars",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "cancel-async-tasks",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "chess-best-move",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "cobol-modernization",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "configure-git-webserver",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "count-dataset-tokens",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "db-wal-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "extract-elf",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "fix-git",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "gcode-to-text",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "git-leak-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "git-multibranch",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "gpt2-codegolf",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "headless-terminal",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "hf-model-inference",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "kv-store-grpc",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "largest-eigenval",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "make-doom-for-mips",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "merge-diff-arc-agi-task",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "multi-source-data-merger",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "nginx-request-logging",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "openssl-selfsigned-cert",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "password-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "polyglot-c-py",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "polyglot-rust-c",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "prove-plus-comm",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "pypi-server",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "pytorch-model-cli",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "pytorch-model-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "qemu-alpine-ssh",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "qemu-startup",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "query-optimize",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "raman-fitting",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "regex-log",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sanitize-git-repo",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sparql-university",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sqlite-db-truncate",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sqlite-with-gcov",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "torch-pipeline-parallelism",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "torch-tensor-parallelism",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "tune-mjcf",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "vulnerable-secret",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "write-compressor",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "break-filter-js-from-html",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "code-from-image",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "constraints-scheduling",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "financial-document-processor",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "large-scale-text-editing",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "crack-7z-hash",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "dna-assembly",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "dna-insert",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "extract-moves-from-video",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "feal-differential-cryptanalysis",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "filter-js-from-html",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "mailman",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "make-mips-interpreter",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "mcmc-sampling-stan",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "mteb-retrieve",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "path-tracing",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "path-tracing-reverse",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "protein-assembly",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "rstan-to-pystan",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "compile-compcert",
+      "agent_seconds": 2400.0,
+      "verifier_seconds": 2400.0
+    },
+    {
+      "task": "schemelike-metacircular-eval",
+      "agent_seconds": 2400.0,
+      "verifier_seconds": 2400.0
+    },
+    {
+      "task": "bn-fit-modify",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "caffe-cifar-10",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "circuit-fibsqrt",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "distribution-search",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "fix-ocaml-gc",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "install-windows-3.11",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "mteb-leaderboard",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "portfolio-optimization",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "regex-chess",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "reshard-c4-data",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "train-fasttext",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "video-processing",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "winning-avg-corewars",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "sam-cell-seg",
+      "agent_seconds": 7200.0,
+      "verifier_seconds": 7200.0
+    },
+    {
+      "task": "build-pov-ray",
+      "agent_seconds": 12000.0,
+      "verifier_seconds": 12000.0
+    }
+  ],
+  "arm": "dense",
+  "adopts_existing_service": false,
+  "resource_inventory": [
+    {
+      "task": "distribution-search",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "dna-assembly",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "extract-elf",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "feal-differential-cryptanalysis",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "fix-git",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "fix-ocaml-gc",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "git-leak-recovery",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "hf-model-inference",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "largest-eigenval",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "mailman",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "make-doom-for-mips",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "nginx-request-logging",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "password-recovery",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "path-tracing",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "polyglot-rust-c",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "pypi-server",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "pytorch-model-recovery",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "raman-fitting",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "regex-chess",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "sanitize-git-repo",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "sqlite-db-truncate",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "tune-mjcf",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "winning-avg-corewars",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "write-compressor",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "dna-insert",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "financial-document-processor",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "protein-assembly",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "qemu-startup",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "train-fasttext",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "filter-js-from-html",
+      "memory_mb": 8192,
+      "cpus": 1
+    },
+    {
+      "task": "gpt2-codegolf",
+      "memory_mb": 8192,
+      "cpus": 1
+    },
+    {
+      "task": "mcmc-sampling-stan",
+      "memory_mb": 8192,
+      "cpus": 4
+    },
+    {
+      "task": "mteb-leaderboard",
+      "memory_mb": 8192,
+      "cpus": 1
+    },
+    {
+      "task": "torch-pipeline-parallelism",
+      "memory_mb": 8192,
+      "cpus": 1
+    }
+  ],
+  "host_admission": "Cross-owner RAM reservation <=20GiB; fresh free RAM plus2GiB margin",
+  "protocol_boundary": "Only scheduling changes: up to4 worlds per model, two GPUs; seeds/model/engine/sampling/context/timeouts unchanged. Retain prior batch2 results and mark infrastructure timing by scheduling phase."
+}

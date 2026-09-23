@@ -1,0 +1,1002 @@
+{
+  "evidence_id": "E-TB21-NO-TASK-DEADLINE-K48-FRESH-R2-20260920",
+  "benchmark": "Terminal-Bench 2.1",
+  "revision": "7131e4375048a0e408a8fb404b5f499d726b695b",
+  "tasks": [
+    "adaptive-rejection-sampler",
+    "bn-fit-modify",
+    "build-cython-ext",
+    "build-pmars",
+    "build-pov-ray",
+    "cancel-async-tasks",
+    "chess-best-move",
+    "circuit-fibsqrt",
+    "cobol-modernization",
+    "code-from-image",
+    "configure-git-webserver",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "custom-memory-heap-crash",
+    "distribution-search",
+    "dna-assembly",
+    "extract-elf",
+    "extract-moves-from-video",
+    "feal-differential-cryptanalysis",
+    "feal-linear-cryptanalysis",
+    "fix-git",
+    "fix-ocaml-gc",
+    "gcode-to-text",
+    "git-multibranch",
+    "headless-terminal",
+    "hf-model-inference",
+    "kv-store-grpc",
+    "large-scale-text-editing",
+    "largest-eigenval",
+    "llm-inference-batching-scheduler",
+    "log-summary-date-ranges",
+    "mailman",
+    "make-doom-for-mips",
+    "make-mips-interpreter",
+    "model-extraction-relu-logits",
+    "modernize-scientific-stack",
+    "mteb-retrieve",
+    "multi-source-data-merger",
+    "nginx-request-logging",
+    "password-recovery",
+    "path-tracing",
+    "path-tracing-reverse",
+    "polyglot-c-py",
+    "polyglot-rust-c",
+    "prove-plus-comm",
+    "pytorch-model-cli",
+    "pytorch-model-recovery",
+    "query-optimize",
+    "raman-fitting",
+    "regex-log",
+    "reshard-c4-data",
+    "sanitize-git-repo",
+    "schemelike-metacircular-eval",
+    "sparql-university",
+    "sqlite-db-truncate",
+    "sqlite-with-gcov",
+    "tune-mjcf",
+    "video-processing",
+    "winning-avg-corewars",
+    "write-compressor",
+    "compile-compcert",
+    "crack-7z-hash",
+    "dna-insert",
+    "install-windows-3.11",
+    "merge-diff-arc-agi-task",
+    "overfull-hbox",
+    "protein-assembly",
+    "qemu-alpine-ssh",
+    "qemu-startup",
+    "sam-cell-seg",
+    "train-fasttext",
+    "caffe-cifar-10",
+    "filter-js-from-html",
+    "gpt2-codegolf",
+    "mcmc-sampling-stan",
+    "mteb-leaderboard",
+    "rstan-to-pystan",
+    "torch-pipeline-parallelism",
+    "torch-tensor-parallelism"
+  ],
+  "attempts_per_task": 1,
+  "order": "Ascending official RAM then task name; not selected by outcome.",
+  "concurrent_tasks": 8,
+  "model": "/srv/encbank/comem_new_backbones_20260915/models/Qwen3.8-27B",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "dtype": "bfloat16",
+  "lora": "suffix j21 rank32 alpha32 FP32 final4000",
+  "engine": "native Transformers SDPA; independent prefill, ragged batch8 single-token decode",
+  "engine_python": "/srv/encbank/Paper_Evolve/.venv/bin/python",
+  "context_tokens": 262144,
+  "max_new_tokens": 32768,
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "top_k": 20,
+  "seed": 20260919,
+  "reasoning_effort": "xhigh",
+  "preserve_thinking": true,
+  "summarization": false,
+  "context_cropping": false,
+  "official_task_timeouts": true,
+  "runtime_offload": false,
+  "device_cap_gib": 240,
+  "admission_free_gib": 250,
+  "language_model_only": true,
+  "speculative_decoding": false,
+  "automatic_scientific_retries": 0,
+  "publication_boundary": "Full 89-task registered local protocol; not an exact replication of Qwen reported 73.0 because full original settings/repeats were not disclosed here.",
+  "old_short3": "Separate completed low-thinking native-SDPA experiment. No reuse or overwrite of its predictions.",
+  "remote_root": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/comem_k48_no_task_deadline_r2_20260920",
+  "timeout_inventory": [
+    {
+      "task": "modernize-scientific-stack",
+      "agent_seconds": 600.0,
+      "verifier_seconds": 600.0
+    },
+    {
+      "task": "overfull-hbox",
+      "agent_seconds": 750.0,
+      "verifier_seconds": 360.0
+    },
+    {
+      "task": "adaptive-rejection-sampler",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "build-cython-ext",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "build-pmars",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "cancel-async-tasks",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "chess-best-move",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "cobol-modernization",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "configure-git-webserver",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "count-dataset-tokens",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "db-wal-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "extract-elf",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "fix-git",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "gcode-to-text",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "git-leak-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "git-multibranch",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "gpt2-codegolf",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "headless-terminal",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "hf-model-inference",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "kv-store-grpc",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "largest-eigenval",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "make-doom-for-mips",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "merge-diff-arc-agi-task",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "multi-source-data-merger",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "nginx-request-logging",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "openssl-selfsigned-cert",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "password-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "polyglot-c-py",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "polyglot-rust-c",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "prove-plus-comm",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "pypi-server",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "pytorch-model-cli",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "pytorch-model-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "qemu-alpine-ssh",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "qemu-startup",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "query-optimize",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "raman-fitting",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "regex-log",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sanitize-git-repo",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sparql-university",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sqlite-db-truncate",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sqlite-with-gcov",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "torch-pipeline-parallelism",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "torch-tensor-parallelism",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "tune-mjcf",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "vulnerable-secret",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "write-compressor",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "break-filter-js-from-html",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "code-from-image",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "constraints-scheduling",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "financial-document-processor",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "large-scale-text-editing",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "crack-7z-hash",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "dna-assembly",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "dna-insert",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "extract-moves-from-video",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "feal-differential-cryptanalysis",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "filter-js-from-html",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "mailman",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "make-mips-interpreter",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "mcmc-sampling-stan",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "mteb-retrieve",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "path-tracing",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "path-tracing-reverse",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "protein-assembly",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "rstan-to-pystan",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "compile-compcert",
+      "agent_seconds": 2400.0,
+      "verifier_seconds": 2400.0
+    },
+    {
+      "task": "schemelike-metacircular-eval",
+      "agent_seconds": 2400.0,
+      "verifier_seconds": 2400.0
+    },
+    {
+      "task": "bn-fit-modify",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "caffe-cifar-10",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "circuit-fibsqrt",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "distribution-search",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "fix-ocaml-gc",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "install-windows-3.11",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "mteb-leaderboard",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "portfolio-optimization",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "regex-chess",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "reshard-c4-data",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "train-fasttext",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "video-processing",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "winning-avg-corewars",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "sam-cell-seg",
+      "agent_seconds": 7200.0,
+      "verifier_seconds": 7200.0
+    },
+    {
+      "task": "build-pov-ray",
+      "agent_seconds": 12000.0,
+      "verifier_seconds": 12000.0
+    }
+  ],
+  "adapter_path": "/srv/encbank/comem_new_backbones_formal_20260915/training/Qwen3.8-27B/adapter-final.pt",
+  "adapter_sha256": "9253fbb9bda190857ee83ba60ad32cc024efc0faa6a896fcb616423f3bae1ce9",
+  "j": 21,
+  "chunk_tokens": 512,
+  "top_k_chunks": 48,
+  "iter_hop_topk": 4,
+  "iter_rounds": 0,
+  "max_live_sessions": 8,
+  "serialization": "independent serial Write/prefill; continuous refill ragged decode up to8",
+  "entry_storage": "GPU BF16 H16 only; no runtime offload; per-task banks",
+  "state_validation": "Hash bank states before and after every request; no speed claim from disabled checking",
+  "sampling": "Per-task/per-step seed formula matched to Dense; native torch sampler differs from vLLM implementation.",
+  "host_admission": "Shared owner lock; official per-task Docker RAM reservations total <=20GiB, including 16GiB for the legacy Dense queue until closed. Fresh available-RAM check and 2GiB safety margin. No effect on task resource limits.",
+  "timing_boundary": "Natural closed-loop deployed timing, with transport and task contention recorded; not a fixed-workload isolated speed comparison.",
+  "new_protocol": true,
+  "resource_inventory": [
+    {
+      "task": "adaptive-rejection-sampler",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "bn-fit-modify",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "build-cython-ext",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "build-pmars",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "build-pov-ray",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "cancel-async-tasks",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "chess-best-move",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "circuit-fibsqrt",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "cobol-modernization",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "code-from-image",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "configure-git-webserver",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "constraints-scheduling",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "count-dataset-tokens",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "distribution-search",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "dna-assembly",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "extract-elf",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "extract-moves-from-video",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "feal-differential-cryptanalysis",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "fix-git",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "fix-ocaml-gc",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "gcode-to-text",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "git-multibranch",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "headless-terminal",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "hf-model-inference",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "kv-store-grpc",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "large-scale-text-editing",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "largest-eigenval",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "mailman",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "make-doom-for-mips",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "make-mips-interpreter",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "mteb-retrieve",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "multi-source-data-merger",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "nginx-request-logging",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "password-recovery",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "path-tracing",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "path-tracing-reverse",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "polyglot-c-py",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "polyglot-rust-c",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "prove-plus-comm",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "pytorch-model-cli",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "pytorch-model-recovery",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "query-optimize",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "raman-fitting",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "regex-log",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "reshard-c4-data",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "sanitize-git-repo",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "schemelike-metacircular-eval",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "sparql-university",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "sqlite-db-truncate",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "sqlite-with-gcov",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "tune-mjcf",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "video-processing",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "winning-avg-corewars",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "write-compressor",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "compile-compcert",
+      "memory_mb": 4096,
+      "cpus": 2
+    },
+    {
+      "task": "crack-7z-hash",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "dna-insert",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "install-windows-3.11",
+      "memory_mb": 4096,
+      "cpus": 2
+    },
+    {
+      "task": "merge-diff-arc-agi-task",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "overfull-hbox",
+      "memory_mb": 4096,
+      "cpus": 2
+    },
+    {
+      "task": "protein-assembly",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "qemu-alpine-ssh",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "qemu-startup",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "sam-cell-seg",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "train-fasttext",
+      "memory_mb": 4096,
+      "cpus": 1
+    },
+    {
+      "task": "caffe-cifar-10",
+      "memory_mb": 8192,
+      "cpus": 4
+    },
+    {
+      "task": "filter-js-from-html",
+      "memory_mb": 8192,
+      "cpus": 1
+    },
+    {
+      "task": "gpt2-codegolf",
+      "memory_mb": 8192,
+      "cpus": 1
+    },
+    {
+      "task": "mcmc-sampling-stan",
+      "memory_mb": 8192,
+      "cpus": 4
+    },
+    {
+      "task": "mteb-leaderboard",
+      "memory_mb": 8192,
+      "cpus": 1
+    },
+    {
+      "task": "rstan-to-pystan",
+      "memory_mb": 8192,
+      "cpus": 4
+    },
+    {
+      "task": "torch-pipeline-parallelism",
+      "memory_mb": 8192,
+      "cpus": 1
+    },
+    {
+      "task": "torch-tensor-parallelism",
+      "memory_mb": 8192,
+      "cpus": 1
+    }
+  ],
+  "max_simultaneous_gpu_generations": 8,
+  "decode_batch_size": 8,
+  "batch_collect_seconds": 1.0,
+  "admission_stability_seconds": 45,
+  "arm": "comem",
+  "authorization": "Autonomous recovery after verified closure; do not repeat complete task outcomes.",
+  "deployment_boundary": "Same continuous batch8 math and official deadlines; transport revised after errno121. Preserve prior valid k12 outcomes; no best-of. Closed-loop k48 changes future history and auto retrieval rounds3->12.",
+  "refill_interval_seconds": 0.5,
+  "transport": "Existing SSH/Slurm plus authenticated node service; immutable replies verified and durably saved locally before Harbor sees them. No per-request BeeGFS create/rename.",
+  "parallel_top48": true,
+  "recovery_source": "comem_top48_20260920",
+  "excluded_import_stall_node": "gpu-node1",
+  "recovery_boundary": "Prior failures retained. Same algorithm/model/sampling/task deadlines; allocator management and deadline transport fix change deployed timing. No full89 claim until all tasks valid.",
+  "native_allocator_cap_gib": 232,
+  "allocator_reclaim_reserved_gib": 160,
+  "allocator_reclaim_gap_gib": 32,
+  "predecessor": "comem_top48_resume59_20260920",
+  "adopts_existing_service": false,
+  "task_walltime_seconds": null,
+  "per_call_transport_watchdog_seconds": 12000,
+  "task_root": "/srv/encbank/legacy_workspace/.runtime/terminal_bench_full89_20260919/tasks_no_total_deadline_20260920",
+  "timeout_protocol": "Native agent timeout None; each call has fresh12000s infrastructure watchdog, not cumulative task budget. Keep max32768tokens per generation/context262144/resource caps. Slurm job36h remains an allocation boundary, never quality zero.",
+  "selection": "Exclude normally finished outcomes regardless of reward; timeout outcomes incomplete by new user policy. Reconcile predecessor drain before launch. No new GPU allocation.",
+  "incomplete_partition": false,
+  "predecessor_failed_adoption": "comem_k48_no_task_deadline_20260920",
+  "predecessor_worker_terminated": true,
+  "worker_task_allowlist": "Frozen fresh worker P.tasks equals complete current no-deadline task queue; do not adopt a subset-restricted resident worker.",
+  "gpu_allocation_walltime_seconds": 129600
+}

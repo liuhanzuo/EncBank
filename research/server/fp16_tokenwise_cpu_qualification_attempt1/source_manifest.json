@@ -1,0 +1,21 @@
+{
+  "status": "FROZEN_NEW_CPU_SOURCE_ONLY",
+  "source_sha256": {
+    "tokenwise_runtime.py": "d35ed28ae8ffb4db1dbf348b55ccd3c7d5f65b30f403cc90ceb5158d4e8ce3ac",
+    "check_tokenwise_cpu_v2.py": "db87216f6d05ff6b8d45936596cfc16234c9ffd19152f4ca4413d23a4447b5ac",
+    "remote_cpu_supervisor.py": "f1c7528ce5081ab5b9e062162de38649169f92dc9dbb6e60dfe759c376128435",
+    "runtime_copy_receipt.json": "f834ef216dec57740ef815234e87eeeded9413aba3cd580eb1f1556e3f748553",
+    "cpu_reference_fix_receipt.json": "8127c10a74949140cab51390dfe1b573704ee5bf52e8a87ce8bf7483ea8d7b46",
+    "honly_precision_contract.diff": "24ed886d979a17bf1a9da5585b2ee2c38f4254300f2b113af1397af3afdb2ef1",
+    "runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
+    "runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
+    "runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
+    "runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78"
+  },
+  "remote_directory": "/srv/encbank/qcomem_align_codex_20260911/fp16_tokenwise_cpu_qualification_attempt1",
+  "prior_qualified_interpreter": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "original_failed_local_attempt": "F:\\qcomem\\paper_autonomous_multifork_iteration\\evidence\\honly_5090_infra_20260911\\fp16_six_method_profile_candidate\\cpu_attempt1\\native_execution_receipt.json",
+  "scope": "No model/data checkpoint uploaded; synthetic inputs specified in CPU source"
+}

@@ -1,0 +1,580 @@
+{
+  "evidence_id": "E-COMEM-TB21-FULL89-DENSE-BATCH2-20260919",
+  "benchmark": "Terminal-Bench 2.1",
+  "revision": "7131e4375048a0e408a8fb404b5f499d726b695b",
+  "tasks": [
+    "adaptive-rejection-sampler",
+    "bn-fit-modify",
+    "break-filter-js-from-html",
+    "build-cython-ext",
+    "build-pmars",
+    "build-pov-ray",
+    "caffe-cifar-10",
+    "cancel-async-tasks",
+    "chess-best-move",
+    "circuit-fibsqrt",
+    "cobol-modernization",
+    "code-from-image",
+    "compile-compcert",
+    "configure-git-webserver",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "crack-7z-hash",
+    "custom-memory-heap-crash",
+    "db-wal-recovery",
+    "distribution-search",
+    "dna-assembly",
+    "dna-insert",
+    "extract-elf",
+    "extract-moves-from-video",
+    "feal-differential-cryptanalysis",
+    "feal-linear-cryptanalysis",
+    "filter-js-from-html",
+    "financial-document-processor",
+    "fix-code-vulnerability",
+    "fix-git",
+    "fix-ocaml-gc",
+    "gcode-to-text",
+    "git-leak-recovery",
+    "git-multibranch",
+    "gpt2-codegolf",
+    "headless-terminal",
+    "hf-model-inference",
+    "install-windows-3.11",
+    "kv-store-grpc",
+    "large-scale-text-editing",
+    "largest-eigenval",
+    "llm-inference-batching-scheduler",
+    "log-summary-date-ranges",
+    "mailman",
+    "make-doom-for-mips",
+    "make-mips-interpreter",
+    "mcmc-sampling-stan",
+    "merge-diff-arc-agi-task",
+    "model-extraction-relu-logits",
+    "modernize-scientific-stack",
+    "mteb-leaderboard",
+    "mteb-retrieve",
+    "multi-source-data-merger",
+    "nginx-request-logging",
+    "openssl-selfsigned-cert",
+    "overfull-hbox",
+    "password-recovery",
+    "path-tracing",
+    "path-tracing-reverse",
+    "polyglot-c-py",
+    "polyglot-rust-c",
+    "portfolio-optimization",
+    "protein-assembly",
+    "prove-plus-comm",
+    "pypi-server",
+    "pytorch-model-cli",
+    "pytorch-model-recovery",
+    "qemu-alpine-ssh",
+    "qemu-startup",
+    "query-optimize",
+    "raman-fitting",
+    "regex-chess",
+    "regex-log",
+    "reshard-c4-data",
+    "rstan-to-pystan",
+    "sam-cell-seg",
+    "sanitize-git-repo",
+    "schemelike-metacircular-eval",
+    "sparql-university",
+    "sqlite-db-truncate",
+    "sqlite-with-gcov",
+    "torch-pipeline-parallelism",
+    "torch-tensor-parallelism",
+    "train-fasttext",
+    "tune-mjcf",
+    "video-processing",
+    "vulnerable-secret",
+    "winning-avg-corewars",
+    "write-compressor"
+  ],
+  "attempts_per_task": 1,
+  "order": "ascending task name; not selected by outcomes",
+  "concurrent_tasks": 2,
+  "model": "/srv/encbank/comem_new_backbones_20260915/models/Qwen3.8-27B",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "dtype": "bfloat16",
+  "lora": false,
+  "engine": "vllm",
+  "engine_version": "0.22.1",
+  "engine_python": "/srv/encbank/venvs/rllm/bin/python",
+  "context_tokens": 262144,
+  "max_new_tokens": 32768,
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "top_k": 20,
+  "seed": 20260919,
+  "reasoning_effort": "xhigh",
+  "preserve_thinking": true,
+  "summarization": false,
+  "context_cropping": false,
+  "official_task_timeouts": true,
+  "runtime_offload": false,
+  "device_cap_gib": 80,
+  "admission_free_gib": 80,
+  "kv_pool_gib": 20,
+  "max_num_batched_tokens": 4096,
+  "max_num_seqs": 4,
+  "max_cudagraph_capture_size": 4,
+  "enable_prefix_caching": true,
+  "mamba_cache_mode": "align",
+  "language_model_only": true,
+  "native_kv_dtype": "auto (model BF16); recurrent state dtype recorded by engine",
+  "speculative_decoding": false,
+  "automatic_scientific_retries": 0,
+  "publication_boundary": "Full 89-task registered local protocol; not an exact replication of Qwen reported 73.0 because full original settings/repeats were not disclosed here.",
+  "old_short3": "Separate completed low-thinking native-SDPA experiment. No reuse or overwrite of its predictions.",
+  "remote_root": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/ipc_fix",
+  "timeout_inventory": [
+    {
+      "task": "modernize-scientific-stack",
+      "agent_seconds": 600.0,
+      "verifier_seconds": 600.0
+    },
+    {
+      "task": "overfull-hbox",
+      "agent_seconds": 750.0,
+      "verifier_seconds": 360.0
+    },
+    {
+      "task": "adaptive-rejection-sampler",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "build-cython-ext",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "build-pmars",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "cancel-async-tasks",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "chess-best-move",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "cobol-modernization",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "configure-git-webserver",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "count-dataset-tokens",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "db-wal-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "extract-elf",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "fix-git",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "gcode-to-text",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "git-leak-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "git-multibranch",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "gpt2-codegolf",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "headless-terminal",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "hf-model-inference",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "kv-store-grpc",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "largest-eigenval",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "make-doom-for-mips",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "merge-diff-arc-agi-task",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "multi-source-data-merger",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "nginx-request-logging",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "openssl-selfsigned-cert",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "password-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "polyglot-c-py",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "polyglot-rust-c",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "prove-plus-comm",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "pypi-server",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "pytorch-model-cli",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "pytorch-model-recovery",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "qemu-alpine-ssh",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "qemu-startup",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "query-optimize",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "raman-fitting",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "regex-log",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sanitize-git-repo",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sparql-university",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sqlite-db-truncate",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "sqlite-with-gcov",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "torch-pipeline-parallelism",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "torch-tensor-parallelism",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "tune-mjcf",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "vulnerable-secret",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "write-compressor",
+      "agent_seconds": 900.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "break-filter-js-from-html",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "code-from-image",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "constraints-scheduling",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "financial-document-processor",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "large-scale-text-editing",
+      "agent_seconds": 1200.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "crack-7z-hash",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 900.0
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "dna-assembly",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "dna-insert",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "extract-moves-from-video",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "feal-differential-cryptanalysis",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "filter-js-from-html",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "mailman",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "make-mips-interpreter",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "mcmc-sampling-stan",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "mteb-retrieve",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "path-tracing",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "path-tracing-reverse",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "protein-assembly",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "rstan-to-pystan",
+      "agent_seconds": 1800.0,
+      "verifier_seconds": 1800.0
+    },
+    {
+      "task": "compile-compcert",
+      "agent_seconds": 2400.0,
+      "verifier_seconds": 2400.0
+    },
+    {
+      "task": "schemelike-metacircular-eval",
+      "agent_seconds": 2400.0,
+      "verifier_seconds": 2400.0
+    },
+    {
+      "task": "bn-fit-modify",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "caffe-cifar-10",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 1200.0
+    },
+    {
+      "task": "circuit-fibsqrt",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "distribution-search",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "fix-ocaml-gc",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "install-windows-3.11",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "mteb-leaderboard",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "portfolio-optimization",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "regex-chess",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "reshard-c4-data",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "train-fasttext",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "video-processing",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "winning-avg-corewars",
+      "agent_seconds": 3600.0,
+      "verifier_seconds": 3600.0
+    },
+    {
+      "task": "sam-cell-seg",
+      "agent_seconds": 7200.0,
+      "verifier_seconds": 7200.0
+    },
+    {
+      "task": "build-pov-ray",
+      "agent_seconds": 12000.0,
+      "verifier_seconds": 12000.0
+    }
+  ]
+}

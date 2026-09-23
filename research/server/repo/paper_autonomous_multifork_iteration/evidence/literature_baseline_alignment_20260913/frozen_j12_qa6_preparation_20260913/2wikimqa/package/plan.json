@@ -1,0 +1,401 @@
+{
+  "schema": "full_2wikimqa200_FP16_frozen_CoMem_j12_remote_quality_v1",
+  "frozen_at": "2026-09-13T20:04:37.456230+08:00",
+  "arm_order": [
+    "comem_frozen_j12"
+  ],
+  "backbone_dtype": "float16",
+  "attention_backend": "sdpa",
+  "configuration": {
+    "resume_j": 12,
+    "chunk_size": 512,
+    "selector": "iter_bm25",
+    "topk": 12,
+    "iter_hop_topk": 4,
+    "iter_rounds": 0,
+    "H_group_size": 64,
+    "KIVI_group_size": 32,
+    "KIVI_residual_length": 128,
+    "bos_token_id": 151643,
+    "eos_token_id": 151645,
+    "first_step_EOS_suppressed": true,
+    "max_new_tokens": 32,
+    "query_tokens_per_call": 1
+  },
+  "fixture": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/inference_fixture.json",
+    "sha256": "85e663a47430c07991a494bd4a3fd282dfd0f23d1e24eaf89e3671f09ca4a969"
+  },
+  "labels": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/scoring_only/labels.json",
+    "sha256": "1c094d020d84f42c88d8f13f3eefd672179c9b6a7583546ac41fbd72b57b9985"
+  },
+  "scorer": {
+    "path": "data/benchmark_expansion_20260909/sources/longbench_code/metrics.py",
+    "sha256": "e22e2a2662e0f7e683137fa3541f64edb6a801e9138d16d2f3459a6ab9941323"
+  },
+  "activation": {
+    "path": "paper_autonomous_multifork_iteration/evidence/qwen_access_repair_20260911/package/quality/bindings/adapter_activation.json",
+    "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
+  },
+  "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_CoMem_j12_nativeH16",
+  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "resource_policy": {
+    "allocator_cap_bytes": 214748364800,
+    "minimum_free_bytes": 236223201280,
+    "stable_idle_seconds": 45
+  },
+  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "native_attention_runtime_files": {
+    "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
+    "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
+  },
+  "native_attention_policy": "torch.nn.functional.scaled_dot_product_attention via HF5.5.4 native integration; CUDA kernel dispatcher not identified",
+  "tokenwise_runtime_root": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate",
+  "natural_qa_adapter": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_narrativeqa_full_unscaled_preparation_20260912/timed_runtime/natural_qa.py",
+    "sha256": "7669b0781f62d9fb8e86aa38159be76a4e54749c50ed0c5a1d90003930f99954"
+  },
+  "qualification_bindings": {
+    "tokenwise_CPU": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/completion_receipt.json",
+      "sha256": "aff003b0b1df54c678733e0df34741b69fe93b05b8ad7053827631df181f15ef"
+    },
+    "native_SDPA_CPU": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/native_sdpa_controls_candidate/cpu_completion_receipt.json",
+      "sha256": "c07fde72b5e778e44e603b8a1e503433a2c51d70788c9b774ef7c6218759228b"
+    },
+    "natural_QA_mock_report": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_quality_preparation_20260912/cpu_mock_report.json",
+      "sha256": "d6727a11e93504d40ea0f011efa2492a5b35a60e7308841995f2591ad7ca6da1"
+    },
+    "natural_QA_mock_exit": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_quality_preparation_20260912/execution_receipt.json",
+      "sha256": "9e18e6fcfa1e3b645a2a2a9a1e844bcf3aa599c956f21555908dd071f6638901"
+    },
+    "new_timing_CPU_report": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/focused_checks_attempt1/timing_report.json",
+      "sha256": "5db79ac6b0e13a230459b4a048ca7aab574f4719437640c2aebc12c2bf07dd16"
+    },
+    "generic_CPU_actual_receipts": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/focused_checks_attempt1/actual_commands.json",
+      "sha256": "6328c3ac642ceb5f708558188ea3db12df7fa15a3a15b1009e65a5d8f648c135"
+    },
+    "quality_timing_schema": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/quality_timing_schema_check.json",
+      "sha256": "f2a9a6357288c23d93f8e7ae01c394633a1cf628ac4bcecb817d7fd9db4e93f1"
+    }
+  },
+  "source_sha256": {
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/tokenwise_runtime.py": "d35ed28ae8ffb4db1dbf348b55ccd3c7d5f65b30f403cc90ceb5158d4e8ce3ac",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
+    "tmp_external_baselines/kv_quant/KIVI/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
+    "tmp_external_baselines/kv_quant/KIVI/quant/matmul.py": "eac6415b494d11ce6d3383031039cd372add6336770c2f0431433115382ae60e",
+    "tmp_external_baselines/kv_quant/KIVI/quant/csrc/gemv_cuda.cu": "fad05a372394193d10d1ba75e3ed2c047eb2fc3ce9429a1de40c593571878627",
+    "tmp_external_baselines/kv_quant/KIVI/quant/csrc/gemv_cuda.h": "99a7df61a1bcc216404bf4a0da4f6d432a77794811546ce6de9c3a63e4e14fb2",
+    "tmp_external_baselines/kv_quant/KIVI/quant/csrc/pybind.cpp": "a7d37c4eedb82db49894c195afd1dc2b4606508177b866088e684362eb329a8c",
+    "tmp_external_baselines/kv_quant/KIVI/quant/setup.py": "c782d40167ee1b0d16e463949aedb2498cb4b63704821e70bac25961f3395962",
+    "paper_autonomous_multifork_iteration/evidence/honly_narrativeqa_full_unscaled_preparation_20260912/timed_runtime/natural_qa.py": "7669b0781f62d9fb8e86aa38159be76a4e54749c50ed0c5a1d90003930f99954",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/analyze.py": "fd92e18537e94a7406f36568108ec16c8048ef240b57c1436cb0f36805d518d3",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/backend_gate.py": "21bdd4430ab7f1f9b792e3916cfd3b802d67a8e4a69d79c7ced03d5544ac60d4",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/protocol.py": "fbebb0c02c73785b59e432d5857edbfa486f7848ebbd9318cc04cde9079a799a",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/qcomem_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/record_shell_exit.py": "27ff44a5cd2067f24a3b045e3ec4a024dc376fbfe07baa0794caeccb855c4e12",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/resource_guard.py": "4ab1f426704a6e6abb519f5e0ea3935e97cda6a70fc37a19b7dd9a258d090cbb",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/resource_worker.py": "7a890038afe9763e418efe231f53f42188f78fc3f0e2d961cd990be51d77dce1",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/run_batch.py": "4172aab0a10f9aa60ec80ee28e55c19606fd9f2475bbdde6ede83f110b78e0eb",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/run_quality.py": "18bb4ee0c65fb7d69a3153ac10d0aebcd1533aff1c80c524106cfd79f76163da",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/validate_staged.py": "6fda9f5f6123076ebeaa0e36307e4a0062b2cadf4d5edcdb35ae2c17216482ba"
+  },
+  "batch_output": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/run/attempt1",
+  "outputs": {
+    "comem_frozen_j12": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/run/attempt1/comem_frozen_j12"
+  },
+  "items_per_arm": 200,
+  "documents_per_arm": 200,
+  "expected_complete_phases_per_arm": 1201,
+  "expected_total_answers": 200,
+  "expected_total_Writes": 200,
+  "expected_total_phases": 1201,
+  "actual_frozen_input_lengths": {
+    "document_tokens": {
+      "minimum": 972,
+      "maximum": 17010
+    },
+    "query_tokens": {
+      "minimum": 34,
+      "maximum": 59
+    },
+    "bare_question_tokens": {
+      "minimum": 8,
+      "maximum": 33
+    },
+    "full_prompt_tokens_with_BOS": {
+      "minimum": 1019,
+      "maximum": 17051
+    },
+    "prompt_plus_cap": {
+      "minimum": 1051,
+      "maximum": 17083
+    }
+  },
+  "working_cache_ownership": "Unchanged native H16 runtime; persistent independent chunk H entry and selected request coexist; query-only lower KV and selected upper KV; no document lower KV or runtime offload.",
+  "full_input_original_window": 40960,
+  "training_or_runtime_offload": false,
+  "automatic_retry": false,
+  "on_actual_OOM": "Stop on every nonzero including OOM, retain failure and partial outputs; no retry or later arm continuation; no fabricated zero score.",
+  "precision_scope": "One adapter-free CoMem j12, FP16 backbone/native H, native SDPA; no LoRA or quantized or Dense arm executed.",
+  "BOS_policy": "Prior BOS151643/scalarEOS151645/first-step suppression; fixed independently of 54-question BOS sensitivity outcomes.",
+  "input_scope": "Exact completed ordinary-test BF16 2WikiMQA fixture: all 200 questions/200 exact context groups, original tokens/order/labels/cap32 byte-identical. New six-method FP16 comparison, no BF16 rerun or score reuse.",
+  "analysis": {
+    "metric": "Official LongBench 2WikiMQA maximum-reference QA F1 and official per-dataset scorer, untrimmed predictions",
+    "contrasts": [],
+    "bootstrap_executed": false,
+    "future_matched_contrasts": "Only after complete independent closure, matching original saved arms and exact source inputs; no rerun or relabel."
+  },
+  "not_claimed": [
+    "new_quality_from_preparation",
+    "BF16_KIVI_completion",
+    "QA6_macro_until_all_six_common_FP16_datasets_close",
+    "fixed_work_infra_or_cross_device_speed_ranking",
+    "quantization_benefit_from_whole_method_Dense_KIVI_contrasts"
+  ],
+  "preparation_scope": "New frozen CoMem j12 LoRA OFF 2wikimqa: exact 200 questions/200 documents, cap32, original LongBench QA F1, FP16 native SDPA. Natural timing only; no published checkpoint or fixed-work infrastructure claim.",
+  "local_execution_permitted": false,
+  "dispatch_scope": "Remote single-GPU per cell; maximum four owned requested GPUs including pending. Dedicated singleton prevents duplicate cell.",
+  "request_timing": "Pre-call synchronize then perf_counter before open_request, first/last non-EOS argmax.item observations, (N-1)/(last-first) when N>=2; EOS decision and cleanup/fullRead separately. No Write/fingerprint or fixed-work infra claim.",
+  "canonical_quality_timing_fields": [
+    "EOS_decision_end_seconds",
+    "decode_seconds",
+    "decode_tokens",
+    "decode_tokens_per_second",
+    "generated_tokens",
+    "read_total_seconds",
+    "scope",
+    "ttft_seconds"
+  ],
+  "launch_permitted": true,
+  "backend_qualification": {
+    "compute_capability": [
+      10,
+      3
+    ],
+    "qualified_nodes": [
+      "gpu-node1"
+    ],
+    "runtime_versions": {
+      "torch": "2.10.0+cu128",
+      "triton": "3.6.0",
+      "transformers": "5.5.4",
+      "peft": "0.20.0"
+    },
+    "registration": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/completion_registration.json",
+      "sha256": "87ad0973600db6df5174c1d8daafcdfeb0c6ad548ad200ee1d0456abe6c13d15"
+    },
+    "node_hostnames": {
+      "gpu-node1": [
+        "gpu-host"
+      ]
+    }
+  },
+  "kivi_backend": {
+    "root": "tmp_external_baselines/kv_quant/KIVI",
+    "source_sha256": {
+      "quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
+      "quant/matmul.py": "eac6415b494d11ce6d3383031039cd372add6336770c2f0431433115382ae60e",
+      "quant/csrc/gemv_cuda.cu": "fad05a372394193d10d1ba75e3ed2c047eb2fc3ce9429a1de40c593571878627",
+      "quant/csrc/gemv_cuda.h": "99a7df61a1bcc216404bf4a0da4f6d432a77794811546ce6de9c3a63e4e14fb2",
+      "quant/csrc/pybind.cpp": "a7d37c4eedb82db49894c195afd1dc2b4606508177b866088e684362eb329a8c",
+      "quant/setup.py": "c782d40167ee1b0d16e463949aedb2498cb4b63704821e70bac25961f3395962"
+    },
+    "binary": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/build_sm100_ptx_20260912/build_attempt1/lib/kivi_gemv.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "4c8779aeac769aadb9e8378282fe6dfef40d336d87bd5914e8145438a66df229"
+    }
+  },
+  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/literature_frozen_j12_qa6_2wikimqa_v1_attempt1",
+  "task": {
+    "benchmark": "LongBench",
+    "dataset": "2wikimqa",
+    "items": 200,
+    "documents": 200,
+    "cap": 32,
+    "source_ordinals": [
+      0,
+      199
+    ],
+    "max_prompt_tokens": 17051,
+    "max_prompt_plus_cap": 17083,
+    "drop_long_inputs": false
+  },
+  "job_name": "qcomem-lit-frozen-j12-2wikimqa-v1-codex",
+  "concurrency_policy": {
+    "maximum_owned_requested_GPUs": 4,
+    "GPUs_per_job": 1,
+    "count_running_and_pending": true,
+    "root_serializes_submission": true
+  },
+  "official_eval": {
+    "path": "data/benchmark_expansion_20260909/sources/longbench_code/eval.py",
+    "sha256": "1a3acfc25d9b053e9bb75c479f7e385d0cb9989f0f7115346b7d632655967721"
+  },
+  "input_coverage": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/input_coverage.json",
+    "sha256": "2e40302500f65b5c2d33120d35f9580366fc1edbf61b6cb64bdad1a212d6d67e"
+  },
+  "high_position_CPU_qualification": {
+    "path": "paper_autonomous_multifork_iteration/evidence/long_context_protocol_review_20260912/qualification_registration.json",
+    "sha256": "a6bb98e9292aabb2b2bac7a2696dcf0d630e8560016190455e781e1b39637428"
+  },
+  "full_input_coverage_maximum": 17083,
+  "original_cohort": {
+    "plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/plan.json",
+      "sha256": "26f5d8da906afdaa911942b6a76a398b66ad61affbb980d5aa5561dc1fe6625d"
+    },
+    "fixture": {
+      "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/inference_fixture.json",
+      "sha256": "85e663a47430c07991a494bd4a3fd282dfd0f23d1e24eaf89e3671f09ca4a969"
+    },
+    "labels": {
+      "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/scoring_only/labels.json",
+      "sha256": "1c094d020d84f42c88d8f13f3eefd672179c9b6a7583546ac41fbd72b57b9985"
+    },
+    "original_bootstrap": {
+      "RNG": "Python Random MT19937",
+      "seed": 20260911,
+      "draws": 10000,
+      "unit": "200 exact-document clusters, item-weighted paired mean; one question per document",
+      "endpoint_indices": [
+        249,
+        9749
+      ]
+    },
+    "all_original_rows_and_empty_zero_cap_results_retained": true
+  },
+  "method_lineage": {
+    "Narrative_FP16_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_narrativeqa_full_unscaled_admission_fixed_20260912/package/plan.json",
+      "sha256": "46d438c766c54c24d85958dee63305dad242a057fe0f7c13d0a8d57e6ab1c4a5"
+    },
+    "actual_bound_natural_reader": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_narrativeqa_full_unscaled_preparation_20260912/timed_runtime/natural_qa.py",
+      "sha256": "7669b0781f62d9fb8e86aa38159be76a4e54749c50ed0c5a1d90003930f99954"
+    },
+    "Narrative_reader_binding_correction": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_narrativeqa_full_unscaled_admission_fixed_20260912/completion_preparation/binding_correction.json",
+      "sha256": "cecac0cddd2535b3302b2c327b31d7f9cac8ceb7521db2861c7d6606ce013824"
+    },
+    "all_original_tokenwise_runtime_source_hashes_unchanged": true,
+    "MFQA_FP16_already_complete_do_not_rerun": true,
+    "Narrative_FP16_job_25168_active_do_not_duplicate": true,
+    "scientific_changes_vs_Narrative": "Dataset, full cohort cardinality, official dataset cap, original BF16 bootstrap seed20260911; identical six FP16 methods, full-query natural reader, model/adapter/runtime/timing/position measurement."
+  },
+  "triton_cache_cleanup_fix": {
+    "module": {
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/2wikimqa/package/qcomem_triton_cache.py",
+      "sha256": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715"
+    },
+    "fix_provenance": {
+      "path": "paper_autonomous_multifork_iteration/evidence/triton_cache_cleanup_fix_20260912/provenance.json",
+      "sha256": "107fccce8989cdb1f9bfdaca62ab27bd0c0408fbdedf821167ec0a71c9b5d2ec"
+    },
+    "actual_installed_runtime_CPU_report": {
+      "path": "paper_autonomous_multifork_iteration/evidence/triton_cache_cleanup_fix_20260912/actual_remote_CPU_check_attempt2/stdout.json",
+      "sha256": "2e4ba51dcda2aecedd615ee1d519c379f2ab9d7889eac6ac20b3df47ea941536"
+    },
+    "actual_installed_runtime_CPU_exit": {
+      "path": "paper_autonomous_multifork_iteration/evidence/triton_cache_cleanup_fix_20260912/actual_remote_CPU_check_attempt2/execution_receipt.json",
+      "sha256": "413606d9efe1241df0df9d55edef26173f04e697955db65809af93499d66291c"
+    },
+    "change": "Exact proven process-local cache manager before model/KIVI imports. Only verified committed bytes after atomic replace permit exact temporary-leaf EBUSY cleanup tolerance, structured stderr event retained.",
+    "shared_installed_code_unmodified": true
+  },
+  "input_regime": "All bound full prompt-plus-cap budgets fit original max_position_embeddings40960. No extrapolation, truncation, YaRN or model configuration change is claimed.",
+  "scope_annotation_correction": {
+    "prior_unsubmitted_candidate_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/history_pre_scope_annotation_correction/package/plan.json",
+      "sha256": "8c56c7a3ac8604a44bb8becf11b5f6c60b641ea69bc7a3ba0d534091db5ccb15"
+    },
+    "reason": "Inherited template prose incorrectly called these within-window cohorts extrapolation and some docstrings called QA VT. Only those annotations corrected; original scientific execution code and fixtures unchanged.",
+    "source_changes": [
+      {
+        "old": {
+          "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/history_pre_scope_annotation_correction/package/analyze.py",
+          "sha256": "27ef22d11e5c13672a1d181349ffbfd0074c5070c6745593bfa80654fe63ce4a"
+        },
+        "new": {
+          "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/analyze.py",
+          "sha256": "cb8040294dc0536416fdbdb67bb87d75b9afbc058fe590aa7930e57c39503754"
+        },
+        "only_docstring_or_scope_annotation": true
+      },
+      {
+        "old": {
+          "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/history_pre_scope_annotation_correction/package/protocol.py",
+          "sha256": "cc099ca9b04873cdbec8994dfb5d5d61e0b444912114ef782c9b6307ae5a10f1"
+        },
+        "new": {
+          "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/protocol.py",
+          "sha256": "5863ba78a8528b1d9fd75b91fa5388f125cb117f82a4c7664d81719faa806f82"
+        },
+        "only_docstring_or_scope_annotation": true
+      },
+      {
+        "old": {
+          "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/history_pre_scope_annotation_correction/package/run_quality.py",
+          "sha256": "e218ba72898f9900ff8a3a4911e6d54e08ff1862bbf22a210775b26d9cbff074"
+        },
+        "new": {
+          "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/run_quality.py",
+          "sha256": "0fbf9e6fe2fe3e9f3ee079a313d3ab70c306a7741d4f27f56b06d7e1667ac3be"
+        },
+        "only_docstring_or_scope_annotation": true
+      },
+      {
+        "old": {
+          "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/history_pre_scope_annotation_correction/package/resource_worker.py",
+          "sha256": "db0a140d797e6221a8b517e7c7ad3bad601269752781ca3ebc1187a48fdc5133"
+        },
+        "new": {
+          "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/resource_worker.py",
+          "sha256": "d2df9452d692a6ad65ebd9646d05dd50ff2b24a55ac9db39652e955b79a2436b"
+        },
+        "only_docstring_or_scope_annotation": true
+      }
+    ]
+  },
+  "method_configuration": {
+    "method": "CoMem frozen",
+    "runtime_arm": "h16",
+    "resume_j": 12,
+    "adapter_active": false,
+    "stored_bits": 16,
+    "retrieval": "iter_bm25_top12_hop4_rounds0"
+  },
+  "duplicate_policy": "New j12 adapter-OFF algorithm cell; existing H16 is j12 adapter-ON and is not scientifically equivalent. No existing model rerun.",
+  "source_official_commit": "2c407a6bf9d1503ebb004847f664b01d2ad898cc",
+  "literature_replication_boundary": "Local FP16 matched algorithm on exact local backbone; published overview BF16/backbone/adapter protocol is retained separately, never relabeled.",
+  "frozen_baseline_lineage": {
+    "verified_template_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_comem_j12_single16k_v3/package/plan.json",
+      "sha256": "8f09bdaa0668a48ed03ed8e9671eba13761e5fce36d7b1a8de2f901d199bbdc7"
+    },
+    "original_input_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_fp16_qa6_remaining_preparation_20260912/2wikimqa/package/plan.json",
+      "sha256": "41f6e75f5d35311f4833ea449f747427c5624c0dd955ed8d48171a5be9cdb889"
+    },
+    "new_independent_cell": "2wikimqa",
+    "not_continuation_or_reused_answers": true,
+    "original_MFQA_5090_block_not_remote_speed_control": false
+  }
+}

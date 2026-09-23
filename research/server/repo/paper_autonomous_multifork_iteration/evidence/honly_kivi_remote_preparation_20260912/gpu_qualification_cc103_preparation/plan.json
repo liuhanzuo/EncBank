@@ -1,0 +1,152 @@
+{
+  "schema": "kivi_half_cc103_sm100ptx_remote_tiny_qualification_v1",
+  "scope": "Original Half numerical and tail qualification on allocated cc10.3 using plain sm100 plus compute100 PTX; no model or benchmark quality",
+  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "versions": {
+    "torch": "2.10.0+cu128",
+    "triton": "3.6.0",
+    "transformers": "5.5.4",
+    "peft": "0.20.0"
+  },
+  "model_load_allowed": false,
+  "training_allowed": false,
+  "runtime_offload_allowed": false,
+  "automatic_retry": false,
+  "arm_order": [
+    "kivi_half_synthetic"
+  ],
+  "outputs": {
+    "kivi_half_synthetic": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/run/attempt1/worker"
+  },
+  "bridge_root": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation",
+  "kivi_root": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/kivi_source",
+  "binary": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/build_sm100_ptx_20260912/build_attempt1/lib/kivi_gemv.cpython-312-x86_64-linux-gnu.so",
+    "sha256": "4c8779aeac769aadb9e8378282fe6dfef40d336d87bd5914e8145438a66df229"
+  },
+  "build_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/build_sm100_ptx_20260912/build_execution_receipt.json",
+    "sha256": "bbf271a57314d973adf0f60d02d5d34adad9a6b41980ab16c1f6edc6a182ddd2"
+  },
+  "source_sha256": {
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/protocol.py": "6bbb10945527f417c05f158ea583b0192f2b8ce06cb249e44571b63b788aba3b",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/resource_worker.py": "ffe0d1507d1f3454abbf567dd4b56d88f68fcf663e4577244c23d904ed475e48",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/resource_guard.py": "11ede03b0cd56d3c283b3e91f4a3d90af4c44fa8805e37709ab6d2b71cfba5be",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/kernel_checks.py": "e6863ba2499062942e8f0c46abcc52251947f7f6015bda639c14a376c6db12f1",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/run_batch.py": "c7430bf106f2257e0316cceaef8bca55f9ae5e2c385dd59bd2e34af286c0604d",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/record_shell_exit.py": "9f3229702e9b6abc4df4e1c1c7b9e81ca2b064b0888833792a207b2a60e8b72a",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/kivi_source/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/kivi_source/quant/matmul.py": "eac6415b494d11ce6d3383031039cd372add6336770c2f0431433115382ae60e",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/kivi_source/quant/csrc/gemv_cuda.cu": "fad05a372394193d10d1ba75e3ed2c047eb2fc3ce9429a1de40c593571878627",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/kivi_source/quant/csrc/gemv_cuda.h": "99a7df61a1bcc216404bf4a0da4f6d432a77794811546ce6de9c3a63e4e14fb2",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/kivi_source/quant/csrc/pybind.cpp": "a7d37c4eedb82db49894c195afd1dc2b4606508177b866088e684362eb329a8c",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/kivi_source/quant/setup.py": "c782d40167ee1b0d16e463949aedb2498cb4b63704821e70bac25961f3395962"
+  },
+  "kivi_source_sha256": {
+    "quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
+    "quant/matmul.py": "eac6415b494d11ce6d3383031039cd372add6336770c2f0431433115382ae60e",
+    "quant/csrc/gemv_cuda.cu": "fad05a372394193d10d1ba75e3ed2c047eb2fc3ce9429a1de40c593571878627",
+    "quant/csrc/gemv_cuda.h": "99a7df61a1bcc216404bf4a0da4f6d432a77794811546ce6de9c3a63e4e14fb2",
+    "quant/csrc/pybind.cpp": "a7d37c4eedb82db49894c195afd1dc2b4606508177b866088e684362eb329a8c",
+    "quant/setup.py": "c782d40167ee1b0d16e463949aedb2498cb4b63704821e70bac25961f3395962"
+  },
+  "seed": 149,
+  "cases": [
+    {
+      "bits": 2,
+      "kind": "qk",
+      "kv_heads": 8,
+      "query_heads": 32,
+      "inner": 128,
+      "outer": 384,
+      "group": 32
+    },
+    {
+      "bits": 2,
+      "kind": "av_irregular",
+      "kv_heads": 8,
+      "query_heads": 32,
+      "inner": 137,
+      "outer": 128,
+      "group": 32
+    },
+    {
+      "bits": 4,
+      "kind": "qk",
+      "kv_heads": 8,
+      "query_heads": 32,
+      "inner": 128,
+      "outer": 384,
+      "group": 32
+    },
+    {
+      "bits": 4,
+      "kind": "av_irregular",
+      "kv_heads": 8,
+      "query_heads": 32,
+      "inner": 137,
+      "outer": 128,
+      "group": 32
+    }
+  ],
+  "tail_cases": [
+    {
+      "bits": 2,
+      "initial_tokens": 127,
+      "final_tokens": 130,
+      "requests": 2,
+      "kv_heads": 8,
+      "query_heads": 32,
+      "head_dim": 128
+    },
+    {
+      "bits": 4,
+      "initial_tokens": 127,
+      "final_tokens": 130,
+      "requests": 2,
+      "kv_heads": 8,
+      "query_heads": 32,
+      "head_dim": 128
+    }
+  ],
+  "max_abs_tolerance": 0.01,
+  "rms_tolerance": 0.001,
+  "expected_closed_phases": 7,
+  "frozen_at": "2026-09-12T12:13:18.157644+08:00",
+  "remote_python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "remote_repo_root": "/srv/encbank/qcomem_align_codex_20260911/repo",
+  "resource_policy": {
+    "allocator_cap_bytes": 214748364800,
+    "minimum_free_bytes": 236223201280,
+    "stable_idle_seconds": 45
+  },
+  "build_plan": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/build_sm100_ptx_20260912/build_plan.json",
+    "sha256": "6da7ffb4f3b56ad3152a68ce4bf1ecf6ab23c7aa4d1eec52de7dcb8d988f00ce"
+  },
+  "reused_local_qualification_plan": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/plan.json",
+    "sha256": "dbbe5e20f9279ceda896f338e08cfb4cb08599ff39f21c9191acecec6b75baa4"
+  },
+  "reused_local_completion": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/completion_verification/report.json",
+    "sha256": "69b456ffb9499afa96fcc860e5c83ea581e5dbc74d3faa495592e655843a7321"
+  },
+  "batch_output": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/run/attempt1",
+  "actual_remote_GPU_qualified": false,
+  "architecture": "8.9",
+  "resource_scope": "Reuse remote single allocated physical GPU/fresh45s/free220GiB/native200GiB envelope. Tensor tests are tiny; the inherited ceiling is not expected usage.",
+  "completion_gate": "Actual worker, held native batch, shell and Slurm closure plus six raw hash/case/tail/7phase saved checks; local cc12 completion and cc8.9 CPU build do not satisfy this gate.",
+  "required_compute_capability": [
+    10,
+    3
+  ],
+  "compiled_architecture": "10.0+PTX",
+  "architecture_metadata": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_architecture_probe_preparation/completion_registration.json",
+    "sha256": "1c92b09dfd8cb93b7a92d1af2e1e777ed437ef43bee80ba4e87ab58db8e62c45"
+  },
+  "architecture_scope": "Metadata was on gpu-node1; this qualification is pinned to original quality node gpu-node3 and must save then verify its actual cc10.3 and UUID before kernels"
+}

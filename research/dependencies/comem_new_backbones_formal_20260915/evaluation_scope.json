@@ -1,0 +1,13 @@
+{
+  "scope_id": "four-benchmarks-locomo-deferred-20260915",
+  "benchmarks": ["ruler", "longeval", "longbench", "babilong"],
+  "deferred": ["locomo"],
+  "user_instruction": "LoCoMo can wait; finish the other evaluations first.",
+  "samples_per_model": 5250,
+  "arms": 7,
+  "records_per_model": 36750,
+  "total_records": 73500,
+  "judge_required": false,
+  "source_samples": "Keep the already running full input preparation; filter saved samples at evaluation without changing any input.",
+  "resume_locomo": "Requires a later user instruction; no automatic Judge probes or LoCoMo GPU generation while deferred."
+}

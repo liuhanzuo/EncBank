@@ -1,0 +1,291 @@
+{
+  "schema": "RULER_single2_16K100_FP16_InfLLM_resident_Qwen3_v1",
+  "frozen_at": "2026-09-13T10:41:05.256886+00:00",
+  "arm_order": [
+    "infllm_resident_qwen3"
+  ],
+  "backbone_dtype": "float16",
+  "attention_backend": "infllm_upstream_torch_joint_softmax",
+  "configuration": {
+    "bos_token_id": 151643,
+    "eos_token_id": 151645,
+    "first_step_EOS_suppressed": true,
+    "max_new_tokens": 48,
+    "query_tokens_per_call": 1,
+    "document_prefill_chunk_size": 2048,
+    "n_init": 128,
+    "n_local": 4096,
+    "block_size": 128,
+    "topk": 16,
+    "repr_topk": 4,
+    "max_cached_block": 32,
+    "exc_block_size": 512,
+    "fattn": false,
+    "cache_strategy": "lru",
+    "score_decay": null,
+    "chunk_topk_calc": null,
+    "async_global_stream": false,
+    "pin_memory": false,
+    "faiss": false,
+    "perhead": false,
+    "rope_base": 1000000,
+    "distance_scale": 1.0
+  },
+  "fixture": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_parallel_preparation_20260912/single16k/inputs/inference_fixture.json",
+    "sha256": "79f387a3ca80cdb27afde8993f04d2caf95cd2f09c17e3959e64284e6a1a046f"
+  },
+  "labels": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_parallel_preparation_20260912/single16k/inputs/scoring_only/projected_labels.json",
+    "sha256": "26fb8c47aa62e5761c2e92d2410e4d566d2bb55ddbd3ffe26fe035f20018480a"
+  },
+  "scorer": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
+    "sha256": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f"
+  },
+  "activation": {
+    "path": "paper_autonomous_multifork_iteration/evidence/qwen_access_repair_20260911/package/quality/bindings/adapter_activation.json",
+    "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
+  },
+  "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_InfLLM_resident",
+  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "resource_policy": {
+    "allocator_cap_bytes": 214748364800,
+    "minimum_free_bytes": 236223201280,
+    "stable_idle_seconds": 45
+  },
+  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "native_attention_policy": "InfLLM upstream Torch multistage joint softmax, not SDPA; native PyTorch allocator and Qwen3 layers",
+  "natural_qa_adapter": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/timed_runtime/natural_qa.py",
+    "sha256": "fe2b75db339e90be142432e73fd0824ec25e01fafc56caff0bd70109cce82716"
+  },
+  "qualification_bindings": {
+    "resident_and_Qwen3_actual_runtime_CPU": {
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/readonly_remote_cpu_check_receipt.json",
+      "sha256": "74e402eae48a6282c1c02f24877ec3f19ab3421be2606ffe54687dc327eccf60"
+    },
+    "actual_Qwen3_source_and_reader_config": {
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/remote_readonly_compatibility.json",
+      "sha256": "bdfb6b3711961ff8fac87d3519453199e8719ac79bf77770fde2defbea05982e"
+    },
+    "unchanged_natural_QA_CPU": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_quality_preparation_20260912/cpu_mock_report.json",
+      "sha256": "d6727a11e93504d40ea0f011efa2492a5b35a60e7308841995f2591ad7ca6da1"
+    },
+    "unchanged_timing_CPU": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/focused_checks_attempt1/timing_report.json",
+      "sha256": "5db79ac6b0e13a230459b4a048ca7aab574f4719437640c2aebc12c2bf07dd16"
+    }
+  },
+  "source_sha256": {
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/analyze.py": "96231005877c7308a4634011011c1e3302aff3cc9ef2c7584667bb693c1c0451",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/backend_gate.py": "6a4c862f76f8f3790c49d217f3e46f96543b0dd66fb4b73db912d723c58ad5f3",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/protocol.py": "222f8367ad62be1ff1cd6385f487a27ad513b5a0f197b3043c327d2987c98f13",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/record_shell_exit.py": "61c47019ed3f13cc0f6d08ada846486bfa74b9d7fe5589bf7dda1d9da507036f",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/resident_adapter.py": "ebbdc523c8d91fac34b7cb1ad974e15515464186dd3897c649148b65081fa595",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/resource_guard.py": "4fe26149e0f449e0955213c95b322a713fda28fbcdd2a9ae95e6a709736dffc4",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/resource_worker.py": "0f55053652607c5bc30de73503d2906e0a5b2c4ed388993de103db69c2999b93",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/run_batch.py": "20323d31b9a8eeeb2b43c6e5053a8ffb26f1071623b808896ea6541a2e8cb983",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/run_quality.py": "c41e484ad2a3577b0c29c8e6883723c15769bdebd1332435566777ac60e22595",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/validate_staged.py": "47c876246bd589001b112b7cac7ae63a5e27509406f1687beda4605e0a08f48c",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/upstream_lock.json": "3a85ca0090d9d3819238a8ef59e48b2bae814807455b32eb60d8c55c474b347c",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/LICENSE": "d976144ee95e31ae470db20e237e5a09accdea9c4f51ad3d82fe4fa273446a33",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/README.md": "f78d6aa3f13ceec432488ca942eaa50196924b8e80f9ded48da461bef193b21d",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/llama-3-inf-llm.yaml": "7e7c9233913572b64bd323fdb7db2aa4217c34411347d53e11a25c33bcdb3383",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/minicpm-inf-llm.yaml": "d08be033010ba95bdb258cc9a185d9e127ba680d6d0afdca1704e113bb16e222",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/mistral-inf-llm-12k.yaml": "9763935c903dd566f139663ee36fe4de3d4a4b7776b75ac852e7ac5b78fec50d",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/mistral-inf-llm-fattn.yaml": "5abc361684537be628816cc6ce7885029c6736296f983d4439907770a9bbbb95",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/mistral-inf-llm.yaml": "ad2b470070413b79f90967a7b4b02a3491a0e23b6cfbc5d24c8e20fe5dec4a12",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/mistral-infinite-lm.yaml": "0c4c24fa1ccfd84c87e3a21e399d2907c1983e29ff5b4776874ce0dc22211cb6",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/mistral-ntk.yaml": "e49d202faabceb90dc99314c52c627bfc474bdc421840142b5e65918e65e239f",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/mistral-origin.yaml": "60d6152e3e7f496ce0bb77aa57df7c7b17c6431948d9f4a0ff03f77bc2d38d79",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/mistral-pi.yaml": "fc7774daffd87f410be77b4c7f6f98528e9458998d73a3378234bde395e3f9ae",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/mistral-stream-llm.yaml": "eeb0926d13a08c2182382649916aff71cfd910b1cae73eefea3fa163ee2d052e",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/qwen-inf-llm.yaml": "a3ac77764c1215b7c03a298bb5c56ef8bbdf04a3d1eb0bbf00672ec27be5c906",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/vicuna-inf-llm.yaml": "914371384b34a55af0a97c29cc72036e415ce64e22e5aae8ef180b726f872798",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/vicuna-infinite-lm.yaml": "2a6009c779c85357c308ac78bed93b52a966e61323ccc3c74b84e06c05f2e4c0",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/vicuna-origin.yaml": "482e36db289f852243e942c264aea9b787203c490fe60a70f7db8f7e2719a923",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/config/vicuna-stream-llm.yaml": "5cb6d8e033e915efb776cd915630d0fbd4443374370153f88a8a0ac1027428fd",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/__init__.py": "96bf06ed4f9bfde7f0acc59c280876d7edb068590b9fe2c81c18a62a7a722d56",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/__init__.py": "6542c07c606152fd135a3bd99cab50939c89442b0cc5685436cc2e210631dc89",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/context_manager.py": "97a7aa320fd0251fb5721a22bc6b927172b1c61e56f09608aa14b172003acf25",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/dot_production_attention/__init__.py": "0a502ddcf03569c4241ecbeadf1e632872b865071e6bcab002f57f24ed45fb5a",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/dot_production_attention/base.py": "4752c3ed00050b1578efc94e1a793dc1d9068270dd594dfef1255ee1c0503ca5",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/dot_production_attention/torch_impl.py": "02ba65c101ef28309790afa83f2679b0e542a66547de884283a9e8e859cd32ec",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/dot_production_attention/triton_impl.py": "c037f96180909738da214fde04f2bea07a771cbfacf36a960bf23077a914ba13",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/inf_llm.py": "751b1c09f9f4bc21076c4793d63d22dd567cb8ea533355fee8ccea3e73643d77",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/infinite_lm.py": "1c44f748a2eca03ccd9c231bd17f66feaba73f6ca40cf0f323f8cfd08501cbca",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/origin.py": "d3a4a94144d43262d946a3f8d3a0e3513506be27f9e3301999ded1f6cc42b41c",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/rope.py": "9de6177ba1d6ec41f6ecc4ab2caf527438d3f93efb926da2c56672f8fb2b3589",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/stream_llm.py": "e9929f3743faed164b9479e3fde0f5dd4865e46c75169de3431530e3126898a7",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/attention/utils.py": "2f1c6a4c703665991d38559565345721dbccbbedd0d71533dfa73e22581dbcd8",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/chat.py": "d3d50bac516359c51d69052c50ffaa714c18192e6fac8fcf826a0e1dc08efc4b",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/utils/__init__.py": "09590321696d4922f53d7a33f4d9d24a338a4e8ebd4cad1ef6bb05095376a2e6",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/utils/greedy_search.py": "823bddc20ca1b69ff97f60de8d39dac28bc853ac83015bc68c7fd386967b1882",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/utils/patch.py": "4cd2b3671dda3ea031b6f3ea04a5e72d9cfd2909b901efe05e8deddf7e917c99",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/inf_llm/utils/patch_mc.py": "d104d0e705da70e36dcef94ea4b23d2095a4a7b3fc7d669ee61a6132e1f460a4",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/requirements.txt": "f43f2d945e903cc61498e9bc3f78942b8f4435d9950cc60e837fe2681681c6e2",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream/setup.py": "9f60852ba452aa91f3db7efa6730d3a37eb645d6aa04fa3c662fd7f3f7944a52",
+    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
+    "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/timed_runtime/natural_qa.py": "fe2b75db339e90be142432e73fd0824ec25e01fafc56caff0bd70109cce82716",
+    "tmp_external_baselines/comem_official/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "batch_output": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/run/attempt1",
+  "outputs": {
+    "infllm_resident_qwen3": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/run/attempt1/infllm_resident_qwen3"
+  },
+  "items_per_arm": 100,
+  "documents_per_arm": 100,
+  "expected_complete_phases_per_arm": 601,
+  "expected_total_answers": 100,
+  "expected_total_Writes": 100,
+  "expected_total_phases": 601,
+  "actual_frozen_input_lengths": {
+    "document_tokens": {
+      "minimum": 15558,
+      "maximum": 16226
+    },
+    "query_tokens": {
+      "minimum": 28,
+      "maximum": 36
+    },
+    "bare_question_tokens": {
+      "minimum": 15,
+      "maximum": 19
+    },
+    "inference_full_prompt_plus_cap": {
+      "minimum": 15635,
+      "maximum": 16305
+    }
+  },
+  "working_cache_ownership": "All persistent and request KV stays on GPU; deep-copy request with original block selection; upstream GPU pool retained and counted",
+  "full_input_original_window": 40960,
+  "training_or_runtime_offload": false,
+  "automatic_retry": false,
+  "on_actual_OOM": "Stop on every nonzero including OOM, retain failure and partial outputs; no retry or later arm continuation; no fabricated zero score.",
+  "precision_scope": "FP16 base and KV; LoRA OFF; resident GPU InfLLM algorithm, upstream Torch attention",
+  "BOS_policy": "Prior BOS151643/scalarEOS151645/first-step suppression; fixed independently of 54-question BOS sensitivity outcomes.",
+  "input_scope": "Pinned NVIDIA RULER xKV-vendored single2 source, same generation/assembly as prior NIAH with budget16K; cap48/reserve128; bare question without answer prefix; no reused old scores.",
+  "analysis": {
+    "metric": "Pinned official NVIDIA RULER string_match_all plus unchanged postprocess_pred",
+    "contrasts": [],
+    "bootstrap_executed": false
+  },
+  "not_claimed": [
+    "same trained reader across H and Dense/KIVI",
+    "full RULER15 macro",
+    "fixed-work timing or maximum capacity",
+    "published checkpoint or same published examples"
+  ],
+  "preparation_scope": "Smallest matched registered Single-needle16K100 cell; no GPU test or formal execution yet",
+  "local_execution_permitted": false,
+  "dispatch_scope": "Remote single-GPU per cell; maximum four owned requested GPUs including pending. Dedicated singleton prevents duplicate cell.",
+  "request_timing": "Pre-call synchronize then perf_counter before open_request, first/last non-EOS argmax.item observations, (N-1)/(last-first) when N>=2; EOS decision and cleanup/fullRead separately. No Write/fingerprint or fixed-work infra claim.",
+  "canonical_quality_timing_fields": [
+    "EOS_decision_end_seconds",
+    "decode_seconds",
+    "decode_tokens",
+    "decode_tokens_per_second",
+    "generated_tokens",
+    "read_total_seconds",
+    "scope",
+    "ttft_seconds"
+  ],
+  "launch_permitted": true,
+  "backend_qualification": {
+    "compute_capability": [
+      10,
+      3
+    ],
+    "qualified_nodes": [
+      "gpu-node1"
+    ],
+    "runtime_versions": {
+      "torch": "2.10.0+cu128",
+      "triton": "3.6.0",
+      "transformers": "5.5.4",
+      "peft": "0.20.0"
+    },
+    "registration": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_qualification_cc103_preparation/completion_registration.json",
+      "sha256": "87ad0973600db6df5174c1d8daafcdfeb0c6ad548ad200ee1d0456abe6c13d15"
+    },
+    "node_hostnames": {
+      "gpu-node1": [
+        "gpu-host"
+      ]
+    }
+  },
+  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/literature_infllm_resident_single16k_attempt1",
+  "task": {
+    "benchmark": "RULER",
+    "task": "niah_single_2",
+    "length": "16k",
+    "max_seq_length": 16384,
+    "source_generation_reserve": 128,
+    "generation_cap": 48,
+    "items": 100,
+    "documents": 100,
+    "num_needle_k": 1,
+    "num_needle_v": 1,
+    "num_needle_q": 1
+  },
+  "job_name": "qcomem-lit-infllm-resident-single16k100-codex",
+  "concurrency_policy": {
+    "maximum_owned_requested_GPUs": 4,
+    "GPUs_per_job": 1,
+    "count_running_and_pending": true,
+    "root_serializes_submission": true
+  },
+  "input_generation": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_parallel_preparation_20260912/single16k/inputs/generation_plan.json",
+    "sha256": "6c1c2a1a28c01979aa8c6e2e8edd45d3ccac460223b5c98c9843352106461dbd"
+  },
+  "input_generation_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_parallel_preparation_20260912/single16k/inputs/generation_attempt1/execution_receipt.json",
+    "sha256": "2737ce7946d2d8e2a031a9890848bc75f59d5ac8248085bbfc1ae104a1c69496"
+  },
+  "input_manifest": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_parallel_preparation_20260912/single16k/inputs/input_manifest.json",
+    "sha256": "cf7a09504ceb13ece1e10a0ecd8a57cf85f7c0e0812b9030c25efa2eeea54991"
+  },
+  "postprocess": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
+    "sha256": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c"
+  },
+  "input_assembly_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_parallel_preparation_20260912/single16k/inputs/assembly_attempt1/execution_receipt.json",
+    "sha256": "82975e338152f136885fcaf9a9b40a1f9ba5e87ed570eb6f0daf4723ea10f69a"
+  },
+  "method_configuration": {
+    "method": "InfLLM",
+    "upstream_commit": "12b70798f56e56ebb23c53c7018091a3f540a028",
+    "adapter_active": false,
+    "KV_dtype": "float16",
+    "KV_backing": "persistent_GPU",
+    "attention": "pinned_upstream_Torch_multistage_joint_softmax",
+    "Qwen3_qk_normalization": "preserved_before_InfLLM_RoPE",
+    "prompt_truncation": false,
+    "same_SDPA_primitive": false
+  },
+  "duplicate_policy": "New InfLLM algorithm cell; no completed InfLLM run in this preparation",
+  "first_cell_reason": "Existing 100 inputs, within40960 positions, unchanged BOS/query/cap/EOS/scorer",
+  "source_official_commit": "12b70798f56e56ebb23c53c7018091a3f540a028",
+  "literature_replication_boundary": "Public Qwen1.5 InfLLM config on exact local Qwen3 with q/k norms, resident KV adaptation. Not a claim to reproduce Table1 literature numerics.",
+  "infllm_adapter": {
+    "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/package/resident_adapter.py",
+    "sha256": "ebbdc523c8d91fac34b7cb1ad974e15515464186dd3897c649148b65081fa595"
+  },
+  "infllm_upstream_root": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/public_upstream",
+  "infllm_upstream_lock": {
+    "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/infllm_preparation/upstream_lock.json",
+    "sha256": "3a85ca0090d9d3819238a8ef59e48b2bae814807455b32eb60d8c55c474b347c"
+  },
+  "backbone_runtime_files": {
+    "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab"
+  },
+  "GPU_execution_performed": false
+}

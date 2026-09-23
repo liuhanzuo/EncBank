@@ -1,0 +1,32 @@
+{
+    "task": {
+        "path": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/tasks/vulnerable-secret"
+    },
+    "trial_name": "qualification-vulnerable-secret",
+    "trials_dir": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/unbounded_env_qualification_r3_20260921/qualification",
+    "install_only": true,
+    "agent": {
+        "import_path": "tb_agent_rpc:ConcurrentDenseTerminus",
+        "model_name": "Qwen3.8-27B/dense",
+        "kwargs": {
+            "enable_summarize": false,
+            "proactive_summarization_threshold": 0,
+            "interleaved_thinking": true,
+            "collect_rollout_details": true,
+            "store_all_messages": true,
+            "record_terminal_session": false,
+            "reasoning_effort": "xhigh"
+        }
+    },
+    "environment": {
+        "type": "singularity",
+        "import_path": "apptainer_environment:ManagedApptainerEnvironment",
+        "kwargs": {
+            "singularity_image_cache_dir": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/sif",
+            "singularity_no_mount": "home,tmp,bind-paths"
+        }
+    },
+    "verifier": {
+        "disable": true
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "observe.py": "1ec2ecda1b139c138e12f613222290b97ff647243427440a9a9a718a1c474645",
+  "prepare.py": "8fa62b71576f8d0d86a0c241a4592ae3f1ce189d194c7c223f77ee8a7a452c60",
+  "README.md": "39badb458a97b299beeff587f61b3f3ed4eaaa821ffc55f9a8ce3c106b3fe3e3",
+  "dataset.json": "fdd92f3fc3c06375555ca114f0699afaad0ea3f897b49806bcbac61625bea952",
+  "launch.py": "46951b8e8068cddcd158bb9f3c876962fc76384386627164484de5ed2dd82523",
+  "configs.json": "f98c0eccbc1e788f3617b71eeacfdc3585747be9e21d939cfb3ea1c046d73e6c",
+  "collect.py": "57d13cfd8170515a40f4b874151a67dbe11fc190beac7fbbbc95afb9c423bc56",
+  "experiment.py": "82097d9123f500f08f782a010a6ef2ee91bde337d1a7d0dc8aeef99db8a8522e",
+  "dataset_manifest.json": "e5ea6e311db7391ea55d8a2934cdc2a3a2593d524f761d3a27c3a81f8d701366",
+  "vendor/engine.py": "e70d863847a89d4eb8818ed9b6d04a0f39a059f1f3940121f2b92974795d42e6",
+  "vendor/prefix_store.py": "97f1809e0a21716a9107eeb608847fae31d9eaf0d9b8d4cb92f806d9c0715895",
+  "vendor/workloads.json": "16ce94b8d99a319ad4c817de058e6fd5d224faa63e56e8d752e0f156efdc46be",
+  "vendor/bm25_index.py": "ebf876333541cab1b352faad21b3bf3fdb392ce520dc909b07f0f42983c74314",
+  "vendor/comem/moe.py": "45908e60309e33544e59af22ba99397626cbda109fe73a68ee39fe7483509bb1",
+  "vendor/comem/selftest.py": "b7ca6585c227e5585d9538a49203b3689f17d3f2069a559b8772dab2c106c264",
+  "vendor/comem/kvcompress.py": "68f95128f359c6cbe4246adf407d98b8c06a5116a290552b86a238b0714bb3e3",
+  "vendor/comem/cacheblend.py": "29583d86a0a348511a3c5b978b6fbebcb866e8a06d0909b820679dec858f1cec",
+  "vendor/comem/model.py": "3846e77d4daa3da30aa57515a968772c056faf6d871904c4d7b78f2674ce2f79",
+  "vendor/comem/__init__.py": "0fb48da122ff057c8ba322a7f6b25ef5bd5123ccbf01bc528fb0a118a63ae0b6",
+  "vendor/comem/model_registry.py": "3ae3cdde8f9ec726c0c625593c0fdfe11636759515da57046861ef688bb979b6",
+  "vendor/comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78"
+}

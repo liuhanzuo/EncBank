@@ -1,0 +1,19 @@
+{
+  "KERNEL_PROVENANCE.json": "d454567482f07ba7d6363ec7e56cb19357550d679881a2d05ac6bf9499258165",
+  "baseline_plan.json": "cb165ff391db1ecbe92254d1c4ca0e52fa627ee7363aa8829ed7c657f2f85d42",
+  "batch_cache.py": "f7f6ff8b3069d1496229c5af8a98ef1553dbe1224c483c4ae88f12d99366fa66",
+  "chunked_kv_adapter.py": "332c17b276a30e197048b76dafea507b71f643e1043bbcbaf33a17104c1d149a",
+  "common.py": "f4126ac9185cbfce5c8abc06a9f6095cebcc5f4d42ac8f3797ecf4d2919af260",
+  "conservative_fused_recurrent.py": "d015b7083bd1c6547a75d768460b384e42f03b73ad171669e1d59db635f6c724",
+  "hybrid_reader.py": "6d1644801af4a696d35812ec196337293a165766477caf0bbf685642ee0ad03b",
+  "model_probe.py": "a535d1c26a2744821fe495b069209b2f12591cec84639a65d18cd61a45b4eb28",
+  "native_layout_adapter.py": "5dee7c40b485dea3f89753f2dabf53f9b10b2280bf26a3289e01213f90f600c1",
+  "native_layout_kernel.py": "cb2ffef33e03473000e3805996fd5ba10c60c70d3b386f5cfb46b7ab8784ed53",
+  "native_microcheck.py": "87b6f6c40c373afd82db51be107f242ec1204ae74148e37c9b5a1c7a4ca85c94",
+  "probe.slurm": "a97bd4b98c700da1e332ae48e02e5ff11d891a234946b8872c9b696f74526a60",
+  "probe_supervisor.py": "2e2ebfcf9eb8417cc7d9402511d5808962d17a324840db98b121c2c033a77e0c",
+  "runtime_identity.py": "486957a116fb2c09393a12b7c89116c93d3d45f6d8ac571fe3d88ba2a3210937",
+  "submit_probe.py": "51d8b990002162a52f67207b8fa7f90537d691fccf31ffb99a959a959081e398",
+  "vendor_fused_recurrent.py": "10e47066d02739cfd8a56faa112837a04ca8f1cde4f7ad310bb699176830623c",
+  "vllm_gdn_adapter.py": "9254ecc585124bc0e12cb23496d42a2693e84023d2cb13fda357a6f153a85066"
+}

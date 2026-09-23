@@ -1,0 +1,179 @@
+{
+  "schema": "locomo1986_memoryllm_formal_native_v1",
+  "protocol_id": "locomo1986_memoryllm8bchat_plain48_sdpa_v1",
+  "launch_permitted": true,
+  "method_label": "MemoryLLM released Llama3 chat, reconstructed full-conversation memory, FP16/SDPA",
+  "method_block": "Separate released Llama3-chat out-of-backbone block; not Qwen same-reader ranking",
+  "exact_historical_CoMem_MemoryLLM_driver": false,
+  "reconstruction_boundary": "Original paper driver unavailable. This explicit adaptation restores initial memory per conversation, ingests complete history once, and generates each plain query from immutable conversation memory. Official LongBench resets per example and reserves a final prompt suffix.",
+  "generation_state_check": "GPU pointer/version/initialized checks only; exact bytewise nonmutation proven only in synthetic CPU check.",
+  "source_sha256": {
+    "protocol.py": "cdb2f50a830f62683055a7dfe3a27bebd738422b8d106c4ba61e1f7d785a2c2f",
+    "record_shell_exit.py": "02ef242d21b35e9ef2a60332d7d880993a11bde4e124df6b8758fbec3fb3a35f",
+    "resource_guard.py": "4ab1f426704a6e6abb519f5e0ea3935e97cda6a70fc37a19b7dd9a258d090cbb",
+    "run_formal.py": "5e82c92a5a0de22add9f232b8679761d61cefce2d13b91f498c88d805c44e2f3",
+    "run_locomo_memoryllm.py": "7c04e2c3f84782791dfc2df83c2289c3a75f418c226f88f92b69c54244c85d80",
+    "source/configuration_memoryllm.py": "abd00d3985f96fa22ad128a62f04aff7cd6d327eaab48edbd0a64a51d0220c88",
+    "source/modeling_memoryllm.py": "48b509c7f1476239273d98b7480ed27b51e94fe1de877da224dd796af63f4d39",
+    "submit_serialized.py": "5a7bd1c72f04ed069309401385a26676b0417011bfdfa9382159da2229ae8587",
+    "inference_inputs.json": "b9cd6cf1246aa081441623657462aa99e9bf8c201c234ada4680a42dd5c46305"
+  },
+  "input_sha256": "b9cd6cf1246aa081441623657462aa99e9bf8c201c234ada4680a42dd5c46305",
+  "asset_files": [
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/config.json",
+      "bytes": 1322,
+      "sha256": "8076b1e30c71a3aa5149e92ad2a95e37c6b80d41605e307d115ad14c9e51ffe2"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/generation_config.json",
+      "bytes": 177,
+      "sha256": "11951cc646c18d8e28bbf1f3185e28ca590fd077a236ed9087aced2203df8b91"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/model-00001-of-00008.safetensors",
+      "bytes": 6710886520,
+      "sha256": "b17482d71a23467c12449a65480152c079ab3b95da1f13b0470180e542b8d096"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/model-00002-of-00008.safetensors",
+      "bytes": 4917689241,
+      "sha256": "6ac14d07192b8d1a28fb97cef9883157a50b9e590076c6304720794e6339808f"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/model-00003-of-00008.safetensors",
+      "bytes": 4883929088,
+      "sha256": "00ed61c3d5540356f15fad64d8e06d67b15836a3c3bc4162bb9c519fb5028a22"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/model-00004-of-00008.safetensors",
+      "bytes": 4816854808,
+      "sha256": "486e30986eb4d3d7bdd586e39f40d3f5c58896e519ba03ae00a4535454083377"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/model-00005-of-00008.safetensors",
+      "bytes": 4883929264,
+      "sha256": "ac23a411eb7edf6d6ab70bd5f9d62530009463b40c9a0d48927a56937705ce63"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/model-00006-of-00008.safetensors",
+      "bytes": 4816854856,
+      "sha256": "a8f87c806bd8e0b2c56282ce00a92da480262573859808d0e3dd97cd23756971"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/model-00007-of-00008.safetensors",
+      "bytes": 4883929264,
+      "sha256": "1af8c8a2ade03aecf9f1f840bf83d64a2a8757e0c2f63c63d579e0877ac3ad94"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/model-00008-of-00008.safetensors",
+      "bytes": 3220526344,
+      "sha256": "c829d567321e2d668a5b4db89175a7933b0c343ee8804121e641c3b797160eb6"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/model.safetensors.index.json",
+      "bytes": 102981,
+      "sha256": "a59754562bc49d5554649a11fab93a2447a5d0ef9eb9a26e5d567c75556e00c7"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/special_tokens_map.json",
+      "bytes": 439,
+      "sha256": "208d307467cabecb563e033fdb478b7c11a1bc6eca9a9c761bf6a303ccfce4c1"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/tokenizer.json",
+      "bytes": 9085698,
+      "sha256": "e134af98b985517b4f068e3755ae90d4e9cd2d45d328325dc503f1c6b2d06cc7"
+    },
+    {
+      "path": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9/tokenizer_config.json",
+      "bytes": 51006,
+      "sha256": "cdaab4a243135459480bf2f80139e65da594efe9486bf1171b457561856f44c1"
+    }
+  ],
+  "runtime_files": [
+    {
+      "path": "/srv/encbank/qcomem_runtime_20260911/python312/lib/python3.12/site-packages/torch/__init__.py",
+      "bytes": 106868,
+      "sha256": "51c90fe34a7cf869517d1bab4cd114498790e169ec668f1a154c35ec64117a5e"
+    },
+    {
+      "path": "/srv/encbank/qcomem_runtime_20260911/python312/lib/python3.12/site-packages/torch/lib/libtorch_cuda.so",
+      "bytes": 1043840721,
+      "sha256": "c4769210434140703db15073cc72fb7c3f4e62e5ba78fd00df74b6dd62fa5fe8"
+    },
+    {
+      "path": "/srv/encbank/qcomem_runtime_20260911/python312/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so",
+      "bytes": 448177281,
+      "sha256": "c960407c516ec84d7994fd2c46cf2adc282d0fe6d3d0e928e1d64cc66598e5e4"
+    },
+    {
+      "path": "/srv/encbank/qcomem_runtime_20260911/memoryllm_torch210_20260916/lib/python3.12/site-packages/transformers/modeling_utils.py",
+      "bytes": 281306,
+      "sha256": "9e5f51ac8a4c8b27aa1331940d4439dbd54fc49365e84607077ff220f00a543c"
+    },
+    {
+      "path": "/srv/encbank/qcomem_runtime_20260911/memoryllm_torch210_20260916/lib/python3.12/site-packages/transformers/generation/utils.py",
+      "bytes": 255993,
+      "sha256": "79f20fb3882cc4fb641e1c18e0e1d860087b4618c07404bf427a2b1d9bf7fdde"
+    },
+    {
+      "path": "/srv/encbank/qcomem_runtime_20260911/memoryllm_torch210_20260916/lib/python3.12/site-packages/transformers/cache_utils.py",
+      "bytes": 101049,
+      "sha256": "07302e8de4f80ecdd4aebdb691f18228b0e8d155a84c313c647529c5402805f2"
+    },
+    {
+      "path": "/srv/encbank/qcomem_runtime_20260911/memoryllm_torch210_20260916/lib/python3.12/site-packages/peft/peft_model.py",
+      "bytes": 89505,
+      "sha256": "916b7ca6f380cc5b2fe03f2e321d41f239a40343c4025483a5fe61ba5f0ac4c4"
+    }
+  ],
+  "runtime_versions": {
+    "torch": "2.10.0+cu128",
+    "transformers": "4.48.2",
+    "peft": "0.10.0",
+    "accelerate": "1.2.0"
+  },
+  "runtime_prefix": "/srv/encbank/qcomem_runtime_20260911/memoryllm_torch210_20260916",
+  "runtime": "/srv/encbank/qcomem_runtime_20260911/memoryllm_torch210_20260916/bin/python",
+  "model_root": "/srv/encbank/qcomem_align_codex_20260911/models/memoryllm-8b-chat-a8dec23c6ef9",
+  "model_revision": "a8dec23c6ef973ec2253d81a20a0a76228801cef",
+  "output": "/srv/encbank/qcomem_align_codex_20260911/locomo_paper_astra_expansion_20260916/memoryllm_native_full1986_attempt1",
+  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/locomo_memoryllm_full1986_20260916_attempt1",
+  "remote_package": "/srv/encbank/qcomem_align_codex_20260911/repo/paper_autonomous_multifork_iteration/evidence/locomo_paper_astra_expansion_20260916/preparation/memoryllm/formal_attempt1/package",
+  "job_name": "qcomem-locomo-memoryllm-20260916-codex",
+  "resource_policy": {
+    "allocator_cap_bytes": 214748364800,
+    "minimum_free_bytes": 236223201280,
+    "stable_idle_seconds": 45
+  },
+  "concurrency_policy": {
+    "maximum_owned_requested_GPUs": 4,
+    "GPUs_per_job": 1,
+    "count_running_and_pending": true
+  },
+  "generation": {
+    "dtype": "float16",
+    "attention_backend": "sdpa",
+    "max_new_tokens": 48,
+    "min_new_tokens": 1,
+    "greedy": true,
+    "seed": 42,
+    "per_conversation_seed": "42 + source_conversation_index",
+    "source_questions": 1986,
+    "conversations": 10,
+    "labels_in_inference": false,
+    "offload": false,
+    "initial_memory_backup": "GPU resident, included in allocator peaks"
+  },
+  "backend_qualification": {
+    "actual_gpu": "NVIDIA L20D",
+    "compute_capability": [
+      10,
+      3
+    ],
+    "torch_architecture_flags": "sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120"
+  },
+  "full_device_peak_policy": "Unmeasured full-device peak stays null; phase allocator peaks separately named",
+  "official_cpu_checks": "Parent preparation/official_cpu_check_torch210.json; no GPU smoke or benchmark generation before formal submission"
+}

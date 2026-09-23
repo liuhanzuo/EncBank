@@ -1,0 +1,168 @@
+{
+  "schema": "honly_ruler_multikey_8k_100_remote_v1",
+  "frozen_at": "2026-09-12T12:02:59.887737+08:00",
+  "configuration": {
+    "resume_j": 12,
+    "chunk_size": 512,
+    "selector": "iter_bm25",
+    "topk": 12,
+    "iter_hop_topk": 4,
+    "iter_rounds": 0,
+    "group_size": 64,
+    "bos_token_id": 151643,
+    "eos_token_id": 151645,
+    "max_new_tokens": 48
+  },
+  "resource_policy": {
+    "allocator_cap_bytes": 214748364800,
+    "minimum_free_bytes": 236223201280,
+    "stable_idle_seconds": 45
+  },
+  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "activation": {
+    "path": "paper_autonomous_multifork_iteration/evidence/qwen_access_repair_20260911/package/quality/bindings/adapter_activation.json",
+    "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
+  },
+  "fixture": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/inference_fixture.json",
+    "sha256": "8798a93df927a71b9b439bddf153b008dc40bdc362342234b09b78634b653d19"
+  },
+  "original_fixture": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/inputs/fixture.json",
+    "sha256": "0c5aaa11fde43040ef55dcae077537dc3a8b6fcc28c8c10a3203923d7826a40e"
+  },
+  "labels": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/inputs/scoring_only/labels.json",
+    "sha256": "be2a2972a4cf1064ff63d32c874492a803dbba411c530b346170528a3356bfc7"
+  },
+  "scorer": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py",
+    "sha256": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f"
+  },
+  "postprocess": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py",
+    "sha256": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c"
+  },
+  "cpu_gate": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/report.json",
+    "sha256": "157b23b4a42a41e717ff778220c69178343cc6f3f5fc4aa37afd19ef5e494e23"
+  },
+  "cpu_gate_actual_exit": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/execution.json",
+    "sha256": "c7652529a9db30ffc666630910fc68de65e890e2630e0dc602b14f23b816f8c6"
+  },
+  "dispatch_scope": "Remote Slurm single GPU only, all four arms in one allocation. Submit only after source/input staging and exact model/adapter remote SHA verification complete. Never invoke local launcher.",
+  "reader_binding": "local_Qwen3_8B_base_hashes_plus_custom_final4000_rank32_alpha32_3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119",
+  "source_sha256": {
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/honly.py": "18ec978ca2233238a7788c0fd82e4d3b9afaae0a6d4b959dd184975d5e47cd92",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/vendor_comem/model.py": "f9155eb92d4ffd8dee5eb3a39383178f33b363fb315547e37c47d1c5812ef6e9",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/runtime/quality_timing.py": "a2d0adc362c5e95c3b533758e2ccc01d5cc1d417e70dd6d08e2a8f3e1ae840a6",
+    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/synthetic/constants.py": "6740467c17b8dc06b6b30f4f97e54ce8de81db0dd879f1538d0b6b5727f4bd5f",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/inputs/official_ruler/scripts/eval/evaluate.py": "b9a5fcbded7209663d97670496c74dbcd6358ddbe3d9887a0c5f0c4f974bfe1c",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/protocol.py": "13b82673de4546dc11fdc569e08c49497dae57f692923af26c94592ead31cc41",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/resource_guard.py": "11ede03b0cd56d3c283b3e91f4a3d90af4c44fa8805e37709ab6d2b71cfba5be",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/resource_worker.py": "48b8624efb84977302b337af178f41fa952b1ec567e6fd1ee74d028eea860ba9",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/run_batch.py": "47719d96c5a9be9fbcd36182ed5ac99ea70d5045e8da6403e6bc3a74ada8d508",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/record_shell_exit.py": "9f3229702e9b6abc4df4e1c1c7b9e81ca2b064b0888833792a207b2a60e8b72a",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/run_quality.py": "4e6e273eb47bda8159b836da7f3f8d70d135b5f28ab2b62027cb8661097e8a3b",
+    "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/analyze.py": "e10c264d28cc76bd2d701e36512f2776e2a4ab8e399ae329b629a31af37e0cd4"
+  },
+  "outputs": {
+    "dense": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/run/attempt1/dense",
+    "h16": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/run/attempt1/h16",
+    "h8": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/run/attempt1/h8",
+    "h4": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/run/attempt1/h4"
+  },
+  "generation": "plain [single BOS]+same document+complete query; greedy scalarEOS151645, first-step EOS suppressed, cap48; source generator reserve128",
+  "training_or_runtime_offload": false,
+  "automatic_retry": false,
+  "precision_comparison": "H16/H8/H4 share j12 and exact custom adapter; Dense fullcontext has no adapter. Dense contrasts are whole-method comparisons.",
+  "paper_identity_boundary": "Existing adapter was trained on these exact local weight hashes, but alpha32/custom trainer is not paper alpha64/continued-base exact checkpoint.",
+  "analysis": {
+    "official_metric": "string_match_all",
+    "unit": "unique exact document",
+    "rng": "Python MT19937",
+    "seed": 20260911,
+    "draws": 10000
+  },
+  "hypothesis": "H-only low-bit storage can reduce actual persistent H bytes while preserving useful retrieval accuracy relative to identical H16 read; negative results retained.",
+  "not_claimed": [
+    "full RULER macro",
+    "same-checkpoint published baseline ranking",
+    "infra speedup",
+    "maximum capacity",
+    "GPU multi-query reuse"
+  ],
+  "cpu_gate_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/execution.json",
+    "sha256": "c7652529a9db30ffc666630910fc68de65e890e2630e0dc602b14f23b816f8c6"
+  },
+  "model_expected_manifest": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/expected_model_manifest.json",
+    "sha256": "9d040f1f3661da4b1569e93171d6877952eb906e501407403912cb050ef0802b"
+  },
+  "batch_output": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/package/run/attempt1",
+  "remote_python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "remote_repo_root": "/srv/encbank/qcomem_align_codex_20260911/repo",
+  "artifact_staging_at_preparation": "Local CPU package only; root must stage and hash-verify before submission",
+  "remote_exit_contract": "native worker actual wait for each arm; shell trap is not final Slurm controller accounting; final independent completion must check sacct job exit0",
+  "device_block": "Observed driver-reported identity only; no confirmed B300 claim and no insertion into RTX5090 timing rows",
+  "reused_remote_plan": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/remote_formal/plan.json",
+    "sha256": "a6cf2a44c0d13ae47022b1c3330fb9d805c364710e0c1c14ab0f950b8341ebf7"
+  },
+  "input_manifest": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/inputs/input_manifest.json",
+    "sha256": "8df401890055e4cc4410ae89b440f24aee674682e59bb5efe9290fa6b106f8d8"
+  },
+  "input_generation_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/inputs/generation_attempt1/execution_receipt.json",
+    "sha256": "d5a4b18769926a17384a2079da2ec7ae1ef1bd6238ac52dbf1f693987a600ca3"
+  },
+  "input_assembly_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_ruler_multikey_preparation_20260912/inputs/assembly_attempt1/execution_receipt.json",
+    "sha256": "c3a7a178f78a95af4f3a8e6864a58b2901fe185d4c53559ba8bdd97ea485fd66"
+  },
+  "arm_order": [
+    "dense",
+    "h16",
+    "h8",
+    "h4"
+  ],
+  "task": {
+    "benchmark": "RULER",
+    "task": "niah_multikey_1",
+    "max_seq_length": 8192,
+    "items": 100,
+    "documents": 100,
+    "seed": 42,
+    "source_reserve": 128,
+    "max_new_tokens": 48,
+    "num_needle_k": 4,
+    "num_needle_v": 1,
+    "num_needle_q": 1
+  },
+  "expected_complete_counts": {
+    "answers": 400,
+    "H_Writes": 300,
+    "phases_by_arm": {
+      "dense": 201,
+      "h16": 601,
+      "h8": 601,
+      "h4": 601
+    },
+    "phases_total": 2004
+  },
+  "diagnostic_scope": {
+    "saved": "Original generated tokens, cap/EOS flags, inclusive quality phases and CUDA allocated/reserved; new per-row synchronized-start first/last sampled nonEOS token timing; admission physical GPU/global free memory.",
+    "TTFT": "quality_timing.ttft_seconds: Read start before preparation through first sampled nonEOS token",
+    "TPS": "quality_timing.decode_tokens_per_second: (N-1)/(last-first); null for N<=1; excludes EOS decision; total Read separately includes cleanup",
+    "timing_boundary": "Natural variable-length quality run, not fixed-work infrastructure; no cross-device speed ranking."
+  }
+}

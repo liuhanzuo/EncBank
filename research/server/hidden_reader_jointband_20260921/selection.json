@@ -1,0 +1,105 @@
+{
+  "at": "2026-09-21T17:36:27.184226+08:00",
+  "selected_n": 24,
+  "confirm_arms": [
+    "native",
+    "n12",
+    "n24",
+    "n36"
+  ],
+  "candidates": [
+    {
+      "n": 12,
+      "task_delta_pp": {
+        "single": 0.0,
+        "multikey": -12.5,
+        "vt": -82.91666666666666
+      },
+      "worst_cell_delta_pp": -93.75,
+      "eligible": false
+    },
+    {
+      "n": 14,
+      "task_delta_pp": {
+        "single": 0.0,
+        "multikey": -3.125,
+        "vt": -62.29166666666666
+      },
+      "worst_cell_delta_pp": -65.625,
+      "eligible": false
+    },
+    {
+      "n": 16,
+      "task_delta_pp": {
+        "single": 0.0,
+        "multikey": -3.125,
+        "vt": -39.583333333333336
+      },
+      "worst_cell_delta_pp": -51.25,
+      "eligible": false
+    },
+    {
+      "n": 18,
+      "task_delta_pp": {
+        "single": 0.0,
+        "multikey": 0.0,
+        "vt": -15.208333333333314
+      },
+      "worst_cell_delta_pp": -24.375,
+      "eligible": false
+    },
+    {
+      "n": 20,
+      "task_delta_pp": {
+        "single": 0.0,
+        "multikey": 1.0416666666666572,
+        "vt": -7.708333333333329
+      },
+      "worst_cell_delta_pp": -13.125,
+      "eligible": false
+    },
+    {
+      "n": 24,
+      "task_delta_pp": {
+        "single": 0.0,
+        "multikey": 0.0,
+        "vt": 0.2083333333333286
+      },
+      "worst_cell_delta_pp": 0.0,
+      "eligible": true
+    },
+    {
+      "n": 28,
+      "task_delta_pp": {
+        "single": 0.0,
+        "multikey": 0.0,
+        "vt": 0.0
+      },
+      "worst_cell_delta_pp": 0.0,
+      "eligible": true
+    },
+    {
+      "n": 32,
+      "task_delta_pp": {
+        "single": 0.0,
+        "multikey": 0.0,
+        "vt": 0.0
+      },
+      "worst_cell_delta_pp": 0.0,
+      "eligible": true
+    },
+    {
+      "n": 36,
+      "task_delta_pp": {
+        "single": 0.0,
+        "multikey": 0.0,
+        "vt": 0.0
+      },
+      "worst_cell_delta_pp": 0.0,
+      "eligible": true
+    }
+  ],
+  "fallback_used": false,
+  "rule": "minimum joint depth with all task-mean losses<=2pp and all cell losses<=5pp on first32/cell only",
+  "confirmation": "remaining68/cell; no confirmation outputs read for selection"
+}

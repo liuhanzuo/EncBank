@@ -1,0 +1,91 @@
+{
+  "experiment": "Qwen3-8B joint-attention depth in real Terminal-Bench 2.1",
+  "benchmark_revision": "7131e4375048a0e408a8fb404b5f499d726b695b",
+  "tasks": [
+    "log-summary-date-ranges"
+  ],
+  "arms": [
+    "hot24_c24"
+  ],
+  "seed": 20260921,
+  "task_selection": "Six named 2GiB tasks covering asynchronous code, memory debugging, text editing, logs, SQL optimization, database recovery; chosen before any 8B results.",
+  "task_root": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/tasks",
+  "host_admission_root": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/unbounded_host_admission",
+  "host_memory_budget_mb": 204800,
+  "harbor_python": "/srv/encbank/qcomem_runtime_20260911/server_control_20260920/harbor_env/bin/python",
+  "engine_python": "/srv/encbank/Paper_Evolve/.venv/bin/python",
+  "model": "/srv/encbank/comem_sparse_slurm_20260912/models/Qwen3-8B",
+  "adapter": "/srv/encbank/comem_infra_recheck_20260912/adapter",
+  "adapter_sha256": "1deb86bdc89206ab029ca67403fb3f96dda29fc68223eebec4fc49e97ec0eb13",
+  "allocator_gib": 96,
+  "context_tokens": 40960,
+  "hidden_limit_gib": 8,
+  "chunk_tokens": 512,
+  "recent_tokens": 512,
+  "topk": 12,
+  "hop": 4,
+  "max_new_tokens": null,
+  "task_timeout": null,
+  "request_timeout": null,
+  "max_turns": null,
+  "thinking": false,
+  "temperature": 0,
+  "policy": "No summarization/cropping/artificial generation limit; native position and physical memory boundaries recorded as incomplete.",
+  "retrieval": "iterative token BM25, positive matches then recent fill to min(12,N); sorted chronologically",
+  "query": "First instruction pinned in exact query KV, plus latest >=512 and <1024 tokens; retrieval once per model call; generation keeps growing KV without chunk-boundary retrieval.",
+  "concurrency": "One GPU per task pair; native and n24 sequential in fresh containers, order alternates across six tasks; six pairs may run concurrently.",
+  "controlled_replay": "After both live trials, choose at most three native requests with most archived chunks, tie by step; replay identical histories with native/n36/n24 and the first up to128 recorded output tokens. Two measurements per arm; excluded from live time.",
+  "quality_scope": "Exploratory six-task A/B, not full89 or the separate27B continuation.",
+  "environment_source": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_unbounded_20260921",
+  "backend_sha256": {
+    "apptainer_environment.py": "ffedc3adc317653f2ed10cd8e24d515b55d118b329276d53f222f5f928a3a782",
+    "apptainer_service.py": "f490e323d051e478b78b30d21c36198939ecedbcd9740cd5cba8bfa8bc02c98c",
+    "apptainer_executor.py": "53afe14d3c42d314bdc7ea3b313fc628689d89c3ae48c9bdfaa850acf790c9b9",
+    "cpu_slots.py": "597b86669efcedf15bd705297879ef932f5173cc57955747bfae7a9e587bf47b",
+    "harbor_unbounded.py": "10252550a2feb9910d964afa4e6e022799f533f420b84f470e9de30b0357fc31"
+  },
+  "resource_inventory": [
+    {
+      "task": "custom-memory-heap-crash",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "large-scale-text-editing",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "query-optimize",
+      "memory_mb": 2048,
+      "cpus": 1
+    },
+    {
+      "task": "sqlite-db-truncate",
+      "memory_mb": 2048,
+      "cpus": 1
+    }
+  ],
+  "predecessor": "/srv/encbank/qcomem_align_codex_20260911/hidden_reader_terminal_r4_20260921",
+  "revision_reason": "Integrated Slurm ownership; unchanged R4 model code. Qualify actual task environment before loading model; separate physical CPU cores. Complete backend dependency copy.",
+  "global_task_order": [
+    "cancel-async-tasks",
+    "custom-memory-heap-crash",
+    "large-scale-text-editing",
+    "log-summary-date-ranges",
+    "query-optimize",
+    "sqlite-db-truncate"
+  ],
+  "predecessors": [
+    "/srv/encbank/qcomem_align_codex_20260911/hidden_reader_terminal_r2_20260921",
+    "/srv/encbank/qcomem_align_codex_20260911/hidden_reader_terminal_r3_20260921"
+  ],
+  "hot_qualification_root": "/srv/encbank/qcomem_align_codex_20260911/hot_buffer_20260921",
+  "decode_retrieval_interval": 512,
+  "scope": "Real Terminal-Bench hot-buffer pilot, original verifiers, independent arm allocations"
+}

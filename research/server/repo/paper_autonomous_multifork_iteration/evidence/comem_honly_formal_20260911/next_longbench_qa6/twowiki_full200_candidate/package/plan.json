@@ -1,0 +1,151 @@
+{
+  "schema": "honly_full_2wikimqa200_remote_candidate_v1",
+  "frozen_at": "2026-09-12T05:33:47.088578+08:00",
+  "configuration": {
+    "resume_j": 12,
+    "chunk_size": 512,
+    "selector": "iter_bm25",
+    "topk": 12,
+    "iter_hop_topk": 4,
+    "iter_rounds": 0,
+    "group_size": 64,
+    "bos_token_id": 151643,
+    "eos_token_id": 151645,
+    "max_new_tokens": 32
+  },
+  "resource_policy": {
+    "allocator_cap_bytes": 214748364800,
+    "minimum_free_bytes": 236223201280,
+    "stable_idle_seconds": 45
+  },
+  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "activation": {
+    "path": "paper_autonomous_multifork_iteration/evidence/qwen_access_repair_20260911/package/quality/bindings/adapter_activation.json",
+    "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
+  },
+  "fixture": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/inference_fixture.json",
+    "sha256": "85e663a47430c07991a494bd4a3fd282dfd0f23d1e24eaf89e3671f09ca4a969"
+  },
+  "original_fixture": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/inference_fixture.json",
+    "sha256": "85e663a47430c07991a494bd4a3fd282dfd0f23d1e24eaf89e3671f09ca4a969"
+  },
+  "labels": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/scoring_only/labels.json",
+    "sha256": "1c094d020d84f42c88d8f13f3eefd672179c9b6a7583546ac41fbd72b57b9985"
+  },
+  "scorer": {
+    "path": "data/benchmark_expansion_20260909/sources/longbench_code/metrics.py",
+    "sha256": "e22e2a2662e0f7e683137fa3541f64edb6a801e9138d16d2f3459a6ab9941323"
+  },
+  "cpu_gate": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/report.json",
+    "sha256": "157b23b4a42a41e717ff778220c69178343cc6f3f5fc4aa37afd19ef5e494e23"
+  },
+  "cpu_gate_actual_exit": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/execution.json",
+    "sha256": "c7652529a9db30ffc666630910fc68de65e890e2630e0dc602b14f23b816f8c6"
+  },
+  "dispatch_scope": "Remote Slurm single GPU only, all four arms in one allocation. Submit only after source/input staging and exact model/adapter remote SHA verification complete. Never invoke local launcher.",
+  "reader_binding": "local_Qwen3_8B_base_hashes_plus_custom_final4000_rank32_alpha32_3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119",
+  "source_sha256": {
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/runtime/honly.py": "5e0a6b021f3b69941f7d0a13185cd67bf18f22297cfb2e4bcb01e40b76967387",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/runtime/prepare_sources.py": "e4466007eff187aa9209f6a3e2cde91ae5c774bc9df912cf2f7a3c01b55c51d3",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/analyze.py": "1b40358abea6905f8c9990e642d330fbfb3ddc248adb5713cdce976584e1d979",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/protocol.py": "cc060cef12c796a65fe727f49e6d4add758227d9c548e9105e22fc34ead22004",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/record_shell_exit.py": "9f3229702e9b6abc4df4e1c1c7b9e81ca2b064b0888833792a207b2a60e8b72a",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/resource_guard.py": "11ede03b0cd56d3c283b3e91f4a3d90af4c44fa8805e37709ab6d2b71cfba5be",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/resource_worker.py": "575a599a344ac2c4465eaf517a7c0bc4c915236b6b0fdbd53ec3a3e3021ef811",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/run_batch.py": "47719d96c5a9be9fbcd36182ed5ac99ea70d5045e8da6403e6bc3a74ada8d508",
+    "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/run_quality.py": "b9138d8cd83a9889e47ed3c4988d327a82848c83c6a4ff899e56019a034e47f4"
+  },
+  "outputs": {
+    "dense": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/run/attempt1/dense",
+    "h16": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/run/attempt1/h16",
+    "h8": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/run/attempt1/h8",
+    "h4": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/run/attempt1/h4"
+  },
+  "generation": "plain singleBOS plus complete official 2WikiMQA document/query; scalarEOS151645, inherited first-step EOS suppression, official cap32; no truncation",
+  "training_or_runtime_offload": false,
+  "automatic_retry": false,
+  "precision_comparison": "H16/H8/H4 share j12 and exact custom adapter; Dense fullcontext has no adapter. Dense contrasts are whole-method comparisons.",
+  "paper_identity_boundary": "Existing adapter was trained on these exact local weight hashes, but alpha32/custom trainer is not paper alpha64/continued-base exact checkpoint.",
+  "analysis": {
+    "official_metric": "LongBench qa_f1_score and eval.scorer; max over references, native percent",
+    "unit": "200 exact-document clusters / 200 items, item-weighted paired contrast",
+    "rng": "Python Random MT19937",
+    "seed": 20260911,
+    "draws": 10000
+  },
+  "hypothesis": "H-only low-bit storage can reduce actual persistent H bytes while preserving useful retrieval accuracy relative to identical H16 read; negative results retained.",
+  "not_claimed": [
+    "six-task LongBench macro",
+    "same-checkpoint published baseline ranking",
+    "infra speedup",
+    "maximum capacity",
+    "Dense persistent multi-query cache reuse",
+    "multi-query reuse coverage from single-question HotpotQA documents",
+    "multi-query reuse coverage from single-question 2WikiMQA documents"
+  ],
+  "cpu_gate_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/independent_cpu/remote_cpu_attempt1/execution.json",
+    "sha256": "c7652529a9db30ffc666630910fc68de65e890e2630e0dc602b14f23b816f8c6"
+  },
+  "model_expected_manifest": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/remote_formal/expected_model_manifest.json",
+    "sha256": "9d040f1f3661da4b1569e93171d6877952eb906e501407403912cb050ef0802b"
+  },
+  "batch_output": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/twowiki_full200_candidate/package/run/attempt1",
+  "remote_python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "remote_repo_root": "/srv/encbank/qcomem_align_codex_20260911/repo",
+  "artifact_staging_at_preparation": "pending; not scientific readiness or GPU allocation",
+  "remote_exit_contract": "native worker actual wait for each arm; shell trap is not final Slurm controller accounting; final independent completion must check sacct job exit0",
+  "device_block": "Observed driver-reported identity only; no confirmed B300 claim and no insertion into RTX5090 timing rows",
+  "official_eval": {
+    "path": "data/benchmark_expansion_20260909/sources/longbench_code/eval.py",
+    "sha256": "1a3acfc25d9b053e9bb75c479f7e385d0cb9989f0f7115346b7d632655967721"
+  },
+  "preparation_status": "PREPARED_LOCAL_FOCUSED_GATES_REMOTE_STAGING_AND_ADMISSION_PENDING",
+  "scientific_scope": "Full 2WikiMQA200/200 exact documents; unchanged BF16 H-only mathematics; one question per document, no multi-query reuse coverage; same custom reader, not paper-exact checkpoint",
+  "grouped_input_contract": {
+    "items": 200,
+    "documents": 200,
+    "multiple_query_documents": 0,
+    "H_Writes_per_arm": 200,
+    "Reads_per_arm": 200,
+    "Dense_persistent_Writes": 0,
+    "Dense_full_context_prefills": 200,
+    "H_phase_records": 1201,
+    "Dense_phase_records": 401,
+    "group_order": "first document appearance, original item order within each group; saved rows restored to original source order",
+    "runtime_entry_lifetime": "one immutable H entry alive; all grouped queries fresh request state then one release"
+  },
+  "bootstrap": {
+    "RNG": "Python Random MT19937",
+    "seed": 20260911,
+    "draws": 10000,
+    "unit": "200 exact-document clusters, item-weighted paired mean; one question per document",
+    "endpoint_indices": [
+      249,
+      9749
+    ]
+  },
+  "next_submission_gates": [
+    "remote sparse source/input exact SHA and original four check-only calls",
+    "remote exact model identity and outputs absent; no duplicate namespace",
+    "Slurm one GPU stable/fresh resource admission"
+  ],
+  "no_GPU_or_submission_performed": true,
+  "historical_route_source_plan": {
+    "path": "paper_autonomous_multifork_iteration/evidence/comem_honly_formal_20260911/next_longbench_qa6/hotpot_full200_candidate/package/plan.json",
+    "sha256": "5067337cf8a3c1d0a958e12ffeb02ae3ba7ed0b7bd7a99dabe483468aefaa324"
+  }
+}

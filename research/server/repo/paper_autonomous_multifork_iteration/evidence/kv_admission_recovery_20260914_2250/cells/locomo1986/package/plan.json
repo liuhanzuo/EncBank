@@ -1,0 +1,472 @@
+{
+  "schema": "KVDirect_full_quality_locomo1986_v1",
+  "frozen_at": "2026-09-14T22:54:21.250691+08:00",
+  "arm_order": [
+    "public_kvdirect_j0"
+  ],
+  "backbone_dtype": "float16",
+  "attention_backend": "sdpa",
+  "configuration": {
+    "resume_j": 0,
+    "chunk_size": 512,
+    "selector": "all_chunks",
+    "topk": null,
+    "iter_hop_topk": null,
+    "iter_rounds": null,
+    "H_group_size": 64,
+    "KIVI_group_size": 32,
+    "KIVI_residual_length": 128,
+    "bos_token_id": 151643,
+    "eos_token_id": 151645,
+    "first_step_EOS_suppressed": true,
+    "max_new_tokens": 48,
+    "query_tokens_per_call": 1
+  },
+  "fixture": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_full_prediction_36h_20260913/package/inference_fixture.json",
+    "sha256": "d3f93f3438699a7d0e0cb616c4e9178205429a8f2b6a086b7d089ae35a5ce0af"
+  },
+  "labels": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_readiness_20260912/inputs/scoring_only/labels.jsonl",
+    "sha256": "1dd9dd8db7d965a3d1b0a94503c2ac8b58674a1693262707256a2c0d18a09c8f"
+  },
+  "scorer": {
+    "path": "tmp_external_baselines/comem_official/eval/locomo.py",
+    "sha256": "0459d0128deaf30b46a07b43c35b22e6b101e1afa47fdd2a802400ec610768db"
+  },
+  "activation": {
+    "path": "paper_autonomous_multifork_iteration/evidence/qwen_access_repair_20260911/package/quality/bindings/adapter_activation.json",
+    "sha256": "3f3ad264a41399504913475fe1b9baefc1d148c2ec2d4ec666e417f29af95119"
+  },
+  "reader_binding": "same_local_Qwen3_8B_base_hashes_adapter_OFF_public_kvdirect_j0",
+  "model_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/model",
+  "adapter_root": "/srv/encbank/qcomem_align_codex_20260911/exact_local_reader/adapter",
+  "resource_policy": {
+    "allocator_cap_bytes": 214748364800,
+    "minimum_free_bytes": 236223201280,
+    "stable_idle_seconds": 45
+  },
+  "python": "/srv/encbank/qcomem_runtime_20260911/python312/bin/python",
+  "native_attention_runtime_files": {
+    "models/qwen3/modeling_qwen3.py": "fbdcfeeb1b54135ca67ba7df924da92f4b264e1252b517eea2de989289ebaeab",
+    "integrations/sdpa_attention.py": "87f933d1a2d8508df572da5c0748c6b24c22ff2b625796949957dcd86cc57564"
+  },
+  "native_attention_policy": "torch.nn.functional.scaled_dot_product_attention via HF5.5.4 native integration; CUDA kernel dispatcher not identified",
+  "tokenwise_runtime_root": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate",
+  "natural_qa_adapter": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval64k_preparation_20260912/timed_runtime/natural_qa.py",
+    "sha256": "7669b0781f62d9fb8e86aa38159be76a4e54749c50ed0c5a1d90003930f99954"
+  },
+  "qualification_bindings": {
+    "tokenwise_CPU": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/completion_receipt.json",
+      "sha256": "aff003b0b1df54c678733e0df34741b69fe93b05b8ad7053827631df181f15ef"
+    },
+    "native_SDPA_CPU": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/native_sdpa_controls_candidate/cpu_completion_receipt.json",
+      "sha256": "c07fde72b5e778e44e603b8a1e503433a2c51d70788c9b774ef7c6218759228b"
+    },
+    "natural_QA_mock_report": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_quality_preparation_20260912/cpu_mock_report.json",
+      "sha256": "d6727a11e93504d40ea0f011efa2492a5b35a60e7308841995f2591ad7ca6da1"
+    },
+    "natural_QA_mock_exit": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_quality_preparation_20260912/execution_receipt.json",
+      "sha256": "9e18e6fcfa1e3b645a2a2a9a1e844bcf3aa599c956f21555908dd071f6638901"
+    },
+    "new_timing_CPU_report": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/focused_checks_attempt1/timing_report.json",
+      "sha256": "5db79ac6b0e13a230459b4a048ca7aab574f4719437640c2aebc12c2bf07dd16"
+    },
+    "generic_CPU_actual_receipts": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/focused_checks_attempt1/actual_commands.json",
+      "sha256": "6328c3ac642ceb5f708558188ea3db12df7fa15a3a15b1009e65a5d8f648c135"
+    },
+    "quality_timing_schema": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/quality_timing_schema_check.json",
+      "sha256": "f2a9a6357288c23d93f8e7ae01c394633a1cf628ac4bcecb817d7fd9db4e93f1"
+    }
+  },
+  "source_sha256": {
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/tokenwise_runtime.py": "d35ed28ae8ffb4db1dbf348b55ccd3c7d5f65b30f403cc90ceb5158d4e8ce3ac",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/extracted_minmax.py": "c1e2259f98b8d770c2a99f3b3fbaeb8cca21c630a095cf819e16cc7e1e2185a8",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/honly_fp16.py": "9e543ed248a15e7646f230042bf694b86b563b7376ab6cc06254fbedbab0ca73",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/model.py": "939b8d5bd7c9e3ca8f78e878683f4014149b3c156b9bdd5b887d2ac459a0c7df",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/selectors.py": "4421e620c2ec47cf20330b35337c924026bfa3034191555e9b09ec2f39181d78",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/vendor_comem/__init__.py": "cd91ca93ed53f9e9a261e2905f7c8ac4f8bb6d9c1ee00320c18240f0fb8d414a",
+    "tmp_external_baselines/comem_official/eval/_common.py": "aec5ee79144fc05799469eb3714cfebd58d5f78cb8328e0ead7c1c5c807a0e03",
+    "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/fp16_six_method_profile_candidate/runtime/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
+    "tmp_external_baselines/kv_quant/KIVI/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
+    "tmp_external_baselines/kv_quant/KIVI/quant/matmul.py": "eac6415b494d11ce6d3383031039cd372add6336770c2f0431433115382ae60e",
+    "tmp_external_baselines/kv_quant/KIVI/quant/csrc/gemv_cuda.cu": "fad05a372394193d10d1ba75e3ed2c047eb2fc3ce9429a1de40c593571878627",
+    "tmp_external_baselines/kv_quant/KIVI/quant/csrc/gemv_cuda.h": "99a7df61a1bcc216404bf4a0da4f6d432a77794811546ce6de9c3a63e4e14fb2",
+    "tmp_external_baselines/kv_quant/KIVI/quant/csrc/pybind.cpp": "a7d37c4eedb82db49894c195afd1dc2b4606508177b866088e684362eb329a8c",
+    "tmp_external_baselines/kv_quant/KIVI/quant/setup.py": "c782d40167ee1b0d16e463949aedb2498cb4b63704821e70bac25961f3395962",
+    "paper_autonomous_multifork_iteration/evidence/honly_longeval64k_preparation_20260912/timed_runtime/natural_qa.py": "7669b0781f62d9fb8e86aa38159be76a4e54749c50ed0c5a1d90003930f99954",
+    "paper_autonomous_multifork_iteration/evidence/honly_longeval_formal_20260912/timed_runtime/natural_qa.py": "fe2b75db339e90be142432e73fd0824ec25e01fafc56caff0bd70109cce82716",
+    "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/kv_hcache_preparation/allchunks_runtime_v2.py": "5335ea3593c15475d337a75b2ece3cd22897e6787b57682f8d088c20c33882b0",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/analyze.py": "0bb4157c3e1335fec84363239d416d41436dce15b24c2bbf799030fb356e7e58",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/backend_gate.py": "89500a0b41d064210699dd45491a254d76d115e6d7131fa90906f3fa24e2cbe5",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/protocol.py": "427d4e6fee594cc5bfc78bbb7d12608065459b1600b9b6a44b9da9a55f8cf358",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/qcomem_triton_cache.py": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/record_shell_exit.py": "27ff44a5cd2067f24a3b045e3ec4a024dc376fbfe07baa0794caeccb855c4e12",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/resource_guard.py": "4ab1f426704a6e6abb519f5e0ea3935e97cda6a70fc37a19b7dd9a258d090cbb",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/resource_worker.py": "1f892e608afe4d1f579ec9335aa206273231ff8b2fa6b7b3ba563c7df6421ba2",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/run_batch.py": "4172aab0a10f9aa60ec80ee28e55c19606fd9f2475bbdde6ede83f110b78e0eb",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/run_quality.py": "d9f87ee8d7e283bfb3c638d7a3bbdff83864b159c2d7494eb66e2c119c6557d5",
+    "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/validate_staged.py": "6fda9f5f6123076ebeaa0e36307e4a0062b2cadf4d5edcdb35ae2c17216482ba"
+  },
+  "batch_output": "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/run/attempt1",
+  "outputs": {
+    "public_kvdirect_j0": "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/cells/locomo1986/package/run/attempt1/public_kvdirect_j0"
+  },
+  "items_per_arm": 1986,
+  "documents_per_arm": 10,
+  "expected_complete_phases_per_arm": 4013,
+  "expected_total_answers": 1986,
+  "expected_total_Writes": 10,
+  "expected_total_phases": 4013,
+  "actual_frozen_input_lengths": {
+    "document_tokens": {
+      "minimum": 11604,
+      "maximum": 22222
+    },
+    "query_tokens": {
+      "minimum": 7,
+      "maximum": 35
+    },
+    "logical_prompt_tokens": {
+      "maximum": 22251
+    },
+    "logical_prompt_plus_cap": {
+      "maximum": 22299
+    }
+  },
+  "working_cache_ownership": "Persistent independent FP16 chunks plus single BOS and CPU raw-token metadata; no document KV; every request clones all chunks and recomputes layers 0:36 with full cross-chunk causal attention and contiguous upper positions; lower query-only KV for j12; no lower layers for j0.",
+  "full_input_original_window": 40960,
+  "training_or_runtime_offload": false,
+  "automatic_retry": false,
+  "on_actual_OOM": "Stop on every nonzero including OOM, retain failure and partial outputs; no retry or later arm continuation; no fabricated zero score.",
+  "precision_scope": "Qwen3-8B native FP16 SDPA H16 j12, LoRA OFF; independent chunk512, query-only lower and selected upper, no runtime offload.",
+  "BOS_policy": "Prior BOS151643/scalarEOS151645/first-step suppression; fixed independently of 54-question BOS sensitivity outcomes.",
+  "input_scope": "All original1986 questions/10 full conversation documents, all source ordinal order and categories1..5. No shard filtering, cropping, dropping or retokenization. Fixed # Question header is shared document; all full queries preserved. Explicit BOS151643 is the declared difference from upstream tokenizer; no chat template.",
+  "analysis": {
+    "metric": "Exact pinned CoMem eval/locomo.py score_sample and run_scoring: native F1/EM/acc with category5 refusal handling; NOT published semantic fullJudge",
+    "contrasts": [],
+    "bootstrap_executed": false,
+    "native_only_on_remote": true,
+    "metric_function_source": {
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260914/frozen_j12_locomo_preparation/package/analyze.py",
+      "sha256": "196a788623ed3b805d7b5134af74735e9e99b68ee35df90e02ead84cc09a9e3c"
+    }
+  },
+  "not_claimed": [
+    "published semantic fullJudge",
+    "BF16 equivalence",
+    "cross-conversation retrieval",
+    "fixed-work timing",
+    "full-device peak",
+    "GPU feasibility or quality from CPU checks",
+    "B300 hardware identity without actual proof",
+    "semantic scores from native lexical/refusal diagnostics"
+  ],
+  "preparation_scope": "New authorized KV-Direct FP16 Qwen3-8B LoRA-OFF locomo1986 remeasurement; exact common inputs/scorer/cap; raw negatives and natural quality infrastructure retained.",
+  "local_execution_permitted": false,
+  "dispatch_scope": "REMOTE_ONLY: last working MuSiQue Slurm single GPU/singleton envelope, actual native exits; parent must verify shell and Slurm accounting after batch closure.",
+  "request_timing": "Pre-call synchronize then perf_counter before open_request, first/last non-EOS argmax.item observations, (N-1)/(last-first) when N>=2; EOS decision and cleanup/fullRead separately. No Write/fingerprint or fixed-work infra claim.",
+  "canonical_quality_timing_fields": [
+    "EOS_decision_end_seconds",
+    "decode_seconds",
+    "decode_tokens",
+    "decode_tokens_per_second",
+    "generated_tokens",
+    "read_total_seconds",
+    "scope",
+    "ttft_seconds"
+  ],
+  "launch_permitted": true,
+  "backend_qualification": {
+    "registration": {
+      "path": "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/native_sdpa_cluster_admission.json",
+      "sha256": "60a83d3cab481f91ecffc2400aaef2e1881c30272ea85be11c673b07f6b1c5c8"
+    },
+    "compute_capability": [
+      10,
+      3
+    ],
+    "runtime_versions": {
+      "torch": "2.10.0+cu128",
+      "triton": "3.6.0",
+      "transformers": "5.5.4",
+      "peft": "0.20.0"
+    },
+    "qualified_nodes": [
+      "gpu-node3",
+      "gpu-node4",
+      "gpu-node5",
+      "gpu-node6",
+      "gpu-node7"
+    ],
+    "node_hostnames": {
+      "gpu-node3": [
+        "gpu-host"
+      ],
+      "gpu-node4": [
+        "gpu-host"
+      ],
+      "gpu-node5": [
+        "gpu-host"
+      ],
+      "gpu-node6": [
+        "gpu-host"
+      ],
+      "gpu-node7": [
+        "gpu-host"
+      ]
+    },
+    "scope": "CPU inventory-compatible native SDPA admission, not per-node GPU or KIVI qualification"
+  },
+  "kivi_backend": {
+    "root": "tmp_external_baselines/kv_quant/KIVI",
+    "source_sha256": {
+      "quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
+      "quant/matmul.py": "eac6415b494d11ce6d3383031039cd372add6336770c2f0431433115382ae60e",
+      "quant/csrc/gemv_cuda.cu": "fad05a372394193d10d1ba75e3ed2c047eb2fc3ce9429a1de40c593571878627",
+      "quant/csrc/gemv_cuda.h": "99a7df61a1bcc216404bf4a0da4f6d432a77794811546ce6de9c3a63e4e14fb2",
+      "quant/csrc/pybind.cpp": "a7d37c4eedb82db49894c195afd1dc2b4606508177b866088e684362eb329a8c",
+      "quant/setup.py": "c782d40167ee1b0d16e463949aedb2498cb4b63704821e70bac25961f3395962"
+    },
+    "binary": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/build_sm100_ptx_20260912/build_attempt1/lib/kivi_gemv.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "4c8779aeac769aadb9e8378282fe6dfef40d336d87bd5914e8145438a66df229"
+    }
+  },
+  "task_cache_root": "/srv/encbank/qcomem_align_codex_20260911/task_cache/kv_admission_recovery_20260914_2250_locomo1986_attempt1",
+  "scheduler": {
+    "job_name": "qcomem-lit-frozen-j12-locomo1986-v1-codex",
+    "gres": "gpu:1",
+    "dependency": "singleton",
+    "maximum_concurrent_project_GPUs": 4,
+    "root_serializes_submissions_to_prevent_admission_races": true,
+    "one_GPU_per_cell": true,
+    "walltime": "36:00:00",
+    "partitioning": "One full conversation-grouped1986 cohort, single frozen arm; original full input/window/cap."
+  },
+  "infra_retained": {
+    "per_item": [
+      "ttft_seconds",
+      "decode_tokens_per_second",
+      "full_Read_including_text_decode_seconds"
+    ],
+    "per_phase": [
+      "peak_allocated_bytes",
+      "peak_reserved_bytes"
+    ],
+    "worker": [
+      "model_load_peak_allocated_bytes",
+      "model_load_peak_reserved_bytes",
+      "model_only_allocated_bytes",
+      "physical_gpu_identity",
+      "cuda_policy"
+    ],
+    "cold_first_queries_retained": true,
+    "sampled_lifecycle_NVML_peak_recorded": false,
+    "no_cross_cell_device_timing_rank": true
+  },
+  "full_input_coverage_maximum": 22299,
+  "input_check_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_readiness_20260912/cpu_input_execution/execution_receipt.json",
+    "sha256": "81cf4c7d636004e43cb70bb44310d1c1e9f2d0c359d2719edd4a145df1ae51bd"
+  },
+  "category_names": {
+    "1": "multi_hop",
+    "2": "temporal",
+    "3": "open_domain",
+    "4": "single_hop",
+    "5": "adversarial"
+  },
+  "category_counts": {
+    "1": 282,
+    "2": 321,
+    "3": 96,
+    "4": 841,
+    "5": 446
+  },
+  "semantic_judge": {
+    "protocol": "locomo_astra_reference_binary_v1",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "high",
+    "status": "AUTHORIZED_POST_GENERATION_PENDING_NEW_OUTPUT_BINDING",
+    "execution_permitted_in_GPU_batch": false,
+    "semantic_categories1_4": 1540,
+    "category5_separate": 446,
+    "published_GPT4o_parity": false,
+    "recipe": {
+      "path": "paper_autonomous_multifork_iteration/evidence/kv_admission_recovery_20260914_2250/astra_judge_recipe.json",
+      "sha256": "1a5f69b5b9c401658f93575f331be8e31d5b379b3b6b122e1003c7ee19499dce"
+    },
+    "completed_judgments_never_rerun": true
+  },
+  "prediction_execution_scope_independent_of_semantic_scoring": true,
+  "original_full_public_source_CPU_only": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_readiness_20260912/inputs/scoring_only/sources/locomo10.json",
+    "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+  },
+  "inherited_runtime_provenance": {
+    "base_envelope_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_longeval64k_cache_fixed_20260912/package/plan.json",
+      "sha256": "5b094f9c6c03672d0c53860e8c2e2f83b5c390bac8682fc2cf7bd7dd4f11235a"
+    },
+    "grouped_driver": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_narrativeqa_full_unscaled_admission_fixed_20260912/package/run_quality.py",
+      "sha256": "fda7e0434f0abd6b50903d0a7a9e1277479fc472bd0dd8a673a76d66971c4c30"
+    },
+    "LoCoMo_input_audit": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_readiness_20260912/audit.json",
+      "sha256": "b4b7a31ddb23194b2d7f208e137c04fa6221a69d96fc4f6eb455eae365042773"
+    },
+    "cache_fix": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_full_prediction_36h_20260913/package/qcomem_triton_cache.py",
+      "sha256": "273eb77a08c2f6b9b5dad9436e4b4bcc884514b60983a8d065e6ac5327447715"
+    },
+    "no_original_package_changed": true
+  },
+  "method_configuration": {
+    "method": "KV-Direct",
+    "runtime_arm": "public_kvdirect_j0",
+    "resume_j": 0,
+    "adapter_active": false,
+    "stored_bits": 16,
+    "retrieval": "none_all_chunks_source_order"
+  },
+  "concurrency_policy": {
+    "maximum_owned_requested_GPUs": 4,
+    "GPUs_per_job": 1,
+    "count_running_and_pending": true,
+    "root_serializes_submission": true,
+    "series_maximum_requested_GPUs": 1,
+    "requires_current_Q21_and_reserved_frozen_LoCoMo_successor_disposition": true
+  },
+  "duplicate_policy": "Explicit fresh complete user-requested KV-Direct series. Single16K is a separately named intentional repeat; retain prior job27998 and all old outputs. Never resume, overwrite, or rerun a completed new-series cell.",
+  "source_official_commit": "2c407a6bf9d1503ebb004847f664b01d2ad898cc",
+  "literature_replication_boundary": "Public CoMem commit2c407a6bf9d1503ebb004847f664b01d2ad898cc comparator mode, exact local explicit document/query/BOS contract and FP16/nativeSDPA. HCache-style is the public comparator, not the production HCache scheduler. KV-Direct recomputes full depth at Read, not Dense persistent KV.",
+  "job_name": "qcomem-kvdirect-admission-recovery-locomo1986-v1-codex",
+  "root_post_owner_only": true,
+  "launch_permission_scope": "Conditional future root route only; dispatcher requires ROOT_RELEASE.json binding actual current-owner terminal exit before its first remote write, then fresh requested GPU count zero before sbatch.",
+  "frozen_baseline_lineage": {
+    "original_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/honly_locomo_full_prediction_36h_20260913/package/plan.json",
+      "sha256": "270bfba1b259c6e2ca9a61795961ca95e0dd0d247791a7f0a2d0ba9bdc31e755"
+    },
+    "babilong_working_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260914/frozen_j12_babilong21_preparation/qa1_0k/package/plan.json",
+      "sha256": "9eefa016cfa506258bc0f4106f9cfe67c91a81d3f078e1bacd406d7225814b9d"
+    },
+    "qa6_working_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/frozen_j12_qa6_preparation_20260913/hotpotqa/package/plan.json",
+      "sha256": "b74c65c9cf2efb5fb958b5586125defbb519b90c329abe1f8d17cb30a9147863"
+    },
+    "original_saved_result": {
+      "path": "paper_autonomous_multifork_iteration/evidence/locomo_full_prediction_completion_20260913/collection_attempt1/closed_bundle/saved_attempt1/h16/result.json",
+      "sha256": "11605fb03c345bdc89844fa710941fe4126c2441ebc6d8f6b1411c3513187410"
+    },
+    "new_independent_cell": true,
+    "prior_predictions_reused": false
+  },
+  "allchunks_runtime": {
+    "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/kv_hcache_preparation/allchunks_runtime_v2.py",
+    "sha256": "5335ea3593c15475d337a75b2ece3cd22897e6787b57682f8d088c20c33882b0"
+  },
+  "cell": "locomo1986",
+  "family": "LoCoMo",
+  "root_release_required_before_staging": true,
+  "unscaled_full_context_stress": false,
+  "YaRN_or_RoPE_extension": false,
+  "prior_KVDirect_Single16K_retained": {
+    "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260913/kv_hcache_preparation/public_kvdirect_j0_single16k_v2/completion_registration.json",
+    "sha256": "b6b5472a30387f461658d33196ec6f9ba8a224e11de0227c9281ff35d602623d"
+  },
+  "intentional_repeat_of_completed_KVDirect_cell": false,
+  "original_input_plan": {
+    "path": "paper_autonomous_multifork_iteration/evidence/literature_baseline_alignment_20260914/frozen_j12_locomo_preparation/package/plan.json",
+    "sha256": "390123fcc9ea5c2e81b505ab0c574efabca57e82d2e1f0f61ee5c4c743688583"
+  },
+  "scientific_limits": [
+    "Matched local algorithm, not published checkpoint reproduction.",
+    "KV-Direct j0 reads all chunks with full-depth causal recomputation; it is neither persistent Dense KV nor a bounded retrieved H12 pack.",
+    "H versus this LoRA-OFF method is a whole-method comparison; only H precision contrasts isolate quantization.",
+    "Unscaled inputs above40960 retain actual position counters and no RoPE extension; not validated long-context quality.",
+    "Natural TTFT/tps/cold-first and phase/model allocator memory are not fixed-work speed or full-device peaks.",
+    "Actual GPU identity and all allocated/reserved release residue remain unmodified and unattributed.",
+    "Any infrastructure/nonzero failure is retained separately and supplies no scientific score."
+  ],
+  "exact_model_file_sha256": {
+    "config.json": "f7c4eadfbbf522470667b797a3c89be2524832d2d599797248dc304fff447c30",
+    "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "model-00001-of-00005.safetensors": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f",
+    "model-00002-of-00005.safetensors": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282",
+    "model-00003-of-00005.safetensors": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836",
+    "model-00004-of-00005.safetensors": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a",
+    "model-00005-of-00005.safetensors": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff",
+    "model.safetensors.index.json": "f9fdbcb91c23971c13ec5d5f2573d2349e8f61f2f049371ec699281748fdb1bc",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  },
+  "cluster_native_scheduler": {
+    "partition": "gpu",
+    "constraint": "l20d",
+    "exclude": [
+      "gpu-node1",
+      "gpu-node2",
+      "gpu-node8"
+    ],
+    "nodes": 1,
+    "gres": "gpu:1"
+  },
+  "scheduler_replacement": {
+    "original_unlaunched_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/kv_direct_full_quality_preparation_20260914/cells/locomo1986/package/plan.json",
+      "sha256": "bb18374f8586ed7d63c53d50bdaf4d216e5f11acea64b1ecc79bd7c51d41b61b"
+    },
+    "original_prepared_namespace_preserved": true,
+    "scope": "Only output ownership, native SDPA admission and scheduler eligibility changed. Dormant KIVI fields retained as historical lineage, never imported by this arm."
+  },
+  "config_compatibility_recovery": {
+    "original_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/kv_direct_full_quality_cluster_native_20260914/cells/locomo1986/package/plan.json",
+      "sha256": "3a6e953c74b9289737cce08bd7020a1d91ddc83e8fc857c6f09944ce3356eb53"
+    },
+    "guard_source": {
+      "path": "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/cells/single16k/package/resource_worker.py",
+      "sha256": "1f892e608afe4d1f579ec9335aa206273231ff8b2fa6b7b3ba563c7df6421ba2"
+    },
+    "CPU_normalized_config_proof": {
+      "path": "paper_autonomous_multifork_iteration/evidence/kv31216_recovery_20260914/inspection_attempt2/remote_cpu.stdout.json",
+      "sha256": "458f9a47600e8e2b15b998ecec6b488621d1629d32731c4148da16816d9a99f9"
+    },
+    "scientific_change": false,
+    "scope": "Exact normalized default RoPE/full attention validation; output ownership and scheduling only."
+  },
+  "walltime_policy": {
+    "walltime": "36:00:00",
+    "reason": "128K or LoCoMo reservation retained; runtime uncertainty not reduced from a different method.",
+    "same_method_timing_claimed": false
+  },
+  "admission_recovery": {
+    "original_plan": {
+      "path": "paper_autonomous_multifork_iteration/evidence/kv_ropecompat_continuation_20260914/cells/locomo1986/package/plan.json",
+      "sha256": "564d518196c92fe93ba06266d6da227e2140bf7def5d0899a2f3abbeeb32c66c"
+    },
+    "diagnosis": {
+      "path": "paper_autonomous_multifork_iteration/evidence/kv_qasper31862_diagnosis_20260914_2247/report.json",
+      "sha256": "8273483d707fd11f3d83c86fd762201264b8e85d201ce4895770d43a0475c79f"
+    },
+    "failed_job": null,
+    "scheduling_only": true,
+    "original_attempted_namespace_preserved": true,
+    "scientific_change": false
+  }
+}

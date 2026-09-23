@@ -1,0 +1,45 @@
+{
+  "engine_python": "/srv/encbank/Paper_Evolve/.venv/bin/python",
+  "model": "/srv/encbank/comem_new_backbones_20260915/models/Qwen3.8-27B",
+  "j": 21,
+  "adapter_path": "/srv/encbank/comem_new_backbones_formal_20260915/training/Qwen3.8-27B/adapter-final.pt",
+  "adapter_sha256": "9253fbb9bda190857ee83ba60ad32cc024efc0faa6a896fcb616423f3bae1ce9",
+  "device_cap_gib": 80,
+  "admission_free_gib": 80,
+  "seed": 20260919,
+  "evidence_id": "E-COMEM-GPU-BATCH2-20260919",
+  "remote_root": "/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/comem_gpu_batch2",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "precision": "BF16 base and H16, FP32 suffix LoRA rank32 alpha32 final4000",
+  "purpose": "Controlled fixed-token inference throughput, not benchmark quality or live continuous batching",
+  "chunk_tokens": 512,
+  "selected_chunks": 12,
+  "query_tokens": 256,
+  "output_positions": 128,
+  "validation_positions": 16,
+  "warmup_positions": 16,
+  "repetitions": 3,
+  "order": [
+    [
+      "serial",
+      "batch2"
+    ],
+    [
+      "batch2",
+      "serial"
+    ],
+    [
+      "serial",
+      "batch2"
+    ]
+  ],
+  "pair_batch_size": 2,
+  "padding": false,
+  "offload": false,
+  "selection": "Fixed selected pack, excluding BM25 and Write from timed Read. Each independent chunk written once.",
+  "correctness_gate": "Finite logits; row permutation and replacing session B must leave session A logits unchanged within atol=rtol=0.002; all H banks immutable.",
+  "serial_comparison": "Report full-vocabulary BF16 differences, top1 match and probability total variation; no automatic deployment or output-equivalence claim.",
+  "timing": "Forced replay: one initial output position plus 127 decode forwards per session. No EOS, sampling, tokenizer, queue or tool timing. Synchronize phase boundaries.",
+  "nvml": "Parent samples owned process group every 2s; sampled peak is not guaranteed instantaneous maximum.",
+  "worker_walltime_minutes": 30
+}

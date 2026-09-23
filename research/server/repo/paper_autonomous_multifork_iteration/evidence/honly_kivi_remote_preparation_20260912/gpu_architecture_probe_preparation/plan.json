@@ -1,0 +1,31 @@
+{
+  "schema": "remote_allocation_actual_Torch_architecture_metadata_only_v1",
+  "prepared_at": "2026-09-12T15:44:28.489625+08:00",
+  "scope": "Repair known job24085 architecture preflight mismatch; CUDA descriptor only; no numerical tests, model, dataset, profile or quality result",
+  "model_allowed": false,
+  "tensor_or_kernel_tests_allowed": false,
+  "training_allowed": false,
+  "offload_allowed": false,
+  "automatic_retry": false,
+  "versions": {
+    "torch": "2.10.0+cu128",
+    "triton": "3.6.0",
+    "transformers": "5.5.4",
+    "peft": "0.20.0"
+  },
+  "resource_policy": {
+    "allocator_cap_bytes": 214748364800,
+    "minimum_free_bytes": 236223201280,
+    "stable_idle_seconds": 45
+  },
+  "source_sha256": {
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_architecture_probe_preparation/protocol.py": "af25b3dcd77ab2b4b00951503a758a957125c254e88b782840ce508745461a96",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_architecture_probe_preparation/resource_guard.py": "11ede03b0cd56d3c283b3e91f4a3d90af4c44fa8805e37709ab6d2b71cfba5be",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_architecture_probe_preparation/run_probe.py": "a73d9e8e1f16d8f9fee97e63ee51dcf7011390100e723b9eb42d2ff902339478",
+    "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_architecture_probe_preparation/record_shell_exit.py": "9f3229702e9b6abc4df4e1c1c7b9e81ca2b064b0888833792a207b2a60e8b72a"
+  },
+  "batch_output": "paper_autonomous_multifork_iteration/evidence/honly_kivi_remote_preparation_20260912/gpu_architecture_probe_preparation/run/attempt1",
+  "known_failed_job": "24085",
+  "expected_compute_capability": null,
+  "required_identity": "Actual allocated Torch UUID equals assigned NVML UUID; exact major/minor saved before assertions, never guessed from login host or name"
+}

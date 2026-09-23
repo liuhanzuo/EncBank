@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+umask 077
+/srv/encbank/qcomem_runtime_20260911/python312/bin/python /srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/docker_supplement_r2_20260921/remote_batch.py verify k12
+export TMPDIR=/srv/encbank/qcomem_runtime_20260911/t89dh21k12
+mkdir -p "$TMPDIR"
+cd /srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/docker_supplement_r2_20260921/k12
+export CPATH=/srv/encbank/.cache/python/include/python3.12
+export PYTHONPATH=/srv/encbank/comem_infra_recheck_20260912/deps
+export PYTHONUNBUFFERED=1 PYTHONUTF8=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 TOKENIZERS_PARALLELISM=false PYTHONDONTWRITEBYTECODE=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+export TMPDIR=/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/docker_supplement_r2_20260921/k12/tmp_dense TRITON_CACHE_DIR=/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/docker_supplement_r2_20260921/k12/triton_dense CUDA_CACHE_PATH=/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/docker_supplement_r2_20260921/k12/cuda_dense HF_HOME=/srv/encbank/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/docker_supplement_r2_20260921/k12/hf_cache
+mkdir -p "$TMPDIR" "$TRITON_CACHE_DIR" "$CUDA_CACHE_PATH" "$HF_HOME"
+/srv/encbank/qcomem_runtime_20260911/python312/bin/python -u storage_preflight.py
+/srv/encbank/qcomem_runtime_20260911/python312/bin/python -u model_path_preflight.py
+/srv/encbank/qcomem_runtime_20260911/python312/bin/python -u holder.py

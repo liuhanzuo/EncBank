@@ -1,0 +1,129 @@
+{
+  "schema": "kivi_half_tiny_gpu_qualification_v1",
+  "scope": "single formal kernel compatibility diagnostic, not quality/profile or real model",
+  "python": "/home/pc/qcomem_honly_5090_20260911/python312/bin/python",
+  "versions": {
+    "torch": "2.10.0+cu128",
+    "triton": "3.6.0",
+    "transformers": "5.5.4",
+    "peft": "0.20.0"
+  },
+  "model_load_allowed": false,
+  "training_allowed": false,
+  "runtime_offload_allowed": false,
+  "automatic_retry": false,
+  "arm_order": [
+    "kivi_half_synthetic"
+  ],
+  "outputs": {
+    "kivi_half_synthetic": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/run/attempt1/worker"
+  },
+  "parent_output": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/run/attempt1/parent",
+  "bridge_root": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate",
+  "kivi_root": "tmp_external_baselines/kv_quant/KIVI",
+  "binary": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/build_attempt1/lib/kivi_gemv.cpython-312-x86_64-linux-gnu.so",
+    "sha256": "9c520fa369caf51955ddf6d9368a3d9f7511d285d0992d768cfa63479dea69dc"
+  },
+  "build_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/build_attempt1/completion_receipt.json",
+    "sha256": "8753183e3a9633307c48f8cdfa918725e277eb711e1c2dbadb23f7b01550f8ae"
+  },
+  "target_cpu_receipt": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/target_env_qualification/completion_receipt.json",
+    "sha256": "84a3d2b923ab49ac001d0e08fa8912fa7fb1b450096d460cf06084f23121ca14"
+  },
+  "resource_policy": {
+    "path": "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/resource_policy.json",
+    "sha256": "68fcbffde962fc2a89f30ffc463d02a5d12af74284be7cb155d116a0ec31f9e2"
+  },
+  "source_sha256": {
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/protocol.py": "d2c9445112eb897b1ca6003d188f8e40b11cbcafbb4890526381b998f04f15a9",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/kernel_checks.py": "e6863ba2499062942e8f0c46abcc52251947f7f6015bda639c14a376c6db12f1",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/run_once.py": "e082652668c1c9a1e55d0dc07e152f67b9d2364e6b34588039642c958d6bd199",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/resource_launch.py": "86f3026a0934e02b138ad686fa4dadb4aa47554b656dd198953f859c1acffc03",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/resource_worker.py": "f55eb8595ea4d07b51f1dcb1844608b041eead3c7ee94a895d3b996fc336a20d",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/gpu_qualification_preparation/tiny_gpu_qualification_candidate/linux_supervisor.py": "bf5f4e3c24af28eee99f80db79d1c6e9a16b1d9bbb49935bcd908393fdca8571",
+    "paper_autonomous_multifork_iteration/evidence/honly_5090_infra_20260911/kivi_preparation/qwen3_fp16_bridge_candidate/bridge.py": "64770110e4438f4d820984e5ce8d41d073a26d97709be810d96127c3357390cf",
+    "gpu/kvquant_quality_balanced/phase_profile.py": "c46034dc5a20b41e3ed97d02303135ece00e8ab5ef60053ecf456e3057455baf",
+    "gpu/benchmark_expansion/profile_5090/windows_worker_guard.ps1": "c8291a4fd9f8f80ded6b0c822068d36cb0e6e7ebc5d3d303decedb2778b549ea",
+    "tmp_external_baselines/kv_quant/KIVI/quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
+    "tmp_external_baselines/kv_quant/KIVI/quant/matmul.py": "eac6415b494d11ce6d3383031039cd372add6336770c2f0431433115382ae60e",
+    "tmp_external_baselines/kv_quant/KIVI/quant/csrc/gemv_cuda.cu": "fad05a372394193d10d1ba75e3ed2c047eb2fc3ce9429a1de40c593571878627",
+    "tmp_external_baselines/kv_quant/KIVI/quant/csrc/gemv_cuda.h": "99a7df61a1bcc216404bf4a0da4f6d432a77794811546ce6de9c3a63e4e14fb2",
+    "tmp_external_baselines/kv_quant/KIVI/quant/csrc/pybind.cpp": "a7d37c4eedb82db49894c195afd1dc2b4606508177b866088e684362eb329a8c",
+    "tmp_external_baselines/kv_quant/KIVI/quant/setup.py": "c782d40167ee1b0d16e463949aedb2498cb4b63704821e70bac25961f3395962"
+  },
+  "kivi_source_sha256": {
+    "quant/new_pack.py": "3f1140b0faff2cb524a3eb684167e403dffd488477b301826497462fd36fe540",
+    "quant/matmul.py": "eac6415b494d11ce6d3383031039cd372add6336770c2f0431433115382ae60e",
+    "quant/csrc/gemv_cuda.cu": "fad05a372394193d10d1ba75e3ed2c047eb2fc3ce9429a1de40c593571878627",
+    "quant/csrc/gemv_cuda.h": "99a7df61a1bcc216404bf4a0da4f6d432a77794811546ce6de9c3a63e4e14fb2",
+    "quant/csrc/pybind.cpp": "a7d37c4eedb82db49894c195afd1dc2b4606508177b866088e684362eb329a8c",
+    "quant/setup.py": "c782d40167ee1b0d16e463949aedb2498cb4b63704821e70bac25961f3395962"
+  },
+  "seed": 149,
+  "cases": [
+    {
+      "bits": 2,
+      "kind": "qk",
+      "kv_heads": 8,
+      "query_heads": 32,
+      "inner": 128,
+      "outer": 384,
+      "group": 32
+    },
+    {
+      "bits": 2,
+      "kind": "av_irregular",
+      "kv_heads": 8,
+      "query_heads": 32,
+      "inner": 137,
+      "outer": 128,
+      "group": 32
+    },
+    {
+      "bits": 4,
+      "kind": "qk",
+      "kv_heads": 8,
+      "query_heads": 32,
+      "inner": 128,
+      "outer": 384,
+      "group": 32
+    },
+    {
+      "bits": 4,
+      "kind": "av_irregular",
+      "kv_heads": 8,
+      "query_heads": 32,
+      "inner": 137,
+      "outer": 128,
+      "group": 32
+    }
+  ],
+  "tail_cases": [
+    {
+      "bits": 2,
+      "initial_tokens": 127,
+      "final_tokens": 130,
+      "requests": 2,
+      "kv_heads": 8,
+      "query_heads": 32,
+      "head_dim": 128
+    },
+    {
+      "bits": 4,
+      "initial_tokens": 127,
+      "final_tokens": 130,
+      "requests": 2,
+      "kv_heads": 8,
+      "query_heads": 32,
+      "head_dim": 128
+    }
+  ],
+  "max_abs_tolerance": 0.01,
+  "rms_tolerance": 0.001,
+  "expected_closed_phases": 7,
+  "actual_GPU_qualified": false,
+  "common_FP16_six_method_query_contract": "pending separate profiling freeze; all query tokens must share tokenwise/head/clone accounting, no BF16 row reuse"
+}

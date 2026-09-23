@@ -1,0 +1,14 @@
+{
+  "KERNEL_PROVENANCE.json": "d705eba22d21fe2ceafcfcdbc2952ce8fdb640bb7c8f3eb7d091498fdf2070e4",
+  "baseline_plan.json": "1606e5d6b66e6fdc4f7c9287578576b9f898a5f3e9f6edf777bbd5d97181cec9",
+  "batch_cache.py": "633601f6e420c23255c7be2b7d6f0efa29c6537ab9baa0c5623d9694edfa5358",
+  "common.py": "1df75913dbf4a787101da063cb2b5bfb30d7a202af94cdb37512a1ce83e6a16a",
+  "hybrid_reader.py": "888f2963b78297777940219ce5c94d4d95185bb5c2938f57a3ba083a9c5c5889",
+  "model_probe.py": "dfeeff74305c7af0d605ea8a7b8ce85c9c78800c1088240e6b628c392b0d670c",
+  "probe.slurm": "02714a09e485b28be43c7fca3798ba5700052b425a757de6e4d3e75c520cd130",
+  "probe_supervisor.py": "c05f8fc2b075672afe895da9af50d521c30033bf989b95042b28a03415d49af5",
+  "runtime_identity.py": "9bb530e69f95fb141c24ac9b71f9a1aa659fc7e67f7610487b899486f039f32e",
+  "submit_probe.py": "d9999a7d12410f153edd753bea21b9bccff70d3dc07c6dfb5c877b4232049112",
+  "vendor_fused_recurrent.py": "17ac8d2734cf199a3d0d0eea84791c38e085770d7e1fa9df0ff7c109e2e39009",
+  "vllm_gdn_adapter.py": "2c0fe173007be4a1a63223138d2a56a938e2ae2c07fccf798681534086f6625d"
+}
