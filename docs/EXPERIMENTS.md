@@ -22,6 +22,7 @@ workspace mappings.
 | Dense / Cold / Hot runtime snapshots | [`tf27b_hot_live_20260921`](../research/server/tf27b_hot_live_20260921/) |
 | Hot24 + PEFT merged independent arm | [`runtime/hot_buffer`](../runtime/hot_buffer/), [`original snapshot`](../research/server/tf27b_hot_live_20260921/hot24_peft_merged_r3/) |
 | Full89 Dense / Encbank k12 / k48 | [`server_control_20260920`](../research/server/terminal_bench_full89_20260919/server_control_20260920/) |
+| Full89 six-GPU admission and task transfer | [`prepare_scale6_20260924.py`](../research/server/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/prepare_scale6_20260924.py), [`protocol`](../research/server/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/SCALE6_20260924.md) |
 | GPU kernel, same-Transformers TPS, PEFT and Hot-merged pilots | [`encbank_vllm_pilot_20260922`](../research/server/terminal_bench_full89_20260919/server_control_20260920/encbank_vllm_pilot_20260922/) |
 | Earlier long-context comparisons and baselines | [`research/server/repo`](../research/server/repo/) |
 | Additional local preparation and handoff code | [`research/workspace`](../research/workspace/) |

@@ -8,7 +8,7 @@ The Python package is `encbank`, with public entry points `Encbank` and
 `EncbankMoE` (for example, `from encbank import Encbank`).
 
 This release collects the implementation and experiment sources used through
-September 23, 2026. It includes the 27B Transformers Hot24 experiment with
+September 24, 2026. It includes the 27B Transformers Hot24 experiment with
 PEFT-merged LoRA, along with Dense baselines, reader studies, kernel pilots,
 training code, qualification checks, and experiment controllers.
 
