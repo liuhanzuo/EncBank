@@ -1,0 +1,16 @@
+{
+  "status": "submitted",
+  "epoch": 1790267269.4936078,
+  "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k48_score_resume_3_20260925",
+  "arm": "k48",
+  "tasks": 13,
+  "source_manifest_sha256": "41813d722dfe9fb3abd37d9b51735252212a8b9a03c25b1395a6b530e0c0ea4f",
+  "selection_sha256": "401611e257243fc5831f12acfaf5c5334c41c1da820a78efe74b1f6d62728704",
+  "health_sha256": "52b734261d4013a94e41dddfca275884340070e7873989641ef6431d41be9a97",
+  "automatic_scientific_retries": 0,
+  "exit_code": 0,
+  "stdout": "141578\n",
+  "stderr": "",
+  "actual_parent_wait": true,
+  "job_id": "141578"
+}

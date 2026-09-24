@@ -1,0 +1,16 @@
+{
+  "status": "submitted",
+  "epoch": 1790267256.332273,
+  "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_score_resume_2_20260925",
+  "arm": "k12",
+  "tasks": 9,
+  "source_manifest_sha256": "d2d19b2221c67e1b3d7755c6e17422dba73b1025e527ebaaf5ce4bd5296e2d45",
+  "selection_sha256": "401611e257243fc5831f12acfaf5c5334c41c1da820a78efe74b1f6d62728704",
+  "health_sha256": "52b734261d4013a94e41dddfca275884340070e7873989641ef6431d41be9a97",
+  "automatic_scientific_retries": 0,
+  "exit_code": 0,
+  "stdout": "141571\n",
+  "stderr": "",
+  "actual_parent_wait": true,
+  "job_id": "141571"
+}

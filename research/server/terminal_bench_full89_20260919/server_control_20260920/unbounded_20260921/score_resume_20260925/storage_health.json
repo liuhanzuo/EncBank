@@ -1,0 +1,32 @@
+{
+  "epoch": 1790266859,
+  "passed": true,
+  "nodes": {
+    "lj-gpu1": {
+      "passed": true,
+      "rounds": 20,
+      "mkdir_rmdir": 200,
+      "host": "l20-instan-004"
+    },
+    "lj-gpu6": {
+      "passed": true,
+      "rounds": 20,
+      "mkdir_rmdir": 200,
+      "host": "l20-instan-002"
+    }
+  },
+  "scope": [
+    "/cluster/home/liuhanzuo/qcomem_runtime_20260911",
+    "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920"
+  ],
+  "checks": [
+    "write",
+    "fsync",
+    "rename",
+    "readback",
+    "unlink",
+    "mkdir",
+    "rmdir"
+  ],
+  "note": "Read/write metadata qualification only; GPU availability and actual model requests remain separate."
+}

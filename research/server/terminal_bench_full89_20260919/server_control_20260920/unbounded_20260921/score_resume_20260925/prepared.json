@@ -1,0 +1,183 @@
+{
+  "epoch": 1790266941.714041,
+  "registry_sha256": "1b157f04f18985f895556ad686897d7102b6323d9786c757c0f59cfd559a22c0",
+  "selection_sha256": "401611e257243fc5831f12acfaf5c5334c41c1da820a78efe74b1f6d62728704",
+  "runs": [
+    {
+      "arm": "k12",
+      "index": 1,
+      "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_score_resume_1_20260925",
+      "tasks": [
+        "caffe-cifar-10",
+        "torch-pipeline-parallelism",
+        "qemu-alpine-ssh",
+        "count-dataset-tokens",
+        "headless-terminal",
+        "make-mips-interpreter",
+        "polyglot-rust-c",
+        "reshard-c4-data",
+        "tune-mjcf"
+      ],
+      "concurrency": 4,
+      "source_manifest_sha256": "56245046bcb5b582905570678e5f74fc2f7315746632172c2ef5284e13004a55"
+    },
+    {
+      "arm": "k12",
+      "index": 2,
+      "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_score_resume_2_20260925",
+      "tasks": [
+        "filter-js-from-html",
+        "torch-tensor-parallelism",
+        "qemu-startup",
+        "custom-memory-heap-crash",
+        "large-scale-text-editing",
+        "modernize-scientific-stack",
+        "pytorch-model-cli",
+        "sanitize-git-repo",
+        "video-processing"
+      ],
+      "concurrency": 4,
+      "source_manifest_sha256": "d2d19b2221c67e1b3d7755c6e17422dba73b1025e527ebaaf5ce4bd5296e2d45"
+    },
+    {
+      "arm": "k12",
+      "index": 3,
+      "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_score_resume_3_20260925",
+      "tasks": [
+        "gpt2-codegolf",
+        "compile-compcert",
+        "install-windows-3.11",
+        "sam-cell-seg",
+        "dna-assembly",
+        "largest-eigenval",
+        "multi-source-data-merger",
+        "pytorch-model-recovery",
+        "schemelike-metacircular-eval",
+        "winning-avg-corewars"
+      ],
+      "concurrency": 4,
+      "source_manifest_sha256": "a323949ababc556947fc1b236ee02346b4b19757a6bfe7ff869da2fb4b6ebdae"
+    },
+    {
+      "arm": "k12",
+      "index": 4,
+      "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_score_resume_4_20260925",
+      "tasks": [
+        "mcmc-sampling-stan",
+        "crack-7z-hash",
+        "merge-diff-arc-agi-task",
+        "train-fasttext",
+        "extract-moves-from-video",
+        "llm-inference-batching-scheduler",
+        "password-recovery",
+        "raman-fitting",
+        "sparql-university",
+        "write-compressor"
+      ],
+      "concurrency": 4,
+      "source_manifest_sha256": "9eab4dcae145ab6e2c7cd921b324224087d2038748aa4e4cf32bd2268f803e46"
+    },
+    {
+      "arm": "k12",
+      "index": 5,
+      "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_score_resume_5_20260925",
+      "tasks": [
+        "mteb-leaderboard",
+        "dna-insert",
+        "overfull-hbox",
+        "build-pov-ray",
+        "circuit-fibsqrt",
+        "fix-ocaml-gc",
+        "mailman",
+        "path-tracing",
+        "regex-chess",
+        "sqlite-db-truncate"
+      ],
+      "concurrency": 4,
+      "source_manifest_sha256": "5ab9be9f5f20b68676296a6131878e4f01d538a031afc0714b28db3d55ae8735"
+    },
+    {
+      "arm": "k12",
+      "index": 6,
+      "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k12_score_resume_6_20260925",
+      "tasks": [
+        "rstan-to-pystan",
+        "financial-document-processor",
+        "protein-assembly",
+        "chess-best-move",
+        "cobol-modernization",
+        "gcode-to-text",
+        "make-doom-for-mips",
+        "path-tracing-reverse",
+        "regex-log",
+        "sqlite-with-gcov"
+      ],
+      "concurrency": 4,
+      "source_manifest_sha256": "26390ae6373aab273e0c9da9f4de4561c0212b296ad1e4d4fca8409bb880ffdf"
+    },
+    {
+      "arm": "k48",
+      "index": 1,
+      "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k48_score_resume_1_20260925",
+      "tasks": [
+        "caffe-cifar-10",
+        "mcmc-sampling-stan",
+        "torch-pipeline-parallelism",
+        "overfull-hbox",
+        "qemu-startup",
+        "chess-best-move",
+        "extract-moves-from-video",
+        "largest-eigenval",
+        "make-mips-interpreter",
+        "raman-fitting",
+        "sqlite-db-truncate",
+        "vulnerable-secret"
+      ],
+      "concurrency": 6,
+      "source_manifest_sha256": "faf19e75ef0578f5f52016545357655f1ae4aae1233a0dad4cab7d5298ab8d6b"
+    },
+    {
+      "arm": "k48",
+      "index": 2,
+      "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k48_score_resume_2_20260925",
+      "tasks": [
+        "filter-js-from-html",
+        "mteb-leaderboard",
+        "torch-tensor-parallelism",
+        "protein-assembly",
+        "sam-cell-seg",
+        "circuit-fibsqrt",
+        "feal-linear-cryptanalysis",
+        "mailman",
+        "path-tracing",
+        "regex-chess",
+        "tune-mjcf",
+        "winning-avg-corewars"
+      ],
+      "concurrency": 6,
+      "source_manifest_sha256": "50748c7a60d34a66d32bc3fa2166301067ade886cecee3fe8ab024f04cf7963a"
+    },
+    {
+      "arm": "k48",
+      "index": 3,
+      "root": "/cluster/home/liuhanzuo/qcomem_align_codex_20260911/terminal_bench_full89_20260919/server_control_20260920/k48_score_resume_3_20260925",
+      "tasks": [
+        "gpt2-codegolf",
+        "rstan-to-pystan",
+        "crack-7z-hash",
+        "install-windows-3.11",
+        "qemu-alpine-ssh",
+        "train-fasttext",
+        "cobol-modernization",
+        "gcode-to-text",
+        "make-doom-for-mips",
+        "path-tracing-reverse",
+        "schemelike-metacircular-eval",
+        "video-processing",
+        "write-compressor"
+      ],
+      "concurrency": 6,
+      "source_manifest_sha256": "41813d722dfe9fb3abd37d9b51735252212a8b9a03c25b1395a6b530e0c0ea4f"
+    }
+  ]
+}
