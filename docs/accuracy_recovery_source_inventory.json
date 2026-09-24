@@ -1,0 +1,33 @@
+{
+  "description": "Publication-normalized source snapshots for the 2026-09-24 score-only continuations; USER is a deployment placeholder.",
+  "files": [
+    {
+      "origin": "server/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/accuracy_recovery_20260924.py",
+      "original_sha256": "f6f432cc043cedf7aa72806472c38c9b6f0e05a46487b71e6ee9b5adb43870cd",
+      "published_path": "research/server/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/accuracy_recovery_20260924.py",
+      "published_sha256": "54e4d5bb41adc36fd16d42ae69eb78bc9a0b56e24eb4416270a480195e64af07",
+      "bytes": 13823
+    },
+    {
+      "origin": "server/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/recover_when_storage_healthy_20260924.py",
+      "original_sha256": "5a130136feb92fa5eb9fbfb79c1ea35d6a93dd90a721893e432ceba0d94bd5f6",
+      "published_path": "research/server/terminal_bench_full89_20260919/server_control_20260920/unbounded_20260921/recover_when_storage_healthy_20260924.py",
+      "published_sha256": "286ca5becd58bc449d22dc5b56de5dc4d3c8a6f972a5192d3a16e87763ad6de8",
+      "bytes": 3528
+    },
+    {
+      "origin": "workspace/experiments/tf27b_hot_peft_terminal_20260922/hot_accuracy_recovery_20260924.py",
+      "original_sha256": "cf7501c68d83aa230d4a9fda7a6909851156e9a1199206bb76c1a689687b779a",
+      "published_path": "research/workspace/experiments/tf27b_hot_peft_terminal_20260922/hot_accuracy_recovery_20260924.py",
+      "published_sha256": "f8ff8a963bd9dee938ca0d2492930181145110e226f4aecc4e42e920a788b0f3",
+      "bytes": 10382
+    },
+    {
+      "origin": "workspace/experiments/tf27b_hot_peft_terminal_20260922/hot_recover_when_storage_healthy_20260924.py",
+      "original_sha256": "66d7881267e015b87947e42183852e108eb20cf62f12b6099136ec07c1a394cb",
+      "published_path": "research/workspace/experiments/tf27b_hot_peft_terminal_20260922/hot_recover_when_storage_healthy_20260924.py",
+      "published_sha256": "22d4c23e6454b223626b175ade9208a67a3e0871002db95ae9f389dcb02b01d9",
+      "bytes": 3481
+    }
+  ]
+}
